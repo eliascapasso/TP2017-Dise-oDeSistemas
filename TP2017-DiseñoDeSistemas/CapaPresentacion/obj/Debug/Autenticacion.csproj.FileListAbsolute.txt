@@ -1,0 +1,34 @@
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\bin\Debug\Autenticacion.exe.config
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\bin\Debug\Autenticacion.exe
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\bin\Debug\Autenticacion.pdb
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.csprojResolveAssemblyReference.cache
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.Autenticacion.resources
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.InicioSesionAdmin.resources
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.InicioSesionBedel.resources
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.Properties.Resources.resources
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.csproj.GenerateResource.Cache
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.exe
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.pdb
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.BuscarBedel.resources
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.PantallaAdmin.resources
+c:\users\escritorio\documents\visual studio 2015\Projects\Sistema de reserva de aulas\Autenticacion\obj\Debug\Autenticacion.RegistrarBedel.resources
+C:\Users\escritorio\Google Drive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\bin\Debug\Autenticacion.exe.config
+C:\Users\escritorio\Google Drive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.exe
+C:\Users\escritorio\Google Drive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.pdb
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\bin\Debug\Autenticacion.exe.config
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.exe
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.pdb
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\bin\Debug\Autenticacion.exe
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\bin\Debug\Autenticacion.pdb
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.csprojResolveAssemblyReference.cache
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.Autenticacion.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.BuscarBedel.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.InicioSesionAdmin.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.InicioSesionBedel.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.Properties.Resources.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.RegistrarBedel.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.csproj.GenerateResource.Cache
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.ModificarBedel.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.MenuBedel.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.MenuAdmin.resources
+C:\Users\Mi Pc\Desktop\GoogleDrive\TP DISEÑO\Codigo Fuente\TP2017-DiseñoDeSistemas\Autenticacion\obj\Debug\Autenticacion.RegistrarReserva_1.resources

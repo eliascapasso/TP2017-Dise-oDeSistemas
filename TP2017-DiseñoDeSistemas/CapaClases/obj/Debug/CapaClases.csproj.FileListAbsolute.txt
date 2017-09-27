@@ -1,0 +1,5 @@
+C:\Users\Mi Pc\Documents\Visual Studio 2015\Projects\TP2017-DiseñoDeSistemas\CapaClases\bin\Debug\CapaClases.dll
+C:\Users\Mi Pc\Documents\Visual Studio 2015\Projects\TP2017-DiseñoDeSistemas\CapaClases\bin\Debug\CapaClases.pdb
+C:\Users\Mi Pc\Documents\Visual Studio 2015\Projects\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.csprojResolveAssemblyReference.cache
+C:\Users\Mi Pc\Documents\Visual Studio 2015\Projects\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.dll
+C:\Users\Mi Pc\Documents\Visual Studio 2015\Projects\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.pdb
