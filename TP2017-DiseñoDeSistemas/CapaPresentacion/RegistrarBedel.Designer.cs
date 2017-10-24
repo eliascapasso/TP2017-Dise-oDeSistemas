@@ -142,14 +142,18 @@
             // pass
             // 
             this.pass.Location = new System.Drawing.Point(77, 168);
+            this.pass.MaxLength = 20;
             this.pass.Name = "pass";
+            this.pass.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(195, 20);
             this.pass.TabIndex = 11;
             // 
             // confPass
             // 
             this.confPass.Location = new System.Drawing.Point(77, 204);
+            this.confPass.MaxLength = 20;
             this.confPass.Name = "confPass";
+            this.confPass.PasswordChar = '*';
             this.confPass.Size = new System.Drawing.Size(195, 20);
             this.confPass.TabIndex = 12;
             // 

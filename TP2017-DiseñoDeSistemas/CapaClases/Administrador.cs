@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaDatos
+namespace CapaClases
 {
-    public class Class1
+    class Administrador
     {
+        public Administrador()
+        {
+
+        }
     }
 }

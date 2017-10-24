@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CapaLogica
+namespace CapaClases
 {
-    public class Class1
+    class Turno
     {
+        private int id_turno;
+        private String descripcion;
     }
 }
