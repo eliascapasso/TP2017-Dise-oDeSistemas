@@ -19,7 +19,10 @@ namespace Autenticacion
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            //Se validan los campos y se guarda el bedel en la bd
+            if (!pass.ToString().Equals(confPass.ToString())){
+                //holaasdasd
+                MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK);
+            }
         }
 
         private void bCerrar_Click(object sender, EventArgs e)
