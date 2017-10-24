@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos.GestorDeUsuario;
 
 namespace Autenticacion
 {
@@ -21,10 +22,12 @@ namespace Autenticacion
         {
 
             if (!pass.ToString().Equals(confPass.ToString())){
-                //holaasdasd
                 MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK);
             }
-            //Se validan los campos y se guarda el bedel en la b
+
+            GestorDeUsuario gestor = new GestorDeUsuario();
+            //VER COMO USAR EL TURNO
+            gestor.registrarBedel(nick.ToString(), nombre.ToString(), apellido.ToString(), turno, pass.ToString());
 
         }
 
@@ -34,6 +37,11 @@ namespace Autenticacion
         }
 
         private void RegistrarBedel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistrarBedel_Load_1(object sender, EventArgs e)
         {
 
         }

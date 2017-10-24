@@ -39,7 +39,7 @@
             this.nombre = new System.Windows.Forms.TextBox();
             this.apellido = new System.Windows.Forms.TextBox();
             this.turno = new System.Windows.Forms.ComboBox();
-            this.idUsuario = new System.Windows.Forms.TextBox();
+            this.nick = new System.Windows.Forms.TextBox();
             this.pass = new System.Windows.Forms.TextBox();
             this.confPass = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -89,9 +89,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 139);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "ID Usuario*";
+            this.label5.Text = "Nick*";
             // 
             // label6
             // 
@@ -132,12 +132,12 @@
             this.turno.Size = new System.Drawing.Size(195, 21);
             this.turno.TabIndex = 9;
             // 
-            // idUsuario
+            // nick
             // 
-            this.idUsuario.Location = new System.Drawing.Point(77, 136);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(195, 20);
-            this.idUsuario.TabIndex = 10;
+            this.nick.Location = new System.Drawing.Point(77, 136);
+            this.nick.Name = "nick";
+            this.nick.Size = new System.Drawing.Size(195, 20);
+            this.nick.TabIndex = 10;
             // 
             // pass
             // 
@@ -197,7 +197,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.confPass);
             this.Controls.Add(this.pass);
-            this.Controls.Add(this.idUsuario);
+            this.Controls.Add(this.nick);
             this.Controls.Add(this.turno);
             this.Controls.Add(this.apellido);
             this.Controls.Add(this.nombre);
@@ -216,6 +216,7 @@
             this.Name = "RegistrarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Bedel";
+            this.Load += new System.EventHandler(this.RegistrarBedel_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,7 +234,7 @@
         private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.TextBox apellido;
         private System.Windows.Forms.ComboBox turno;
-        private System.Windows.Forms.TextBox idUsuario;
+        private System.Windows.Forms.TextBox nick;
         private System.Windows.Forms.TextBox pass;
         private System.Windows.Forms.TextBox confPass;
         private System.Windows.Forms.Label label8;

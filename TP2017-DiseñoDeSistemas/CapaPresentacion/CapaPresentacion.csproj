@@ -192,6 +192,20 @@
   <ItemGroup>
     <None Include="Resources\ic_warning_128_28766.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaClases\CapaClases.csproj">
+      <Project>{ff92a494-b0fc-4bf5-9e67-3fb68e5f5712}</Project>
+      <Name>CapaClases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{1656ba91-5cf7-4d95-90b3-7de5acda2599}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
+      <Project>{c1476ab5-6971-43ef-8751-beee6c67810d}</Project>
+      <Name>CapaLogica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
