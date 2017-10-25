@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    class Turno
+    public class Turno
     {
+        public enum TipoTurno {MAÑANA, TARDE, NOCHE};
         private int id_turno;
         private String descripcion;
+
+        public Turno()
+        {
+
+        }
     }
 }

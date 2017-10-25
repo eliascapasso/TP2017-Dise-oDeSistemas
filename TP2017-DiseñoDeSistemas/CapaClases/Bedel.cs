@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    class Bedel : Usuario
+    public class Bedel : Usuario
     {
         private String _Nombre;
         private String _Apellido;
-        private Turno _Turno;
+        private Turno.TipoTurno _Turno;
 
-        internal Turno Turno
+        internal Turno.TipoTurno Turno
         {
             get
             {
@@ -51,14 +51,13 @@ namespace CapaClases
             }
         }
 
-        public Bedel(String nick, String nombre, String apellido, Turno turno, String pass)
+        public Bedel(string nick, string pass, string nombre, string apellido, Turno.TipoTurno turno)
         {
-            super(nick, pass);
+            this.Nick = nick;
+            this.Pass = pass;
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.Turno = turno;
         }
-
-
     }
 }

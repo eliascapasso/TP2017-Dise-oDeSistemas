@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    class TipoReserva
+    public class TipoReserva
     {
         private int id_tipo;
         private String descripcion;

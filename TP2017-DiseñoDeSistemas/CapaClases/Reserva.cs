@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    class Reserva
+    public class Reserva
     {
         private int _CantAlumnos;
         private TipoReserva _TipoReserva;

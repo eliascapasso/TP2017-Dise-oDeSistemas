@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaDatos.GestorDeUsuario;
+using CapaLogica;
 
 namespace Autenticacion
 {
@@ -27,7 +27,7 @@ namespace Autenticacion
 
             GestorDeUsuario gestor = new GestorDeUsuario();
             //VER COMO USAR EL TURNO
-            gestor.registrarBedel(nick.ToString(), nombre.ToString(), apellido.ToString(), turno, pass.ToString());
+            gestor.registrarBedel(nick.ToString(), pass.ToString(), nombre.ToString(), apellido.ToString(), turno.ToString());
 
         }
 

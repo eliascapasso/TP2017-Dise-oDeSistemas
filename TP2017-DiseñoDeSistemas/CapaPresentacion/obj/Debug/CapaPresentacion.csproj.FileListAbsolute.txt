@@ -44,3 +44,11 @@ C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Cap
 C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
 C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaLogica.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\EntityFramework.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaLogica.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\EntityFramework.xml

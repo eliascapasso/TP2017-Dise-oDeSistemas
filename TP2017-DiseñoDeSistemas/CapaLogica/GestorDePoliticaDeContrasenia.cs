@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapaLogica
 {
-    class GestorDePoliticaDeContrasenia
+    public class GestorDePoliticaDeContrasenia
     {
         public GestorDePoliticaDeContrasenia()
         {

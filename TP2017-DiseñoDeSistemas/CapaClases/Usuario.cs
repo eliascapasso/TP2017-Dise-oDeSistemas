@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    class Usuario
+    public class Usuario
     {
-        private String _Nick;
-        private String _Pass; 
-
-        public Usuario(String nick, String pass)
-        {
-            this.Nick = nick;
-            this.Pass = pass;
-        }
+        private string _Nick;
+        private string _Pass;
 
         public string Nick
         {
@@ -41,6 +35,17 @@ namespace CapaClases
             {
                 _Pass = value;
             }
+        }
+
+        public Usuario()
+        {
+
+        }
+
+        public Usuario(string nick, string pass)
+        {
+            this.Nick = nick;
+            this.Pass = pass;
         }
     }
 }

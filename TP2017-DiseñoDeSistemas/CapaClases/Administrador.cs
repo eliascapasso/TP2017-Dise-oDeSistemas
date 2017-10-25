@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    class Administrador
+    public class Administrador
     {
         public Administrador()
         {
