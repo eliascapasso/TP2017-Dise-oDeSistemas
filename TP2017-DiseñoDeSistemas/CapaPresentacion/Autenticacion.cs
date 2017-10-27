@@ -21,17 +21,11 @@ namespace Autenticacion
 
         private void bAdmin_Click(object sender, EventArgs e)
         {
-            var db = new TP2017();
-            using (db)
-            {
-                //Aca va el agregar en la db, en los corchetes van todos los datos excepto el id
-                db.NombreDia.Add(new NombreDia() { descripcion="Lunes"});
-                db.SaveChanges();
-            }
-            /*this.Hide();
+           
 
+            this.Hide();
             InicioSesionAdmin admin = new InicioSesionAdmin();
-            admin.Show();*/
+            admin.Show();
         }
 
         private void bBedel_Click(object sender, EventArgs e)
@@ -43,3 +37,12 @@ namespace Autenticacion
         }
     }
 }
+
+/*EJEMPLO DE CARGA DE DATOS A LA BD
+           var db = new TP2017();
+           using (db)
+           {
+               //Aca va el agregar en la db, en los corchetes van todos los datos excepto el id
+               db.NombreDia.Add(new NombreDia() { descripcion="Lunes"});
+               db.SaveChanges();
+           }*/

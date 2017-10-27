@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaClases;
+using CapaDatos;
 
 namespace CapaLogica
 {
@@ -12,6 +13,27 @@ namespace CapaLogica
         public GestorDeUsuario()
         {
 
+        }
+
+        public void registrarBedel(String nick, String pass, String nombre, String apellido, String turn)
+        {
+            //Falta crear instancia de la bd y validar el nick
+            UsuarioDAODB userDAODB=new UsuarioDAODB();
+            userDAODB.comprobarNickRepetido(nick);
+
+            GestorDePoliticaDeContrasenia gestor = new GestorDePoliticaDeContrasenia();
+            if (gestor.comprobarPoliticas(pass)) //Comprueba politicas de contraseña
+            {
+                Turno.TipoTurno turno = this.obtenerTurno(turn);
+                Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
+
+                //Falta guardar el bedel nuevo en la bd
+            }
+            else
+            {
+                //Devolver MSJ para decir que no cumple las politicas
+                //MessageBox.Show("La contraseña ingresada no cumple las politicas de contraseña", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
 
         private Turno.TipoTurno obtenerTurno(String turno)
@@ -28,18 +50,5 @@ namespace CapaLogica
                     return Turno.TipoTurno.MAÑANA;
             }
         }
-
-        public void registrarBedel(String nick, String pass, String nombre, String apellido, String turn)
-        {
-            //Falta crear instancia de la bd y validar el nick
-
-            //Falta comprobar las politicas de contraseña
-
-            Turno.TipoTurno turno = this.obtenerTurno(turn); //Si el campo esta vacio obtiene por defecto en turno mañana
-            Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
-
-            //Falta guardar el bedel nuevo en la bd
-        }
-
     }
 }
