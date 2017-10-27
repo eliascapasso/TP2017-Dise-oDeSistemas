@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+using CapaDatos.Model;
 
 namespace Autenticacion
 {
@@ -19,10 +21,17 @@ namespace Autenticacion
 
         private void bAdmin_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            var db = new TP2017();
+            using (db)
+            {
+                //Aca va el agregar en la db, en los corchetes van todos los datos excepto el id
+                db.NombreDia.Add(new NombreDia() { descripcion="Lunes"});
+                db.SaveChanges();
+            }
+            /*this.Hide();
 
             InicioSesionAdmin admin = new InicioSesionAdmin();
-            admin.Show();
+            admin.Show();*/
         }
 
         private void bBedel_Click(object sender, EventArgs e)

@@ -8,7 +8,8 @@ namespace CapaDatos.Model
     public partial class TP2017 : DbContext
     {
         public TP2017()
-            : base("name=TP2017")
+            //:base("name=TP2017")
+            :base ("Data Source=ELIANA;Initial Catalog=TP2017; App=EntityFramework; Persist Security Info = True;Integrated Security=True ")
         {
         }
 

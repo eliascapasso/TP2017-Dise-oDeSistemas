@@ -26,9 +26,15 @@ namespace CapaDatos.Model
         [Column(TypeName = "date")]
         public DateTime? fecha_fin { get; set; }
 
+        public int? id_anio_lectivo { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dia> Dia { get; set; }
 
         public virtual TipoPeriodo TipoPeriodo { get; set; }
+
+        public virtual AnioLectivo AnioLectivo { get; set; }
+
+
     }
 }

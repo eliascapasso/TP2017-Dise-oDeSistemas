@@ -15,6 +15,10 @@ namespace CapaDatos.Model
         [StringLength(20)]
         public string contrasenia { get; set; }
 
+        public int? id_usuario { get; set; }
+
         public DateTime? fecha_creacion { get; set; }
+
+        public virtual Usuario Usuario { get; set; }
     }
 }
