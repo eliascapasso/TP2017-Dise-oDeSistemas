@@ -23,29 +23,41 @@ namespace Autenticacion
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-
-            if (tbPass.Text != tbConfirmarPass.Text) //Validacion de la confirmacion de la contraseña
+            //Validacion de la confirmacion de la contraseña
+            if (tbPass.Text != tbConfirmarPass.Text) 
             {
-                System.Media.SystemSounds.Asterisk.Play();
-                MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK);
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            //Valida que todos los campos obligatorios esten completados
+            else if (this.existeUnCampoVacio()) 
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("Debe completar todos los campos marcados con *", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                try
+                try 
                 {
+                    //Se intenta registrar el bedel
                     gestor.registrarBedel(tbNick.Text, tbPass.Text, tbNombre.Text, tbApellido.Text, cbTurno.SelectedItem.ToString());
                 }
                 catch (PoliticasContraseniaException p)
                 {
-                    System.Media.SystemSounds.Asterisk.Play();
-                    MessageBox.Show("No se cumplen las políticas de contraseña", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    System.Media.SystemSounds.Exclamation.Play();
+                    MessageBox.Show("No se cumplen las políticas de contraseña", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 catch (NickException n)
                 {
-                    System.Media.SystemSounds.Asterisk.Play();
-                    MessageBox.Show("El Nick ingresado ya existe", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    System.Media.SystemSounds.Exclamation.Play();
+                    MessageBox.Show("El Nick ingresado ya existe", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
+                //Llegado a este punto el bedel se registro con exito en la bd
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Bedel registrado con éxito", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                this.Close();
             }
 
         }
@@ -60,5 +72,14 @@ namespace Autenticacion
             //gestor.cargarTurnos();
         }
 
+        private bool existeUnCampoVacio()
+        {
+            return tbNombre.Text.Equals("") || 
+                tbApellido.Text.Equals("") || 
+                cbTurno.SelectedItem.ToString().Equals("") || 
+                tbNick.Text.Equals("") || 
+                tbPass.Text.Equals("");
+
+        }
     }
 }

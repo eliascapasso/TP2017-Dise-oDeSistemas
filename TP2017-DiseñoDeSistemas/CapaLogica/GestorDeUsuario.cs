@@ -16,10 +16,12 @@ namespace CapaLogica
            
             UsuarioDAODB userDAODB=new UsuarioDAODB();
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
-                    
-            if (gestorPoliticas.comprobarPoliticas(pass)) //Comprueba politicas de contraseña
+
+            //Comprueba politicas de contraseña        
+            if (gestorPoliticas.comprobarPoliticas(pass)) 
             {
-                if (userDAODB.comprobarNickRepetido(nick))
+                //Comprueba que no exista el nick ingresado
+                if (userDAODB.comprobarNickRepetido(nick)) 
                 {
                     Usuario bedelNuevo = Usuario.CreateBedel(nick, pass, nombre, apellido, turno);
                     userDAODB.guardarBedel(bedelNuevo);
@@ -34,20 +36,5 @@ namespace CapaLogica
                 throw new PoliticasContraseniaException();
             }
         }
-
-        /*private Turno.TipoTurno obtenerTurno(String turno)
-        {
-            switch (turno.ToLower())
-            {
-                case "mañana":
-                    return Turno.TipoTurno.MAÑANA;
-                case "tarde":
-                    return Turno.TipoTurno.TARDE;
-                case "noche":
-                    return Turno.TipoTurno.NOCHE;
-                default:
-                    return Turno.TipoTurno.MAÑANA;
-            }
-        }*/
     }
 }
