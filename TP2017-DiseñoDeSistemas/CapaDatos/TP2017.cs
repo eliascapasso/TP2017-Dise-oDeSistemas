@@ -9,7 +9,7 @@ namespace CapaDatos
     {
         public TP2017()
             //: base("name=TP2017")
-            : base("Data Source=ELIANA;Initial Catalog=TP2017; App=EntityFramework; Persist Security Info = True;Integrated Security=True ")
+            : base("Data Source=ELIAS;Initial Catalog=TP2017; App=EntityFramework; Persist Security Info = True;Integrated Security=True ")
 
         {
         }

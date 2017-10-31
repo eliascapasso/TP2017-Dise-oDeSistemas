@@ -1,0 +1,5 @@
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.csprojResolveAssemblyReference.cache
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.pdb

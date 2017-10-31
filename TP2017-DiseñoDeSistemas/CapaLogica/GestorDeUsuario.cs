@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CapaDatos;
+using Excepciones;
 
 namespace CapaLogica
 {
@@ -14,27 +11,27 @@ namespace CapaLogica
 
         }
 
-        public bool registrarBedel(String nick, String pass, String nombre, String apellido, String turno)
+        public void registrarBedel(String nick, String pass, String nombre, String apellido, String turno)
         {
            
             UsuarioDAODB userDAODB=new UsuarioDAODB();
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
-
-            if (gestorPoliticas.comprobarPoliticas(pass) && userDAODB.comprobarNickRepetido(nick)) //Comprueba politicas de contraseña
+                    
+            if (gestorPoliticas.comprobarPoliticas(pass)) //Comprueba politicas de contraseña
             {
-                Usuario bedelNuevo = Usuario.CreateBedel(nick, pass, nombre, apellido, turno);
-
-                userDAODB.guardarBedel(bedelNuevo);
-
-                return true;
+                if (userDAODB.comprobarNickRepetido(nick))
+                {
+                    Usuario bedelNuevo = Usuario.CreateBedel(nick, pass, nombre, apellido, turno);
+                    userDAODB.guardarBedel(bedelNuevo);
+                }
+                else
+                {
+                    throw new NickException();
+                }
             }
             else
             {
-
-                Console.Write("validacion politicas o comprobacion nick fallido");
-                
-                //MessageBox.Show("La contraseña ingresada no cumple las politicas de contraseña", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                return false;
+                throw new PoliticasContraseniaException();
             }
         }
 
