@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CapaClases;
 using CapaDatos;
 
 namespace CapaLogica
@@ -15,28 +14,31 @@ namespace CapaLogica
 
         }
 
-        public void registrarBedel(String nick, String pass, String nombre, String apellido, String turn)
+        public bool registrarBedel(String nick, String pass, String nombre, String apellido, String turno)
         {
-            //Falta crear instancia de la bd y validar el nick
+           
             UsuarioDAODB userDAODB=new UsuarioDAODB();
-            userDAODB.comprobarNickRepetido(nick);
+            GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
-            GestorDePoliticaDeContrasenia gestor = new GestorDePoliticaDeContrasenia();
-            if (gestor.comprobarPoliticas(pass)) //Comprueba politicas de contraseña
+            if (gestorPoliticas.comprobarPoliticas(pass) && userDAODB.comprobarNickRepetido(nick)) //Comprueba politicas de contraseña
             {
-                Turno.TipoTurno turno = this.obtenerTurno(turn);
-                Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
+                Usuario bedelNuevo = Usuario.CreateBedel(nick, pass, nombre, apellido, turno);
 
-                //Falta guardar el bedel nuevo en la bd
+                userDAODB.guardarBedel(bedelNuevo);
+
+                return true;
             }
             else
             {
-                //Devolver MSJ para decir que no cumple las politicas
+
+                Console.Write("validacion politicas o comprobacion nick fallido");
+                
                 //MessageBox.Show("La contraseña ingresada no cumple las politicas de contraseña", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return false;
             }
         }
 
-        private Turno.TipoTurno obtenerTurno(String turno)
+        /*private Turno.TipoTurno obtenerTurno(String turno)
         {
             switch (turno.ToLower())
             {
@@ -49,6 +51,6 @@ namespace CapaLogica
                 default:
                     return Turno.TipoTurno.MAÑANA;
             }
-        }
+        }*/
     }
 }

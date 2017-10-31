@@ -18,16 +18,22 @@ namespace Autenticacion
             InitializeComponent();
         }
 
+        GestorDeUsuario gestor = new GestorDeUsuario();
+
         private void bAceptar_Click(object sender, EventArgs e)
         {
 
-            if (!pass.ToString().Equals(confPass.ToString())){
+            if (tbPass.Text != tbConfirmarPass.Text)
+            {
                 MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK);
             }
-
-            GestorDeUsuario gestor = new GestorDeUsuario();
-            //VER COMO USAR EL TURNO
-            gestor.registrarBedel(nick.ToString(), pass.ToString(), nombre.ToString(), apellido.ToString(), turno.ToString());
+            else
+            {
+               
+                    //VER COMO USAR EL TURNO
+                    gestor.registrarBedel(tbNick.Text, tbPass.Text, tbNombre.Text, tbApellido.Text, cbTurno.SelectedItem.ToString());
+                
+            }
 
         }
 
@@ -38,12 +44,8 @@ namespace Autenticacion
 
         private void RegistrarBedel_Load(object sender, EventArgs e)
         {
-
+            //gestor.cargarTurnos();
         }
 
-        private void RegistrarBedel_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

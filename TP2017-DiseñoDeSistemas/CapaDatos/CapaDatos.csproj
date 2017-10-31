@@ -51,27 +51,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnioLectivo.cs" />
+    <Compile Include="Asignatura.cs" />
+    <Compile Include="Aula.cs" />
+    <Compile Include="DetalleReserva.cs" />
+    <Compile Include="Dia.cs" />
+    <Compile Include="Docente.cs" />
+    <Compile Include="HistContrasenia.cs" />
     <Compile Include="HistContraseniaDAODB.cs" />
-    <Compile Include="Model\AnioLectivo.cs" />
-    <Compile Include="Model\Asignatura.cs" />
-    <Compile Include="Model\Aula.cs" />
-    <Compile Include="Model\DetalleReserva.cs" />
-    <Compile Include="Model\Dia.cs" />
-    <Compile Include="Model\Docente.cs" />
-    <Compile Include="Model\HistContrasenia.cs" />
-    <Compile Include="Model\NombreDia.cs" />
-    <Compile Include="Model\Periodo.cs" />
-    <Compile Include="Model\Reserva.cs" />
-    <Compile Include="Model\TipoAsignatura.cs" />
-    <Compile Include="Model\TipoAula.cs" />
-    <Compile Include="Model\TipoPeriodo.cs" />
-    <Compile Include="Model\TipoPizarron.cs" />
-    <Compile Include="Model\TipoReserva.cs" />
-    <Compile Include="Model\TipoTurno.cs" />
-    <Compile Include="Model\TipoUsuario.cs" />
-    <Compile Include="Model\TP2017.cs" />
-    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="NombreDia.cs" />
+    <Compile Include="Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reserva.cs" />
+    <Compile Include="sysdiagrams.cs" />
+    <Compile Include="TipoAsignatura.cs" />
+    <Compile Include="TipoAula.cs" />
+    <Compile Include="TipoPeriodo.cs" />
+    <Compile Include="TipoPizarron.cs" />
+    <Compile Include="TipoReserva.cs" />
+    <Compile Include="TipoUsuario.cs" />
+    <Compile Include="TP2017.cs" />
+    <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioDAODB.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -71,7 +71,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::CapaPresentacion.Properties.Resources.loginmanager_100291;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(286, 136);
+            this.ClientSize = new System.Drawing.Size(286, 135);
             this.Controls.Add(this.bBedel);
             this.Controls.Add(this.bAdmin);
             this.Controls.Add(this.label1);
@@ -83,6 +83,7 @@
             this.Name = "Autenticacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Autenticación";
+            this.Load += new System.EventHandler(this.Autenticacion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

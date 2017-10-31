@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaDatos;
-using CapaDatos.Model;
 
 namespace Autenticacion
 {
@@ -20,10 +19,9 @@ namespace Autenticacion
         }
 
         private void bAdmin_Click(object sender, EventArgs e)
-        {
-           
-
+        { 
             this.Hide();
+
             InicioSesionAdmin admin = new InicioSesionAdmin();
             admin.Show();
         }
@@ -34,6 +32,11 @@ namespace Autenticacion
 
             InicioSesionBedel bedel = new InicioSesionBedel();
             bedel.Show();
+        }
+
+        private void Autenticacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

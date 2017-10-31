@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarBedel));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.nombre = new System.Windows.Forms.TextBox();
-            this.apellido = new System.Windows.Forms.TextBox();
-            this.turno = new System.Windows.Forms.ComboBox();
-            this.nick = new System.Windows.Forms.TextBox();
-            this.pass = new System.Windows.Forms.TextBox();
-            this.confPass = new System.Windows.Forms.TextBox();
+            this.lbNombre = new System.Windows.Forms.Label();
+            this.lbApellido = new System.Windows.Forms.Label();
+            this.lbNick = new System.Windows.Forms.Label();
+            this.lbTurno = new System.Windows.Forms.Label();
+            this.lbPass = new System.Windows.Forms.Label();
+            this.lbConfirmarPass = new System.Windows.Forms.Label();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
+            this.cbTurno = new System.Windows.Forms.ComboBox();
+            this.tbNick = new System.Windows.Forms.TextBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.tbConfirmarPass = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.bAceptar = new System.Windows.Forms.Button();
-            this.bCerrar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,105 +57,109 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese los datos del nuevo Bedel:";
             // 
-            // label2
+            // lbNombre
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre*";
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Location = new System.Drawing.Point(12, 45);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(48, 13);
+            this.lbNombre.TabIndex = 1;
+            this.lbNombre.Text = "Nombre*";
             // 
-            // label3
+            // lbApellido
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Apellido*";
+            this.lbApellido.AutoSize = true;
+            this.lbApellido.Location = new System.Drawing.Point(12, 75);
+            this.lbApellido.Name = "lbApellido";
+            this.lbApellido.Size = new System.Drawing.Size(48, 13);
+            this.lbApellido.TabIndex = 2;
+            this.lbApellido.Text = "Apellido*";
             // 
-            // label4
+            // lbNick
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Turno*";
+            this.lbNick.AutoSize = true;
+            this.lbNick.Location = new System.Drawing.Point(12, 107);
+            this.lbNick.Name = "lbNick";
+            this.lbNick.Size = new System.Drawing.Size(39, 13);
+            this.lbNick.TabIndex = 3;
+            this.lbNick.Text = "Turno*";
             // 
-            // label5
+            // lbTurno
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 139);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Nick*";
+            this.lbTurno.AutoSize = true;
+            this.lbTurno.Location = new System.Drawing.Point(12, 139);
+            this.lbTurno.Name = "lbTurno";
+            this.lbTurno.Size = new System.Drawing.Size(33, 13);
+            this.lbTurno.TabIndex = 4;
+            this.lbTurno.Text = "Nick*";
             // 
-            // label6
+            // lbPass
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 171);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Contraseña*";
+            this.lbPass.AutoSize = true;
+            this.lbPass.Location = new System.Drawing.Point(12, 171);
+            this.lbPass.Name = "lbPass";
+            this.lbPass.Size = new System.Drawing.Size(65, 13);
+            this.lbPass.TabIndex = 5;
+            this.lbPass.Text = "Contraseña*";
             // 
-            // label7
+            // lbConfirmarPass
             // 
-            this.label7.Location = new System.Drawing.Point(12, 204);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 32);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Confirmar Contraseña*";
+            this.lbConfirmarPass.Location = new System.Drawing.Point(12, 204);
+            this.lbConfirmarPass.Name = "lbConfirmarPass";
+            this.lbConfirmarPass.Size = new System.Drawing.Size(70, 32);
+            this.lbConfirmarPass.TabIndex = 6;
+            this.lbConfirmarPass.Text = "Confirmar Contraseña*";
             // 
-            // nombre
+            // tbNombre
             // 
-            this.nombre.Location = new System.Drawing.Point(77, 45);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(195, 20);
-            this.nombre.TabIndex = 7;
+            this.tbNombre.Location = new System.Drawing.Point(77, 45);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(195, 20);
+            this.tbNombre.TabIndex = 7;
             // 
-            // apellido
+            // tbApellido
             // 
-            this.apellido.Location = new System.Drawing.Point(77, 72);
-            this.apellido.Name = "apellido";
-            this.apellido.Size = new System.Drawing.Size(195, 20);
-            this.apellido.TabIndex = 8;
+            this.tbApellido.Location = new System.Drawing.Point(77, 72);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(195, 20);
+            this.tbApellido.TabIndex = 8;
             // 
-            // turno
+            // cbTurno
             // 
-            this.turno.FormattingEnabled = true;
-            this.turno.Location = new System.Drawing.Point(77, 104);
-            this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(195, 21);
-            this.turno.TabIndex = 9;
+            this.cbTurno.FormattingEnabled = true;
+            this.cbTurno.Items.AddRange(new object[] {
+            "Mañana",
+            "Tarde",
+            "Noche"});
+            this.cbTurno.Location = new System.Drawing.Point(77, 104);
+            this.cbTurno.Name = "cbTurno";
+            this.cbTurno.Size = new System.Drawing.Size(195, 21);
+            this.cbTurno.TabIndex = 9;
             // 
-            // nick
+            // tbNick
             // 
-            this.nick.Location = new System.Drawing.Point(77, 136);
-            this.nick.Name = "nick";
-            this.nick.Size = new System.Drawing.Size(195, 20);
-            this.nick.TabIndex = 10;
+            this.tbNick.Location = new System.Drawing.Point(77, 136);
+            this.tbNick.Name = "tbNick";
+            this.tbNick.Size = new System.Drawing.Size(195, 20);
+            this.tbNick.TabIndex = 10;
             // 
-            // pass
+            // tbPass
             // 
-            this.pass.Location = new System.Drawing.Point(77, 168);
-            this.pass.MaxLength = 20;
-            this.pass.Name = "pass";
-            this.pass.PasswordChar = '*';
-            this.pass.Size = new System.Drawing.Size(195, 20);
-            this.pass.TabIndex = 11;
+            this.tbPass.Location = new System.Drawing.Point(77, 168);
+            this.tbPass.MaxLength = 20;
+            this.tbPass.Name = "tbPass";
+            this.tbPass.PasswordChar = '*';
+            this.tbPass.Size = new System.Drawing.Size(195, 20);
+            this.tbPass.TabIndex = 11;
             // 
-            // confPass
+            // tbConfirmarPass
             // 
-            this.confPass.Location = new System.Drawing.Point(77, 204);
-            this.confPass.MaxLength = 20;
-            this.confPass.Name = "confPass";
-            this.confPass.PasswordChar = '*';
-            this.confPass.Size = new System.Drawing.Size(195, 20);
-            this.confPass.TabIndex = 12;
+            this.tbConfirmarPass.Location = new System.Drawing.Point(77, 204);
+            this.tbConfirmarPass.MaxLength = 20;
+            this.tbConfirmarPass.Name = "tbConfirmarPass";
+            this.tbConfirmarPass.PasswordChar = '*';
+            this.tbConfirmarPass.Size = new System.Drawing.Size(195, 20);
+            this.tbConfirmarPass.TabIndex = 12;
             // 
             // label8
             // 
@@ -166,47 +170,47 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Campos obligatorios (*)";
             // 
-            // bAceptar
+            // btnAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(197, 255);
-            this.bAceptar.Name = "bAceptar";
-            this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 15;
-            this.bAceptar.Text = "Aceptar";
-            this.bAceptar.UseVisualStyleBackColor = true;
-            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(197, 255);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
-            // bCerrar
+            // btnCerrar
             // 
-            this.bCerrar.Location = new System.Drawing.Point(116, 255);
-            this.bCerrar.Name = "bCerrar";
-            this.bCerrar.Size = new System.Drawing.Size(75, 23);
-            this.bCerrar.TabIndex = 16;
-            this.bCerrar.Text = "Cerrar";
-            this.bCerrar.UseVisualStyleBackColor = true;
-            this.bCerrar.Click += new System.EventHandler(this.bCerrar_Click);
+            this.btnCerrar.Location = new System.Drawing.Point(116, 255);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 16;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.bCerrar_Click);
             // 
             // RegistrarBedel
             // 
-            this.AcceptButton = this.bAceptar;
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 301);
-            this.Controls.Add(this.bCerrar);
-            this.Controls.Add(this.bAceptar);
+            this.ClientSize = new System.Drawing.Size(284, 300);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.confPass);
-            this.Controls.Add(this.pass);
-            this.Controls.Add(this.nick);
-            this.Controls.Add(this.turno);
-            this.Controls.Add(this.apellido);
-            this.Controls.Add(this.nombre);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbConfirmarPass);
+            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.tbNick);
+            this.Controls.Add(this.cbTurno);
+            this.Controls.Add(this.tbApellido);
+            this.Controls.Add(this.tbNombre);
+            this.Controls.Add(this.lbConfirmarPass);
+            this.Controls.Add(this.lbPass);
+            this.Controls.Add(this.lbNick);
+            this.Controls.Add(this.lbTurno);
+            this.Controls.Add(this.lbApellido);
+            this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -216,7 +220,6 @@
             this.Name = "RegistrarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Bedel";
-            this.Load += new System.EventHandler(this.RegistrarBedel_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,20 +228,20 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox nombre;
-        private System.Windows.Forms.TextBox apellido;
-        private System.Windows.Forms.ComboBox turno;
-        private System.Windows.Forms.TextBox nick;
-        private System.Windows.Forms.TextBox pass;
-        private System.Windows.Forms.TextBox confPass;
+        private System.Windows.Forms.Label lbNombre;
+        private System.Windows.Forms.Label lbApellido;
+        private System.Windows.Forms.Label lbTurno;
+        private System.Windows.Forms.Label lbNick;
+        private System.Windows.Forms.Label lbPass;
+        private System.Windows.Forms.Label lbConfirmarPass;
+        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.TextBox tbApellido;
+        private System.Windows.Forms.ComboBox cbTurno;
+        private System.Windows.Forms.TextBox tbNick;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.TextBox tbConfirmarPass;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button bAceptar;
-        private System.Windows.Forms.Button bCerrar;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
