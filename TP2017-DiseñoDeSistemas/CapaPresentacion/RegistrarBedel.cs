@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaLogica;
 using Excepciones;
+using CapaPresentacion;
 
 namespace Autenticacion
 {
@@ -41,6 +42,12 @@ namespace Autenticacion
                 {
                     //Se intenta registrar el bedel
                     gestor.registrarBedel(tbNick.Text, tbPass.Text, tbNombre.Text, tbApellido.Text, cbTurno.SelectedItem.ToString());
+
+                    //Llegado a este punto el bedel se registro con exito en la bd
+                    System.Media.SystemSounds.Asterisk.Play();
+                    MessageBox.Show("Bedel registrado con éxito", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.Close();
                 }
                 catch (PoliticasContraseniaException p)
                 {
@@ -52,12 +59,6 @@ namespace Autenticacion
                     System.Media.SystemSounds.Exclamation.Play();
                     MessageBox.Show("El Nick ingresado ya existe", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
-                //Llegado a este punto el bedel se registro con exito en la bd
-                System.Media.SystemSounds.Asterisk.Play();
-                MessageBox.Show("Bedel registrado con éxito", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                this.Close();
             }
 
         }
