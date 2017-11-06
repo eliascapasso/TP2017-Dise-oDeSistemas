@@ -25,6 +25,7 @@ namespace CapaDatos
         {
             this.contrasenia = pass;
             this.id_usuario = id_usuario;
+            this.fecha_creacion = DateTime.Now;
         } 
     }
 }

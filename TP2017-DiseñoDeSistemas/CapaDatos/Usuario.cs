@@ -57,10 +57,13 @@ namespace CapaDatos
             this.apellido = apellido;
             this.turno = turno;
             this.activo = true;
-            this.id_tipo_usuario = 1; 
+            this.id_tipo_usuario = 1;  
+        }
 
-            //Agrega un historial a la lista de historiales del bedel creado
-            this.HistContrasenia.Add(new HistContrasenia(pass, this.id_usuario)); 
+        //Agrega un historial a la lista de historiales del bedel creado
+        public void agregarHistorial(HistContrasenia historial)
+        {
+            this.HistContrasenia.Add(historial);
         }
     }
 }
