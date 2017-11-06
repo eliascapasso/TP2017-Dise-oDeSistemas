@@ -13,7 +13,7 @@ namespace CapaDatos
 
         public TP2017 db= new TP2017();
 
-        public void guardarHistorialContrasenia(Usuario bedel)
+        /*public void guardarHistorialContrasenia(Usuario bedel)
         {
 
             using (db)
@@ -25,6 +25,6 @@ namespace CapaDatos
                 db.SaveChanges();
             }
 
-        }
+        }*/
     }
 }

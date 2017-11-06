@@ -48,18 +48,19 @@ namespace CapaDatos
 
         public virtual TipoUsuario TipoUsuario { get; set; }
 
-        public static Usuario CreateBedel(string nick, string pass, string nombre, string apellido, string turno)
+        //Creacion de Bedel
+        public Usuario (string nick, string pass, string nombre, string apellido, string turno) 
         {
-            Usuario usuario = new Usuario();
-            usuario.nick = nick;
-            usuario.contrasenia = pass;
-            usuario.nombre = nombre;
-            usuario.apellido = apellido;
-            usuario.turno = turno;
-            usuario.activo = true;
-            usuario.id_tipo_usuario = 1;
-            return usuario;
+            this.nick = nick;
+            this.contrasenia = pass;
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.turno = turno;
+            this.activo = true;
+            this.id_tipo_usuario = 1; 
 
+            //Agrega un historial a la lista de historiales del bedel creado
+            this.HistContrasenia.Add(new HistContrasenia(pass, this.id_usuario)); 
         }
     }
 }

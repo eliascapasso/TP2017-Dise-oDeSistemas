@@ -23,7 +23,8 @@ namespace CapaLogica
                 //Comprueba que no exista el nick ingresado
                 if (userDAODB.comprobarNickRepetido(nick)) 
                 {
-                    Usuario bedelNuevo = Usuario.CreateBedel(nick, pass, nombre, apellido, turno);
+                    //Se agrega el historial en la creacion del bedel
+                    Usuario bedelNuevo = new Usuario(nick, pass, nombre, apellido, turno); 
                     userDAODB.guardarBedel(bedelNuevo);
                 }
                 else

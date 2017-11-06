@@ -20,5 +20,11 @@ namespace CapaDatos
         public DateTime? fecha_creacion { get; set; }
 
         public virtual Usuario Usuario { get; set; }
+
+        public HistContrasenia(string pass, int idUsu)
+        {
+            this.contrasenia = pass;
+            this.id_usuario = id_usuario;
+        } 
     }
 }
