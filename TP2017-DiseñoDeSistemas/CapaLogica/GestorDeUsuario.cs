@@ -17,14 +17,14 @@ namespace CapaLogica
             UsuarioDAODB userDAODB=new UsuarioDAODB();
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
-            //Comprueba politicas de contraseña        
+            //Comprueba politicas de contraseña
             if (gestorPoliticas.comprobarPoliticas(pass)) 
             {
                 //Comprueba que no exista el nick ingresado
                 if (userDAODB.comprobarNickRepetido(nick)) 
                 {
                     Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
-                    HistContrasenia historial = new HistContrasenia(pass, bedelNuevo.id_usuario);
+                   HistContrasenia historial = new HistContrasenia(pass,bedelNuevo.id_usuario);
 
                     bedelNuevo.agregarHistorial(historial);
                     userDAODB.guardarBedel(bedelNuevo);

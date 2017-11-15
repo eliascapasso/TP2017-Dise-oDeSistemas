@@ -113,3 +113,4 @@ C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistema
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.RegistrarReserva_1.resources
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.RegistrarReserva_2.resources
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.BarraProgresiva.resources

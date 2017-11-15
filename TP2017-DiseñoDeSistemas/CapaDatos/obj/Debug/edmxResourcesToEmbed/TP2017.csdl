@@ -408,7 +408,7 @@
     <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="*" />
     <End Role="Docente" Type="Self.Docente" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="TP2017" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="TP2017Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
     <EntitySet Name="AnioLectivoes" EntityType="Self.AnioLectivo" />
     <EntitySet Name="Asignaturas" EntityType="Self.Asignatura" />
