@@ -1,6 +1,6 @@
 ﻿using System;
-using CapaDatos;
 using Excepciones;
+using CapaDatos;
 
 namespace CapaLogica
 {
@@ -23,10 +23,10 @@ namespace CapaLogica
                 //Comprueba que no exista el nick ingresado
                 if (userDAODB.comprobarNickRepetido(nick)) 
                 {
-                    Usuario bedelNuevo = new Usuario(nick, pass, nombre, apellido, turno);
+                    Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
                     HistContrasenia historial = new HistContrasenia(pass, bedelNuevo.id_usuario);
-                    bedelNuevo.agregarHistorial(historial); 
 
+                    bedelNuevo.agregarHistorial(historial);
                     userDAODB.guardarBedel(bedelNuevo);
                 }
                 else

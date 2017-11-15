@@ -1,0 +1,1242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TP2017Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnioLectivo">
+          <Key>
+            <PropertyRef Name="id_anio_lectivo" />
+          </Key>
+          <Property Name="id_anio_lectivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+        </EntityType>
+        <EntityType Name="Asignatura">
+          <Key>
+            <PropertyRef Name="id_asignatura" />
+          </Key>
+          <Property Name="id_asignatura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_asignatura" Type="int" />
+          <Property Name="nombre_asignatura" Type="varchar" MaxLength="50" />
+          <Property Name="duracion" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Aula">
+          <Key>
+            <PropertyRef Name="id_aula" />
+          </Key>
+          <Property Name="id_aula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="habilitado" Type="bit" />
+          <Property Name="piso" Type="int" Nullable="false" />
+          <Property Name="aire_acond" Type="bit" />
+          <Property Name="capacidad" Type="int" Nullable="false" />
+          <Property Name="ventilador" Type="bit" />
+          <Property Name="cant_pc" Type="int" />
+          <Property Name="canion" Type="bit" />
+          <Property Name="dvd" Type="bit" />
+          <Property Name="tv" Type="bit" />
+          <Property Name="pc" Type="bit" />
+          <Property Name="id_tipo_pizarron" Type="int" />
+          <Property Name="id_tipo_aula" Type="int" />
+        </EntityType>
+        <EntityType Name="DetalleReserva">
+          <Key>
+            <PropertyRef Name="id_detalle_reserva" />
+          </Key>
+          <Property Name="id_detalle_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_dia" Type="int" />
+          <Property Name="id_reserva" Type="int" />
+          <Property Name="id_aula" Type="int" />
+          <Property Name="hora_inicio" Type="time" Precision="7" />
+          <Property Name="duracion" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="id_dia" />
+          </Key>
+          <Property Name="id_dia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_periodo" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="id_nombre_dia" Type="int" />
+        </EntityType>
+        <EntityType Name="Docente">
+          <Key>
+            <PropertyRef Name="id_docente" />
+          </Key>
+          <Property Name="id_docente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_docente" Type="varchar" MaxLength="20" />
+          <Property Name="apellido_docente" Type="varchar" MaxLength="20" />
+          <Property Name="email_docente" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DocenteAsignatura">
+          <Key>
+            <PropertyRef Name="id_asignatura" />
+            <PropertyRef Name="id_docente" />
+          </Key>
+          <Property Name="id_asignatura" Type="int" Nullable="false" />
+          <Property Name="id_docente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistContrasenia">
+          <Key>
+            <PropertyRef Name="id_historial" />
+          </Key>
+          <Property Name="id_historial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contrasenia" Type="varchar" MaxLength="20" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="fecha_creacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NombreDia">
+          <Key>
+            <PropertyRef Name="id_nombre_dia" />
+          </Key>
+          <Property Name="id_nombre_dia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="id_periodo" />
+          </Key>
+          <Property Name="id_periodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_periodo" Type="int" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="id_anio_lectivo" Type="int" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hora_inicio" Type="time" Precision="7" />
+          <Property Name="capacidad" Type="int" />
+          <Property Name="activa" Type="bit" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_asignatura" Type="int" />
+          <Property Name="id_tipo_reserva" Type="int" />
+          <Property Name="id_docente" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TipoAsignatura">
+          <Key>
+            <PropertyRef Name="id_tipo_asignatura" />
+          </Key>
+          <Property Name="id_tipo_asignatura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TipoAula">
+          <Key>
+            <PropertyRef Name="id_tipo_aula" />
+          </Key>
+          <Property Name="id_tipo_aula" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TipoPeriodo">
+          <Key>
+            <PropertyRef Name="id_tipo_periodo" />
+          </Key>
+          <Property Name="id_tipo_periodo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TipoPizarron">
+          <Key>
+            <PropertyRef Name="id_tipo_pizarron" />
+          </Key>
+          <Property Name="id_tipo_pizarron" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TipoReserva">
+          <Key>
+            <PropertyRef Name="id_tipo_reserva" />
+          </Key>
+          <Property Name="id_tipo_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="nick" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="contrasenia" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="20" />
+          <Property Name="apellido" Type="varchar" MaxLength="20" />
+          <Property Name="turno" Type="varchar" MaxLength="20" />
+          <Property Name="id_tipo_usuario" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura">
+          <End Role="TipoAsignatura" Type="Self.TipoAsignatura" Multiplicity="0..1" />
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoAsignatura">
+              <PropertyRef Name="id_tipo_asignatura" />
+            </Principal>
+            <Dependent Role="Asignatura">
+              <PropertyRef Name="id_tipo_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Aula_dbo_TipoAula_id_tipo_aula">
+          <End Role="TipoAula" Type="Self.TipoAula" Multiplicity="0..1" />
+          <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoAula">
+              <PropertyRef Name="id_tipo_aula" />
+            </Principal>
+            <Dependent Role="Aula">
+              <PropertyRef Name="id_tipo_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron">
+          <End Role="TipoPizarron" Type="Self.TipoPizarron" Multiplicity="0..1" />
+          <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPizarron">
+              <PropertyRef Name="id_tipo_pizarron" />
+            </Principal>
+            <Dependent Role="Aula">
+              <PropertyRef Name="id_tipo_pizarron" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DetalleReserva_dbo_Aula_id_aula">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="0..1" />
+          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="id_aula" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="id_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DetalleReserva_dbo_Dia_id_dia">
+          <End Role="Dia" Type="Self.Dia" Multiplicity="0..1" />
+          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dia">
+              <PropertyRef Name="id_dia" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="id_dia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DetalleReserva_dbo_Reserva_id_reserva">
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
+          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dia_dbo_NombreDia_id_nombre_dia">
+          <End Role="NombreDia" Type="Self.NombreDia" Multiplicity="0..1" />
+          <End Role="Dia" Type="Self.Dia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NombreDia">
+              <PropertyRef Name="id_nombre_dia" />
+            </Principal>
+            <Dependent Role="Dia">
+              <PropertyRef Name="id_nombre_dia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dia_dbo_Periodo_id_periodo">
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="0..1" />
+          <End Role="Dia" Type="Self.Dia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo">
+              <PropertyRef Name="id_periodo" />
+            </Principal>
+            <Dependent Role="Dia">
+              <PropertyRef Name="id_periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DocenteAsignatura_dbo_Asignatura_id_asignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DocenteAsignatura" Type="Self.DocenteAsignatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="DocenteAsignatura">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DocenteAsignatura_dbo_Docente_id_docente">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DocenteAsignatura" Type="Self.DocenteAsignatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="id_docente" />
+            </Principal>
+            <Dependent Role="DocenteAsignatura">
+              <PropertyRef Name="id_docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_HistContrasenia_dbo_Usuario_id_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="HistContrasenia" Type="Self.HistContrasenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="HistContrasenia">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo">
+          <End Role="AnioLectivo" Type="Self.AnioLectivo" Multiplicity="0..1" />
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnioLectivo">
+              <PropertyRef Name="id_anio_lectivo" />
+            </Principal>
+            <Dependent Role="Periodo">
+              <PropertyRef Name="id_anio_lectivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo">
+          <End Role="TipoPeriodo" Type="Self.TipoPeriodo" Multiplicity="0..1" />
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPeriodo">
+              <PropertyRef Name="id_tipo_periodo" />
+            </Principal>
+            <Dependent Role="Periodo">
+              <PropertyRef Name="id_tipo_periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_Asignatura_id_asignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_Docente_id_docente">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="id_docente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva">
+          <End Role="TipoReserva" Type="Self.TipoReserva" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoReserva">
+              <PropertyRef Name="id_tipo_reserva" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_tipo_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_Usuario_id_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TP2017ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnioLectivo" EntityType="Self.AnioLectivo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asignatura" EntityType="Self.Asignatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Aula" EntityType="Self.Aula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleReserva" EntityType="Self.DetalleReserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dia" EntityType="Self.Dia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Docente" EntityType="Self.Docente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocenteAsignatura" EntityType="Self.DocenteAsignatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistContrasenia" EntityType="Self.HistContrasenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NombreDia" EntityType="Self.NombreDia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodo" EntityType="Self.Periodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoAsignatura" EntityType="Self.TipoAsignatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoAula" EntityType="Self.TipoAula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPeriodo" EntityType="Self.TipoPeriodo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPizarron" EntityType="Self.TipoPizarron" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoReserva" EntityType="Self.TipoReserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura" Association="Self.FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura">
+            <End Role="TipoAsignatura" EntitySet="TipoAsignatura" />
+            <End Role="Asignatura" EntitySet="Asignatura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Aula_dbo_TipoAula_id_tipo_aula" Association="Self.FK_dbo_Aula_dbo_TipoAula_id_tipo_aula">
+            <End Role="TipoAula" EntitySet="TipoAula" />
+            <End Role="Aula" EntitySet="Aula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron" Association="Self.FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron">
+            <End Role="TipoPizarron" EntitySet="TipoPizarron" />
+            <End Role="Aula" EntitySet="Aula" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DetalleReserva_dbo_Aula_id_aula" Association="Self.FK_dbo_DetalleReserva_dbo_Aula_id_aula">
+            <End Role="Aula" EntitySet="Aula" />
+            <End Role="DetalleReserva" EntitySet="DetalleReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DetalleReserva_dbo_Dia_id_dia" Association="Self.FK_dbo_DetalleReserva_dbo_Dia_id_dia">
+            <End Role="Dia" EntitySet="Dia" />
+            <End Role="DetalleReserva" EntitySet="DetalleReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DetalleReserva_dbo_Reserva_id_reserva" Association="Self.FK_dbo_DetalleReserva_dbo_Reserva_id_reserva">
+            <End Role="Reserva" EntitySet="Reserva" />
+            <End Role="DetalleReserva" EntitySet="DetalleReserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dia_dbo_NombreDia_id_nombre_dia" Association="Self.FK_dbo_Dia_dbo_NombreDia_id_nombre_dia">
+            <End Role="NombreDia" EntitySet="NombreDia" />
+            <End Role="Dia" EntitySet="Dia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dia_dbo_Periodo_id_periodo" Association="Self.FK_dbo_Dia_dbo_Periodo_id_periodo">
+            <End Role="Periodo" EntitySet="Periodo" />
+            <End Role="Dia" EntitySet="Dia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DocenteAsignatura_dbo_Asignatura_id_asignatura" Association="Self.FK_dbo_DocenteAsignatura_dbo_Asignatura_id_asignatura">
+            <End Role="Asignatura" EntitySet="Asignatura" />
+            <End Role="DocenteAsignatura" EntitySet="DocenteAsignatura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DocenteAsignatura_dbo_Docente_id_docente" Association="Self.FK_dbo_DocenteAsignatura_dbo_Docente_id_docente">
+            <End Role="Docente" EntitySet="Docente" />
+            <End Role="DocenteAsignatura" EntitySet="DocenteAsignatura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_HistContrasenia_dbo_Usuario_id_usuario" Association="Self.FK_dbo_HistContrasenia_dbo_Usuario_id_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="HistContrasenia" EntitySet="HistContrasenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo" Association="Self.FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo">
+            <End Role="AnioLectivo" EntitySet="AnioLectivo" />
+            <End Role="Periodo" EntitySet="Periodo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo" Association="Self.FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo">
+            <End Role="TipoPeriodo" EntitySet="TipoPeriodo" />
+            <End Role="Periodo" EntitySet="Periodo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_Asignatura_id_asignatura" Association="Self.FK_dbo_Reserva_dbo_Asignatura_id_asignatura">
+            <End Role="Asignatura" EntitySet="Asignatura" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_Docente_id_docente" Association="Self.FK_dbo_Reserva_dbo_Docente_id_docente">
+            <End Role="Docente" EntitySet="Docente" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva" Association="Self.FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva">
+            <End Role="TipoReserva" EntitySet="TipoReserva" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_Usuario_id_usuario" Association="Self.FK_dbo_Reserva_dbo_Usuario_id_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario" Association="Self.FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TP2017Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnioLectivo">
+          <Key>
+            <PropertyRef Name="id_anio_lectivo" />
+          </Key>
+          <Property Name="id_anio_lectivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Periodoes" Relationship="Self.FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo" FromRole="AnioLectivo" ToRole="Periodo" />
+        </EntityType>
+        <EntityType Name="Asignatura">
+          <Key>
+            <PropertyRef Name="id_asignatura" />
+          </Key>
+          <Property Name="id_asignatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo_asignatura" Type="Int32" />
+          <Property Name="nombre_asignatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="duracion" Type="Time" Precision="7" />
+          <NavigationProperty Name="TipoAsignatura" Relationship="Self.FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura" FromRole="Asignatura" ToRole="TipoAsignatura" />
+          <NavigationProperty Name="Reservas" Relationship="Self.FK_dbo_Reserva_dbo_Asignatura_id_asignatura" FromRole="Asignatura" ToRole="Reserva" />
+          <NavigationProperty Name="Docentes" Relationship="Self.DocenteAsignatura" FromRole="Asignatura" ToRole="Docente" />
+        </EntityType>
+        <EntityType Name="Aula">
+          <Key>
+            <PropertyRef Name="id_aula" />
+          </Key>
+          <Property Name="id_aula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="habilitado" Type="Boolean" />
+          <Property Name="piso" Type="Int32" Nullable="false" />
+          <Property Name="aire_acond" Type="Boolean" />
+          <Property Name="capacidad" Type="Int32" Nullable="false" />
+          <Property Name="ventilador" Type="Boolean" />
+          <Property Name="cant_pc" Type="Int32" />
+          <Property Name="canion" Type="Boolean" />
+          <Property Name="dvd" Type="Boolean" />
+          <Property Name="tv" Type="Boolean" />
+          <Property Name="pc" Type="Boolean" />
+          <Property Name="id_tipo_pizarron" Type="Int32" />
+          <Property Name="id_tipo_aula" Type="Int32" />
+          <NavigationProperty Name="TipoAula" Relationship="Self.FK_dbo_Aula_dbo_TipoAula_id_tipo_aula" FromRole="Aula" ToRole="TipoAula" />
+          <NavigationProperty Name="TipoPizarron" Relationship="Self.FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron" FromRole="Aula" ToRole="TipoPizarron" />
+          <NavigationProperty Name="DetalleReservas" Relationship="Self.FK_dbo_DetalleReserva_dbo_Aula_id_aula" FromRole="Aula" ToRole="DetalleReserva" />
+        </EntityType>
+        <EntityType Name="DetalleReserva">
+          <Key>
+            <PropertyRef Name="id_detalle_reserva" />
+          </Key>
+          <Property Name="id_detalle_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_dia" Type="Int32" />
+          <Property Name="id_reserva" Type="Int32" />
+          <Property Name="id_aula" Type="Int32" />
+          <Property Name="hora_inicio" Type="Time" Precision="7" />
+          <Property Name="duracion" Type="Time" Precision="7" />
+          <NavigationProperty Name="Aula" Relationship="Self.FK_dbo_DetalleReserva_dbo_Aula_id_aula" FromRole="DetalleReserva" ToRole="Aula" />
+          <NavigationProperty Name="Dia" Relationship="Self.FK_dbo_DetalleReserva_dbo_Dia_id_dia" FromRole="DetalleReserva" ToRole="Dia" />
+          <NavigationProperty Name="Reserva" Relationship="Self.FK_dbo_DetalleReserva_dbo_Reserva_id_reserva" FromRole="DetalleReserva" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Dia">
+          <Key>
+            <PropertyRef Name="id_dia" />
+          </Key>
+          <Property Name="id_dia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_periodo" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="id_nombre_dia" Type="Int32" />
+          <NavigationProperty Name="DetalleReservas" Relationship="Self.FK_dbo_DetalleReserva_dbo_Dia_id_dia" FromRole="Dia" ToRole="DetalleReserva" />
+          <NavigationProperty Name="NombreDia" Relationship="Self.FK_dbo_Dia_dbo_NombreDia_id_nombre_dia" FromRole="Dia" ToRole="NombreDia" />
+          <NavigationProperty Name="Periodo" Relationship="Self.FK_dbo_Dia_dbo_Periodo_id_periodo" FromRole="Dia" ToRole="Periodo" />
+        </EntityType>
+        <EntityType Name="Docente">
+          <Key>
+            <PropertyRef Name="id_docente" />
+          </Key>
+          <Property Name="id_docente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_docente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_docente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email_docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservas" Relationship="Self.FK_dbo_Reserva_dbo_Docente_id_docente" FromRole="Docente" ToRole="Reserva" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.DocenteAsignatura" FromRole="Docente" ToRole="Asignatura" />
+        </EntityType>
+        <EntityType Name="HistContrasenia">
+          <Key>
+            <PropertyRef Name="id_historial" />
+          </Key>
+          <Property Name="id_historial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_dbo_HistContrasenia_dbo_Usuario_id_usuario" FromRole="HistContrasenia" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="NombreDia">
+          <Key>
+            <PropertyRef Name="id_nombre_dia" />
+          </Key>
+          <Property Name="id_nombre_dia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dias" Relationship="Self.FK_dbo_Dia_dbo_NombreDia_id_nombre_dia" FromRole="NombreDia" ToRole="Dia" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="id_periodo" />
+          </Key>
+          <Property Name="id_periodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo_periodo" Type="Int32" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="id_anio_lectivo" Type="Int32" />
+          <NavigationProperty Name="AnioLectivo" Relationship="Self.FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo" FromRole="Periodo" ToRole="AnioLectivo" />
+          <NavigationProperty Name="Dias" Relationship="Self.FK_dbo_Dia_dbo_Periodo_id_periodo" FromRole="Periodo" ToRole="Dia" />
+          <NavigationProperty Name="TipoPeriodo" Relationship="Self.FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo" FromRole="Periodo" ToRole="TipoPeriodo" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="id_reserva" />
+          </Key>
+          <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hora_inicio" Type="Time" Precision="7" />
+          <Property Name="capacidad" Type="Int32" />
+          <Property Name="activa" Type="Boolean" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_asignatura" Type="Int32" />
+          <Property Name="id_tipo_reserva" Type="Int32" />
+          <Property Name="id_docente" Type="Int32" />
+          <NavigationProperty Name="Asignatura" Relationship="Self.FK_dbo_Reserva_dbo_Asignatura_id_asignatura" FromRole="Reserva" ToRole="Asignatura" />
+          <NavigationProperty Name="DetalleReservas" Relationship="Self.FK_dbo_DetalleReserva_dbo_Reserva_id_reserva" FromRole="Reserva" ToRole="DetalleReserva" />
+          <NavigationProperty Name="Docente" Relationship="Self.FK_dbo_Reserva_dbo_Docente_id_docente" FromRole="Reserva" ToRole="Docente" />
+          <NavigationProperty Name="TipoReserva" Relationship="Self.FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva" FromRole="Reserva" ToRole="TipoReserva" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_dbo_Reserva_dbo_Usuario_id_usuario" FromRole="Reserva" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TipoAsignatura">
+          <Key>
+            <PropertyRef Name="id_tipo_asignatura" />
+          </Key>
+          <Property Name="id_tipo_asignatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Asignaturas" Relationship="Self.FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura" FromRole="TipoAsignatura" ToRole="Asignatura" />
+        </EntityType>
+        <EntityType Name="TipoAula">
+          <Key>
+            <PropertyRef Name="id_tipo_aula" />
+          </Key>
+          <Property Name="id_tipo_aula" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aulas" Relationship="Self.FK_dbo_Aula_dbo_TipoAula_id_tipo_aula" FromRole="TipoAula" ToRole="Aula" />
+        </EntityType>
+        <EntityType Name="TipoPeriodo">
+          <Key>
+            <PropertyRef Name="id_tipo_periodo" />
+          </Key>
+          <Property Name="id_tipo_periodo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Periodoes" Relationship="Self.FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo" FromRole="TipoPeriodo" ToRole="Periodo" />
+        </EntityType>
+        <EntityType Name="TipoPizarron">
+          <Key>
+            <PropertyRef Name="id_tipo_pizarron" />
+          </Key>
+          <Property Name="id_tipo_pizarron" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aulas" Relationship="Self.FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron" FromRole="TipoPizarron" ToRole="Aula" />
+        </EntityType>
+        <EntityType Name="TipoReserva">
+          <Key>
+            <PropertyRef Name="id_tipo_reserva" />
+          </Key>
+          <Property Name="id_tipo_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservas" Relationship="Self.FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva" FromRole="TipoReserva" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="TipoUsuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario" FromRole="TipoUsuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="nick" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_usuario" Type="Int32" />
+          <NavigationProperty Name="HistContrasenias" Relationship="Self.FK_dbo_HistContrasenia_dbo_Usuario_id_usuario" FromRole="Usuario" ToRole="HistContrasenia" />
+          <NavigationProperty Name="Reservas" Relationship="Self.FK_dbo_Reserva_dbo_Usuario_id_usuario" FromRole="Usuario" ToRole="Reserva" />
+          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <Association Name="FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo">
+          <End Role="AnioLectivo" Type="Self.AnioLectivo" Multiplicity="0..1" />
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnioLectivo">
+              <PropertyRef Name="id_anio_lectivo" />
+            </Principal>
+            <Dependent Role="Periodo">
+              <PropertyRef Name="id_anio_lectivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura">
+          <End Role="TipoAsignatura" Type="Self.TipoAsignatura" Multiplicity="0..1" />
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoAsignatura">
+              <PropertyRef Name="id_tipo_asignatura" />
+            </Principal>
+            <Dependent Role="Asignatura">
+              <PropertyRef Name="id_tipo_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_Asignatura_id_asignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Aula_dbo_TipoAula_id_tipo_aula">
+          <End Role="TipoAula" Type="Self.TipoAula" Multiplicity="0..1" />
+          <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoAula">
+              <PropertyRef Name="id_tipo_aula" />
+            </Principal>
+            <Dependent Role="Aula">
+              <PropertyRef Name="id_tipo_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron">
+          <End Role="TipoPizarron" Type="Self.TipoPizarron" Multiplicity="0..1" />
+          <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPizarron">
+              <PropertyRef Name="id_tipo_pizarron" />
+            </Principal>
+            <Dependent Role="Aula">
+              <PropertyRef Name="id_tipo_pizarron" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DetalleReserva_dbo_Aula_id_aula">
+          <End Role="Aula" Type="Self.Aula" Multiplicity="0..1" />
+          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="id_aula" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="id_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DetalleReserva_dbo_Dia_id_dia">
+          <End Role="Dia" Type="Self.Dia" Multiplicity="0..1" />
+          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dia">
+              <PropertyRef Name="id_dia" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="id_dia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_DetalleReserva_dbo_Reserva_id_reserva">
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
+          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dia_dbo_NombreDia_id_nombre_dia">
+          <End Role="NombreDia" Type="Self.NombreDia" Multiplicity="0..1" />
+          <End Role="Dia" Type="Self.Dia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NombreDia">
+              <PropertyRef Name="id_nombre_dia" />
+            </Principal>
+            <Dependent Role="Dia">
+              <PropertyRef Name="id_nombre_dia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dia_dbo_Periodo_id_periodo">
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="0..1" />
+          <End Role="Dia" Type="Self.Dia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo">
+              <PropertyRef Name="id_periodo" />
+            </Principal>
+            <Dependent Role="Dia">
+              <PropertyRef Name="id_periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_Docente_id_docente">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="id_docente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_HistContrasenia_dbo_Usuario_id_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="HistContrasenia" Type="Self.HistContrasenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="HistContrasenia">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo">
+          <End Role="TipoPeriodo" Type="Self.TipoPeriodo" Multiplicity="0..1" />
+          <End Role="Periodo" Type="Self.Periodo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPeriodo">
+              <PropertyRef Name="id_tipo_periodo" />
+            </Principal>
+            <Dependent Role="Periodo">
+              <PropertyRef Name="id_tipo_periodo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva">
+          <End Role="TipoReserva" Type="Self.TipoReserva" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoReserva">
+              <PropertyRef Name="id_tipo_reserva" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_tipo_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Reserva_dbo_Usuario_id_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario">
+          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocenteAsignatura">
+          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="*" />
+          <End Role="Docente" Type="Self.Docente" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="TP2017Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AnioLectivoes" EntityType="Self.AnioLectivo" />
+          <EntitySet Name="Asignaturas" EntityType="Self.Asignatura" />
+          <EntitySet Name="Aulas" EntityType="Self.Aula" />
+          <EntitySet Name="DetalleReservas" EntityType="Self.DetalleReserva" />
+          <EntitySet Name="Dias" EntityType="Self.Dia" />
+          <EntitySet Name="Docentes" EntityType="Self.Docente" />
+          <EntitySet Name="HistContrasenias" EntityType="Self.HistContrasenia" />
+          <EntitySet Name="NombreDias" EntityType="Self.NombreDia" />
+          <EntitySet Name="Periodoes" EntityType="Self.Periodo" />
+          <EntitySet Name="Reservas" EntityType="Self.Reserva" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TipoAsignaturas" EntityType="Self.TipoAsignatura" />
+          <EntitySet Name="TipoAulas" EntityType="Self.TipoAula" />
+          <EntitySet Name="TipoPeriodoes" EntityType="Self.TipoPeriodo" />
+          <EntitySet Name="TipoPizarrons" EntityType="Self.TipoPizarron" />
+          <EntitySet Name="TipoReservas" EntityType="Self.TipoReserva" />
+          <EntitySet Name="TipoUsuarios" EntityType="Self.TipoUsuario" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo" Association="Self.FK_dbo_Periodo_dbo_AnioLectivo_id_anio_lectivo">
+            <End Role="AnioLectivo" EntitySet="AnioLectivoes" />
+            <End Role="Periodo" EntitySet="Periodoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura" Association="Self.FK_dbo_Asignatura_dbo_TipoAsignatura_id_tipo_asignatura">
+            <End Role="TipoAsignatura" EntitySet="TipoAsignaturas" />
+            <End Role="Asignatura" EntitySet="Asignaturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_Asignatura_id_asignatura" Association="Self.FK_dbo_Reserva_dbo_Asignatura_id_asignatura">
+            <End Role="Asignatura" EntitySet="Asignaturas" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Aula_dbo_TipoAula_id_tipo_aula" Association="Self.FK_dbo_Aula_dbo_TipoAula_id_tipo_aula">
+            <End Role="TipoAula" EntitySet="TipoAulas" />
+            <End Role="Aula" EntitySet="Aulas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron" Association="Self.FK_dbo_Aula_dbo_TipoPizarron_id_tipo_pizarron">
+            <End Role="TipoPizarron" EntitySet="TipoPizarrons" />
+            <End Role="Aula" EntitySet="Aulas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DetalleReserva_dbo_Aula_id_aula" Association="Self.FK_dbo_DetalleReserva_dbo_Aula_id_aula">
+            <End Role="Aula" EntitySet="Aulas" />
+            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DetalleReserva_dbo_Dia_id_dia" Association="Self.FK_dbo_DetalleReserva_dbo_Dia_id_dia">
+            <End Role="Dia" EntitySet="Dias" />
+            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_DetalleReserva_dbo_Reserva_id_reserva" Association="Self.FK_dbo_DetalleReserva_dbo_Reserva_id_reserva">
+            <End Role="Reserva" EntitySet="Reservas" />
+            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dia_dbo_NombreDia_id_nombre_dia" Association="Self.FK_dbo_Dia_dbo_NombreDia_id_nombre_dia">
+            <End Role="NombreDia" EntitySet="NombreDias" />
+            <End Role="Dia" EntitySet="Dias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dia_dbo_Periodo_id_periodo" Association="Self.FK_dbo_Dia_dbo_Periodo_id_periodo">
+            <End Role="Periodo" EntitySet="Periodoes" />
+            <End Role="Dia" EntitySet="Dias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_Docente_id_docente" Association="Self.FK_dbo_Reserva_dbo_Docente_id_docente">
+            <End Role="Docente" EntitySet="Docentes" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_HistContrasenia_dbo_Usuario_id_usuario" Association="Self.FK_dbo_HistContrasenia_dbo_Usuario_id_usuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="HistContrasenia" EntitySet="HistContrasenias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo" Association="Self.FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo">
+            <End Role="TipoPeriodo" EntitySet="TipoPeriodoes" />
+            <End Role="Periodo" EntitySet="Periodoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva" Association="Self.FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva">
+            <End Role="TipoReserva" EntitySet="TipoReservas" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Reserva_dbo_Usuario_id_usuario" Association="Self.FK_dbo_Reserva_dbo_Usuario_id_usuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario" Association="Self.FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="DocenteAsignatura" Association="Self.DocenteAsignatura">
+            <End Role="Asignatura" EntitySet="Asignaturas" />
+            <End Role="Docente" EntitySet="Docentes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TP2017ModelStoreContainer" CdmEntityContainer="TP2017Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="TP2017Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnioLectivoes">
+            <EntityTypeMapping TypeName="TP2017Model.AnioLectivo">
+              <MappingFragment StoreEntitySet="AnioLectivo">
+                <ScalarProperty Name="id_anio_lectivo" ColumnName="id_anio_lectivo" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asignaturas">
+            <EntityTypeMapping TypeName="TP2017Model.Asignatura">
+              <MappingFragment StoreEntitySet="Asignatura">
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="id_tipo_asignatura" ColumnName="id_tipo_asignatura" />
+                <ScalarProperty Name="nombre_asignatura" ColumnName="nombre_asignatura" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Aulas">
+            <EntityTypeMapping TypeName="TP2017Model.Aula">
+              <MappingFragment StoreEntitySet="Aula">
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="piso" ColumnName="piso" />
+                <ScalarProperty Name="aire_acond" ColumnName="aire_acond" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="ventilador" ColumnName="ventilador" />
+                <ScalarProperty Name="cant_pc" ColumnName="cant_pc" />
+                <ScalarProperty Name="canion" ColumnName="canion" />
+                <ScalarProperty Name="dvd" ColumnName="dvd" />
+                <ScalarProperty Name="tv" ColumnName="tv" />
+                <ScalarProperty Name="pc" ColumnName="pc" />
+                <ScalarProperty Name="id_tipo_pizarron" ColumnName="id_tipo_pizarron" />
+                <ScalarProperty Name="id_tipo_aula" ColumnName="id_tipo_aula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleReservas">
+            <EntityTypeMapping TypeName="TP2017Model.DetalleReserva">
+              <MappingFragment StoreEntitySet="DetalleReserva">
+                <ScalarProperty Name="id_detalle_reserva" ColumnName="id_detalle_reserva" />
+                <ScalarProperty Name="id_dia" ColumnName="id_dia" />
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dias">
+            <EntityTypeMapping TypeName="TP2017Model.Dia">
+              <MappingFragment StoreEntitySet="Dia">
+                <ScalarProperty Name="id_dia" ColumnName="id_dia" />
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_nombre_dia" ColumnName="id_nombre_dia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Docentes">
+            <EntityTypeMapping TypeName="TP2017Model.Docente">
+              <MappingFragment StoreEntitySet="Docente">
+                <ScalarProperty Name="id_docente" ColumnName="id_docente" />
+                <ScalarProperty Name="nombre_docente" ColumnName="nombre_docente" />
+                <ScalarProperty Name="apellido_docente" ColumnName="apellido_docente" />
+                <ScalarProperty Name="email_docente" ColumnName="email_docente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistContrasenias">
+            <EntityTypeMapping TypeName="TP2017Model.HistContrasenia">
+              <MappingFragment StoreEntitySet="HistContrasenia">
+                <ScalarProperty Name="id_historial" ColumnName="id_historial" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NombreDias">
+            <EntityTypeMapping TypeName="TP2017Model.NombreDia">
+              <MappingFragment StoreEntitySet="NombreDia">
+                <ScalarProperty Name="id_nombre_dia" ColumnName="id_nombre_dia" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodoes">
+            <EntityTypeMapping TypeName="TP2017Model.Periodo">
+              <MappingFragment StoreEntitySet="Periodo">
+                <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+                <ScalarProperty Name="id_tipo_periodo" ColumnName="id_tipo_periodo" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="id_anio_lectivo" ColumnName="id_anio_lectivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservas">
+            <EntityTypeMapping TypeName="TP2017Model.Reserva">
+              <MappingFragment StoreEntitySet="Reserva">
+                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="activa" ColumnName="activa" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="id_tipo_reserva" ColumnName="id_tipo_reserva" />
+                <ScalarProperty Name="id_docente" ColumnName="id_docente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TP2017Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoAsignaturas">
+            <EntityTypeMapping TypeName="TP2017Model.TipoAsignatura">
+              <MappingFragment StoreEntitySet="TipoAsignatura">
+                <ScalarProperty Name="id_tipo_asignatura" ColumnName="id_tipo_asignatura" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoAulas">
+            <EntityTypeMapping TypeName="TP2017Model.TipoAula">
+              <MappingFragment StoreEntitySet="TipoAula">
+                <ScalarProperty Name="id_tipo_aula" ColumnName="id_tipo_aula" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPeriodoes">
+            <EntityTypeMapping TypeName="TP2017Model.TipoPeriodo">
+              <MappingFragment StoreEntitySet="TipoPeriodo">
+                <ScalarProperty Name="id_tipo_periodo" ColumnName="id_tipo_periodo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPizarrons">
+            <EntityTypeMapping TypeName="TP2017Model.TipoPizarron">
+              <MappingFragment StoreEntitySet="TipoPizarron">
+                <ScalarProperty Name="id_tipo_pizarron" ColumnName="id_tipo_pizarron" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoReservas">
+            <EntityTypeMapping TypeName="TP2017Model.TipoReserva">
+              <MappingFragment StoreEntitySet="TipoReserva">
+                <ScalarProperty Name="id_tipo_reserva" ColumnName="id_tipo_reserva" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoUsuarios">
+            <EntityTypeMapping TypeName="TP2017Model.TipoUsuario">
+              <MappingFragment StoreEntitySet="TipoUsuario">
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="TP2017Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="turno" ColumnName="turno" />
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DocenteAsignatura" TypeName="TP2017Model.DocenteAsignatura" StoreEntitySet="DocenteAsignatura">
+            <EndProperty Name="Asignatura">
+              <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+            </EndProperty>
+            <EndProperty Name="Docente">
+              <ScalarProperty Name="id_docente" ColumnName="id_docente" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

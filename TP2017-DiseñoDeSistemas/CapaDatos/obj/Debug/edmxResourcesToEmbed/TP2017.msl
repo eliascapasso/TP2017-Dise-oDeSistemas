@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TP2017ModelStoreContainer" CdmEntityContainer="TP2017">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="TP2017Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnioLectivoes">
+      <EntityTypeMapping TypeName="TP2017Model.AnioLectivo">
+        <MappingFragment StoreEntitySet="AnioLectivo">
+          <ScalarProperty Name="id_anio_lectivo" ColumnName="id_anio_lectivo" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Asignaturas">
+      <EntityTypeMapping TypeName="TP2017Model.Asignatura">
+        <MappingFragment StoreEntitySet="Asignatura">
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="id_tipo_asignatura" ColumnName="id_tipo_asignatura" />
+          <ScalarProperty Name="nombre_asignatura" ColumnName="nombre_asignatura" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aulas">
+      <EntityTypeMapping TypeName="TP2017Model.Aula">
+        <MappingFragment StoreEntitySet="Aula">
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+          <ScalarProperty Name="piso" ColumnName="piso" />
+          <ScalarProperty Name="aire_acond" ColumnName="aire_acond" />
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+          <ScalarProperty Name="ventilador" ColumnName="ventilador" />
+          <ScalarProperty Name="cant_pc" ColumnName="cant_pc" />
+          <ScalarProperty Name="canion" ColumnName="canion" />
+          <ScalarProperty Name="dvd" ColumnName="dvd" />
+          <ScalarProperty Name="tv" ColumnName="tv" />
+          <ScalarProperty Name="pc" ColumnName="pc" />
+          <ScalarProperty Name="id_tipo_pizarron" ColumnName="id_tipo_pizarron" />
+          <ScalarProperty Name="id_tipo_aula" ColumnName="id_tipo_aula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleReservas">
+      <EntityTypeMapping TypeName="TP2017Model.DetalleReserva">
+        <MappingFragment StoreEntitySet="DetalleReserva">
+          <ScalarProperty Name="id_detalle_reserva" ColumnName="id_detalle_reserva" />
+          <ScalarProperty Name="id_dia" ColumnName="id_dia" />
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dias">
+      <EntityTypeMapping TypeName="TP2017Model.Dia">
+        <MappingFragment StoreEntitySet="Dia">
+          <ScalarProperty Name="id_dia" ColumnName="id_dia" />
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_nombre_dia" ColumnName="id_nombre_dia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Docentes">
+      <EntityTypeMapping TypeName="TP2017Model.Docente">
+        <MappingFragment StoreEntitySet="Docente">
+          <ScalarProperty Name="id_docente" ColumnName="id_docente" />
+          <ScalarProperty Name="nombre_docente" ColumnName="nombre_docente" />
+          <ScalarProperty Name="apellido_docente" ColumnName="apellido_docente" />
+          <ScalarProperty Name="email_docente" ColumnName="email_docente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistContrasenias">
+      <EntityTypeMapping TypeName="TP2017Model.HistContrasenia">
+        <MappingFragment StoreEntitySet="HistContrasenia">
+          <ScalarProperty Name="id_historial" ColumnName="id_historial" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NombreDias">
+      <EntityTypeMapping TypeName="TP2017Model.NombreDia">
+        <MappingFragment StoreEntitySet="NombreDia">
+          <ScalarProperty Name="id_nombre_dia" ColumnName="id_nombre_dia" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodoes">
+      <EntityTypeMapping TypeName="TP2017Model.Periodo">
+        <MappingFragment StoreEntitySet="Periodo">
+          <ScalarProperty Name="id_periodo" ColumnName="id_periodo" />
+          <ScalarProperty Name="id_tipo_periodo" ColumnName="id_tipo_periodo" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="id_anio_lectivo" ColumnName="id_anio_lectivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservas">
+      <EntityTypeMapping TypeName="TP2017Model.Reserva">
+        <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
+          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+          <ScalarProperty Name="activa" ColumnName="activa" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="id_tipo_reserva" ColumnName="id_tipo_reserva" />
+          <ScalarProperty Name="id_docente" ColumnName="id_docente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TP2017Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAsignaturas">
+      <EntityTypeMapping TypeName="TP2017Model.TipoAsignatura">
+        <MappingFragment StoreEntitySet="TipoAsignatura">
+          <ScalarProperty Name="id_tipo_asignatura" ColumnName="id_tipo_asignatura" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAulas">
+      <EntityTypeMapping TypeName="TP2017Model.TipoAula">
+        <MappingFragment StoreEntitySet="TipoAula">
+          <ScalarProperty Name="id_tipo_aula" ColumnName="id_tipo_aula" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPeriodoes">
+      <EntityTypeMapping TypeName="TP2017Model.TipoPeriodo">
+        <MappingFragment StoreEntitySet="TipoPeriodo">
+          <ScalarProperty Name="id_tipo_periodo" ColumnName="id_tipo_periodo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPizarrons">
+      <EntityTypeMapping TypeName="TP2017Model.TipoPizarron">
+        <MappingFragment StoreEntitySet="TipoPizarron">
+          <ScalarProperty Name="id_tipo_pizarron" ColumnName="id_tipo_pizarron" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoReservas">
+      <EntityTypeMapping TypeName="TP2017Model.TipoReserva">
+        <MappingFragment StoreEntitySet="TipoReserva">
+          <ScalarProperty Name="id_tipo_reserva" ColumnName="id_tipo_reserva" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuarios">
+      <EntityTypeMapping TypeName="TP2017Model.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="TP2017Model.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="turno" ColumnName="turno" />
+          <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DocenteAsignatura" TypeName="TP2017Model.DocenteAsignatura" StoreEntitySet="DocenteAsignatura">
+      <EndProperty Name="Asignatura">
+        <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
+      </EndProperty>
+      <EndProperty Name="Docente">
+        <ScalarProperty Name="id_docente" ColumnName="id_docente" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -12,17 +12,11 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleReserva
+    public partial class C__MigrationHistory
     {
-        public int id_detalle_reserva { get; set; }
-        public Nullable<int> id_dia { get; set; }
-        public Nullable<int> id_reserva { get; set; }
-        public Nullable<int> id_aula { get; set; }
-        public Nullable<System.TimeSpan> hora_inicio { get; set; }
-        public Nullable<System.TimeSpan> duracion { get; set; }
-    
-        public virtual Aula Aula { get; set; }
-        public virtual Dia Dia { get; set; }
-        public virtual Reserva Reserva { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

@@ -51,32 +51,108 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnioLectivo.cs" />
-    <Compile Include="Asignatura.cs" />
-    <Compile Include="Aula.cs" />
-    <Compile Include="DetalleReserva.cs" />
-    <Compile Include="Dia.cs" />
-    <Compile Include="Docente.cs" />
-    <Compile Include="HistContrasenia.cs" />
+    <Compile Include="AnioLectivo.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asignatura.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Aula.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bedel.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleReserva.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dia.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Docente.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HistContrasenia.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
     <Compile Include="HistContraseniaDAODB.cs" />
-    <Compile Include="NombreDia.cs" />
-    <Compile Include="Periodo.cs" />
+    <Compile Include="NombreDia.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Periodo.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reserva.cs" />
-    <Compile Include="sysdiagrams.cs" />
-    <Compile Include="TipoAsignatura.cs" />
-    <Compile Include="TipoAula.cs" />
-    <Compile Include="TipoPeriodo.cs" />
-    <Compile Include="TipoPizarron.cs" />
-    <Compile Include="TipoReserva.cs" />
-    <Compile Include="TipoUsuario.cs" />
-    <Compile Include="TP2017.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="Reserva.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoAsignatura.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoAula.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoPeriodo.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoPizarron.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoReserva.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoUsuario.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TP2017.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TP2017.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TP2017.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TP2017.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TP2017.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioDAODB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="TP2017.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TP2017.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TP2017.edmx.diagram">
+      <DependentUpon>TP2017.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TP2017.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TP2017.edmx</DependentUpon>
+      <LastGenOutput>TP2017.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TP2017.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TP2017.edmx</DependentUpon>
+      <LastGenOutput>TP2017.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

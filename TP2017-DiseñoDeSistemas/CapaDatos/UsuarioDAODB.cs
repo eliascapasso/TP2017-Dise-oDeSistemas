@@ -9,15 +9,15 @@ namespace CapaDatos
 {
     public class UsuarioDAODB
     {
-        public UsuarioDAODB(){}
-        
+        public UsuarioDAODB() { }
+
 
         public bool comprobarNickRepetido(string nick)
         {
             //Debe revisar que el nick no esta repetido en la BD
-            using (var bd = new TP2017())
+            using (TP2017 bd = new TP2017())
             {
-                var query = (from Usuario in bd.Usuario where Usuario.nick == nick select nick).Count();
+                var query = (from Usuario in bd.Usuarios where Usuario.nick == nick select nick).Count();
                 if (query == 0)
                     return true;
                 else
@@ -27,21 +27,15 @@ namespace CapaDatos
 
         public void guardarBedel(Usuario bedel)
         {
-            
+
             using (var bd = new TP2017())
             {
-               
-                bd.Usuario.Add(bedel);
+                bd.Usuarios.Add(bedel);
                 bd.SaveChanges();
                 //Aca manda el bedel a guardar el nuevo historial contrasenia
-                HistContraseniaDAODB hc = new HistContraseniaDAODB();
-                hc.guardarHistorialContrasenia(bedel);
-
+                /*HistContraseniaDAODB hc = new HistContraseniaDAODB();
+                hc.guardarHistorialContrasenia(bedel);*/
             }
-            
         }
-
-
-        
     }
 }

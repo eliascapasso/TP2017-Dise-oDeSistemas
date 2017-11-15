@@ -12,17 +12,12 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class DetalleReserva
+    public partial class sysdiagram
     {
-        public int id_detalle_reserva { get; set; }
-        public Nullable<int> id_dia { get; set; }
-        public Nullable<int> id_reserva { get; set; }
-        public Nullable<int> id_aula { get; set; }
-        public Nullable<System.TimeSpan> hora_inicio { get; set; }
-        public Nullable<System.TimeSpan> duracion { get; set; }
-    
-        public virtual Aula Aula { get; set; }
-        public virtual Dia Dia { get; set; }
-        public virtual Reserva Reserva { get; set; }
+        public int diagram_id { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
