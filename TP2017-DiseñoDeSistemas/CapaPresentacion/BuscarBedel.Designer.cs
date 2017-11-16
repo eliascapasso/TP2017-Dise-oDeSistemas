@@ -28,18 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscarBedel));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.apellido = new System.Windows.Forms.TextBox();
-            this.nombre = new System.Windows.Forms.TextBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.turno = new System.Windows.Forms.ComboBox();
-            this.bBuscar = new System.Windows.Forms.Button();
-            this.tablaBusqueda = new System.Windows.Forms.TableLayoutPanel();
+            this.cbTurno = new System.Windows.Forms.ComboBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.bModificar = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             this.bCerrar = new System.Windows.Forms.Button();
+            this.vistaBusqueda = new System.Windows.Forms.DataGridView();
+            this.tP2017DataSet = new CapaPresentacion.TP2017DataSet();
+            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usuarioTableAdapter = new CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter();
+            this.usuarioDAODBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buscarBedelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nickDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.turnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,69 +64,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Apellido";
             // 
-            // label2
+            // tbApellido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre";
-            // 
-            // apellido
-            // 
-            this.apellido.Location = new System.Drawing.Point(57, 17);
-            this.apellido.Name = "apellido";
-            this.apellido.Size = new System.Drawing.Size(122, 20);
-            this.apellido.TabIndex = 2;
-            // 
-            // nombre
-            // 
-            this.nombre.Location = new System.Drawing.Point(235, 17);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(122, 20);
-            this.nombre.TabIndex = 3;
+            this.tbApellido.Location = new System.Drawing.Point(57, 17);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(122, 20);
+            this.tbApellido.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(363, 20);
+            this.label3.Location = new System.Drawing.Point(185, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Turno";
             // 
-            // turno
+            // cbTurno
             // 
-            this.turno.FormattingEnabled = true;
-            this.turno.Location = new System.Drawing.Point(404, 17);
-            this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(122, 21);
-            this.turno.TabIndex = 5;
+            this.cbTurno.FormattingEnabled = true;
+            this.cbTurno.Location = new System.Drawing.Point(226, 17);
+            this.cbTurno.Name = "cbTurno";
+            this.cbTurno.Size = new System.Drawing.Size(122, 21);
+            this.cbTurno.TabIndex = 5;
             // 
-            // bBuscar
+            // btnBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(538, 15);
-            this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(75, 23);
-            this.bBuscar.TabIndex = 6;
-            this.bBuscar.Text = "Buscar";
-            this.bBuscar.UseVisualStyleBackColor = true;
-            // 
-            // tablaBusqueda
-            // 
-            this.tablaBusqueda.ColumnCount = 4;
-            this.tablaBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tablaBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tablaBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tablaBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tablaBusqueda.Location = new System.Drawing.Point(12, 43);
-            this.tablaBusqueda.Name = "tablaBusqueda";
-            this.tablaBusqueda.RowCount = 2;
-            this.tablaBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablaBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tablaBusqueda.Size = new System.Drawing.Size(601, 149);
-            this.tablaBusqueda.TabIndex = 7;
+            this.btnBuscar.Location = new System.Drawing.Point(538, 15);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // bModificar
             // 
@@ -145,6 +128,69 @@
             this.bCerrar.UseVisualStyleBackColor = true;
             this.bCerrar.Click += new System.EventHandler(this.bCerrar_Click);
             // 
+            // vistaBusqueda
+            // 
+            this.vistaBusqueda.AllowUserToAddRows = false;
+            this.vistaBusqueda.AutoGenerateColumns = false;
+            this.vistaBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vistaBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nickDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.turnoDataGridViewTextBoxColumn});
+            this.vistaBusqueda.DataSource = this.usuarioBindingSource;
+            this.vistaBusqueda.Location = new System.Drawing.Point(12, 44);
+            this.vistaBusqueda.Name = "vistaBusqueda";
+            this.vistaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.vistaBusqueda.Size = new System.Drawing.Size(601, 150);
+            this.vistaBusqueda.TabIndex = 11;
+            // 
+            // tP2017DataSet
+            // 
+            this.tP2017DataSet.DataSetName = "TP2017DataSet";
+            this.tP2017DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usuarioBindingSource
+            // 
+            this.usuarioBindingSource.DataMember = "Usuario";
+            this.usuarioBindingSource.DataSource = this.tP2017DataSet;
+            // 
+            // usuarioTableAdapter
+            // 
+            this.usuarioTableAdapter.ClearBeforeFill = true;
+            // 
+            // usuarioDAODBBindingSource
+            // 
+            this.usuarioDAODBBindingSource.DataSource = typeof(CapaDatos.UsuarioDAODB);
+            // 
+            // buscarBedelBindingSource
+            // 
+            //this.buscarBedelBindingSource.DataSource = typeof(Autenticacion.BuscarBedel);
+            // 
+            // nickDataGridViewTextBoxColumn
+            // 
+            this.nickDataGridViewTextBoxColumn.DataPropertyName = "nick";
+            this.nickDataGridViewTextBoxColumn.HeaderText = "Nick";
+            this.nickDataGridViewTextBoxColumn.Name = "nickDataGridViewTextBoxColumn";
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // turnoDataGridViewTextBoxColumn
+            // 
+            this.turnoDataGridViewTextBoxColumn.DataPropertyName = "turno";
+            this.turnoDataGridViewTextBoxColumn.HeaderText = "Turno";
+            this.turnoDataGridViewTextBoxColumn.Name = "turnoDataGridViewTextBoxColumn";
+            // 
             // BuscarBedel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,16 +198,14 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(625, 261);
+            this.Controls.Add(this.vistaBusqueda);
             this.Controls.Add(this.bCerrar);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.bModificar);
-            this.Controls.Add(this.tablaBusqueda);
-            this.Controls.Add(this.bBuscar);
-            this.Controls.Add(this.turno);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.cbTurno);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.nombre);
-            this.Controls.Add(this.apellido);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -171,6 +215,12 @@
             this.Name = "BuscarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Bedeles";
+            this.Load += new System.EventHandler(this.BuscarBedel_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,15 +229,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox apellido;
-        private System.Windows.Forms.TextBox nombre;
+        private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox turno;
-        private System.Windows.Forms.Button bBuscar;
-        private System.Windows.Forms.TableLayoutPanel tablaBusqueda;
+        private System.Windows.Forms.ComboBox cbTurno;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button bModificar;
         private System.Windows.Forms.Button bEliminar;
         private System.Windows.Forms.Button bCerrar;
+        private System.Windows.Forms.DataGridView vistaBusqueda;
+        private CapaPresentacion.TP2017DataSet tP2017DataSet;
+        private System.Windows.Forms.BindingSource usuarioBindingSource;
+        private CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
+        private System.Windows.Forms.BindingSource usuarioDAODBBindingSource;
+        private System.Windows.Forms.BindingSource buscarBedelBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nickDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn turnoDataGridViewTextBoxColumn;
     }
 }

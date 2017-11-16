@@ -39,5 +39,49 @@ namespace CapaLogica
                 throw new PoliticasContraseniaException();
             }
         }
+
+        public void modificarBedel(string nickActual, string nick, string apellido, string nombre, string turno, string pass)
+        {
+            UsuarioDAODB userDAODB = new UsuarioDAODB();
+            GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
+
+            //Comprueba politicas de contraseña
+            if (gestorPoliticas.comprobarPoliticas(pass))
+            {
+                //Comprueba que no exista el nick ingresado
+                if (userDAODB.comprobarNickRepetido(nick))
+                {
+                    Usuario bedel = userDAODB.modificarBedel(nickActual, nick, apellido, nombre, turno, pass);
+
+                    HistContrasenia historial = new HistContrasenia(pass, bedel.id_usuario);
+                    bedel.agregarHistorial(historial);
+                }
+                else
+                {
+                    throw new NickException();
+                }
+            }
+            else if (pass.Equals(""))
+            {
+                //Comprueba que no exista el nick ingresado
+                if (userDAODB.comprobarNickRepetido(nick))
+                {
+                    Usuario bedel = userDAODB.modificarBedel(nickActual, nick, apellido, nombre, turno, pass);
+
+                    HistContrasenia historial = new HistContrasenia(pass, bedel.id_usuario);
+                    bedel.agregarHistorial(historial);
+                }
+                else
+                {
+                    throw new NickException();
+                }
+            }
+            else
+            {
+                throw new PoliticasContraseniaException();
+            }
+
+            
+        }
     }
 }

@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarBedel));
-            this.bCerrar = new System.Windows.Forms.Button();
-            this.bAceptar = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.confPass = new System.Windows.Forms.TextBox();
-            this.pass = new System.Windows.Forms.TextBox();
-            this.idUsuario = new System.Windows.Forms.TextBox();
-            this.turno = new System.Windows.Forms.ComboBox();
-            this.apellido = new System.Windows.Forms.TextBox();
-            this.nombre = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.tbConfPass = new System.Windows.Forms.TextBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.tbNick = new System.Windows.Forms.TextBox();
+            this.cbTurno = new System.Windows.Forms.ComboBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,76 +46,68 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // bCerrar
+            // btnCerrar
             // 
-            this.bCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bCerrar.Location = new System.Drawing.Point(116, 255);
-            this.bCerrar.Name = "bCerrar";
-            this.bCerrar.Size = new System.Drawing.Size(75, 23);
-            this.bCerrar.TabIndex = 32;
-            this.bCerrar.Text = "Cerrar";
-            this.bCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCerrar.Location = new System.Drawing.Point(116, 255);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 32;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // bAceptar
+            // btnAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(197, 255);
-            this.bAceptar.Name = "bAceptar";
-            this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 31;
-            this.bAceptar.Text = "Aceptar";
-            this.bAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Location = new System.Drawing.Point(197, 255);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 31;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
-            // label8
+            // tbConfPass
             // 
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(12, 260);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 32);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Campos obligatorios (*)";
+            this.tbConfPass.Location = new System.Drawing.Point(77, 204);
+            this.tbConfPass.Name = "tbConfPass";
+            this.tbConfPass.Size = new System.Drawing.Size(195, 20);
+            this.tbConfPass.TabIndex = 29;
             // 
-            // confPass
+            // tbPass
             // 
-            this.confPass.Location = new System.Drawing.Point(77, 204);
-            this.confPass.Name = "confPass";
-            this.confPass.Size = new System.Drawing.Size(195, 20);
-            this.confPass.TabIndex = 29;
+            this.tbPass.Location = new System.Drawing.Point(77, 168);
+            this.tbPass.Name = "tbPass";
+            this.tbPass.Size = new System.Drawing.Size(195, 20);
+            this.tbPass.TabIndex = 28;
             // 
-            // pass
+            // tbNick
             // 
-            this.pass.Location = new System.Drawing.Point(77, 168);
-            this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(195, 20);
-            this.pass.TabIndex = 28;
+            this.tbNick.Location = new System.Drawing.Point(77, 136);
+            this.tbNick.Name = "tbNick";
+            this.tbNick.Size = new System.Drawing.Size(195, 20);
+            this.tbNick.TabIndex = 27;
             // 
-            // idUsuario
+            // cbTurno
             // 
-            this.idUsuario.Location = new System.Drawing.Point(77, 136);
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.Size = new System.Drawing.Size(195, 20);
-            this.idUsuario.TabIndex = 27;
+            this.cbTurno.FormattingEnabled = true;
+            this.cbTurno.Location = new System.Drawing.Point(77, 104);
+            this.cbTurno.Name = "cbTurno";
+            this.cbTurno.Size = new System.Drawing.Size(195, 21);
+            this.cbTurno.TabIndex = 26;
             // 
-            // turno
+            // tbApellido
             // 
-            this.turno.FormattingEnabled = true;
-            this.turno.Location = new System.Drawing.Point(77, 104);
-            this.turno.Name = "turno";
-            this.turno.Size = new System.Drawing.Size(195, 21);
-            this.turno.TabIndex = 26;
+            this.tbApellido.Location = new System.Drawing.Point(77, 72);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(195, 20);
+            this.tbApellido.TabIndex = 25;
             // 
-            // apellido
+            // tbNombre
             // 
-            this.apellido.Location = new System.Drawing.Point(77, 72);
-            this.apellido.Name = "apellido";
-            this.apellido.Size = new System.Drawing.Size(195, 20);
-            this.apellido.TabIndex = 25;
-            // 
-            // nombre
-            // 
-            this.nombre.Location = new System.Drawing.Point(77, 45);
-            this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(195, 20);
-            this.nombre.TabIndex = 24;
+            this.tbNombre.Location = new System.Drawing.Point(77, 45);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(195, 20);
+            this.tbNombre.TabIndex = 24;
             // 
             // label7
             // 
@@ -124,52 +115,52 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 32);
             this.label7.TabIndex = 23;
-            this.label7.Text = "Confirmar Contraseña*";
+            this.label7.Text = "Confirmar Contraseña";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 171);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 22;
-            this.label6.Text = "Contraseña*";
+            this.label6.Text = "Contraseña";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 139);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 21;
-            this.label5.Text = "ID Usuario*";
+            this.label5.Text = "Nick";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Turno*";
+            this.label4.Text = "Turno";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Apellido*";
+            this.label3.Text = "Apellido";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Nombre*";
+            this.label2.Text = "Nombre";
             // 
             // label1
             // 
@@ -183,20 +174,19 @@
             // 
             // ModificarBedel
             // 
-            this.AcceptButton = this.bAceptar;
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bCerrar;
+            this.CancelButton = this.btnCerrar;
             this.ClientSize = new System.Drawing.Size(293, 296);
-            this.Controls.Add(this.bCerrar);
-            this.Controls.Add(this.bAceptar);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.confPass);
-            this.Controls.Add(this.pass);
-            this.Controls.Add(this.idUsuario);
-            this.Controls.Add(this.turno);
-            this.Controls.Add(this.apellido);
-            this.Controls.Add(this.nombre);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.tbConfPass);
+            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.tbNick);
+            this.Controls.Add(this.cbTurno);
+            this.Controls.Add(this.tbApellido);
+            this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -218,15 +208,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bCerrar;
-        private System.Windows.Forms.Button bAceptar;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox confPass;
-        private System.Windows.Forms.TextBox pass;
-        private System.Windows.Forms.TextBox idUsuario;
-        private System.Windows.Forms.ComboBox turno;
-        private System.Windows.Forms.TextBox apellido;
-        private System.Windows.Forms.TextBox nombre;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox tbConfPass;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.TextBox tbNick;
+        private System.Windows.Forms.ComboBox cbTurno;
+        private System.Windows.Forms.TextBox tbApellido;
+        private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

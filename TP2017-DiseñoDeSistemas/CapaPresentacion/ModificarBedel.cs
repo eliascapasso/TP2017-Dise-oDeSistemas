@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,25 @@ namespace Autenticacion
 {
     public partial class ModificarBedel : Form
     {
-        public ModificarBedel()
+        private string nickBedelActual;
+        public ModificarBedel(string nick)
         {
             InitializeComponent();
+            this.nickBedelActual = nick;
+        }
+
+        private void bAceptar_Click(object sender, EventArgs e)
+        {
+            if (tbPass.Text.Equals(tbConfPass.Text))
+            {
+                GestorDeUsuario gestor = new GestorDeUsuario();
+                gestor.modificarBedel(nickBedelActual, tbNick.Text, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
+            }
+            else
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

@@ -136,6 +136,11 @@
     <Compile Include="RegistrarReserva_2.Designer.cs">
       <DependentUpon>RegistrarReserva_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="TP2017DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TP2017DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Autenticacion.resx">
       <DependentUpon>Autenticacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +191,8 @@
       <DependentUpon>RegistrarReserva_2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Autenticacion.BuscarBedel.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.UsuarioDAODB.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,6 +202,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TP2017DataSet.xsc">
+      <DependentUpon>TP2017DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TP2017DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TP2017DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TP2017DataSet.xss">
+      <DependentUpon>TP2017DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -224,6 +242,9 @@
       <Project>{80311F07-E0C2-4264-8190-7DAB5CCE6CE3}</Project>
       <Name>Excepciones</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

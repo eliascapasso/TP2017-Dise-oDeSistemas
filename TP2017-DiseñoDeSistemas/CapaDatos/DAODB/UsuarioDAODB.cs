@@ -1,18 +1,79 @@
 ﻿namespace CapaDatos
 {
-    using System;
+    using System.Collections;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using CapaDatos;
 
     public class UsuarioDAODB
     {
         public UsuarioDAODB() { }
 
+        //Para la busqueda de un bedel
+        public ArrayList obtenerBedeles(string ap, string tur)
+        {
+            ArrayList listaUsuarios = new ArrayList();
 
-       public bool comprobarNickRepetido(string nick)
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                if (!ap.Equals("") && !tur.Equals(""))
+                {
+                    foreach (Usuario usuario in bd.Usuarios)
+                    {
+                        if (usuario.apellido.Equals(ap) && usuario.turno.Equals(tur))
+                        {
+                            listaUsuarios.Add(usuario);
+                        }
+                    }
+                }
+                else if(!ap.Equals("") && tur.Equals(""))
+                {
+                    foreach (Usuario usuario in bd.Usuarios)
+                    {
+                        if (usuario.apellido.Equals(ap))
+                        {
+                            listaUsuarios.Add(usuario);
+                        }
+                    }
+                }
+                else if (ap.Equals("") && !tur.Equals(""))
+                {
+                    foreach (Usuario usuario in bd.Usuarios)
+                    {
+                        if (usuario.turno.Equals(tur))
+                        {
+                            listaUsuarios.Add(usuario);
+                        }
+                    }
+                }
+                
+            }
+            return listaUsuarios;
+        }
+
+        public Usuario modificarBedel(string nickActual, string nick, string apellido, string nombre, string turno, string pass)
+        {
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                foreach (Usuario bedel in bd.Usuarios)
+                {
+                    if (bedel.nick.Equals(nickActual))
+                    {
+                        //Falta validar que campos se dejaron vacios
+                        bedel.nick = nick;
+                        bedel.apellido = apellido;
+                        bedel.nombre = nombre;
+                        bedel.turno = turno;
+                        bedel.contrasenia = pass;
+
+                        return bedel;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public bool comprobarNickRepetido(string nick)
         {
             //Debe revisar que el nick no esta repetido en la BD
             using (TP2017Entities bd = new TP2017Entities())
