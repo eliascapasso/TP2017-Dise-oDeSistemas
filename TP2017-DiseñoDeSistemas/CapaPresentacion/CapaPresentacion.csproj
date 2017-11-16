@@ -141,6 +141,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TP2017DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TP2017DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TP2017DataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Autenticacion.resx">
       <DependentUpon>Autenticacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +217,17 @@
     </None>
     <None Include="TP2017DataSet.xss">
       <DependentUpon>TP2017DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TP2017DataSet1.xsc">
+      <DependentUpon>TP2017DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TP2017DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TP2017DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TP2017DataSet1.xss">
+      <DependentUpon>TP2017DataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

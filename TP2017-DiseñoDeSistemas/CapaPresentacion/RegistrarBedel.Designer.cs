@@ -126,6 +126,7 @@
             // 
             // cbTurno
             // 
+            this.cbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTurno.FormattingEnabled = true;
             this.cbTurno.Items.AddRange(new object[] {
             "Mañana",
@@ -135,6 +136,7 @@
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(195, 21);
             this.cbTurno.TabIndex = 9;
+            this.cbTurno.Tag = "";
             // 
             // tbNick
             // 
@@ -195,7 +197,7 @@
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 300);
+            this.ClientSize = new System.Drawing.Size(284, 301);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label8);

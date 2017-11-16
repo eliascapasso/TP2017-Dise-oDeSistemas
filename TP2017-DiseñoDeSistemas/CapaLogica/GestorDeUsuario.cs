@@ -40,36 +40,30 @@ namespace CapaLogica
             }
         }
 
-        public void modificarBedel(string nickActual, string nick, string apellido, string nombre, string turno, string pass)
+        public void modificarBedel(string nickActual, String nick, String apellido, String nombre, String turno, String pass)
         {
+            bool passmodificada = !pass.Equals("");
+
             UsuarioDAODB userDAODB = new UsuarioDAODB();
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
             //Comprueba politicas de contraseña
-            if (gestorPoliticas.comprobarPoliticas(pass))
+            if (gestorPoliticas.comprobarPoliticas(pass) || !passmodificada)
             {
                 //Comprueba que no exista el nick ingresado
                 if (userDAODB.comprobarNickRepetido(nick))
                 {
-                    Usuario bedel = userDAODB.modificarBedel(nickActual, nick, apellido, nombre, turno, pass);
+                    
+                    Usuario bedelActual = userDAODB.obtenerBedel(nickActual);
+                    Usuario bedelMod = this.setModificaciones(bedelActual, nick, apellido, nombre, turno, pass);
 
-                    HistContrasenia historial = new HistContrasenia(pass, bedel.id_usuario);
-                    bedel.agregarHistorial(historial);
-                }
-                else
-                {
-                    throw new NickException();
-                }
-            }
-            else if (pass.Equals(""))
-            {
-                //Comprueba que no exista el nick ingresado
-                if (userDAODB.comprobarNickRepetido(nick))
-                {
-                    Usuario bedel = userDAODB.modificarBedel(nickActual, nick, apellido, nombre, turno, pass);
+                    if (passmodificada)
+                    {
+                        HistContrasenia historial = new HistContrasenia(pass, bedelMod.id_usuario);
+                        bedelMod.agregarHistorial(historial);
+                    }
 
-                    HistContrasenia historial = new HistContrasenia(pass, bedel.id_usuario);
-                    bedel.agregarHistorial(historial);
+                    userDAODB.guardarBedelModificado(nickActual, bedelMod, bedelActual);
                 }
                 else
                 {
@@ -82,6 +76,32 @@ namespace CapaLogica
             }
 
             
+        }
+
+        private Usuario setModificaciones(Usuario bedelMod, string nick, string apellido, string nombre, string turno, string pass)
+        {
+            if (!nick.Equals(""))
+            {
+                bedelMod.nick = nick;
+            }
+            if (!apellido.Equals(""))
+            {
+                bedelMod.apellido = apellido;
+            }
+            if (!nombre.Equals(""))
+            {
+                bedelMod.nombre = nombre;
+            }
+            if (!turno.Equals(""))
+            {
+                bedelMod.turno = turno;
+            }
+            if (!pass.Equals(""))
+            {
+                bedelMod.contrasenia = pass;
+            }
+
+            return bedelMod;
         }
     }
 }

@@ -31,10 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarBedel));
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.tbConfPass = new System.Windows.Forms.TextBox();
-            this.tbPass = new System.Windows.Forms.TextBox();
             this.tbNick = new System.Windows.Forms.TextBox();
-            this.cbTurno = new System.Windows.Forms.ComboBox();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,6 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbTurno = new System.Windows.Forms.ComboBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.tbConfPass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCerrar
@@ -66,34 +66,12 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
-            // tbConfPass
-            // 
-            this.tbConfPass.Location = new System.Drawing.Point(77, 204);
-            this.tbConfPass.Name = "tbConfPass";
-            this.tbConfPass.Size = new System.Drawing.Size(195, 20);
-            this.tbConfPass.TabIndex = 29;
-            // 
-            // tbPass
-            // 
-            this.tbPass.Location = new System.Drawing.Point(77, 168);
-            this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(195, 20);
-            this.tbPass.TabIndex = 28;
-            // 
             // tbNick
             // 
             this.tbNick.Location = new System.Drawing.Point(77, 136);
             this.tbNick.Name = "tbNick";
             this.tbNick.Size = new System.Drawing.Size(195, 20);
             this.tbNick.TabIndex = 27;
-            // 
-            // cbTurno
-            // 
-            this.cbTurno.FormattingEnabled = true;
-            this.cbTurno.Location = new System.Drawing.Point(77, 104);
-            this.cbTurno.Name = "cbTurno";
-            this.cbTurno.Size = new System.Drawing.Size(195, 21);
-            this.cbTurno.TabIndex = 26;
             // 
             // tbApellido
             // 
@@ -172,6 +150,38 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Modifique datos del Bedel seleccionado:";
             // 
+            // cbTurno
+            // 
+            this.cbTurno.DisplayMember = "Mañana";
+            this.cbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTurno.FormattingEnabled = true;
+            this.cbTurno.Items.AddRange(new object[] {
+            "Mañana",
+            "Tarde",
+            "Noche"});
+            this.cbTurno.Location = new System.Drawing.Point(77, 104);
+            this.cbTurno.Name = "cbTurno";
+            this.cbTurno.Size = new System.Drawing.Size(195, 21);
+            this.cbTurno.TabIndex = 33;
+            // 
+            // tbPass
+            // 
+            this.tbPass.Location = new System.Drawing.Point(77, 168);
+            this.tbPass.MaxLength = 20;
+            this.tbPass.Name = "tbPass";
+            this.tbPass.PasswordChar = '*';
+            this.tbPass.Size = new System.Drawing.Size(195, 20);
+            this.tbPass.TabIndex = 34;
+            // 
+            // tbConfPass
+            // 
+            this.tbConfPass.Location = new System.Drawing.Point(77, 201);
+            this.tbConfPass.MaxLength = 20;
+            this.tbConfPass.Name = "tbConfPass";
+            this.tbConfPass.PasswordChar = '*';
+            this.tbConfPass.Size = new System.Drawing.Size(195, 20);
+            this.tbConfPass.TabIndex = 35;
+            // 
             // ModificarBedel
             // 
             this.AcceptButton = this.btnAceptar;
@@ -179,12 +189,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCerrar;
             this.ClientSize = new System.Drawing.Size(293, 296);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.tbConfPass);
             this.Controls.Add(this.tbPass);
-            this.Controls.Add(this.tbNick);
             this.Controls.Add(this.cbTurno);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.tbNick);
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.label7);
@@ -210,10 +220,7 @@
 
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.TextBox tbConfPass;
-        private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.TextBox tbNick;
-        private System.Windows.Forms.ComboBox cbTurno;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label label7;
@@ -223,5 +230,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbTurno;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.TextBox tbConfPass;
     }
 }

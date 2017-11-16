@@ -14,6 +14,8 @@ namespace Autenticacion
 {
     public partial class BuscarBedel : Form
     {
+        private string nickSeleccionado;
+
         public BuscarBedel()
         {
             InitializeComponent();
@@ -26,11 +28,18 @@ namespace Autenticacion
 
         private void bModificar_Click(object sender, EventArgs e)
         {
-            //Falta la seleccion del bedel
-            string nickBedel = vistaBusqueda.SelectedRows[0].ToString();
-
-            ModificarBedel modBedel = new ModificarBedel(nickBedel);
-            modBedel.Show();
+            try
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show(nickSeleccionado, "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                ModificarBedel modBedel = new ModificarBedel(nickSeleccionado);
+                modBedel.Show();
+            }
+            catch(NullReferenceException l)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("Seleccione un bedel para modificar", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void bEliminar_Click(object sender, EventArgs e)
@@ -47,7 +56,7 @@ namespace Autenticacion
             }*/
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click()
         {
             if(tbApellido.Equals("") && cbTurno.SelectedItem.ToString().Equals(""))
             {
@@ -56,17 +65,23 @@ namespace Autenticacion
             }
             else
             {
-                UsuarioDAODB  usuDao= new UsuarioDAODB();
-
-                ArrayList bedeles = usuDao.obtenerBedeles(tbApellido.Text, cbTurno.SelectedItem.ToString());
+                //No implementado
             }
         }
 
         private void BuscarBedel_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'tP2017DataSet1.Usuario' Puede moverla o quitarla según sea necesario.
+            this.usuarioTableAdapter1.Fill(this.tP2017DataSet1.Usuario);
             // TODO: esta línea de código carga datos en la tabla 'tP2017DataSet.Usuario' Puede moverla o quitarla según sea necesario.
             this.usuarioTableAdapter.Fill(this.tP2017DataSet.Usuario);
-
         }
+
+        private void vistaBusqueda_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow fila = vistaBusqueda.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+
+            this.nickSeleccionado = Convert.ToString(fila.Cells[1].Value); //obtengo el valor de la primer columna
+         }
     }
 }

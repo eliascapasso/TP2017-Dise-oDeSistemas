@@ -18,6 +18,12 @@ namespace Autenticacion
         {
             InitializeComponent();
             this.nickBedelActual = nick;
+
+            tbNombre.Text = "";
+            tbApellido.Text = "";
+            tbPass.Text = "";
+            tbNick.Text = "";
+            cbTurno.Text = "Mañana";
         }
 
         private void bAceptar_Click(object sender, EventArgs e)
@@ -25,7 +31,7 @@ namespace Autenticacion
             if (tbPass.Text.Equals(tbConfPass.Text))
             {
                 GestorDeUsuario gestor = new GestorDeUsuario();
-                gestor.modificarBedel(nickBedelActual, tbNick.Text, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
+                gestor.modificarBedel(this.nickBedelActual, tbNick.Text, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
             }
             else
             {

@@ -39,20 +39,26 @@
             this.bEliminar = new System.Windows.Forms.Button();
             this.bCerrar = new System.Windows.Forms.Button();
             this.vistaBusqueda = new System.Windows.Forms.DataGridView();
-            this.tP2017DataSet = new CapaPresentacion.TP2017DataSet();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tP2017DataSet = new CapaPresentacion.TP2017DataSet();
             this.usuarioTableAdapter = new CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter();
             this.usuarioDAODBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buscarBedelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tP2017DataSet1 = new CapaPresentacion.TP2017DataSet1();
+            this.usuarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.usuarioTableAdapter1 = new CapaPresentacion.TP2017DataSet1TableAdapters.UsuarioTableAdapter();
+            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nickDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.turnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -90,13 +96,12 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(538, 15);
+            this.btnBuscar.Location = new System.Drawing.Point(480, 17);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // bModificar
             // 
@@ -120,7 +125,7 @@
             // 
             // bCerrar
             // 
-            this.bCerrar.Location = new System.Drawing.Point(538, 226);
+            this.bCerrar.Location = new System.Drawing.Point(480, 226);
             this.bCerrar.Name = "bCerrar";
             this.bCerrar.Size = new System.Drawing.Size(75, 23);
             this.bCerrar.TabIndex = 10;
@@ -131,29 +136,32 @@
             // vistaBusqueda
             // 
             this.vistaBusqueda.AllowUserToAddRows = false;
+            this.vistaBusqueda.AllowUserToOrderColumns = true;
             this.vistaBusqueda.AutoGenerateColumns = false;
             this.vistaBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vistaBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_usuario,
             this.nickDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.turnoDataGridViewTextBoxColumn});
-            this.vistaBusqueda.DataSource = this.usuarioBindingSource;
+            this.vistaBusqueda.DataSource = this.usuarioBindingSource1;
             this.vistaBusqueda.Location = new System.Drawing.Point(12, 44);
             this.vistaBusqueda.Name = "vistaBusqueda";
             this.vistaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.vistaBusqueda.Size = new System.Drawing.Size(601, 150);
+            this.vistaBusqueda.Size = new System.Drawing.Size(543, 150);
             this.vistaBusqueda.TabIndex = 11;
-            // 
-            // tP2017DataSet
-            // 
-            this.tP2017DataSet.DataSetName = "TP2017DataSet";
-            this.tP2017DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.vistaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vistaBusqueda_CellContentClick);
             // 
             // usuarioBindingSource
             // 
             this.usuarioBindingSource.DataMember = "Usuario";
             this.usuarioBindingSource.DataSource = this.tP2017DataSet;
+            // 
+            // tP2017DataSet
+            // 
+            this.tP2017DataSet.DataSetName = "TP2017DataSet";
+            this.tP2017DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usuarioTableAdapter
             // 
@@ -163,9 +171,25 @@
             // 
             this.usuarioDAODBBindingSource.DataSource = typeof(CapaDatos.UsuarioDAODB);
             // 
-            // buscarBedelBindingSource
+            // tP2017DataSet1
             // 
-            //this.buscarBedelBindingSource.DataSource = typeof(Autenticacion.BuscarBedel);
+            this.tP2017DataSet1.DataSetName = "TP2017DataSet1";
+            this.tP2017DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usuarioBindingSource1
+            // 
+            this.usuarioBindingSource1.DataMember = "Usuario";
+            this.usuarioBindingSource1.DataSource = this.tP2017DataSet1;
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // id_usuario
+            // 
+            this.id_usuario.DataPropertyName = "id_usuario";
+            this.id_usuario.HeaderText = "id_usuario";
+            this.id_usuario.Name = "id_usuario";
             // 
             // nickDataGridViewTextBoxColumn
             // 
@@ -197,7 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(625, 261);
+            this.ClientSize = new System.Drawing.Size(569, 261);
             this.Controls.Add(this.vistaBusqueda);
             this.Controls.Add(this.bCerrar);
             this.Controls.Add(this.bEliminar);
@@ -210,17 +234,19 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(641, 299);
-            this.MinimumSize = new System.Drawing.Size(641, 299);
+            this.MaximumSize = new System.Drawing.Size(585, 299);
+            this.MinimumSize = new System.Drawing.Size(585, 299);
             this.Name = "BuscarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Bedeles";
             this.Load += new System.EventHandler(this.BuscarBedel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,6 +268,10 @@
         private CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
         private System.Windows.Forms.BindingSource usuarioDAODBBindingSource;
         private System.Windows.Forms.BindingSource buscarBedelBindingSource;
+        private CapaPresentacion.TP2017DataSet1 tP2017DataSet1;
+        private System.Windows.Forms.BindingSource usuarioBindingSource1;
+        private CapaPresentacion.TP2017DataSet1TableAdapters.UsuarioTableAdapter usuarioTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nickDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
