@@ -24,6 +24,13 @@ namespace Autenticacion
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
+            //PRUEBAS -- COMENTAR LA VALIDACION DE LOS CAMPOS OBLIGATORIOS
+            /*tbPass.Text = "@Algo123";
+            tbConfirmarPass.Text = "@Algo123";
+            tbNick.Text = "unNick";
+            tbNombre.Text = "unNombre";
+            tbApellido.Text = "unApellido";*/
+
             //Validacion de la confirmacion de la contraseña
             if (tbPass.Text != tbConfirmarPass.Text) 
             {

@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Clases\Bedel.cs" />
     <Compile Include="Clases\HistContrasenia.cs" />
+    <Compile Include="Clases\Usuario.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>

@@ -11,7 +11,7 @@ namespace CapaDatos
     {
         public HistContraseniaDAODB() { }
 
-       // public TP2017 db = new TP2017();
+        //public TP2017Entities db = new TP2017Entities();
 
         /*public void guardarHistorialContrasenia(Usuario bedel)
         {

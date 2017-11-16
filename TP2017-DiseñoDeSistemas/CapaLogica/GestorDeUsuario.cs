@@ -23,8 +23,8 @@ namespace CapaLogica
                 //Comprueba que no exista el nick ingresado
                 if (userDAODB.comprobarNickRepetido(nick)) 
                 {
-                   Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
-                   HistContrasenia historial = new HistContrasenia(pass,bedelNuevo.id_usuario);
+                    Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
+                    HistContrasenia historial = new HistContrasenia(pass,bedelNuevo.id_usuario);
 
                     bedelNuevo.agregarHistorial(historial);
                     userDAODB.guardarBedel(bedelNuevo);

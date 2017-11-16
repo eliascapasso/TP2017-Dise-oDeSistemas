@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class Bedel : Usuario
+    public partial class Bedel : Usuario
     {
         public Bedel(string nick, string pass, string nombre, string apellido, string turno)
         {
@@ -18,14 +18,8 @@ namespace CapaDatos
             this.activo = true;
             this.id_tipo_usuario = 1;
 
-            //HistContrasenia = new HashSet<HistContrasenia>();
-            //Reserva = new HashSet<Reserva>();
-        }
-
-        //Agrega un historial a la lista de historiales del bedel creado
-        public void agregarHistorial(HistContrasenia historial)
-        {
-            this.HistContrasenias.Add(historial);
+            this.HistContrasenias = new HashSet<HistContrasenia>();
+            this.Reservas = new HashSet<Reserva>();
         }
     }
 }
