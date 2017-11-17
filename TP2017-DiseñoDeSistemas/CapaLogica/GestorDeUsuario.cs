@@ -2,21 +2,22 @@
 using Excepciones;
 using CapaDatos;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace CapaLogica
 {
     public class GestorDeUsuario
     {
+        private UsuarioDAODB userDAODB;
+
         public GestorDeUsuario()
         {
-
+            this.userDAODB = new UsuarioDAODB();
         }
 
         //METODO PARA REGISTRAR UN BEDEL
         public void registrarBedel(String nick, String pass, String nombre, String apellido, String turno)
         {
-           
-            UsuarioDAODB userDAODB=new UsuarioDAODB();
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
             //Comprueba politicas de contraseña
@@ -42,12 +43,23 @@ namespace CapaLogica
             }
         }
 
+        public ArrayList buscarBedel(string apellido, string turno)
+        {
+            if (!apellido.Equals("") || !turno.Equals(""))
+            {
+                return userDAODB.obtenerBedeles(apellido, turno);
+            }
+            else
+            {
+                throw new BusquedaException();
+            }
+        }
+
         //METODO PARA MODIFICAR UN BEDEL
         public void modificarBedel(string nickActual, string nick, string apellido, string nombre, string turno, string pass)
         {
             bool passmodificada = !pass.Equals("");
-
-            UsuarioDAODB userDAODB = new UsuarioDAODB();
+            
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
             //Comprueba politicas de contraseña o que no haya sido modificada

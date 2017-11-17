@@ -10,6 +10,51 @@
     {
         public UsuarioDAODB() { }
 
+        //OBTIENE UNA LISTA DE BEDELES
+        public ArrayList obtenerBedeles(string apellido, string turno)
+        {
+            ArrayList bedelesObtenidos = new ArrayList();
+
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                //Se ingresó apellido y turno como criterio de busqueda
+                if (!apellido.Equals("") && !turno.Equals(""))
+                {
+                    foreach (Bedel bedel in bd.Usuarios)
+                    {
+                        if(bedel.apellido.Equals(apellido) && bedel.turno.Equals(turno))
+                        {
+                            bedelesObtenidos.Add(bedel);
+                        }
+                    }
+                }
+                //Se ingresó solo apellido como criterio de busqueda
+                else if (!apellido.Equals("") && turno.Equals(""))
+                {
+                    foreach (Bedel bedel in bd.Usuarios)
+                    {
+                        if (bedel.apellido.Equals(apellido))
+                        {
+                            bedelesObtenidos.Add(bedel);
+                        }
+                    }
+                }
+                //Se ingresó solo turno como criterio de busqueda
+                else if (apellido.Equals("") && !turno.Equals(""))
+                {
+                    foreach (Bedel bedel in bd.Usuarios)
+                    {
+                        if (bedel.turno.Equals(turno))
+                        {
+                            bedelesObtenidos.Add(bedel);
+                        }
+                    }
+                }
+            }
+            return bedelesObtenidos;
+        }
+
+        //OBTIENE UN SOLO BEDEL 
         public Bedel obtenerBedel(string nickActual)
         {
             Bedel bedelObtenido = new Bedel();

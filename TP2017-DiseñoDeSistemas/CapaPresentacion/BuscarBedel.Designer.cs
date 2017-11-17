@@ -39,26 +39,26 @@
             this.bEliminar = new System.Windows.Forms.Button();
             this.bCerrar = new System.Windows.Forms.Button();
             this.vistaBusqueda = new System.Windows.Forms.DataGridView();
+            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tP2017DataSet1 = new CapaPresentacion.TP2017DataSet1();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tP2017DataSet = new CapaPresentacion.TP2017DataSet();
             this.usuarioTableAdapter = new CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter();
-            this.usuarioDAODBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buscarBedelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tP2017DataSet1 = new CapaPresentacion.TP2017DataSet1();
-            this.usuarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.usuarioTableAdapter1 = new CapaPresentacion.TP2017DataSet1TableAdapters.UsuarioTableAdapter();
-            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nickDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.turnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioDAODBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Nick = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +88,14 @@
             // 
             // cbTurno
             // 
+            this.cbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTurno.FormattingEnabled = true;
+            this.cbTurno.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbTurno.Items.AddRange(new object[] {
+            "",
+            "Mañana",
+            "Tarde",
+            "Noche"});
             this.cbTurno.Location = new System.Drawing.Point(226, 17);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(122, 21);
@@ -102,6 +109,7 @@
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // bModificar
             // 
@@ -137,21 +145,36 @@
             // 
             this.vistaBusqueda.AllowUserToAddRows = false;
             this.vistaBusqueda.AllowUserToOrderColumns = true;
-            this.vistaBusqueda.AutoGenerateColumns = false;
             this.vistaBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vistaBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_usuario,
-            this.nickDataGridViewTextBoxColumn,
-            this.apellidoDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.turnoDataGridViewTextBoxColumn});
-            this.vistaBusqueda.DataSource = this.usuarioBindingSource1;
+            this.Nick,
+            this.Apellido,
+            this.Nombre,
+            this.Turno});
             this.vistaBusqueda.Location = new System.Drawing.Point(12, 44);
             this.vistaBusqueda.Name = "vistaBusqueda";
             this.vistaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.vistaBusqueda.Size = new System.Drawing.Size(543, 150);
             this.vistaBusqueda.TabIndex = 11;
             this.vistaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vistaBusqueda_CellContentClick);
+            // 
+            // id_usuario
+            // 
+            this.id_usuario.DataPropertyName = "id_usuario";
+            this.id_usuario.HeaderText = "id_usuario";
+            this.id_usuario.Name = "id_usuario";
+            this.id_usuario.ReadOnly = true;
+            // 
+            // usuarioBindingSource1
+            // 
+            this.usuarioBindingSource1.DataMember = "Usuario";
+            this.usuarioBindingSource1.DataSource = this.tP2017DataSet1;
+            // 
+            // tP2017DataSet1
+            // 
+            this.tP2017DataSet1.DataSetName = "TP2017DataSet1";
+            this.tP2017DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // usuarioBindingSource
             // 
@@ -167,53 +190,33 @@
             // 
             this.usuarioTableAdapter.ClearBeforeFill = true;
             // 
-            // usuarioDAODBBindingSource
-            // 
-            this.usuarioDAODBBindingSource.DataSource = typeof(CapaDatos.UsuarioDAODB);
-            // 
-            // tP2017DataSet1
-            // 
-            this.tP2017DataSet1.DataSetName = "TP2017DataSet1";
-            this.tP2017DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usuarioBindingSource1
-            // 
-            this.usuarioBindingSource1.DataMember = "Usuario";
-            this.usuarioBindingSource1.DataSource = this.tP2017DataSet1;
-            // 
             // usuarioTableAdapter1
             // 
             this.usuarioTableAdapter1.ClearBeforeFill = true;
             // 
-            // id_usuario
+            // usuarioDAODBBindingSource
             // 
-            this.id_usuario.DataPropertyName = "id_usuario";
-            this.id_usuario.HeaderText = "id_usuario";
-            this.id_usuario.Name = "id_usuario";
+            this.usuarioDAODBBindingSource.DataSource = typeof(CapaDatos.UsuarioDAODB);
             // 
-            // nickDataGridViewTextBoxColumn
+            // Nick
             // 
-            this.nickDataGridViewTextBoxColumn.DataPropertyName = "nick";
-            this.nickDataGridViewTextBoxColumn.HeaderText = "Nick";
-            this.nickDataGridViewTextBoxColumn.Name = "nickDataGridViewTextBoxColumn";
+            this.Nick.HeaderText = "Nick";
+            this.Nick.Name = "Nick";
             // 
-            // apellidoDataGridViewTextBoxColumn
+            // Apellido
             // 
-            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
-            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
             // 
-            // nombreDataGridViewTextBoxColumn
+            // Nombre
             // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
             // 
-            // turnoDataGridViewTextBoxColumn
+            // Turno
             // 
-            this.turnoDataGridViewTextBoxColumn.DataPropertyName = "turno";
-            this.turnoDataGridViewTextBoxColumn.HeaderText = "Turno";
-            this.turnoDataGridViewTextBoxColumn.Name = "turnoDataGridViewTextBoxColumn";
+            this.Turno.HeaderText = "Turno";
+            this.Turno.Name = "Turno";
             // 
             // BuscarBedel
             // 
@@ -241,12 +244,12 @@
             this.Text = "Busqueda de Bedeles";
             this.Load += new System.EventHandler(this.BuscarBedel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,9 +275,9 @@
         private System.Windows.Forms.BindingSource usuarioBindingSource1;
         private CapaPresentacion.TP2017DataSet1TableAdapters.UsuarioTableAdapter usuarioTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nickDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn turnoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nick;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Turno;
     }
 }

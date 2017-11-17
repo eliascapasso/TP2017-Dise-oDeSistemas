@@ -1,4 +1,6 @@
 ﻿using CapaDatos;
+using CapaLogica;
+using Excepciones;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +21,8 @@ namespace Autenticacion
         public BuscarBedel()
         {
             InitializeComponent();
+
+            cbTurno.Text = "";
         }
 
         private void bCerrar_Click(object sender, EventArgs e)
@@ -55,19 +59,6 @@ namespace Autenticacion
             }*/
         }
 
-        private void btnBuscar_Click()
-        {
-            if(tbApellido.Equals("") && cbTurno.SelectedItem.ToString().Equals(""))
-            {
-                System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show("No ingresó ningun criterio de busqueda", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                //No implementado
-            }
-        }
-
         private void BuscarBedel_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'tP2017DataSet1.Usuario' Puede moverla o quitarla según sea necesario.
@@ -82,5 +73,28 @@ namespace Autenticacion
 
             this.nickSeleccionado = Convert.ToString(fila.Cells[1].Value); //obtengo el valor de la primer columna
          }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GestorDeUsuario gestor = new GestorDeUsuario();
+                ArrayList bedeles = gestor.buscarBedel(tbApellido.Text, cbTurno.SelectedItem.ToString());
+
+                //vistaBusqueda.Rows.Clear();
+                int i = 0;
+                foreach(Bedel bedel in bedeles)
+                {
+                    vistaBusqueda.Rows.Insert(i, bedel.id_usuario, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
+
+                    i++;
+                }
+            }
+            catch (BusquedaException b)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No ingresó ningun criterio de busqueda", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }
