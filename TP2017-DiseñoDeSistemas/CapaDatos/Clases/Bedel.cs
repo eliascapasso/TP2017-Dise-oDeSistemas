@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CapaDatos
+﻿namespace CapaDatos
 {
+    using System;
+    using System.Collections.Generic;
+
     public partial class Bedel : Usuario
     {
+        public Bedel() { }
+
         public Bedel(string nick, string pass, string nombre, string apellido, string turno)
         {
             this.nick = nick;
@@ -19,7 +18,6 @@ namespace CapaDatos
             this.id_tipo_usuario = 1;
 
             this.HistContrasenias = new HashSet<HistContrasenia>();
-            this.Reservas = new HashSet<Reserva>();
         }
     }
 }

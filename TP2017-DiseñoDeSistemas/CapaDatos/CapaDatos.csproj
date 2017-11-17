@@ -60,12 +60,16 @@
     <Compile Include="Aula.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
+    <Compile Include="Bedel.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Bedel.cs" />
     <Compile Include="Clases\HistContrasenia.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAODB\HistContraseniaDAODB.cs" />
     <Compile Include="DetalleReserva.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
@@ -78,7 +82,6 @@
     <Compile Include="HistContrasenia.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAODB\HistContraseniaDAODB.cs" />
     <Compile Include="NombreDia.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
@@ -125,10 +128,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TP2017.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DAODB\UsuarioDAODB.cs" />
     <Compile Include="Usuario.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAODB\UsuarioDAODB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

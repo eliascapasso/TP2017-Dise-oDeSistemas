@@ -54,8 +54,8 @@ namespace CapaLogica
                 if (userDAODB.comprobarNickRepetido(nick))
                 {
                     
-                    Usuario bedelActual = userDAODB.obtenerBedel(nickActual);
-                    Usuario bedelMod = this.setModificaciones(bedelActual, nick, apellido, nombre, turno, pass);
+                    Bedel bedelActual = userDAODB.obtenerBedel(nickActual);
+                    Bedel bedelMod = this.setModificaciones(bedelActual, nick, apellido, nombre, turno, pass);
 
                     if (passmodificada)
                     {
@@ -78,7 +78,7 @@ namespace CapaLogica
             
         }
 
-        private Usuario setModificaciones(Usuario bedelMod, string nick, string apellido, string nombre, string turno, string pass)
+        private Bedel setModificaciones(Bedel bedelMod, string nick, string apellido, string nombre, string turno, string pass)
         {
             if (!nick.Equals(""))
             {

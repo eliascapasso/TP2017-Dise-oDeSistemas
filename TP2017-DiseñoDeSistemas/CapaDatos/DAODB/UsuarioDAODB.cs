@@ -10,13 +10,13 @@
     {
         public UsuarioDAODB() { }
 
-        public Usuario obtenerBedel(string nickActual)
+        public Bedel obtenerBedel(string nickActual)
         {
-            Usuario bedelRetornado = new Usuario();
+            Bedel bedelRetornado = new Bedel();
 
             using (TP2017Entities bd = new TP2017Entities())
             {
-                foreach (Usuario bedel in bd.Usuarios)
+                foreach (Bedel bedel in bd.Usuarios)
                 {
                     if (bedel.nick.Equals(nickActual))
                     {
@@ -27,7 +27,7 @@
             return bedelRetornado;
         }
 
-        public void guardarBedelModificado(string nickActual, Usuario bedelMod, Usuario bedelActual)
+        public void guardarBedelModificado(string nickActual, Bedel bedelMod, Bedel bedelActual)
         {
             using (TP2017Entities bd = new TP2017Entities())
             {
@@ -56,7 +56,7 @@
             //Debe revisar que el nick no esta repetido en la BD
             using (TP2017Entities bd = new TP2017Entities())
             {
-                var query = (from Usuario in bd.Usuarios where Usuario.nick == nick select nick).Count();
+                var query = (from usuario in bd.Usuarios where usuario.nick == nick select nick).Count();
                 if (query == 0)
                     return true;
                 else
@@ -64,17 +64,11 @@
             }
         }
 
-        public void guardarBedel(Usuario usuario)
+        public void guardarBedel(Bedel bedel)
         {
-            Usuario usuarioAux = new Usuario(usuario.nick, usuario.contrasenia, usuario.nombre, usuario.apellido, usuario.turno);
-            usuarioAux.HistContrasenias = usuario.HistContrasenias;
-
-            if (usuario.id_tipo_usuario == 1){usuarioAux.id_tipo_usuario = 1;}
-            else{usuarioAux.id_tipo_usuario = 2;}
-
              using (var bd = new TP2017Entities())
              {
-                 bd.Usuarios.Add(usuarioAux);
+                 bd.Usuarios.Add(bedel);
                  bd.SaveChanges();
              }
         }

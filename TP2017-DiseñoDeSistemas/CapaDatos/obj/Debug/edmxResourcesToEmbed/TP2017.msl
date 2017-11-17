@@ -113,11 +113,11 @@
     <EntitySetMapping Name="Reservas">
       <EntityTypeMapping TypeName="TP2017Model.Reserva">
         <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
           <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
           <ScalarProperty Name="capacidad" ColumnName="capacidad" />
           <ScalarProperty Name="activa" ColumnName="activa" />
-          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
           <ScalarProperty Name="id_tipo_reserva" ColumnName="id_tipo_reserva" />
           <ScalarProperty Name="id_docente" ColumnName="id_docente" />
@@ -184,16 +184,24 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.Bedel)">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="turno" ColumnName="turno" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <Condition ColumnName="nombre" IsNull="false" />
+          <Condition ColumnName="turno" IsNull="false" />
+          <Condition ColumnName="apellido" IsNull="false" />
+        </MappingFragment>
+      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.Usuario)">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-          <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
-          <ScalarProperty Name="turno" ColumnName="turno" />
-          <ScalarProperty Name="apellido" ColumnName="apellido" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
-          <ScalarProperty Name="nick" ColumnName="nick" />
           <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

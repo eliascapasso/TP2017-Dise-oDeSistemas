@@ -18,22 +18,19 @@ namespace CapaDatos
         public Usuario()
         {
             this.HistContrasenias = new HashSet<HistContrasenia>();
-            this.Reservas = new HashSet<Reserva>();
+            this.Reserva = new HashSet<Reserva>();
         }
     
         public int id_usuario { get; set; }
         public Nullable<bool> activo { get; set; }
         public string nick { get; set; }
         public string contrasenia { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string turno { get; set; }
         public Nullable<int> id_tipo_usuario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistContrasenia> HistContrasenias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva> Reservas { get; set; }
         public virtual TipoUsuario TipoUsuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserva> Reserva { get; set; }
     }
 }

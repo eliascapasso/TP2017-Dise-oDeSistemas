@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5bf9d29ab34c416cbd338d22f13455ea" Name="Diagram1">
+      <Diagram DiagramId="5bf9d29ab34c416cbd338d22f13455ea" Name="Diagram1" ZoomLevel="76">
         <EntityTypeShape EntityType="TP2017Model.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.AnioLectivo" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.Asignatura" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
@@ -38,9 +38,11 @@
         <AssociationConnector Association="TP2017Model.FK_dbo_HistContrasenia_dbo_Usuario_id_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK_dbo_Periodo_dbo_TipoPeriodo_id_tipo_periodo" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK_dbo_Reserva_dbo_TipoReserva_id_tipo_reserva" ManuallyRouted="false" />
-        <AssociationConnector Association="TP2017Model.FK_dbo_Reserva_dbo_Usuario_id_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK_dbo_Usuario_dbo_TipoUsuario_id_tipo_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.DocenteAsignatura" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TP2017Model.Bedel" Width="1.5" PointX="2.625" PointY="6" />
+        <InheritanceConnector EntityType="TP2017Model.Bedel" />
+        <AssociationConnector Association="TP2017Model.UsuarioReserva" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
