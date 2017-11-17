@@ -52,9 +52,10 @@
             this.btnCerrar.Location = new System.Drawing.Point(116, 255);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCerrar.TabIndex = 32;
+            this.btnCerrar.TabIndex = 30;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnAceptar
             // 
@@ -162,7 +163,7 @@
             this.cbTurno.Location = new System.Drawing.Point(77, 104);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(195, 21);
-            this.cbTurno.TabIndex = 33;
+            this.cbTurno.TabIndex = 26;
             // 
             // tbPass
             // 
@@ -171,7 +172,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
             this.tbPass.Size = new System.Drawing.Size(195, 20);
-            this.tbPass.TabIndex = 34;
+            this.tbPass.TabIndex = 28;
             // 
             // tbConfPass
             // 
@@ -180,7 +181,7 @@
             this.tbConfPass.Name = "tbConfPass";
             this.tbConfPass.PasswordChar = '*';
             this.tbConfPass.Size = new System.Drawing.Size(195, 20);
-            this.tbConfPass.TabIndex = 35;
+            this.tbConfPass.TabIndex = 29;
             // 
             // ModificarBedel
             // 

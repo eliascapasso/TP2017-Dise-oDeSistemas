@@ -1,6 +1,7 @@
 ﻿using System;
 using Excepciones;
 using CapaDatos;
+using System.Windows.Forms;
 
 namespace CapaLogica
 {
@@ -11,6 +12,7 @@ namespace CapaLogica
 
         }
 
+        //METODO PARA REGISTRAR UN BEDEL
         public void registrarBedel(String nick, String pass, String nombre, String apellido, String turno)
         {
            
@@ -40,22 +42,29 @@ namespace CapaLogica
             }
         }
 
-        public void modificarBedel(string nickActual, String nick, String apellido, String nombre, String turno, String pass)
+        //METODO PARA MODIFICAR UN BEDEL
+        public void modificarBedel(string nickActual, string nick, string apellido, string nombre, string turno, string pass)
         {
             bool passmodificada = !pass.Equals("");
 
             UsuarioDAODB userDAODB = new UsuarioDAODB();
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
-            //Comprueba politicas de contraseña
+            //Comprueba politicas de contraseña o que no haya sido modificada
             if (gestorPoliticas.comprobarPoliticas(pass) || !passmodificada)
             {
-                //Comprueba que no exista el nick ingresado
-                if (userDAODB.comprobarNickRepetido(nick))
+                //Comprueba que no exista el nick ingresado o que no haya sido modificada
+                if (nick.Equals("") || userDAODB.comprobarNickRepetido(nick))
                 {
-                    
-                    Bedel bedelActual = userDAODB.obtenerBedel(nickActual);
-                    Bedel bedelMod = this.setModificaciones(bedelActual, nick, apellido, nombre, turno, pass);
+                    Bedel bedelObt = userDAODB.obtenerBedel(nickActual);
+                    Bedel bedelMod = new Bedel(bedelObt.nick, bedelObt.contrasenia, bedelObt.nombre, bedelObt.apellido, bedelObt.turno);
+
+                    foreach (var historial in bedelMod.HistContrasenias)
+                    {
+                        MessageBox.Show(historial.contrasenia, "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+
+                    bedelMod = this.setModificaciones(bedelMod, nick, apellido, nombre, turno, pass);
 
                     if (passmodificada)
                     {
@@ -63,7 +72,7 @@ namespace CapaLogica
                         bedelMod.agregarHistorial(historial);
                     }
 
-                    userDAODB.guardarBedelModificado(nickActual, bedelMod, bedelActual);
+                    userDAODB.guardarBedelModificado(nickActual, bedelMod);
                 }
                 else
                 {

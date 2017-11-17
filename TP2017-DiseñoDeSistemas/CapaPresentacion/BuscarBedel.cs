@@ -23,16 +23,15 @@ namespace Autenticacion
 
         private void bCerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void bModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show(nickSeleccionado, "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                ModificarBedel modBedel = new ModificarBedel(nickSeleccionado);
+                this.Close();
+                ModificarBedel modBedel = new ModificarBedel(this.nickSeleccionado);
                 modBedel.Show();
             }
             catch(NullReferenceException l)

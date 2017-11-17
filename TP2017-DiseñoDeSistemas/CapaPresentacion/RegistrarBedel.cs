@@ -18,19 +18,14 @@ namespace Autenticacion
         public RegistrarBedel()
         {
             InitializeComponent();
+
+            cbTurno.Text = "Mañana";
         }
 
         GestorDeUsuario gestor = new GestorDeUsuario();
 
         private void bAceptar_Click(object sender, EventArgs e)
         {
-            //PRUEBAS -- COMENTAR LA VALIDACION DE LOS CAMPOS OBLIGATORIOS
-            /*tbPass.Text = "@Algo123";
-            tbConfirmarPass.Text = "@Algo123";
-            tbNick.Text = "unNick";
-            tbNombre.Text = "unNombre";
-            tbApellido.Text = "unApellido";*/
-
             //Validacion de la confirmacion de la contraseña
             if (tbPass.Text != tbConfirmarPass.Text) 
             {
@@ -77,7 +72,7 @@ namespace Autenticacion
 
         private void RegistrarBedel_Load(object sender, EventArgs e)
         {
-            //gestor.cargarTurnos();
+            //No implementado
         }
 
         private bool existeUnCampoVacio()
