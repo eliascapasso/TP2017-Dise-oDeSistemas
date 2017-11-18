@@ -45,14 +45,9 @@ namespace CapaLogica
 
         public ArrayList buscarBedel(string apellido, string turno)
         {
-            if (!apellido.Equals("") || !turno.Equals(""))
-            {
-                return userDAODB.obtenerBedeles(apellido, turno);
-            }
-            else
-            {
-                throw new BusquedaException();
-            }
+            
+            return userDAODB.obtenerBedeles(apellido, turno);
+            
         }
 
         //METODO PARA MODIFICAR UN BEDEL
@@ -69,6 +64,8 @@ namespace CapaLogica
                 if (nick.Equals("") || userDAODB.comprobarNickRepetido(nick))
                 {
                     Bedel bedelObt = userDAODB.obtenerBedel(nickActual);
+                    //delObt.apellido = apellido;
+
                     Bedel bedelMod = new Bedel(bedelObt.nick, bedelObt.contrasenia, bedelObt.nombre, bedelObt.apellido, bedelObt.turno);
 
                     foreach (var historial in bedelMod.HistContrasenias)
@@ -123,6 +120,11 @@ namespace CapaLogica
             }
 
             return bedelMod;
+        }
+
+        public void eliminarBedel(string nick)
+        {
+            userDAODB.eliminarBedel(nick);
         }
     }
 }
