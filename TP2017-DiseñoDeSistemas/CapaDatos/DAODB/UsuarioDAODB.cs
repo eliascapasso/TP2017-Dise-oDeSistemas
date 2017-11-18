@@ -20,7 +20,7 @@
                 //Se ingresó apellido y turno como criterio de busqueda
                 if (!apellido.Equals("") && !turno.Equals(""))
                 {
-                    foreach (Bedel bedel in bd.Usuarios)
+                    foreach (Bedel bedel in bd.Bedeles)
                     {
                         if(bedel.apellido.Equals(apellido) && bedel.turno.Equals(turno))
                         {
@@ -31,7 +31,7 @@
                 //Se ingresó solo apellido como criterio de busqueda
                 else if (!apellido.Equals("") && turno.Equals(""))
                 {
-                    foreach (Bedel bedel in bd.Usuarios)
+                    foreach (Bedel bedel in bd.Bedeles)
                     {
                         if (bedel.apellido.Equals(apellido))
                         {
@@ -42,7 +42,7 @@
                 //Se ingresó solo turno como criterio de busqueda
                 else if (apellido.Equals("") && !turno.Equals(""))
                 {
-                    foreach (Bedel bedel in bd.Usuarios)
+                    foreach (Bedel bedel in bd.Bedeles)
                     {
                         if (bedel.turno.Equals(turno))
                         {
@@ -52,7 +52,7 @@
                 }
                 else
                 {
-                    foreach (Bedel bedel in bd.Usuarios)
+                    foreach (Bedel bedel in bd.Bedeles)
                     {
                         bedelesObtenidos.Add(bedel);
                     }
@@ -68,7 +68,7 @@
 
             using (TP2017Entities bd = new TP2017Entities())
             {
-                var bedeles = from usuario in bd.Usuarios where usuario.nick.Equals(nickActual) select usuario;
+                var bedeles = from usuario in bd.Bedeles where usuario.nick.Equals(nickActual) select usuario;
 
                 foreach (Bedel bedel in bedeles)
                 {
@@ -83,7 +83,7 @@
         {
             using (TP2017Entities bd = new TP2017Entities())
             {
-                var bedeles = from bedel in bd.Usuarios where bedel.nick.Equals(nickActual) select bedel;
+                var bedeles = from bedel in bd.Bedeles where bedel.nick.Equals(nickActual) select bedel;
 
                 foreach (Bedel bedel in bedeles)
                 {
@@ -120,7 +120,7 @@
         {
              using (var bd = new TP2017Entities())
              {
-                bd.Usuarios.Add(bedel);
+                bd.Bedeles.Add(bedel);
 
                 try
                 {

@@ -31,3 +31,14 @@ C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistema
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.csprojResolveAssemblyReference.cache
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.dll
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaDatos.dll
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\Excepciones.dll
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\EntityFramework.dll
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaDatos.pdb
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\Excepciones.pdb
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\EntityFramework.xml
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.csprojResolveAssemblyReference.cache
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.pdb
