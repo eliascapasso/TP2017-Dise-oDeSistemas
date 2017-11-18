@@ -50,6 +50,13 @@
                         }
                     }
                 }
+                else
+                {
+                    foreach (Bedel bedel in bd.Usuarios)
+                    {
+                        bedelesObtenidos.Add(bedel);
+                    }
+                }
             }
             return bedelesObtenidos;
         }
@@ -125,6 +132,30 @@
                 }
                 
              }
+        }
+
+        public void eliminarBedel(string nick)
+        {
+            using (var bd = new TP2017Entities())
+            {
+                foreach (Bedel bedel in bd.Usuarios)
+                {
+                    if (bedel.nick.Equals(nick))
+                    {
+                        bd.Usuarios.Remove(bedel);
+                    }
+                }
+
+                try
+                {
+                    bd.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos");
+                }
+
+            }
         }
     }
 }

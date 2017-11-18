@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuscarBedel));
             this.label1 = new System.Windows.Forms.Label();
             this.tbApellido = new System.Windows.Forms.TextBox();
@@ -40,25 +39,11 @@
             this.bCerrar = new System.Windows.Forms.Button();
             this.vistaBusqueda = new System.Windows.Forms.DataGridView();
             this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.tP2017DataSet1 = new CapaPresentacion.TP2017DataSet1();
-            this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tP2017DataSet = new CapaPresentacion.TP2017DataSet();
-            this.usuarioTableAdapter = new CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter();
-            this.buscarBedelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usuarioTableAdapter1 = new CapaPresentacion.TP2017DataSet1TableAdapters.UsuarioTableAdapter();
-            this.usuarioDAODBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Nick = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -152,7 +137,7 @@
             this.Apellido,
             this.Nombre,
             this.Turno});
-            this.vistaBusqueda.Location = new System.Drawing.Point(12, 44);
+            this.vistaBusqueda.Location = new System.Drawing.Point(14, 46);
             this.vistaBusqueda.Name = "vistaBusqueda";
             this.vistaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.vistaBusqueda.Size = new System.Drawing.Size(543, 150);
@@ -165,38 +150,6 @@
             this.id_usuario.HeaderText = "id_usuario";
             this.id_usuario.Name = "id_usuario";
             this.id_usuario.ReadOnly = true;
-            // 
-            // usuarioBindingSource1
-            // 
-            this.usuarioBindingSource1.DataMember = "Usuario";
-            this.usuarioBindingSource1.DataSource = this.tP2017DataSet1;
-            // 
-            // tP2017DataSet1
-            // 
-            this.tP2017DataSet1.DataSetName = "TP2017DataSet1";
-            this.tP2017DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usuarioBindingSource
-            // 
-            this.usuarioBindingSource.DataMember = "Usuario";
-            this.usuarioBindingSource.DataSource = this.tP2017DataSet;
-            // 
-            // tP2017DataSet
-            // 
-            this.tP2017DataSet.DataSetName = "TP2017DataSet";
-            this.tP2017DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usuarioTableAdapter
-            // 
-            this.usuarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // usuarioTableAdapter1
-            // 
-            this.usuarioTableAdapter1.ClearBeforeFill = true;
-            // 
-            // usuarioDAODBBindingSource
-            // 
-            this.usuarioDAODBBindingSource.DataSource = typeof(CapaDatos.UsuarioDAODB);
             // 
             // Nick
             // 
@@ -242,14 +195,7 @@
             this.Name = "BuscarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Bedeles";
-            this.Load += new System.EventHandler(this.BuscarBedel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tP2017DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buscarBedelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usuarioDAODBBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,14 +212,6 @@
         private System.Windows.Forms.Button bEliminar;
         private System.Windows.Forms.Button bCerrar;
         private System.Windows.Forms.DataGridView vistaBusqueda;
-        private CapaPresentacion.TP2017DataSet tP2017DataSet;
-        private System.Windows.Forms.BindingSource usuarioBindingSource;
-        private CapaPresentacion.TP2017DataSetTableAdapters.UsuarioTableAdapter usuarioTableAdapter;
-        private System.Windows.Forms.BindingSource usuarioDAODBBindingSource;
-        private System.Windows.Forms.BindingSource buscarBedelBindingSource;
-        private CapaPresentacion.TP2017DataSet1 tP2017DataSet1;
-        private System.Windows.Forms.BindingSource usuarioBindingSource1;
-        private CapaPresentacion.TP2017DataSet1TableAdapters.UsuarioTableAdapter usuarioTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nick;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
