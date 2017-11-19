@@ -12,12 +12,14 @@ namespace Autenticacion
 {
     public partial class InicioSesionAdmin : Form
     {
-        public InicioSesionAdmin()
+        private Form padre;
+        public InicioSesionAdmin(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -25,11 +27,11 @@ namespace Autenticacion
             autenticacion.Show();
         }
 
-        private void bAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.Hide(); //Falta hacer todas las validaciones para poder iniciar sesion
 
-            MenuAdmin panAdmin = new MenuAdmin();
+            MenuAdmin panAdmin = new MenuAdmin(this);
             panAdmin.Show();
         }
     }

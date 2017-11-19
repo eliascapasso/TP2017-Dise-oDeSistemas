@@ -12,27 +12,33 @@ namespace Autenticacion
 {
     public partial class InicioSesionBedel : Form
     {
-        public InicioSesionBedel()
+        private Form padre;
+
+        public InicioSesionBedel(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-
-            Autenticacion autenticacion = new Autenticacion();
-            autenticacion.Show();
+            padre.Show();
         }
 
-        private void bAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             //Falta validar los campos
 
             this.Hide();
 
-            MenuBedel bedel = new MenuBedel();
+            MenuBedel bedel = new MenuBedel(this);
             bedel.Show();
+        }
+
+        private void InicioSesionBedel_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

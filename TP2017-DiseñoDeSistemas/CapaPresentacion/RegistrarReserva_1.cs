@@ -13,20 +13,23 @@ namespace Autenticacion
 {
     public partial class RegistrarReserva_1 : Form
     {
-        public RegistrarReserva_1()
+        private Form padre;
+
+        public RegistrarReserva_1(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bSig_Click(object sender, EventArgs e)
+        private void btnSiguiente_Click(object sender, EventArgs e)
         {
             this.Hide(); //Falta validar todos los campos
 
-            RegistrarReserva_2 reserva = new RegistrarReserva_2();
+            RegistrarReserva_2 reserva = new RegistrarReserva_2(this);
             reserva.Show();
         }
 
-        private void bCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

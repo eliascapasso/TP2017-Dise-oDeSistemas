@@ -33,19 +33,19 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.bAgregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.dgvSeleccion = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.bQuitar = new System.Windows.Forms.Button();
-            this.bAtras = new System.Windows.Forms.Button();
-            this.bAceptar = new System.Windows.Forms.Button();
-            this.bCancelar = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSeleccion)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,27 +88,27 @@
             this.tabPage2.Text = "Dia2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // bAgregar
+            // btnAgregar
             // 
-            this.bAgregar.Location = new System.Drawing.Point(12, 187);
-            this.bAgregar.Name = "bAgregar";
-            this.bAgregar.Size = new System.Drawing.Size(75, 23);
-            this.bAgregar.TabIndex = 3;
-            this.bAgregar.Text = "Agregar";
-            this.bAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(12, 187);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvSeleccion
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSeleccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSeleccion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 254);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(409, 150);
-            this.dataGridView1.TabIndex = 4;
+            this.dgvSeleccion.Location = new System.Drawing.Point(15, 254);
+            this.dgvSeleccion.Name = "dgvSeleccion";
+            this.dgvSeleccion.Size = new System.Drawing.Size(409, 150);
+            this.dgvSeleccion.TabIndex = 4;
             // 
             // Column1
             // 
@@ -140,60 +140,60 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Seleccion la/s aula/s disponible/s:";
             // 
-            // bQuitar
+            // btnQuitar
             // 
-            this.bQuitar.Location = new System.Drawing.Point(12, 410);
-            this.bQuitar.Name = "bQuitar";
-            this.bQuitar.Size = new System.Drawing.Size(75, 23);
-            this.bQuitar.TabIndex = 6;
-            this.bQuitar.Text = "Quitar";
-            this.bQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Location = new System.Drawing.Point(12, 410);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 6;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
             // 
-            // bAtras
+            // btnAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(176, 496);
-            this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(75, 23);
-            this.bAtras.TabIndex = 7;
-            this.bAtras.Text = "<- Atras";
-            this.bAtras.UseVisualStyleBackColor = true;
-            this.bAtras.Click += new System.EventHandler(this.bAtras_Click);
+            this.btnAtras.Location = new System.Drawing.Point(176, 496);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.TabIndex = 7;
+            this.btnAtras.Text = "<- Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
-            // bAceptar
+            // btnAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(257, 496);
-            this.bAceptar.Name = "bAceptar";
-            this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 8;
-            this.bAceptar.Text = "Aceptar";
-            this.bAceptar.UseVisualStyleBackColor = true;
-            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(257, 496);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 8;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // bCancelar
+            // btnCancelar
             // 
-            this.bCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bCancelar.Location = new System.Drawing.Point(353, 496);
-            this.bCancelar.Name = "bCancelar";
-            this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 9;
-            this.bCancelar.Text = "Cancelar";
-            this.bCancelar.UseVisualStyleBackColor = true;
-            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(353, 496);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // RegistrarReserva_2
             // 
-            this.AcceptButton = this.bAceptar;
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bCancelar;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(440, 531);
-            this.Controls.Add(this.bCancelar);
-            this.Controls.Add(this.bAceptar);
-            this.Controls.Add(this.bAtras);
-            this.Controls.Add(this.bQuitar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bAgregar);
+            this.Controls.Add(this.dgvSeleccion);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
@@ -205,7 +205,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de reserva de aulas";
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSeleccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,16 +217,16 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button bAgregar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridView dgvSeleccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button bQuitar;
-        private System.Windows.Forms.Button bAtras;
-        private System.Windows.Forms.Button bAceptar;
-        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

@@ -12,12 +12,15 @@ namespace CapaPresentacion
 {
     public partial class BuscarAula : Form
     {
-        public BuscarAula()
+        private Form padre;
+
+        public BuscarAula(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

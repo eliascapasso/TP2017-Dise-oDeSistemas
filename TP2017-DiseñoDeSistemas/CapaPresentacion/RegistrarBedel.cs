@@ -15,8 +15,12 @@ namespace Autenticacion
 {
     public partial class RegistrarBedel : Form
     {
-        public RegistrarBedel()
+        private Form padre;
+
+        public RegistrarBedel(Form papa)
         {
+            this.padre = papa;
+
             InitializeComponent();
 
             cbTurno.Text = "Mañana";
@@ -24,7 +28,7 @@ namespace Autenticacion
 
         GestorDeUsuario gestor = new GestorDeUsuario();
 
-        private void bAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             //Validacion de la confirmacion de la contraseña
             if (tbPass.Text != tbConfirmarPass.Text) 
@@ -65,7 +69,7 @@ namespace Autenticacion
 
         }
 
-        private void bCerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

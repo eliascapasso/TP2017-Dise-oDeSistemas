@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioSesionBedel));
-            this.pass = new System.Windows.Forms.TextBox();
-            this.idBedel = new System.Windows.Forms.TextBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.tbIdBedel = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.bCancelar = new System.Windows.Forms.Button();
-            this.bAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // pass
+            // tbPass
             // 
-            this.pass.Location = new System.Drawing.Point(102, 66);
-            this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(170, 20);
-            this.pass.TabIndex = 11;
+            this.tbPass.Location = new System.Drawing.Point(102, 66);
+            this.tbPass.Name = "tbPass";
+            this.tbPass.Size = new System.Drawing.Size(170, 20);
+            this.tbPass.TabIndex = 11;
             // 
-            // idBedel
+            // tbIdBedel
             // 
-            this.idBedel.Location = new System.Drawing.Point(102, 18);
-            this.idBedel.Name = "idBedel";
-            this.idBedel.Size = new System.Drawing.Size(170, 20);
-            this.idBedel.TabIndex = 10;
+            this.tbIdBedel.Location = new System.Drawing.Point(102, 18);
+            this.tbIdBedel.Name = "tbIdBedel";
+            this.tbIdBedel.Size = new System.Drawing.Size(170, 20);
+            this.tbIdBedel.TabIndex = 10;
             // 
             // label2
             // 
@@ -69,37 +69,37 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "ID Bedel";
             // 
-            // bCancelar
+            // btnCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(102, 102);
-            this.bCancelar.Name = "bCancelar";
-            this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 7;
-            this.bCancelar.Text = "Cancelar";
-            this.bCancelar.UseVisualStyleBackColor = true;
-            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(102, 102);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // bAceptar
+            // btnAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(197, 102);
-            this.bAceptar.Name = "bAceptar";
-            this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 6;
-            this.bAceptar.Text = "Aceptar";
-            this.bAceptar.UseVisualStyleBackColor = true;
-            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(197, 102);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // InicioSesionBedel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 133);
-            this.Controls.Add(this.pass);
-            this.Controls.Add(this.idBedel);
+            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.tbIdBedel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bCancelar);
-            this.Controls.Add(this.bAceptar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -108,6 +108,7 @@
             this.Name = "InicioSesionBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InicioSesionBedel";
+            this.Load += new System.EventHandler(this.InicioSesionBedel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,11 +116,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox pass;
-        private System.Windows.Forms.TextBox idBedel;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.TextBox tbIdBedel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bCancelar;
-        private System.Windows.Forms.Button bAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
     }
 }

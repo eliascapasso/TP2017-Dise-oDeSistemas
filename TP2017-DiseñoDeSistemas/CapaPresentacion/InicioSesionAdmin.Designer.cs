@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioSesionAdmin));
-            this.bAceptar = new System.Windows.Forms.Button();
-            this.bCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.idAdmin = new System.Windows.Forms.TextBox();
-            this.pass = new System.Windows.Forms.TextBox();
+            this.tbIdAdmin = new System.Windows.Forms.TextBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // bAceptar
+            // btnAceptar
             // 
-            this.bAceptar.Location = new System.Drawing.Point(197, 100);
-            this.bAceptar.Name = "bAceptar";
-            this.bAceptar.Size = new System.Drawing.Size(75, 23);
-            this.bAceptar.TabIndex = 0;
-            this.bAceptar.Text = "Aceptar";
-            this.bAceptar.UseVisualStyleBackColor = true;
-            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(197, 100);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 0;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // bCancelar
+            // btnCancelar
             // 
-            this.bCancelar.Location = new System.Drawing.Point(102, 100);
-            this.bCancelar.Name = "bCancelar";
-            this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 1;
-            this.bCancelar.Text = "Cancelar";
-            this.bCancelar.UseVisualStyleBackColor = true;
-            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(102, 100);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label1
             // 
@@ -75,31 +75,31 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
-            // idAdmin
+            // tbIdAdmin
             // 
-            this.idAdmin.Location = new System.Drawing.Point(102, 15);
-            this.idAdmin.Name = "idAdmin";
-            this.idAdmin.Size = new System.Drawing.Size(170, 20);
-            this.idAdmin.TabIndex = 4;
+            this.tbIdAdmin.Location = new System.Drawing.Point(102, 15);
+            this.tbIdAdmin.Name = "tbIdAdmin";
+            this.tbIdAdmin.Size = new System.Drawing.Size(170, 20);
+            this.tbIdAdmin.TabIndex = 4;
             // 
-            // pass
+            // tbPass
             // 
-            this.pass.Location = new System.Drawing.Point(102, 63);
-            this.pass.Name = "pass";
-            this.pass.Size = new System.Drawing.Size(170, 20);
-            this.pass.TabIndex = 5;
+            this.tbPass.Location = new System.Drawing.Point(102, 63);
+            this.tbPass.Name = "tbPass";
+            this.tbPass.Size = new System.Drawing.Size(170, 20);
+            this.tbPass.TabIndex = 5;
             // 
             // InicioSesionAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 133);
-            this.Controls.Add(this.pass);
-            this.Controls.Add(this.idAdmin);
+            this.Controls.Add(this.tbPass);
+            this.Controls.Add(this.tbIdAdmin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bCancelar);
-            this.Controls.Add(this.bAceptar);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -115,11 +115,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button bAceptar;
-        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox idAdmin;
-        private System.Windows.Forms.TextBox pass;
+        private System.Windows.Forms.TextBox tbIdAdmin;
+        private System.Windows.Forms.TextBox tbPass;
     }
 }

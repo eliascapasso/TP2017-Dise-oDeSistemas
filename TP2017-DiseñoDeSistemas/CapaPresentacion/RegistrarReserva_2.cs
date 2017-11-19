@@ -13,28 +13,30 @@ namespace CapaPresentacion
 {
     public partial class RegistrarReserva_2 : Form
     {
-        public RegistrarReserva_2()
+        private Form padre;
+        public RegistrarReserva_2(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bAtras_Click(object sender, EventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            RegistrarReserva_1 reserva = new RegistrarReserva_1();
+            RegistrarReserva_1 reserva = new RegistrarReserva_1(this);
             reserva.Show();
         }
 
-        private void bAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             //Falta validar la disponibilidad de las aulas
 
-            DisponibilidadAulas dispAulas = new DisponibilidadAulas();
+            DisponibilidadAulas dispAulas = new DisponibilidadAulas(this);
             dispAulas.Show();
         }
 
-        private void bCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

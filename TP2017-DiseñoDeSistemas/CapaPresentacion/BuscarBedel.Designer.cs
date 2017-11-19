@@ -34,16 +34,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbTurno = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.bModificar = new System.Windows.Forms.Button();
-            this.bEliminar = new System.Windows.Forms.Button();
-            this.bCerrar = new System.Windows.Forms.Button();
-            this.vistaBusqueda = new System.Windows.Forms.DataGridView();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.dgvResultadosBusqueda = new System.Windows.Forms.DataGridView();
             this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nick = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Turno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultadosBusqueda)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,53 +96,53 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // bModificar
+            // btnModificar
             // 
-            this.bModificar.Location = new System.Drawing.Point(12, 198);
-            this.bModificar.Name = "bModificar";
-            this.bModificar.Size = new System.Drawing.Size(75, 23);
-            this.bModificar.TabIndex = 8;
-            this.bModificar.Text = "Modificar";
-            this.bModificar.UseVisualStyleBackColor = true;
-            this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
+            this.btnModificar.Location = new System.Drawing.Point(12, 198);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 8;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // bEliminar
+            // btnEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(93, 198);
-            this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(75, 23);
-            this.bEliminar.TabIndex = 9;
-            this.bEliminar.Text = "Eliminar";
-            this.bEliminar.UseVisualStyleBackColor = true;
-            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
+            this.btnEliminar.Location = new System.Drawing.Point(93, 198);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // bCerrar
+            // btnCerrar
             // 
-            this.bCerrar.Location = new System.Drawing.Point(480, 226);
-            this.bCerrar.Name = "bCerrar";
-            this.bCerrar.Size = new System.Drawing.Size(75, 23);
-            this.bCerrar.TabIndex = 10;
-            this.bCerrar.Text = "Cerrar";
-            this.bCerrar.UseVisualStyleBackColor = true;
-            this.bCerrar.Click += new System.EventHandler(this.bCerrar_Click);
+            this.btnCerrar.Location = new System.Drawing.Point(480, 226);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // vistaBusqueda
+            // dgvResultadosBusqueda
             // 
-            this.vistaBusqueda.AllowUserToAddRows = false;
-            this.vistaBusqueda.AllowUserToOrderColumns = true;
-            this.vistaBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.vistaBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvResultadosBusqueda.AllowUserToAddRows = false;
+            this.dgvResultadosBusqueda.AllowUserToOrderColumns = true;
+            this.dgvResultadosBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultadosBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_usuario,
             this.Nick,
             this.Apellido,
             this.Nombre,
             this.Turno});
-            this.vistaBusqueda.Location = new System.Drawing.Point(14, 46);
-            this.vistaBusqueda.Name = "vistaBusqueda";
-            this.vistaBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.vistaBusqueda.Size = new System.Drawing.Size(543, 150);
-            this.vistaBusqueda.TabIndex = 11;
-            this.vistaBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vistaBusqueda_CellContentClick);
+            this.dgvResultadosBusqueda.Location = new System.Drawing.Point(14, 46);
+            this.dgvResultadosBusqueda.Name = "dgvResultadosBusqueda";
+            this.dgvResultadosBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(543, 150);
+            this.dgvResultadosBusqueda.TabIndex = 11;
+            this.dgvResultadosBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultadosBusqueda_CellContentClick);
             // 
             // id_usuario
             // 
@@ -178,10 +178,10 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(569, 261);
-            this.Controls.Add(this.vistaBusqueda);
-            this.Controls.Add(this.bCerrar);
-            this.Controls.Add(this.bEliminar);
-            this.Controls.Add(this.bModificar);
+            this.Controls.Add(this.dgvResultadosBusqueda);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cbTurno);
             this.Controls.Add(this.label3);
@@ -195,7 +195,7 @@
             this.Name = "BuscarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Bedeles";
-            ((System.ComponentModel.ISupportInitialize)(this.vistaBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultadosBusqueda)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,10 +208,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbTurno;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button bModificar;
-        private System.Windows.Forms.Button bEliminar;
-        private System.Windows.Forms.Button bCerrar;
-        private System.Windows.Forms.DataGridView vistaBusqueda;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.DataGridView dgvResultadosBusqueda;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nick;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;

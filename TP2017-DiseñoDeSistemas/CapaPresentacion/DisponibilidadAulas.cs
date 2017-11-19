@@ -12,12 +12,14 @@ namespace CapaPresentacion
 {
     public partial class DisponibilidadAulas : Form
     {
-        public DisponibilidadAulas()
+        private Form padre;
+        public DisponibilidadAulas(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

@@ -38,3 +38,13 @@ C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistem
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas2\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.pdb

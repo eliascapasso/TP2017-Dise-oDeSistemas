@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuBedel));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bRegistrar = new System.Windows.Forms.Button();
-            this.bBuscarAula = new System.Windows.Forms.Button();
-            this.bListaResDia = new System.Windows.Forms.Button();
-            this.bListaResCurso = new System.Windows.Forms.Button();
-            this.bAtras = new System.Windows.Forms.Button();
+            this.btnRegistrarReserva = new System.Windows.Forms.Button();
+            this.btnBuscarAula = new System.Windows.Forms.Button();
+            this.btnListaResDia = new System.Windows.Forms.Button();
+            this.btnListaResCurso = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,64 +47,64 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // bRegistrar
+            // btnRegistrarReserva
             // 
-            this.bRegistrar.Location = new System.Drawing.Point(12, 12);
-            this.bRegistrar.Name = "bRegistrar";
-            this.bRegistrar.Size = new System.Drawing.Size(133, 60);
-            this.bRegistrar.TabIndex = 1;
-            this.bRegistrar.Text = "Registrar Reserva";
-            this.bRegistrar.UseVisualStyleBackColor = true;
-            this.bRegistrar.Click += new System.EventHandler(this.bRegistrar_Click);
+            this.btnRegistrarReserva.Location = new System.Drawing.Point(12, 12);
+            this.btnRegistrarReserva.Name = "btnRegistrarReserva";
+            this.btnRegistrarReserva.Size = new System.Drawing.Size(133, 60);
+            this.btnRegistrarReserva.TabIndex = 1;
+            this.btnRegistrarReserva.Text = "Registrar Reserva";
+            this.btnRegistrarReserva.UseVisualStyleBackColor = true;
+            this.btnRegistrarReserva.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // bBuscarAula
+            // btnBuscarAula
             // 
-            this.bBuscarAula.Location = new System.Drawing.Point(204, 12);
-            this.bBuscarAula.Name = "bBuscarAula";
-            this.bBuscarAula.Size = new System.Drawing.Size(133, 60);
-            this.bBuscarAula.TabIndex = 2;
-            this.bBuscarAula.Text = "Buscar Aula";
-            this.bBuscarAula.UseVisualStyleBackColor = true;
-            this.bBuscarAula.Click += new System.EventHandler(this.bBuscarAula_Click);
+            this.btnBuscarAula.Location = new System.Drawing.Point(204, 12);
+            this.btnBuscarAula.Name = "btnBuscarAula";
+            this.btnBuscarAula.Size = new System.Drawing.Size(133, 60);
+            this.btnBuscarAula.TabIndex = 2;
+            this.btnBuscarAula.Text = "Buscar Aula";
+            this.btnBuscarAula.UseVisualStyleBackColor = true;
+            this.btnBuscarAula.Click += new System.EventHandler(this.btnBuscarAula_Click);
             // 
-            // bListaResDia
+            // btnListaResDia
             // 
-            this.bListaResDia.Location = new System.Drawing.Point(12, 109);
-            this.bListaResDia.Name = "bListaResDia";
-            this.bListaResDia.Size = new System.Drawing.Size(133, 60);
-            this.bListaResDia.TabIndex = 3;
-            this.bListaResDia.Text = "Listar reservas del dia";
-            this.bListaResDia.UseVisualStyleBackColor = true;
+            this.btnListaResDia.Location = new System.Drawing.Point(12, 109);
+            this.btnListaResDia.Name = "btnListaResDia";
+            this.btnListaResDia.Size = new System.Drawing.Size(133, 60);
+            this.btnListaResDia.TabIndex = 3;
+            this.btnListaResDia.Text = "Listar reservas del dia";
+            this.btnListaResDia.UseVisualStyleBackColor = true;
             // 
-            // bListaResCurso
+            // btnListaResCurso
             // 
-            this.bListaResCurso.Location = new System.Drawing.Point(204, 109);
-            this.bListaResCurso.Name = "bListaResCurso";
-            this.bListaResCurso.Size = new System.Drawing.Size(133, 60);
-            this.bListaResCurso.TabIndex = 4;
-            this.bListaResCurso.Text = "Listar reservas de curso";
-            this.bListaResCurso.UseVisualStyleBackColor = true;
+            this.btnListaResCurso.Location = new System.Drawing.Point(204, 109);
+            this.btnListaResCurso.Name = "btnListaResCurso";
+            this.btnListaResCurso.Size = new System.Drawing.Size(133, 60);
+            this.btnListaResCurso.TabIndex = 4;
+            this.btnListaResCurso.Text = "Listar reservas de curso";
+            this.btnListaResCurso.UseVisualStyleBackColor = true;
             // 
-            // bAtras
+            // btnAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(12, 182);
-            this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(75, 23);
-            this.bAtras.TabIndex = 5;
-            this.bAtras.Text = "<- Atras";
-            this.bAtras.UseVisualStyleBackColor = true;
-            this.bAtras.Click += new System.EventHandler(this.bAtras_Click);
+            this.btnAtras.Location = new System.Drawing.Point(12, 182);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.TabIndex = 5;
+            this.btnAtras.Text = "<- Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // MenuBedel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 217);
-            this.Controls.Add(this.bAtras);
-            this.Controls.Add(this.bListaResCurso);
-            this.Controls.Add(this.bListaResDia);
-            this.Controls.Add(this.bBuscarAula);
-            this.Controls.Add(this.bRegistrar);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.btnListaResCurso);
+            this.Controls.Add(this.btnListaResDia);
+            this.Controls.Add(this.btnBuscarAula);
+            this.Controls.Add(this.btnRegistrarReserva);
             this.Controls.Add(this.pictureBox1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -120,10 +120,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button bRegistrar;
-        private System.Windows.Forms.Button bBuscarAula;
-        private System.Windows.Forms.Button bListaResDia;
-        private System.Windows.Forms.Button bListaResCurso;
-        private System.Windows.Forms.Button bAtras;
+        private System.Windows.Forms.Button btnRegistrarReserva;
+        private System.Windows.Forms.Button btnBuscarAula;
+        private System.Windows.Forms.Button btnListaResDia;
+        private System.Windows.Forms.Button btnListaResCurso;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

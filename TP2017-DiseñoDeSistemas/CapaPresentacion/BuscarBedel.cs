@@ -17,27 +17,27 @@ namespace Autenticacion
     public partial class BuscarBedel : Form
     {
         private string nickSeleccionado;
-        private GestorDeUsuario gestor;
+        private GestorDeUsuario gestor = new GestorDeUsuario();
+        private Form padre;
 
-        public BuscarBedel()
+        public BuscarBedel(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
-
-            this.gestor = new GestorDeUsuario();
             cbTurno.Text = "";
         }
 
-        private void bCerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void bModificar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
                 this.Close();
-                ModificarBedel modBedel = new ModificarBedel(this.nickSeleccionado);
+                ModificarBedel modBedel = new ModificarBedel(this.nickSeleccionado,this);
                 modBedel.Show();
             }
             catch(NullReferenceException l)
@@ -47,7 +47,7 @@ namespace Autenticacion
             }
         }
 
-        private void bEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Asterisk.Play();
             DialogResult resultadoElim = MessageBox.Show("¿Seguro que desea eliminar el Bedel? \nNick: "+this.nickSeleccionado, "ADVERTENCIA", MessageBoxButtons.YesNo);
@@ -61,9 +61,9 @@ namespace Autenticacion
             }
         }
 
-        private void vistaBusqueda_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvResultadosBusqueda_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow fila = vistaBusqueda.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+            DataGridViewRow fila = dgvResultadosBusqueda.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
 
             this.nickSeleccionado = Convert.ToString(fila.Cells[1].Value); //obtengo el valor de la primer columna
          }
@@ -72,14 +72,14 @@ namespace Autenticacion
         {
             ArrayList bedeles = gestor.buscarBedel(tbApellido.Text, cbTurno.SelectedItem.ToString());
 
-            vistaBusqueda.Rows.Clear();
+            dgvResultadosBusqueda.Rows.Clear();
             
             if (bedeles.Count != 0)
             {
                 int i = 0;
                 foreach (Bedel bedel in bedeles)
                 {
-                    vistaBusqueda.Rows.Insert(i, bedel.id_usuario, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
+                    dgvResultadosBusqueda.Rows.Insert(i, bedel.id_usuario, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
 
                     i++;
                 }

@@ -12,27 +12,32 @@ namespace Autenticacion
 {
     public partial class MenuAdmin : Form
     {
+        private Form padre;
+        public MenuAdmin(Form papa)
+        {
+            this.padre = papa;
+            InitializeComponent();
+        }
         public MenuAdmin()
         {
             InitializeComponent();
         }
 
-        private void Bregistrar_Click(object sender, EventArgs e)
+        private void btnregistrar_Click(object sender, EventArgs e)
         {
-            RegistrarBedel registro = new RegistrarBedel();
+            RegistrarBedel registro = new RegistrarBedel(this);
             registro.Show();
         }
 
-        private void bBuscar_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            BuscarBedel busqueda = new BuscarBedel();
+            BuscarBedel busqueda = new BuscarBedel(this);
             busqueda.Show();
         }
 
-        private void bAtras_Click(object sender, EventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
-
             Autenticacion inicio = new Autenticacion();
             inicio.Show();
         }

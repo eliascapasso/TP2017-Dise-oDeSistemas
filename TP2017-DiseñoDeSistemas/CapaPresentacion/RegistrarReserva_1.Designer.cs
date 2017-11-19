@@ -31,35 +31,35 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarReserva_1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTipoReserva = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.bAgregar = new System.Windows.Forms.Button();
-            this.bQuitar = new System.Windows.Forms.Button();
+            this.cbHoraInicio = new System.Windows.Forms.ComboBox();
+            this.cbHoraFin = new System.Windows.Forms.ComboBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cbTipoAula = new System.Windows.Forms.ComboBox();
+            this.tbCantidadAlumnos = new System.Windows.Forms.TextBox();
+            this.tbNombreSolicitante = new System.Windows.Forms.TextBox();
+            this.tbApellidoSolicitante = new System.Windows.Forms.TextBox();
+            this.tbEmailSolicitante = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cbNombreCurso = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.bSig = new System.Windows.Forms.Button();
-            this.bCancelar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.dgvResultados = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.calendarioDia = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,13 +81,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Agregue los horarios en que quiere hacer una reserva";
             // 
-            // comboBox1
+            // cbTipoReserva
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbTipoReserva.FormattingEnabled = true;
+            this.cbTipoReserva.Location = new System.Drawing.Point(93, 6);
+            this.cbTipoReserva.Name = "cbTipoReserva";
+            this.cbTipoReserva.Size = new System.Drawing.Size(172, 21);
+            this.cbTipoReserva.TabIndex = 2;
             // 
             // label3
             // 
@@ -116,39 +116,39 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Hora Fin*";
             // 
-            // comboBox3
+            // cbHoraInicio
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(234, 68);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(63, 21);
-            this.comboBox3.TabIndex = 7;
+            this.cbHoraInicio.FormattingEnabled = true;
+            this.cbHoraInicio.Location = new System.Drawing.Point(234, 68);
+            this.cbHoraInicio.Name = "cbHoraInicio";
+            this.cbHoraInicio.Size = new System.Drawing.Size(63, 21);
+            this.cbHoraInicio.TabIndex = 7;
             // 
-            // comboBox4
+            // cbHoraFin
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(360, 68);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(63, 21);
-            this.comboBox4.TabIndex = 8;
+            this.cbHoraFin.FormattingEnabled = true;
+            this.cbHoraFin.Location = new System.Drawing.Point(360, 68);
+            this.cbHoraFin.Name = "cbHoraFin";
+            this.cbHoraFin.Size = new System.Drawing.Size(63, 21);
+            this.cbHoraFin.TabIndex = 8;
             // 
-            // bAgregar
+            // btnAgregar
             // 
-            this.bAgregar.Location = new System.Drawing.Point(353, 136);
-            this.bAgregar.Name = "bAgregar";
-            this.bAgregar.Size = new System.Drawing.Size(75, 23);
-            this.bAgregar.TabIndex = 9;
-            this.bAgregar.Text = "Agregar";
-            this.bAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(353, 136);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // bQuitar
+            // btnQuitar
             // 
-            this.bQuitar.Location = new System.Drawing.Point(353, 165);
-            this.bQuitar.Name = "bQuitar";
-            this.bQuitar.Size = new System.Drawing.Size(75, 23);
-            this.bQuitar.TabIndex = 10;
-            this.bQuitar.Text = "Quitar";
-            this.bQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Location = new System.Drawing.Point(353, 165);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 10;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -195,41 +195,41 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "Nombre Curso*";
             // 
-            // comboBox5
+            // cbTipoAula
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(128, 307);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(226, 21);
-            this.comboBox5.TabIndex = 16;
+            this.cbTipoAula.FormattingEnabled = true;
+            this.cbTipoAula.Location = new System.Drawing.Point(128, 307);
+            this.cbTipoAula.Name = "cbTipoAula";
+            this.cbTipoAula.Size = new System.Drawing.Size(226, 21);
+            this.cbTipoAula.TabIndex = 16;
             // 
-            // textBox1
+            // tbCantidadAlumnos
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 333);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 20);
-            this.textBox1.TabIndex = 17;
+            this.tbCantidadAlumnos.Location = new System.Drawing.Point(128, 333);
+            this.tbCantidadAlumnos.Name = "tbCantidadAlumnos";
+            this.tbCantidadAlumnos.Size = new System.Drawing.Size(51, 20);
+            this.tbCantidadAlumnos.TabIndex = 17;
             // 
-            // textBox2
+            // tbNombreSolicitante
             // 
-            this.textBox2.Location = new System.Drawing.Point(128, 358);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(226, 20);
-            this.textBox2.TabIndex = 18;
+            this.tbNombreSolicitante.Location = new System.Drawing.Point(128, 358);
+            this.tbNombreSolicitante.Name = "tbNombreSolicitante";
+            this.tbNombreSolicitante.Size = new System.Drawing.Size(226, 20);
+            this.tbNombreSolicitante.TabIndex = 18;
             // 
-            // textBox3
+            // tbApellidoSolicitante
             // 
-            this.textBox3.Location = new System.Drawing.Point(128, 385);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(226, 20);
-            this.textBox3.TabIndex = 19;
+            this.tbApellidoSolicitante.Location = new System.Drawing.Point(128, 385);
+            this.tbApellidoSolicitante.Name = "tbApellidoSolicitante";
+            this.tbApellidoSolicitante.Size = new System.Drawing.Size(226, 20);
+            this.tbApellidoSolicitante.TabIndex = 19;
             // 
-            // textBox4
+            // tbEmailSolicitante
             // 
-            this.textBox4.Location = new System.Drawing.Point(128, 411);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(226, 20);
-            this.textBox4.TabIndex = 20;
+            this.tbEmailSolicitante.Location = new System.Drawing.Point(128, 411);
+            this.tbEmailSolicitante.Name = "tbEmailSolicitante";
+            this.tbEmailSolicitante.Size = new System.Drawing.Size(226, 20);
+            this.tbEmailSolicitante.TabIndex = 20;
             // 
             // label11
             // 
@@ -240,13 +240,13 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Cantidad Alumnos*";
             // 
-            // comboBox6
+            // cbNombreCurso
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(128, 436);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(226, 21);
-            this.comboBox6.TabIndex = 22;
+            this.cbNombreCurso.FormattingEnabled = true;
+            this.cbNombreCurso.Location = new System.Drawing.Point(128, 436);
+            this.cbNombreCurso.Name = "cbNombreCurso";
+            this.cbNombreCurso.Size = new System.Drawing.Size(226, 21);
+            this.cbNombreCurso.TabIndex = 22;
             // 
             // label12
             // 
@@ -258,45 +258,38 @@
             this.label12.TabIndex = 23;
             this.label12.Text = "Campos obligatorios (*)";
             // 
-            // bSig
+            // btnSiguiente
             // 
-            this.bSig.Location = new System.Drawing.Point(336, 494);
-            this.bSig.Name = "bSig";
-            this.bSig.Size = new System.Drawing.Size(75, 23);
-            this.bSig.TabIndex = 24;
-            this.bSig.Text = "Siguiente ->";
-            this.bSig.UseVisualStyleBackColor = true;
-            this.bSig.Click += new System.EventHandler(this.bSig_Click);
+            this.btnSiguiente.Location = new System.Drawing.Point(336, 494);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 24;
+            this.btnSiguiente.Text = "Siguiente ->";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
-            // bCancelar
+            // btnCancelar
             // 
-            this.bCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bCancelar.Location = new System.Drawing.Point(249, 494);
-            this.bCancelar.Name = "bCancelar";
-            this.bCancelar.Size = new System.Drawing.Size(75, 23);
-            this.bCancelar.TabIndex = 25;
-            this.bCancelar.Text = "Cancelar";
-            this.bCancelar.UseVisualStyleBackColor = true;
-            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(249, 494);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // dataGridView1
+            // dgvResultados
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 136);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(332, 150);
-            this.dataGridView1.TabIndex = 26;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(45, 68);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(115, 20);
-            this.dateTimePicker1.TabIndex = 27;
+            this.dgvResultados.Location = new System.Drawing.Point(15, 136);
+            this.dgvResultados.Name = "dgvResultados";
+            this.dgvResultados.Size = new System.Drawing.Size(332, 150);
+            this.dgvResultados.TabIndex = 26;
             // 
             // Column1
             // 
@@ -313,38 +306,45 @@
             this.Column3.HeaderText = "Duracion";
             this.Column3.Name = "Column3";
             // 
+            // calendarioDia
+            // 
+            this.calendarioDia.Location = new System.Drawing.Point(45, 68);
+            this.calendarioDia.Name = "calendarioDia";
+            this.calendarioDia.Size = new System.Drawing.Size(115, 20);
+            this.calendarioDia.TabIndex = 27;
+            // 
             // RegistrarReserva_1
             // 
-            this.AcceptButton = this.bSig;
+            this.AcceptButton = this.btnSiguiente;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.bCancelar;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(440, 531);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bCancelar);
-            this.Controls.Add(this.bSig);
+            this.Controls.Add(this.calendarioDia);
+            this.Controls.Add(this.dgvResultados);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.cbNombreCurso);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.tbEmailSolicitante);
+            this.Controls.Add(this.tbApellidoSolicitante);
+            this.Controls.Add(this.tbNombreSolicitante);
+            this.Controls.Add(this.tbCantidadAlumnos);
+            this.Controls.Add(this.cbTipoAula);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.bQuitar);
-            this.Controls.Add(this.bAgregar);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.btnQuitar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.cbHoraFin);
+            this.Controls.Add(this.cbHoraInicio);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbTipoReserva);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
@@ -355,7 +355,7 @@
             this.Name = "RegistrarReserva_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de reserva de aulas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,33 +365,33 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTipoReserva;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button bAgregar;
-        private System.Windows.Forms.Button bQuitar;
+        private System.Windows.Forms.ComboBox cbHoraInicio;
+        private System.Windows.Forms.ComboBox cbHoraFin;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cbTipoAula;
+        private System.Windows.Forms.TextBox tbCantidadAlumnos;
+        private System.Windows.Forms.TextBox tbNombreSolicitante;
+        private System.Windows.Forms.TextBox tbApellidoSolicitante;
+        private System.Windows.Forms.TextBox tbEmailSolicitante;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cbNombreCurso;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button bSig;
-        private System.Windows.Forms.Button bCancelar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView dgvResultados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker calendarioDia;
     }
 }

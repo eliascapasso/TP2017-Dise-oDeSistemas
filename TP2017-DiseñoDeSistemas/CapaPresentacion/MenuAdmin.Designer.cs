@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdmin));
-            this.Bregistrar = new System.Windows.Forms.Button();
-            this.bBuscar = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bAtras = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Bregistrar
+            // btnRegistrar
             // 
-            this.Bregistrar.Location = new System.Drawing.Point(12, 27);
-            this.Bregistrar.Name = "Bregistrar";
-            this.Bregistrar.Size = new System.Drawing.Size(118, 40);
-            this.Bregistrar.TabIndex = 0;
-            this.Bregistrar.Text = "Registrar Bedel";
-            this.Bregistrar.UseVisualStyleBackColor = true;
-            this.Bregistrar.Click += new System.EventHandler(this.Bregistrar_Click);
+            this.btnRegistrar.Location = new System.Drawing.Point(12, 27);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(118, 40);
+            this.btnRegistrar.TabIndex = 0;
+            this.btnRegistrar.Text = "Registrar Bedel";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnregistrar_Click);
             // 
-            // bBuscar
+            // btnBuscar
             // 
-            this.bBuscar.Location = new System.Drawing.Point(12, 82);
-            this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(118, 40);
-            this.bBuscar.TabIndex = 1;
-            this.bBuscar.Text = "Buscar Bedel";
-            this.bBuscar.UseVisualStyleBackColor = true;
-            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 82);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(118, 40);
+            this.btnBuscar.TabIndex = 1;
+            this.btnBuscar.Text = "Buscar Bedel";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pictureBox1
             // 
@@ -65,15 +65,15 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // bAtras
+            // btnAtras
             // 
-            this.bAtras.Location = new System.Drawing.Point(12, 147);
-            this.bAtras.Name = "bAtras";
-            this.bAtras.Size = new System.Drawing.Size(75, 23);
-            this.bAtras.TabIndex = 3;
-            this.bAtras.Text = "<- Atras";
-            this.bAtras.UseVisualStyleBackColor = true;
-            this.bAtras.Click += new System.EventHandler(this.bAtras_Click);
+            this.btnAtras.Location = new System.Drawing.Point(12, 147);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.TabIndex = 3;
+            this.btnAtras.Text = "<- Atras";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // MenuAdmin
             // 
@@ -81,10 +81,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(284, 182);
-            this.Controls.Add(this.bAtras);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.bBuscar);
-            this.Controls.Add(this.Bregistrar);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnRegistrar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -100,9 +100,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Bregistrar;
-        private System.Windows.Forms.Button bBuscar;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button bAtras;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

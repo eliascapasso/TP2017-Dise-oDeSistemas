@@ -16,8 +16,11 @@ namespace Autenticacion
     {
         private string nickBedelActual;
 
-        public ModificarBedel(string nick)
+        private Form padre;
+
+        public ModificarBedel(string nick, Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
             this.nickBedelActual = nick;
 

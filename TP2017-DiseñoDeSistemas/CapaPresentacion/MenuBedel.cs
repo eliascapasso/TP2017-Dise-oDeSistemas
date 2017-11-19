@@ -13,18 +13,21 @@ namespace Autenticacion
 {
     public partial class MenuBedel : Form
     {
-        public MenuBedel()
+        private Form padre;
+
+        public MenuBedel(Form papa)
         {
+            this.padre = papa;
             InitializeComponent();
         }
 
-        private void bRegistrar_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            RegistrarReserva_1 reserva = new RegistrarReserva_1();
+            RegistrarReserva_1 reserva = new RegistrarReserva_1(this);
             reserva.Show();
         }
 
-        private void bAtras_Click(object sender, EventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -32,9 +35,9 @@ namespace Autenticacion
             autenticacion.Show();
         }
 
-        private void bBuscarAula_Click(object sender, EventArgs e)
+        private void btnBuscarAula_Click(object sender, EventArgs e)
         {
-            BuscarAula buscar = new BuscarAula();
+            BuscarAula buscar = new BuscarAula(this);
             buscar.Show();
         }
     }

@@ -18,19 +18,19 @@ namespace Autenticacion
             InitializeComponent();
         }
 
-        private void bAdmin_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         { 
             this.Hide();
 
-            InicioSesionAdmin admin = new InicioSesionAdmin();
+            InicioSesionAdmin admin = new InicioSesionAdmin(this);
             admin.Show();
         }
 
-        private void bBedel_Click(object sender, EventArgs e)
+        private void btnBedel_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            InicioSesionBedel bedel = new InicioSesionBedel();
+            InicioSesionBedel bedel = new InicioSesionBedel(this);
             bedel.Show();
         }
 

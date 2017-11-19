@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Autenticacion));
             this.label1 = new System.Windows.Forms.Label();
-            this.bAdmin = new System.Windows.Forms.Button();
-            this.bBedel = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
+            this.btnBedel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,25 +44,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Seleccione un perfil:";
             // 
-            // bAdmin
+            // btnAdmin
             // 
-            this.bAdmin.Location = new System.Drawing.Point(165, 23);
-            this.bAdmin.Name = "bAdmin";
-            this.bAdmin.Size = new System.Drawing.Size(109, 41);
-            this.bAdmin.TabIndex = 1;
-            this.bAdmin.Text = "Administrador";
-            this.bAdmin.UseVisualStyleBackColor = true;
-            this.bAdmin.Click += new System.EventHandler(this.bAdmin_Click);
+            this.btnAdmin.Location = new System.Drawing.Point(165, 23);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(109, 41);
+            this.btnAdmin.TabIndex = 1;
+            this.btnAdmin.Text = "Administrador";
+            this.btnAdmin.UseVisualStyleBackColor = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
-            // bBedel
+            // btnBedel
             // 
-            this.bBedel.Location = new System.Drawing.Point(165, 80);
-            this.bBedel.Name = "bBedel";
-            this.bBedel.Size = new System.Drawing.Size(109, 41);
-            this.bBedel.TabIndex = 2;
-            this.bBedel.Text = "Bedel";
-            this.bBedel.UseVisualStyleBackColor = true;
-            this.bBedel.Click += new System.EventHandler(this.bBedel_Click);
+            this.btnBedel.Location = new System.Drawing.Point(165, 80);
+            this.btnBedel.Name = "btnBedel";
+            this.btnBedel.Size = new System.Drawing.Size(109, 41);
+            this.btnBedel.TabIndex = 2;
+            this.btnBedel.Text = "Bedel";
+            this.btnBedel.UseVisualStyleBackColor = true;
+            this.btnBedel.Click += new System.EventHandler(this.btnBedel_Click);
             // 
             // Autenticacion
             // 
@@ -71,9 +71,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::CapaPresentacion.Properties.Resources.loginmanager_100291;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(286, 135);
-            this.Controls.Add(this.bBedel);
-            this.Controls.Add(this.bAdmin);
+            this.ClientSize = new System.Drawing.Size(286, 136);
+            this.Controls.Add(this.btnBedel);
+            this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -92,8 +92,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bAdmin;
-        private System.Windows.Forms.Button bBedel;
+        private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.Button btnBedel;
     }
 }
 
