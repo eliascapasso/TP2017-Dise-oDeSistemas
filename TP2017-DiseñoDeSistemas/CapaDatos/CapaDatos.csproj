@@ -43,6 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +65,7 @@
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\Bedel.cs" />
+    <Compile Include="Clases\BedelDTO.cs" />
     <Compile Include="Clases\HistContrasenia.cs" />
     <Compile Include="Clases\TP2017Entities.cs" />
     <Compile Include="Clases\Usuario.cs" />

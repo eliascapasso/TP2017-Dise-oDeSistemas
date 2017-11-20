@@ -69,8 +69,10 @@
             // 
             // tbNick
             // 
+            this.tbNick.Enabled = false;
             this.tbNick.Location = new System.Drawing.Point(77, 136);
             this.tbNick.Name = "tbNick";
+            this.tbNick.ReadOnly = true;
             this.tbNick.Size = new System.Drawing.Size(195, 20);
             this.tbNick.TabIndex = 27;
             // 
@@ -158,8 +160,8 @@
             this.cbTurno.FormattingEnabled = true;
             this.cbTurno.Items.AddRange(new object[] {
             "Mañana",
-            "Tarde",
-            "Noche"});
+            "Noche",
+            "Tarde"});
             this.cbTurno.Location = new System.Drawing.Point(77, 104);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(195, 21);
@@ -189,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCerrar;
-            this.ClientSize = new System.Drawing.Size(293, 296);
+            this.ClientSize = new System.Drawing.Size(293, 295);
             this.Controls.Add(this.tbConfPass);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.cbTurno);

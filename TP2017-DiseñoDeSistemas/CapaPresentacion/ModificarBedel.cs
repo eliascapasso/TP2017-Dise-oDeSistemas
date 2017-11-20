@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaDatos;
+using CapaLogica;
 using Excepciones;
 using System;
 using System.Collections.Generic;
@@ -14,21 +15,22 @@ namespace Autenticacion
 {
     public partial class ModificarBedel : Form
     {
-        private string nickBedelActual;
+        private BedelDTO bedelSeleccionado;
 
         private Form padre;
 
-        public ModificarBedel(string nick, Form papa)
+        public ModificarBedel(BedelDTO bedelSeleccionado, Form papa)
         {
             this.padre = papa;
             InitializeComponent();
-            this.nickBedelActual = nick;
+            this.bedelSeleccionado = bedelSeleccionado;
 
-            tbNombre.Text = "";
-            tbApellido.Text = "";
-            tbPass.Text = "";
-            tbNick.Text = "";
-            cbTurno.Text = "Mañana";
+            tbNombre.Text = bedelSeleccionado.nombre;
+            tbApellido.Text = bedelSeleccionado.apellido;
+            tbPass.Text = bedelSeleccionado.contrasenia;
+            tbConfPass.Text = bedelSeleccionado.contrasenia;
+            tbNick.Text = bedelSeleccionado.nick;
+            cbTurno.Text = bedelSeleccionado.turno;
         }
 
         private void bAceptar_Click(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace Autenticacion
                 {
                     //Se intenta modificar el bedel
                     GestorDeUsuario gestor = new GestorDeUsuario();
-                    gestor.modificarBedel(this.nickBedelActual, tbNick.Text, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
+                    gestor.modificarBedel(this.bedelSeleccionado, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
 
                     //Llegado a este punto el bedel se modifico con exito
                     System.Media.SystemSounds.Asterisk.Play();
@@ -69,6 +71,7 @@ namespace Autenticacion
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.padre.Show();
         }
     }
 }

@@ -130,8 +130,8 @@
             this.cbTurno.FormattingEnabled = true;
             this.cbTurno.Items.AddRange(new object[] {
             "Mañana",
-            "Tarde",
-            "Noche"});
+            "Noche",
+            "Tarde"});
             this.cbTurno.Location = new System.Drawing.Point(77, 104);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(195, 21);
@@ -197,7 +197,7 @@
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 301);
+            this.ClientSize = new System.Drawing.Size(284, 300);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label8);

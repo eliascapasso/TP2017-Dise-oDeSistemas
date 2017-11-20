@@ -38,7 +38,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.dgvResultadosBusqueda = new System.Windows.Forms.DataGridView();
-            this.id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nick = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,8 +78,8 @@
             this.cbTurno.Items.AddRange(new object[] {
             "",
             "Mañana",
-            "Tarde",
-            "Noche"});
+            "Noche",
+            "Tarde"});
             this.cbTurno.Location = new System.Drawing.Point(226, 17);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(122, 21);
@@ -88,7 +87,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(480, 17);
+            this.btnBuscar.Location = new System.Drawing.Point(383, 17);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 6;
@@ -118,7 +117,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(480, 226);
+            this.btnCerrar.Location = new System.Drawing.Point(383, 225);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 10;
@@ -132,44 +131,41 @@
             this.dgvResultadosBusqueda.AllowUserToOrderColumns = true;
             this.dgvResultadosBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultadosBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_usuario,
             this.Nick,
             this.Apellido,
             this.Nombre,
             this.Turno});
             this.dgvResultadosBusqueda.Location = new System.Drawing.Point(14, 46);
             this.dgvResultadosBusqueda.Name = "dgvResultadosBusqueda";
+            this.dgvResultadosBusqueda.ReadOnly = true;
             this.dgvResultadosBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(543, 150);
+            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(444, 150);
             this.dgvResultadosBusqueda.TabIndex = 11;
             this.dgvResultadosBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultadosBusqueda_CellContentClick);
-            // 
-            // id_usuario
-            // 
-            this.id_usuario.DataPropertyName = "id_usuario";
-            this.id_usuario.HeaderText = "id_usuario";
-            this.id_usuario.Name = "id_usuario";
-            this.id_usuario.ReadOnly = true;
             // 
             // Nick
             // 
             this.Nick.HeaderText = "Nick";
             this.Nick.Name = "Nick";
+            this.Nick.ReadOnly = true;
             // 
             // Apellido
             // 
             this.Apellido.HeaderText = "Apellido";
             this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Turno
             // 
             this.Turno.HeaderText = "Turno";
             this.Turno.Name = "Turno";
+            this.Turno.ReadOnly = true;
             // 
             // BuscarBedel
             // 
@@ -177,7 +173,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(569, 261);
+            this.ClientSize = new System.Drawing.Size(474, 260);
             this.Controls.Add(this.dgvResultadosBusqueda);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEliminar);
@@ -191,7 +187,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(585, 299);
-            this.MinimumSize = new System.Drawing.Size(585, 299);
             this.Name = "BuscarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Bedeles";
@@ -212,7 +207,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.DataGridView dgvResultadosBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nick;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;

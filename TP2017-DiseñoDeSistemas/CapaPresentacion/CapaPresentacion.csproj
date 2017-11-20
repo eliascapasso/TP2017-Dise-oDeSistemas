@@ -116,7 +116,7 @@
     <Compile Include="ModificarBedel.Designer.cs">
       <DependentUpon>ModificarBedel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Clases\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarBedel.cs">
       <SubType>Form</SubType>

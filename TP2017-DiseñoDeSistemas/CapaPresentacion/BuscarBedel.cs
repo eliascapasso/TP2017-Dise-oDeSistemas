@@ -16,7 +16,8 @@ namespace Autenticacion
 {
     public partial class BuscarBedel : Form
     {
-        private string nickSeleccionado;
+        private BedelDTO bedelSeleccionado;
+        private ArrayList bedelesBuscados;
         private GestorDeUsuario gestor = new GestorDeUsuario();
         private Form padre;
 
@@ -24,6 +25,8 @@ namespace Autenticacion
         {
             this.padre = papa;
             InitializeComponent();
+            this.bedelesBuscados = new ArrayList();
+            this.bedelSeleccionado = new BedelDTO();
             cbTurno.Text = "";
         }
 
@@ -34,30 +37,40 @@ namespace Autenticacion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.Close();
-                ModificarBedel modBedel = new ModificarBedel(this.nickSeleccionado,this);
-                modBedel.Show();
-            }
-            catch(NullReferenceException l)
+            if (this.bedelSeleccionado.vacio)
             {
                 System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show("Seleccione un bedel para modificar", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No seleccionó ningun bedel", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                try
+                {
+                    this.Hide();
+                    ModificarBedel modBedel = new ModificarBedel(this.bedelSeleccionado, this);
+                    modBedel.Show();
+                }
+                catch (NullReferenceException l)
+                {
+                    System.Media.SystemSounds.Exclamation.Play();
+                    MessageBox.Show("Seleccione un bedel para modificar", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Asterisk.Play();
-            DialogResult resultadoElim = MessageBox.Show("¿Seguro que desea eliminar el Bedel? \nNick: "+this.nickSeleccionado, "ADVERTENCIA", MessageBoxButtons.YesNo);
+            DialogResult resultadoElim = MessageBox.Show("¿Seguro que desea eliminar el Bedel? \nApellido: " + this.bedelSeleccionado.apellido+ "\nNombre: " +this.bedelSeleccionado.nombre + "\nTurno: " + this.bedelSeleccionado.turno, "ADVERTENCIA", MessageBoxButtons.YesNo);
 
             if (resultadoElim == DialogResult.Yes)
             {
-                gestor.eliminarBedel(this.nickSeleccionado);
+                gestor.eliminarBedel(this.bedelSeleccionado.nick);
 
                 System.Media.SystemSounds.Asterisk.Play();
                 MessageBox.Show("Se ha eliminado el Bedel seleccionado", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                dgvResultadosBusqueda.Rows.Clear();
             }
         }
 
@@ -65,21 +78,29 @@ namespace Autenticacion
         {
             DataGridViewRow fila = dgvResultadosBusqueda.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
 
-            this.nickSeleccionado = Convert.ToString(fila.Cells[1].Value); //obtengo el valor de la primer columna
+            string nickSeleccionado = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la primer columna
+
+            foreach(BedelDTO bedel in this.bedelesBuscados)
+            {
+                if (bedel.nick.Equals(nickSeleccionado))
+                {
+                    this.bedelSeleccionado = bedel;
+                }
+            }
          }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ArrayList bedeles = gestor.buscarBedel(tbApellido.Text, cbTurno.SelectedItem.ToString());
+            this.bedelesBuscados = gestor.buscarBedel(tbApellido.Text, cbTurno.SelectedItem.ToString());
 
             dgvResultadosBusqueda.Rows.Clear();
             
-            if (bedeles.Count != 0)
+            if (this.bedelesBuscados.Count != 0)
             {
                 int i = 0;
-                foreach (Bedel bedel in bedeles)
+                foreach (BedelDTO bedel in this.bedelesBuscados)
                 {
-                    dgvResultadosBusqueda.Rows.Insert(i, bedel.id_usuario, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
+                    dgvResultadosBusqueda.Rows.Insert(i, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
 
                     i++;
                 }

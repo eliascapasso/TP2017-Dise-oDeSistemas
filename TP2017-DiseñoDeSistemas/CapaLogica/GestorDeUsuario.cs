@@ -43,85 +43,55 @@ namespace CapaLogica
             }
         }
 
+        //METODO PARA BUSCAR BEDELES
         public ArrayList buscarBedel(string apellido, string turno)
         {
-            
-            return userDAODB.obtenerBedeles(apellido, turno);
-            
+            ArrayList bedeles = userDAODB.obtenerBedeles(apellido, turno);
+            ArrayList bedelesDTO = new ArrayList();
+
+            foreach (Bedel bedel in bedeles)
+            {
+                bedelesDTO.Add(new BedelDTO(bedel.nick, bedel.contrasenia, bedel.nombre, bedel.apellido, bedel.turno));
+            }
+
+            return bedelesDTO;
         }
 
         //METODO PARA MODIFICAR UN BEDEL
-        public void modificarBedel(string nickActual, string nick, string apellido, string nombre, string turno, string pass)
+        public void modificarBedel(BedelDTO bedelSeleccionado, string apellido, string nombre, string turno, string pass)
         {
-            bool passmodificada = !pass.Equals("");
+            bool passModificada = !pass.Equals(bedelSeleccionado.contrasenia);
             
             GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
             //Comprueba politicas de contraseña o que no haya sido modificada
-            if (gestorPoliticas.comprobarPoliticas(pass) || !passmodificada)
+            if (!passModificada || gestorPoliticas.comprobarPoliticas(pass))
             {
-                //Comprueba que no exista el nick ingresado o que no haya sido modificada
-                if (nick.Equals("") || userDAODB.comprobarNickRepetido(nick))
+                userDAODB.modificarBedel(bedelSeleccionado, apellido, nombre, turno, pass, passModificada);
+
+                //CONSULTAR AL PROFESOR
+                /*Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
+               
+                bedelObt.apellido = apellido;
+                bedelObt.nombre = nombre;
+                bedelObt.contrasenia = pass;
+                bedelObt.turno = turno;
+
+                if (passModificada)
                 {
-                    Bedel bedelObt = userDAODB.obtenerBedel(nickActual);
-                    //delObt.apellido = apellido;
-
-                    Bedel bedelMod = new Bedel(bedelObt.nick, bedelObt.contrasenia, bedelObt.nombre, bedelObt.apellido, bedelObt.turno);
-
-                    foreach (var historial in bedelMod.HistContrasenias)
-                    {
-                        MessageBox.Show(historial.contrasenia, "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    }
-
-                    bedelMod = this.setModificaciones(bedelMod, nick, apellido, nombre, turno, pass);
-
-                    if (passmodificada)
-                    {
-                        HistContrasenia historial = new HistContrasenia(pass, bedelMod.id_usuario);
-                        bedelMod.agregarHistorial(historial);
-                    }
-
-                    userDAODB.guardarBedelModificado(nickActual, bedelMod);
+                    HistContrasenia historial = new HistContrasenia(pass, bedelObt.id_usuario);
+                    bedelObt.agregarHistorial(historial);
                 }
-                else
-                {
-                    throw new NickException();
-                }
+
+                userDAODB.guardarBedelModificado(bedelObt);*/
             }
             else
             {
                 throw new PoliticasContraseniaException();
             }
-
-            
         }
 
-        private Bedel setModificaciones(Bedel bedelMod, string nick, string apellido, string nombre, string turno, string pass)
-        {
-            if (!nick.Equals(""))
-            {
-                bedelMod.nick = nick;
-            }
-            if (!apellido.Equals(""))
-            {
-                bedelMod.apellido = apellido;
-            }
-            if (!nombre.Equals(""))
-            {
-                bedelMod.nombre = nombre;
-            }
-            if (!turno.Equals(""))
-            {
-                bedelMod.turno = turno;
-            }
-            if (!pass.Equals(""))
-            {
-                bedelMod.contrasenia = pass;
-            }
-
-            return bedelMod;
-        }
-
+        //METODO PARA ELIMINAR UN BEDEL
         public void eliminarBedel(string nick)
         {
             userDAODB.eliminarBedel(nick);

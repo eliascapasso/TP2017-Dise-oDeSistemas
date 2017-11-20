@@ -10,22 +10,22 @@ namespace CapaDatos
     public class HistContraseniaDAODB
     {
         public HistContraseniaDAODB() { }
-
-        //public TP2017Entities db = new TP2017Entities();
-
-        /*public void guardarHistorialContrasenia(Usuario bedel)
+        
+        public HashSet<HistContrasenia> obtenerHistorial(Bedel bedelObt)
         {
+            HashSet<HistContrasenia> historiales = new HashSet<HistContrasenia>();
 
-            using (db)
+            /*using (TP2017Entities bd = new TP2017Entities())
             {
-                //Aca va el agregar en la db, en los corchetes van todos los datos excepto el id
-                db.HistContrasenia.Add(new HistContrasenia() { id_usuario = bedel.id_usuario,
-                                                               contrasenia =bedel.contrasenia,
-                                                               fecha_creacion=DateTime.Now});
-                db.SaveChanges();
-            }
+                var query = from HistContrasenia in bd.HistContrasenias where HistContrasenia.id_usuario.Equals(bedelObt.id_usuario) select HistContrasenia;
 
-        }*/
+                foreach(var hist in query)
+                {
+                    historiales.Add(hist);
+                }
+            }*/
+            return historiales;
+        }
     }
 }
 

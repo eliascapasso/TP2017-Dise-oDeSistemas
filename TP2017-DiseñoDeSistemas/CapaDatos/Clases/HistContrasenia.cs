@@ -8,7 +8,11 @@
 
     public partial class HistContrasenia
     {
-        
+        public HistContrasenia()
+        {
+
+        }
+
         public HistContrasenia(string pass, int idUsu)
         {
             this.contrasenia = pass;
