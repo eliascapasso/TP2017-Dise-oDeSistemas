@@ -84,6 +84,10 @@
             // cbTipoReserva
             // 
             this.cbTipoReserva.FormattingEnabled = true;
+            this.cbTipoReserva.Items.AddRange(new object[] {
+            "Esporadica",
+            "Cuatrimestral",
+            "Anual"});
             this.cbTipoReserva.Location = new System.Drawing.Point(93, 6);
             this.cbTipoReserva.Name = "cbTipoReserva";
             this.cbTipoReserva.Size = new System.Drawing.Size(172, 21);
@@ -118,15 +122,22 @@
             // 
             // cbHoraInicio
             // 
+            this.cbHoraInicio.DropDownHeight = 60;
+            this.cbHoraInicio.FormatString = "t";
             this.cbHoraInicio.FormattingEnabled = true;
+            this.cbHoraInicio.IntegralHeight = false;
             this.cbHoraInicio.Location = new System.Drawing.Point(234, 68);
             this.cbHoraInicio.Name = "cbHoraInicio";
             this.cbHoraInicio.Size = new System.Drawing.Size(63, 21);
             this.cbHoraInicio.TabIndex = 7;
+            this.cbHoraInicio.SelectedValueChanged += new System.EventHandler(this.cbHoraInicio_SelectedValueChanged);
             // 
             // cbHoraFin
             // 
+            this.cbHoraFin.DropDownHeight = 60;
+            this.cbHoraFin.FormatString = "t";
             this.cbHoraFin.FormattingEnabled = true;
+            this.cbHoraFin.IntegralHeight = false;
             this.cbHoraFin.Location = new System.Drawing.Point(360, 68);
             this.cbHoraFin.Name = "cbHoraFin";
             this.cbHoraFin.Size = new System.Drawing.Size(63, 21);
@@ -355,6 +366,7 @@
             this.Name = "RegistrarReserva_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de reserva de aulas";
+            this.Load += new System.EventHandler(this.RegistrarReserva_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

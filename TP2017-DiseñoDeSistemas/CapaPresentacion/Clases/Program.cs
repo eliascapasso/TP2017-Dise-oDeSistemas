@@ -13,10 +13,10 @@ namespace Autenticacion
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuAdmin());
+            Application.Run(new RegistrarReserva_1(new Form()));
         }
     }
 }

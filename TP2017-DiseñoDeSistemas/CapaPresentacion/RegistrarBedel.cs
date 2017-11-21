@@ -22,8 +22,6 @@ namespace Autenticacion
             this.padre = papa;
 
             InitializeComponent();
-
-            cbTurno.Text = "Mañana";
         }
 
         GestorDeUsuario gestor = new GestorDeUsuario();

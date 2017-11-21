@@ -23,9 +23,7 @@ namespace CapaPresentacion
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
-
-            RegistrarReserva_1 reserva = new RegistrarReserva_1(this);
-            reserva.Show();
+            padre.Show();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
