@@ -117,6 +117,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.Location = new System.Drawing.Point(383, 225);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
@@ -169,10 +170,12 @@
             // 
             // BuscarBedel
             // 
+            this.AcceptButton = this.btnBuscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btnCerrar;
             this.ClientSize = new System.Drawing.Size(474, 260);
             this.Controls.Add(this.dgvResultadosBusqueda);
             this.Controls.Add(this.btnCerrar);
