@@ -49,6 +49,8 @@ namespace Autenticacion
                     MessageBox.Show("Bedel modificado con éxito", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     this.Close();
+                    padre.Show();
+                    
                 }
                 catch (PoliticasContraseniaException p)
                 {
@@ -66,6 +68,7 @@ namespace Autenticacion
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("La confirmación de contraseña no es valida", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

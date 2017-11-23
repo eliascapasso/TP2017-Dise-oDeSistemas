@@ -9,6 +9,7 @@ namespace CapaLogica
     public class GestorDeUsuario
     {
         private UsuarioDAODB userDAODB;
+        GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
 
         public GestorDeUsuario()
         {
@@ -62,28 +63,25 @@ namespace CapaLogica
         {
             bool passModificada = !pass.Equals(bedelSeleccionado.contrasenia);
             
-            GestorDePoliticaDeContrasenia gestorPoliticas = new GestorDePoliticaDeContrasenia();
+            
 
             //Comprueba politicas de contraseña o que no haya sido modificada
             if (!passModificada || gestorPoliticas.comprobarPoliticas(pass))
             {
                 userDAODB.modificarBedel(bedelSeleccionado, apellido, nombre, turno, pass, passModificada);
 
-                //CONSULTAR AL PROFESOR
-                /*Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
-               
-                bedelObt.apellido = apellido;
-                bedelObt.nombre = nombre;
-                bedelObt.contrasenia = pass;
-                bedelObt.turno = turno;
+                ////CONSULTAR AL PROFESOR
+                //Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
 
-                if (passModificada)
-                {
-                    HistContrasenia historial = new HistContrasenia(pass, bedelObt.id_usuario);
-                    bedelObt.agregarHistorial(historial);
-                }
+                //bedelObt.setValores(nombre, apellido, turno, pass);
 
-                userDAODB.guardarBedelModificado(bedelObt);*/
+                //if (passModificada)
+                //{
+                //    HistContrasenia historial = new HistContrasenia(pass, bedelObt.id_usuario);
+                //    bedelObt.agregarHistorial(historial);
+                //}
+
+                //userDAODB.guardarBedelModificado(bedelObt);
             }
             else
             {

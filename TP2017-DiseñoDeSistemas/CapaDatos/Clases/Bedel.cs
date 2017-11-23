@@ -21,5 +21,12 @@
 
             this.HistContrasenias = new HashSet<HistContrasenia>();
         }
+        public void setValores(string nombre, string apellido, string turno, string pass)
+        {
+            this.apellido = apellido;
+            this.nombre = nombre;
+            this.contrasenia = pass;
+            this.turno = turno;
+        }
     }
 }

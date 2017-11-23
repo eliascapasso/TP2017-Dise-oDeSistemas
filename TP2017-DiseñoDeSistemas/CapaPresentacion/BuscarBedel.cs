@@ -47,8 +47,10 @@ namespace Autenticacion
                 try
                 {
                     this.Hide();
+                    dgvResultadosBusqueda.Rows.Clear();
                     ModificarBedel modBedel = new ModificarBedel(this.bedelSeleccionado, this);
                     modBedel.Show();
+
                 }
                 catch (NullReferenceException l)
                 {

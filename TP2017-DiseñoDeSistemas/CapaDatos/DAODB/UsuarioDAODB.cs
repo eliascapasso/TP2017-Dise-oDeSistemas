@@ -71,8 +71,8 @@
             using (TP2017Entities bd = new TP2017Entities())
             {
                 var bedeles = from usuario in bd.Bedeles where usuario.nick.Equals(nickActual) select usuario;
-
-                foreach (Bedel bedel in bedeles)
+                
+                foreach (var bedel in bedeles)
                 {
                     bedelObtenido = bedel;
 
@@ -86,7 +86,7 @@
         public void guardarBedelModificado(Bedel bedel)
         {
             using (TP2017Entities bd = new TP2017Entities())
-            {
+            {    
                 try
                 {
                     bd.SaveChanges();
@@ -131,20 +131,14 @@
         {
             using (var bd = new TP2017Entities())
             {
-                var query = (from usuario in bd.Bedeles where usuario.nick.Equals(bedelSeleccionado.nick) select usuario);
+                var bedeles = (from usuario in bd.Bedeles where usuario.nick.Equals(bedelSeleccionado.nick) select usuario);
 
-                foreach (var bedel in query)
+                foreach (var bedel in bedeles)
                 {
-                    bedel.apellido = apellido;
-                    bedel.nombre = nombre;
-                    bedel.turno = turno;
-                    bedel.contrasenia = pass;
+                    bedel.setValores(nombre,apellido,turno,pass);
 
                     if (passModificada)
                     {
-                        System.Media.SystemSounds.Exclamation.Play();
-                        MessageBox.Show(pass+ " " + bedel.id_usuario.ToString() , "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
                         HistContrasenia historial = new HistContrasenia(pass, bedel.id_usuario);
                         bedel.agregarHistorial(historial);
                     }

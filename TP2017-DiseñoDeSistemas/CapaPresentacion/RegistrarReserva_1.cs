@@ -31,7 +31,8 @@ namespace Autenticacion
         private void RegistrarReserva_1_Load(object sender, EventArgs e)
         {
             llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
-            cbHoraInicio.SelectedItem = 0;
+            cbHoraInicio.SelectedIndex = 0;
+            cbTipoReserva.SelectedIndex = 0;
         }
 
 
@@ -82,5 +83,23 @@ namespace Autenticacion
             cb.FormatString = "HH:mm";
         }
 
+        private void cbTipoReserva_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbTipoReserva.SelectedItem.ToString().Equals("Esporádica"))
+            {
+                cbNoEsporadico.Visible = false;
+                calendarioEsporadico.Visible = true;
+                calendarioEsporadico.MinDate = DateTime.Now;
+                calendarioEsporadico.Value = DateTime.Now;
+                
+            }
+            else
+            {
+                cbNoEsporadico.Visible = true;
+                calendarioEsporadico.Visible = false;
+            }
+        }
+
+        
     }
 }

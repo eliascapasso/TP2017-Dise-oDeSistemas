@@ -58,7 +58,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calendarioDia = new System.Windows.Forms.DateTimePicker();
+            this.calendarioEsporadico = new System.Windows.Forms.DateTimePicker();
+            this.cbNoEsporadico = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,15 +84,19 @@
             // 
             // cbTipoReserva
             // 
+            this.cbTipoReserva.DropDownHeight = 60;
+            this.cbTipoReserva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoReserva.FormattingEnabled = true;
+            this.cbTipoReserva.IntegralHeight = false;
             this.cbTipoReserva.Items.AddRange(new object[] {
-            "Esporadica",
+            "Esporádica",
             "Cuatrimestral",
             "Anual"});
             this.cbTipoReserva.Location = new System.Drawing.Point(93, 6);
             this.cbTipoReserva.Name = "cbTipoReserva";
             this.cbTipoReserva.Size = new System.Drawing.Size(172, 21);
             this.cbTipoReserva.TabIndex = 2;
+            this.cbTipoReserva.SelectedValueChanged += new System.EventHandler(this.cbTipoReserva_SelectedValueChanged);
             // 
             // label3
             // 
@@ -123,6 +128,7 @@
             // cbHoraInicio
             // 
             this.cbHoraInicio.DropDownHeight = 60;
+            this.cbHoraInicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHoraInicio.FormatString = "t";
             this.cbHoraInicio.FormattingEnabled = true;
             this.cbHoraInicio.IntegralHeight = false;
@@ -135,6 +141,7 @@
             // cbHoraFin
             // 
             this.cbHoraFin.DropDownHeight = 60;
+            this.cbHoraFin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHoraFin.FormatString = "t";
             this.cbHoraFin.FormattingEnabled = true;
             this.cbHoraFin.IntegralHeight = false;
@@ -208,7 +215,10 @@
             // 
             // cbTipoAula
             // 
+            this.cbTipoAula.DropDownHeight = 60;
+            this.cbTipoAula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoAula.FormattingEnabled = true;
+            this.cbTipoAula.IntegralHeight = false;
             this.cbTipoAula.Location = new System.Drawing.Point(128, 307);
             this.cbTipoAula.Name = "cbTipoAula";
             this.cbTipoAula.Size = new System.Drawing.Size(226, 21);
@@ -253,7 +263,10 @@
             // 
             // cbNombreCurso
             // 
+            this.cbNombreCurso.DropDownHeight = 60;
+            this.cbNombreCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNombreCurso.FormattingEnabled = true;
+            this.cbNombreCurso.IntegralHeight = false;
             this.cbNombreCurso.Location = new System.Drawing.Point(128, 436);
             this.cbNombreCurso.Name = "cbNombreCurso";
             this.cbNombreCurso.Size = new System.Drawing.Size(226, 21);
@@ -317,12 +330,24 @@
             this.Column3.HeaderText = "Duracion";
             this.Column3.Name = "Column3";
             // 
-            // calendarioDia
+            // calendarioEsporadico
             // 
-            this.calendarioDia.Location = new System.Drawing.Point(45, 68);
-            this.calendarioDia.Name = "calendarioDia";
-            this.calendarioDia.Size = new System.Drawing.Size(115, 20);
-            this.calendarioDia.TabIndex = 27;
+            this.calendarioEsporadico.Location = new System.Drawing.Point(45, 69);
+            this.calendarioEsporadico.Name = "calendarioEsporadico";
+            this.calendarioEsporadico.Size = new System.Drawing.Size(115, 20);
+            this.calendarioEsporadico.TabIndex = 27;
+            // 
+            // cbNoEsporadico
+            // 
+            this.cbNoEsporadico.DropDownHeight = 60;
+            this.cbNoEsporadico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNoEsporadico.FormatString = "t";
+            this.cbNoEsporadico.FormattingEnabled = true;
+            this.cbNoEsporadico.IntegralHeight = false;
+            this.cbNoEsporadico.Location = new System.Drawing.Point(45, 69);
+            this.cbNoEsporadico.Name = "cbNoEsporadico";
+            this.cbNoEsporadico.Size = new System.Drawing.Size(115, 21);
+            this.cbNoEsporadico.TabIndex = 28;
             // 
             // RegistrarReserva_1
             // 
@@ -331,7 +356,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(440, 531);
-            this.Controls.Add(this.calendarioDia);
+            this.Controls.Add(this.cbNoEsporadico);
+            this.Controls.Add(this.calendarioEsporadico);
             this.Controls.Add(this.dgvResultados);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSiguiente);
@@ -404,6 +430,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DateTimePicker calendarioDia;
+        private System.Windows.Forms.DateTimePicker calendarioEsporadico;
+        private System.Windows.Forms.ComboBox cbNoEsporadico;
     }
 }
