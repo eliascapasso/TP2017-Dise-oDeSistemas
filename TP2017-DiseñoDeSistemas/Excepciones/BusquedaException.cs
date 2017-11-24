@@ -8,7 +8,7 @@ namespace Excepciones
 {
     public class BusquedaException : System.Exception
     {
-        public BusquedaException() : base("Error: El nick ingresado ya existe")
+        public BusquedaException() : base("Error en la busqueda")
         {
 
         }

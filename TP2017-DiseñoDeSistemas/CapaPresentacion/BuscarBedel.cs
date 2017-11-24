@@ -56,6 +56,8 @@ namespace Autenticacion
                 {
                     System.Media.SystemSounds.Exclamation.Play();
                     MessageBox.Show("Seleccione un bedel para modificar", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                    Console.Write(l.Message.ToString());
                 }
             }
         }

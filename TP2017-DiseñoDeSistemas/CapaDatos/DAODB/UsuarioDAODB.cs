@@ -98,6 +98,7 @@
             }
         }
 
+        //METODO PARA COMPROBAR SI EL NICK  YA EXISTE
         public bool comprobarNickRepetido(string nick)
         {
             using (TP2017Entities bd = new TP2017Entities())
@@ -105,6 +106,17 @@
                 var query = (from usuario in bd.Usuarios where usuario.nick == nick select nick).Count();
 
                 return (query == 0);
+            }
+        }
+
+        //METODO PARA COMPROBAR SI EL DOCENTE EXISTE
+        public bool existeDocente(string apellidoDocente, string nombreDocente, string emailDocente)
+        {
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                var docentes = (from docente in bd.Docentes where docente.apellido_docente.Equals(apellidoDocente) && docente.nombre_docente.Equals(nombreDocente) && docente.email_docente.Equals(emailDocente) select docente).Count();
+
+                return (docentes != 0);
             }
         }
 

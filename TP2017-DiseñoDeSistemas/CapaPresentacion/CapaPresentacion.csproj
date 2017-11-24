@@ -187,6 +187,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Autenticacion.BuscarBedel.datasource" />
+    <None Include="Properties\DataSources\CapaDatos.Asignatura.datasource" />
     <None Include="Properties\DataSources\CapaDatos.UsuarioDAODB.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

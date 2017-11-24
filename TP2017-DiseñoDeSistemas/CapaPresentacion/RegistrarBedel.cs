@@ -56,12 +56,12 @@ namespace Autenticacion
                 catch (PoliticasContraseniaException p)
                 {
                     System.Media.SystemSounds.Exclamation.Play();
-                    MessageBox.Show("No se cumplen las políticas de contraseña", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(p.Message.ToString(), "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 catch (NickException n)
                 {
                     System.Media.SystemSounds.Exclamation.Play();
-                    MessageBox.Show("El Nick ingresado ya existe", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(n.Message.ToString(), "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 

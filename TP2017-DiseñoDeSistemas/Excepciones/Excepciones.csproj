@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusquedaException.cs" />
+    <Compile Include="DocenteException.cs" />
+    <Compile Include="HoraDuracionException.cs" />
     <Compile Include="NickException.cs" />
     <Compile Include="PoliticasContraseniaException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

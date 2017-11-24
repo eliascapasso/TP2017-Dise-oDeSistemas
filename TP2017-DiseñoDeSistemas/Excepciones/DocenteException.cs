@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
-    public class PoliticasContraseniaException : System.Exception
+    public class DocenteException : System.Exception
     {
-        public PoliticasContraseniaException() : base("No se cumplen las politicas de contraseña")
+        public DocenteException() : base("Los datos del solicitante no son validos")
         {
 
         }

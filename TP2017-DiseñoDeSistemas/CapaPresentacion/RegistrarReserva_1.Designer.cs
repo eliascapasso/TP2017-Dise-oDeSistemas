@@ -45,7 +45,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbTipoAula = new System.Windows.Forms.ComboBox();
-            this.tbCantidadAlumnos = new System.Windows.Forms.TextBox();
             this.tbNombreSolicitante = new System.Windows.Forms.TextBox();
             this.tbApellidoSolicitante = new System.Windows.Forms.TextBox();
             this.tbEmailSolicitante = new System.Windows.Forms.TextBox();
@@ -60,7 +59,9 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calendarioEsporadico = new System.Windows.Forms.DateTimePicker();
             this.cbNoEsporadico = new System.Windows.Forms.ComboBox();
+            this.tbCantidadAlumnos = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCantidadAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -158,6 +159,7 @@
             this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnQuitar
             // 
@@ -219,17 +221,14 @@
             this.cbTipoAula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoAula.FormattingEnabled = true;
             this.cbTipoAula.IntegralHeight = false;
+            this.cbTipoAula.Items.AddRange(new object[] {
+            "Informatica",
+            "Multimedios",
+            "Sin recursos adicionales"});
             this.cbTipoAula.Location = new System.Drawing.Point(128, 307);
             this.cbTipoAula.Name = "cbTipoAula";
             this.cbTipoAula.Size = new System.Drawing.Size(226, 21);
             this.cbTipoAula.TabIndex = 16;
-            // 
-            // tbCantidadAlumnos
-            // 
-            this.tbCantidadAlumnos.Location = new System.Drawing.Point(128, 333);
-            this.tbCantidadAlumnos.Name = "tbCantidadAlumnos";
-            this.tbCantidadAlumnos.Size = new System.Drawing.Size(51, 20);
-            this.tbCantidadAlumnos.TabIndex = 17;
             // 
             // tbNombreSolicitante
             // 
@@ -305,6 +304,7 @@
             // 
             // dgvResultados
             // 
+            this.dgvResultados.AllowUserToAddRows = false;
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -312,6 +312,7 @@
             this.Column3});
             this.dgvResultados.Location = new System.Drawing.Point(15, 136);
             this.dgvResultados.Name = "dgvResultados";
+            this.dgvResultados.ReadOnly = true;
             this.dgvResultados.Size = new System.Drawing.Size(332, 150);
             this.dgvResultados.TabIndex = 26;
             // 
@@ -319,16 +320,19 @@
             // 
             this.Column1.HeaderText = "Dia";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Hora Inicio";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Duracion";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // calendarioEsporadico
             // 
@@ -344,10 +348,24 @@
             this.cbNoEsporadico.FormatString = "t";
             this.cbNoEsporadico.FormattingEnabled = true;
             this.cbNoEsporadico.IntegralHeight = false;
+            this.cbNoEsporadico.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miercoles",
+            "Jueves",
+            "Viernes",
+            "Sabado"});
             this.cbNoEsporadico.Location = new System.Drawing.Point(45, 69);
             this.cbNoEsporadico.Name = "cbNoEsporadico";
             this.cbNoEsporadico.Size = new System.Drawing.Size(115, 21);
             this.cbNoEsporadico.TabIndex = 28;
+            // 
+            // tbCantidadAlumnos
+            // 
+            this.tbCantidadAlumnos.Location = new System.Drawing.Point(128, 332);
+            this.tbCantidadAlumnos.Name = "tbCantidadAlumnos";
+            this.tbCantidadAlumnos.Size = new System.Drawing.Size(51, 20);
+            this.tbCantidadAlumnos.TabIndex = 29;
             // 
             // RegistrarReserva_1
             // 
@@ -356,6 +374,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(440, 531);
+            this.Controls.Add(this.tbCantidadAlumnos);
             this.Controls.Add(this.cbNoEsporadico);
             this.Controls.Add(this.calendarioEsporadico);
             this.Controls.Add(this.dgvResultados);
@@ -367,7 +386,6 @@
             this.Controls.Add(this.tbEmailSolicitante);
             this.Controls.Add(this.tbApellidoSolicitante);
             this.Controls.Add(this.tbNombreSolicitante);
-            this.Controls.Add(this.tbCantidadAlumnos);
             this.Controls.Add(this.cbTipoAula);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -394,6 +412,7 @@
             this.Text = "Registro de reserva de aulas";
             this.Load += new System.EventHandler(this.RegistrarReserva_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCantidadAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,7 +436,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbTipoAula;
-        private System.Windows.Forms.TextBox tbCantidadAlumnos;
         private System.Windows.Forms.TextBox tbNombreSolicitante;
         private System.Windows.Forms.TextBox tbApellidoSolicitante;
         private System.Windows.Forms.TextBox tbEmailSolicitante;
@@ -432,5 +450,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DateTimePicker calendarioEsporadico;
         private System.Windows.Forms.ComboBox cbNoEsporadico;
+        private System.Windows.Forms.NumericUpDown tbCantidadAlumnos;
     }
 }

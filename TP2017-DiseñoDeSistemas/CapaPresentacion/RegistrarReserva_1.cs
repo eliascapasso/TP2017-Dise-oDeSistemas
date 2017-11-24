@@ -1,4 +1,7 @@
-﻿using CapaPresentacion;
+﻿using CapaDatos;
+using CapaLogica;
+using CapaPresentacion;
+using Excepciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +17,8 @@ namespace Autenticacion
     public partial class RegistrarReserva_1 : Form
     {
         private Form padre;
+        private GestorDeUsuario gestor = new GestorDeUsuario();
+        private GestorDeReserva gestorRes = new GestorDeReserva();
 
         public RegistrarReserva_1()
         {
@@ -33,24 +38,51 @@ namespace Autenticacion
             llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
             cbHoraInicio.SelectedIndex = 0;
             cbTipoReserva.SelectedIndex = 0;
+            cbNoEsporadico.SelectedIndex = 0;
+            cbTipoAula.SelectedIndex = 0;
+
+            foreach (Asignatura asig in gestorRes.obtenerAsignaturas())
+            {
+                cbNombreCurso.Items.Add(asig.nombre_asignatura);
+            }
+
+            cbNombreCurso.SelectedIndex = 0;
         }
 
 
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            this.Hide(); //Falta validar todos los campos
+            //Valida que todos los campos obligatorios esten completados
+            if (this.existeUnCampoVacio())
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("Debe completar todos los campos marcados con *", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                try
+                {
+                    //Se validan todos los datos ingresados en pantalla
+                    gestor.validarDatosReserva(dgvResultados.Rows, tbApellidoSolicitante.Text, tbNombreSolicitante.Text, tbEmailSolicitante.Text);
 
-            RegistrarReserva_2 reserva2 = new RegistrarReserva_2(this);
-            reserva2.Show();
+                    this.Hide();
+
+                    RegistrarReserva_2 reserva2 = new RegistrarReserva_2(this);
+                    reserva2.Show();
+                }
+                catch (DocenteException d)
+                {
+                    System.Media.SystemSounds.Exclamation.Play();
+                    MessageBox.Show(d.Message.ToString(), "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
-
-
 
         private void cbHoraInicio_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -100,6 +132,123 @@ namespace Autenticacion
             }
         }
 
-        
+        private bool existeUnCampoVacio()
+        {
+            return tbCantidadAlumnos.Text.Equals("0") ||
+                tbNombreSolicitante.Text.Equals("") ||
+                tbApellidoSolicitante.Text.Equals("") ||
+                tbEmailSolicitante.Text.Equals("");
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (cbTipoReserva.SelectedItem.Equals("Esporádica"))
+            {
+                dgvResultados.Rows.Add(calendarioEsporadico.Value.ToShortDateString(), cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
+            }
+            else
+            {
+                dgvResultados.Rows.Add(cbNoEsporadico.Text, cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
+            }
+        }
+
+        //Convierte un string en un double
+        private double toNumero(string cadena)
+        {
+            switch (cadena)
+            {
+                case "07:00":
+                    return 7.0;
+                case "07:30":
+                    return 7.5;
+                case "08:00":
+                    return 8.0;
+                case "08:30":
+                    return 8.5;
+                case "09:00":
+                    return 9.0;
+                case "09:30":
+                    return 9.5;
+                case "10:00":
+                    return 10.0;
+                case "10:30":
+                    return 10.5;
+                case "11:00":
+                    return 11.0;
+                case "11:30":
+                    return 11.5;
+                case "12:00":
+                    return 12.0;
+                case "12:30":
+                    return 12.5;
+                case "13:00":
+                    return 13.0;
+                case "13:30":
+                    return 13.5;
+                case "14:00":
+                    return 14.0;
+                case "14:30":
+                    return 14.5;
+                case "15:00":
+                    return 15.0;
+                case "15:30":
+                    return 15.5;
+                case "16:00":
+                    return 16.0;
+                case "16:30":
+                    return 16.5;
+                case "17:00":
+                    return 17.0;
+                case "17:30":
+                    return 17.5;
+                case "18:00":
+                    return 18.0;
+                case "18:30":
+                    return 18.5;
+                case "19:00":
+                    return 19.0;
+                case "19:30":
+                    return 19.5;
+                case "20:00":
+                    return 20.0;
+                case "20:30":
+                    return 20.5;
+                case "21:00":
+                    return 21.0;
+                case "21:30":
+                    return 21.5;
+                case "22:00":
+                    return 22.0;
+                case "22:30":
+                    return 22.5;
+                case "23:00":
+                    return 23.0;
+                case "23:30":
+                    return 23.5;
+                case "00:00":
+                    return 24.0;
+
+                default:  return 0.0;
+            }
+        }
+
+        //Calcula la duracion de la reserva
+        private string calcularDuracion(string inicio, string fin)
+        {
+            double inicioNum = this.toNumero(inicio);
+            double finNum = this.toNumero(fin);
+
+            long horas = (long)(finNum - inicioNum);
+            double minutos = (finNum - inicioNum) - (double)horas;
+
+            string horasCadena = "";
+            string minutosCadena = "";
+
+            if(horas != 0) { horasCadena = horas.ToString() + "hs"; } 
+            if(minutos == 0.5) { minutosCadena = "30min"; }
+
+            return horasCadena + minutosCadena;
+        }
     }
 }

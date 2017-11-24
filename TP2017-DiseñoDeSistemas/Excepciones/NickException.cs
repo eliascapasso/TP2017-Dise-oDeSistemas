@@ -8,7 +8,7 @@ namespace Excepciones
 {
     public class NickException : System.Exception
     {
-        public NickException() : base("Error: El nick ingresado ya existe")
+        public NickException() : base("El nick ingresado ya existe")
         {
 
         }
