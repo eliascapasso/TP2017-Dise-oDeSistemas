@@ -94,15 +94,5 @@ namespace CapaLogica
         {
             userDAODB.eliminarBedel(nick);
         }
-
-        //METODO PARA VALIDAR LOS DATOS DE ENTRADA DE LA PRIMER PANTALLA DEL REGISTRO DE UNA RESERVA
-        public void validarDatosReserva(DataGridViewRowCollection filasTabla, string apellidoDocente, string nombreDocente, string emailDocente)
-        {
-            
-            if(!userDAODB.existeDocente(apellidoDocente, nombreDocente, emailDocente))
-            {
-                throw new DocenteException();
-            }
-        }
     }
 }

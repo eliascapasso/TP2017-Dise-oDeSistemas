@@ -129,44 +129,50 @@
             // dgvResultadosBusqueda
             // 
             this.dgvResultadosBusqueda.AllowUserToAddRows = false;
+            this.dgvResultadosBusqueda.AllowUserToDeleteRows = false;
             this.dgvResultadosBusqueda.AllowUserToOrderColumns = true;
+            this.dgvResultadosBusqueda.AllowUserToResizeRows = false;
             this.dgvResultadosBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultadosBusqueda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nick,
             this.Apellido,
             this.Nombre,
             this.Turno});
-            this.dgvResultadosBusqueda.Location = new System.Drawing.Point(14, 46);
+            this.dgvResultadosBusqueda.Location = new System.Drawing.Point(12, 46);
             this.dgvResultadosBusqueda.Name = "dgvResultadosBusqueda";
             this.dgvResultadosBusqueda.ReadOnly = true;
             this.dgvResultadosBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(444, 150);
+            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(446, 150);
             this.dgvResultadosBusqueda.TabIndex = 11;
-            this.dgvResultadosBusqueda.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResultadosBusqueda_CellContentClick);
+            this.dgvResultadosBusqueda.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResultadosBusqueda_RowHeaderMouseClick);
             // 
             // Nick
             // 
             this.Nick.HeaderText = "Nick";
             this.Nick.Name = "Nick";
             this.Nick.ReadOnly = true;
+            this.Nick.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Apellido
             // 
             this.Apellido.HeaderText = "Apellido";
             this.Apellido.Name = "Apellido";
             this.Apellido.ReadOnly = true;
+            this.Apellido.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Turno
             // 
             this.Turno.HeaderText = "Turno";
             this.Turno.Name = "Turno";
             this.Turno.ReadOnly = true;
+            this.Turno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // BuscarBedel
             // 

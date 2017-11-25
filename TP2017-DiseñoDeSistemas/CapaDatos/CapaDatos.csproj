@@ -73,6 +73,8 @@
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="DAODB\AsignaturaDAODB.cs" />
+    <Compile Include="DAODB\AulaDAODB.cs" />
+    <Compile Include="DAODB\DocenteDAODB.cs" />
     <Compile Include="DAODB\HistContraseniaDAODB.cs" />
     <Compile Include="DetalleReserva.cs">
       <DependentUpon>TP2017.tt</DependentUpon>

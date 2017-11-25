@@ -17,66 +17,38 @@ namespace Autenticacion
     public partial class RegistrarReserva_1 : Form
     {
         private Form padre;
-        private GestorDeUsuario gestor = new GestorDeUsuario();
-        private GestorDeReserva gestorRes = new GestorDeReserva();
-
-        public RegistrarReserva_1()
-        {
-            InitializeComponent();
-        }
-
-
-
+        private GestorDeUsuario gestorUsuario;
+        private GestorDeAsignatura gestorAsignatura;
+        private GestorDeAula gestorAula;
+        private GestorDeDocente gestorDocente;
+        
         public RegistrarReserva_1(Form papa)
         {
             this.padre = papa;
+            this.gestorUsuario = new GestorDeUsuario();
+            this.gestorAsignatura = new GestorDeAsignatura();
+            this.gestorAula = new GestorDeAula();
+            this.gestorDocente = new GestorDeDocente();
             InitializeComponent();
         }
 
         private void RegistrarReserva_1_Load(object sender, EventArgs e)
         {
-            llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
+            this.llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
+            this.llenarTiposAulaEnComboBox();
+            this.llenarAsignaturasEnComboBox();
+            this.llenarSolicitantesEnDataGridView();
+
             cbHoraInicio.SelectedIndex = 0;
             cbTipoReserva.SelectedIndex = 0;
             cbNoEsporadico.SelectedIndex = 0;
-            cbTipoAula.SelectedIndex = 0;
-
-            foreach (Asignatura asig in gestorRes.obtenerAsignaturas())
-            {
-                cbNombreCurso.Items.Add(asig.nombre_asignatura);
-            }
-
             cbNombreCurso.SelectedIndex = 0;
+            cbTipoAula.SelectedIndex = 0;
         }
-
-
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            //Valida que todos los campos obligatorios esten completados
-            if (this.existeUnCampoVacio())
-            {
-                System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show("Debe completar todos los campos marcados con *", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                try
-                {
-                    //Se validan todos los datos ingresados en pantalla
-                    gestor.validarDatosReserva(dgvResultados.Rows, tbApellidoSolicitante.Text, tbNombreSolicitante.Text, tbEmailSolicitante.Text);
-
-                    this.Hide();
-
-                    RegistrarReserva_2 reserva2 = new RegistrarReserva_2(this);
-                    reserva2.Show();
-                }
-                catch (DocenteException d)
-                {
-                    System.Media.SystemSounds.Exclamation.Play();
-                    MessageBox.Show(d.Message.ToString(), "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -91,6 +63,73 @@ namespace Autenticacion
             aux = aux.AddMinutes(30);
             llenarHorasEnCombobox(cbHoraFin, -1, 23, aux);
             cbHoraFin.SelectedIndex = 0;
+        }
+
+        private void cbTipoReserva_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbTipoReserva.SelectedItem.ToString().Equals("Esporádica"))
+            {
+                cbNoEsporadico.Visible = false;
+                calendarioEsporadico.Visible = true;
+                calendarioEsporadico.MinDate = DateTime.Now;
+                calendarioEsporadico.Value = DateTime.Now;
+                
+            }
+            else
+            {
+                cbNoEsporadico.Visible = true;
+                calendarioEsporadico.Visible = false;
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (cbTipoReserva.SelectedItem.Equals("Esporádica"))
+            {
+                dgvResultados.Rows.Add(calendarioEsporadico.Value.ToShortDateString(), cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
+            }
+            else
+            {
+                dgvResultados.Rows.Add(cbNoEsporadico.Text, cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
+            }
+        }
+
+
+        private void dgvResultados_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //Falta implementar
+        }
+
+        private void dgvSolicitante_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //Falta implementar
+        }
+
+        //METODOS PROPIOS
+
+        private void llenarAsignaturasEnComboBox()
+        {
+            foreach (Asignatura asig in gestorAsignatura.obtenerAsignaturas())
+            {
+                cbNombreCurso.Items.Add(asig.nombre_asignatura);
+            }
+        }
+
+        private void llenarSolicitantesEnDataGridView()
+        {
+            int i = 0;
+            foreach (Docente docente in gestorDocente.obtenerDocentes())
+            {
+                dgvSolicitantes.Rows.Insert(i, docente.apellido_docente, docente.nombre_docente, docente.email_docente);
+            }
+        }
+
+        private void llenarTiposAulaEnComboBox()
+        {
+            foreach (TipoAula tipoAula in gestorAula.obtenerTiposAula())
+            {
+                cbTipoAula.Items.Add(tipoAula.descripcion);
+            }
         }
 
         private void llenarHorasEnCombobox(ComboBox cb, int firstHour, int lastHour, DateTime first)
@@ -114,46 +153,24 @@ namespace Autenticacion
             cb.Items.Add(new DateTime(time.Year, time.Month, time.Day, lastHour, 0, 0));
             cb.FormatString = "HH:mm";
         }
-
-        private void cbTipoReserva_SelectedValueChanged(object sender, EventArgs e)
+        
+        private string calcularDuracion(string inicio, string fin)
         {
-            if (cbTipoReserva.SelectedItem.ToString().Equals("Esporádica"))
-            {
-                cbNoEsporadico.Visible = false;
-                calendarioEsporadico.Visible = true;
-                calendarioEsporadico.MinDate = DateTime.Now;
-                calendarioEsporadico.Value = DateTime.Now;
-                
-            }
-            else
-            {
-                cbNoEsporadico.Visible = true;
-                calendarioEsporadico.Visible = false;
-            }
+            double inicioNum = this.toNumero(inicio);
+            double finNum = this.toNumero(fin);
+
+            long horas = (long)(finNum - inicioNum);
+            double minutos = (finNum - inicioNum) - (double)horas;
+
+            string horasCadena = "";
+            string minutosCadena = "";
+
+            if (horas != 0) { horasCadena = horas.ToString() + "hs"; }
+            if (minutos == 0.5) { minutosCadena = "30min"; }
+
+            return horasCadena + minutosCadena;
         }
-
-        private bool existeUnCampoVacio()
-        {
-            return tbCantidadAlumnos.Text.Equals("0") ||
-                tbNombreSolicitante.Text.Equals("") ||
-                tbApellidoSolicitante.Text.Equals("") ||
-                tbEmailSolicitante.Text.Equals("");
-
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            if (cbTipoReserva.SelectedItem.Equals("Esporádica"))
-            {
-                dgvResultados.Rows.Add(calendarioEsporadico.Value.ToShortDateString(), cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
-            }
-            else
-            {
-                dgvResultados.Rows.Add(cbNoEsporadico.Text, cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
-            }
-        }
-
-        //Convierte un string en un double
+        
         private double toNumero(string cadena)
         {
             switch (cadena)
@@ -229,26 +246,8 @@ namespace Autenticacion
                 case "00:00":
                     return 24.0;
 
-                default:  return 0.0;
+                default: return 0.0;
             }
-        }
-
-        //Calcula la duracion de la reserva
-        private string calcularDuracion(string inicio, string fin)
-        {
-            double inicioNum = this.toNumero(inicio);
-            double finNum = this.toNumero(fin);
-
-            long horas = (long)(finNum - inicioNum);
-            double minutos = (finNum - inicioNum) - (double)horas;
-
-            string horasCadena = "";
-            string minutosCadena = "";
-
-            if(horas != 0) { horasCadena = horas.ToString() + "hs"; } 
-            if(minutos == 0.5) { minutosCadena = "30min"; }
-
-            return horasCadena + minutosCadena;
         }
     }
 }

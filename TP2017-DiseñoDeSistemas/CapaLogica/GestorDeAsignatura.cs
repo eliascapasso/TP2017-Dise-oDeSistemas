@@ -9,11 +9,11 @@
     using System.Threading.Tasks;
 
 
-    public class GestorDeReserva
+    public class GestorDeAsignatura
     {
         private AsignaturaDAODB asigDAODB;
 
-        public GestorDeReserva()
+        public GestorDeAsignatura()
         {
             this.asigDAODB = new AsignaturaDAODB();
         }

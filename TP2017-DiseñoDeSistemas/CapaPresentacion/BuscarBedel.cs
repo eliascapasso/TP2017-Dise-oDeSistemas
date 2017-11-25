@@ -78,21 +78,6 @@ namespace Autenticacion
             }
         }
 
-        private void dgvResultadosBusqueda_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow fila = dgvResultadosBusqueda.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
-
-            string nickSeleccionado = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la primer columna
-
-            foreach(BedelDTO bedel in this.bedelesBuscados)
-            {
-                if (bedel.nick.Equals(nickSeleccionado))
-                {
-                    this.bedelSeleccionado = bedel;
-                }
-            }
-         }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             this.bedelesBuscados = gestor.buscarBedel(tbApellido.Text, cbTurno.SelectedItem.ToString());
@@ -114,6 +99,21 @@ namespace Autenticacion
             {
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("No existen bedeles que cumplan con los criterios ingresados", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void dgvResultadosBusqueda_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow fila = dgvResultadosBusqueda.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+
+            string nickSeleccionado = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la primer columna
+
+            foreach (BedelDTO bedel in this.bedelesBuscados)
+            {
+                if (bedel.nick.Equals(nickSeleccionado))
+                {
+                    this.bedelSeleccionado = bedel;
+                }
             }
         }
     }
