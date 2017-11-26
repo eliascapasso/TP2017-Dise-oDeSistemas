@@ -3,6 +3,7 @@ using CapaLogica;
 using CapaPresentacion;
 using Excepciones;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,14 +22,20 @@ namespace Autenticacion
         private GestorDeAsignatura gestorAsignatura;
         private GestorDeAula gestorAula;
         private GestorDeDocente gestorDocente;
-        
-        public RegistrarReserva_1(Form papa)
+        public string nickBedel;
+        private ArrayList docentes;
+        private ArrayList asignaturas;
+
+        public RegistrarReserva_1(Form papa, string nickBedel)
         {
             this.padre = papa;
             this.gestorUsuario = new GestorDeUsuario();
             this.gestorAsignatura = new GestorDeAsignatura();
             this.gestorAula = new GestorDeAula();
             this.gestorDocente = new GestorDeDocente();
+            this.nickBedel = nickBedel;
+            this.docentes = new ArrayList();
+            this.asignaturas = new ArrayList();
             InitializeComponent();
         }
 
@@ -47,13 +54,23 @@ namespace Autenticacion
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            
+        { 
+            string apellidoDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
+            string nombreDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
+            string emailDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
+
+            int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
+
+            string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
+            int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
+
+            this.Hide();
+            new RegistrarReserva_2(this).Show();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); //No muestra el padre porque ya quedó abierto
         }
 
         private void cbHoraInicio_SelectedValueChanged(object sender, EventArgs e)
@@ -112,6 +129,9 @@ namespace Autenticacion
             foreach (Asignatura asig in gestorAsignatura.obtenerAsignaturas())
             {
                 cbNombreCurso.Items.Add(asig.nombre_asignatura);
+
+                //Agrega la asignaturaDTO a la lista de asignaturas
+                this.asignaturas.Add(new AsignaturaDTO(asig.id_asignatura, asig.nombre_asignatura));
             }
         }
 
@@ -121,6 +141,9 @@ namespace Autenticacion
             foreach (Docente docente in gestorDocente.obtenerDocentes())
             {
                 dgvSolicitantes.Rows.Insert(i, docente.apellido_docente, docente.nombre_docente, docente.email_docente);
+
+                //Agrega el docenteDTO a la lista de docentes
+                this.docentes.Add(new DocenteDTO(docente.id_docente, docente.apellido_docente, docente.nombre_docente, docente.email_docente));
             }
         }
 
@@ -134,7 +157,6 @@ namespace Autenticacion
 
         private void llenarHorasEnCombobox(ComboBox cb, int firstHour, int lastHour, DateTime first)
         {
-
             DateTime time;
 
             if (firstHour != -1)
@@ -153,7 +175,31 @@ namespace Autenticacion
             cb.Items.Add(new DateTime(time.Year, time.Month, time.Day, lastHour, 0, 0));
             cb.FormatString = "HH:mm";
         }
-        
+
+        private int obtenerIdDocente(string apellido, string nombre, string email)
+        {
+            foreach (DocenteDTO docente in this.docentes)
+            {
+                if(docente.apellido.Equals(apellido) && docente.nombre.Equals(nombre) && docente.email.Equals(email))
+                {
+                    return docente.id_docente;
+                }
+            }
+            return 0; //EN CASO DE QUE NO EXISTA ASIGNATURA CON LAS CONDICIONES ANTES PUESTAS
+        }
+
+        private int obtenerIdAsignatura(string nombre)
+        {
+            foreach (AsignaturaDTO asignatura in this.asignaturas)
+            {
+                if (asignatura.nombre.Equals(nombre))
+                {
+                    return asignatura.id_asignatura;
+                }
+            }
+            return 0; //EN CASO DE QUE NO EXISTA DOCENTE CON LAS CONDICIONES ANTES PUESTAS
+        }
+
         private string calcularDuracion(string inicio, string fin)
         {
             double inicioNum = this.toNumero(inicio);

@@ -80,6 +80,10 @@
     <Compile Include="BuscarBedel.Designer.cs">
       <DependentUpon>BuscarBedel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\AsignaturaDTO.cs" />
+    <Compile Include="Clases\AulaDTO.cs" />
+    <Compile Include="Clases\DocenteDTO.cs" />
+    <Compile Include="Clases\ReservaDTO.cs" />
     <Compile Include="DisponibilidadAulas.cs">
       <SubType>Form</SubType>
     </Compile>

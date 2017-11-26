@@ -56,13 +56,13 @@ namespace Autenticacion
             this.columnaDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calendarioEsporadico = new System.Windows.Forms.DateTimePicker();
             this.cbNoEsporadico = new System.Windows.Forms.ComboBox();
-            this.tbCantidadAlumnos = new System.Windows.Forms.NumericUpDown();
+            this.nudCantidadAlumnos = new System.Windows.Forms.NumericUpDown();
             this.dgvSolicitantes = new System.Windows.Forms.DataGridView();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbCantidadAlumnos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitantes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -321,12 +321,12 @@ namespace Autenticacion
             this.cbNoEsporadico.Size = new System.Drawing.Size(115, 21);
             this.cbNoEsporadico.TabIndex = 28;
             // 
-            // tbCantidadAlumnos
+            // nudCantidadAlumnos
             // 
-            this.tbCantidadAlumnos.Location = new System.Drawing.Point(121, 309);
-            this.tbCantidadAlumnos.Name = "tbCantidadAlumnos";
-            this.tbCantidadAlumnos.Size = new System.Drawing.Size(51, 20);
-            this.tbCantidadAlumnos.TabIndex = 29;
+            this.nudCantidadAlumnos.Location = new System.Drawing.Point(121, 309);
+            this.nudCantidadAlumnos.Name = "nudCantidadAlumnos";
+            this.nudCantidadAlumnos.Size = new System.Drawing.Size(51, 20);
+            this.nudCantidadAlumnos.TabIndex = 29;
             // 
             // dgvSolicitantes
             // 
@@ -372,7 +372,7 @@ namespace Autenticacion
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(440, 520);
             this.Controls.Add(this.dgvSolicitantes);
-            this.Controls.Add(this.tbCantidadAlumnos);
+            this.Controls.Add(this.nudCantidadAlumnos);
             this.Controls.Add(this.cbNoEsporadico);
             this.Controls.Add(this.calendarioEsporadico);
             this.Controls.Add(this.dgvResultados);
@@ -405,7 +405,7 @@ namespace Autenticacion
             this.Text = "Registro de reserva de aulas";
             this.Load += new System.EventHandler(this.RegistrarReserva_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbCantidadAlumnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitantes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -439,7 +439,7 @@ namespace Autenticacion
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDuracion;
         private System.Windows.Forms.DateTimePicker calendarioEsporadico;
         private System.Windows.Forms.ComboBox cbNoEsporadico;
-        private System.Windows.Forms.NumericUpDown tbCantidadAlumnos;
+        private System.Windows.Forms.NumericUpDown nudCantidadAlumnos;
         private System.Windows.Forms.DataGridView dgvSolicitantes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;

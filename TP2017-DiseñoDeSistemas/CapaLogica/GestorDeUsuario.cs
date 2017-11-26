@@ -58,6 +58,12 @@ namespace CapaLogica
             return bedelesDTO;
         }
 
+        //METODO PARA VERIFICAR SI EXISTE UN BEDEL CON EL NICK Y PASS INGRESADOS
+        public bool existeBedel(string nick, string pass)
+        {
+            return !userDAODB.obtenerBedel(nick, pass).Equals(null);
+        }
+
         //METODO PARA MODIFICAR UN BEDEL
         public void modificarBedel(BedelDTO bedelSeleccionado, string apellido, string nombre, string turno, string pass)
         {

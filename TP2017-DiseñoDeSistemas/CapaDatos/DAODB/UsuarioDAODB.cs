@@ -62,10 +62,9 @@
             return bedelesObtenidos;
         }
 
-        //OBTIENE UN SOLO BEDEL 
+        //OBTIENE UN SOLO BEDEL A TRAVEZ DE SU NICK
         public Bedel obtenerBedel(string nickActual)
         {
-            HistContraseniaDAODB histDAO = new HistContraseniaDAODB();
             Bedel bedelObtenido = new Bedel();
 
             using (TP2017Entities bd = new TP2017Entities())
@@ -75,8 +74,23 @@
                 foreach (var bedel in bedeles)
                 {
                     bedelObtenido = bedel;
+                }
+            }
+            return bedelObtenido;
+        }
 
-                    //bedel.HistContrasenias = histDAO.obtenerHistorial(bedel);
+        //OBTIENE UN SOLO BEDEL A TRAVEZ DE SU NICK Y SU PASS
+        public Bedel obtenerBedel(string nickActual, string pass)
+        {
+            Bedel bedelObtenido = new Bedel();
+
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                var bedeles = from usuario in bd.Bedeles where usuario.nick.Equals(nickActual) && usuario.contrasenia.Equals(pass) select usuario;
+
+                foreach (var bedel in bedeles)
+                {
+                    bedelObtenido = bedel;
                 }
             }
             return bedelObtenido;

@@ -16,7 +16,7 @@ namespace Autenticacion
         {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegistrarReserva_1(new Form()));
+            Application.Run(new Autenticacion());
         }
     }
 }

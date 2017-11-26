@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InicioSesionBedel));
             this.tbPass = new System.Windows.Forms.TextBox();
-            this.tbIdBedel = new System.Windows.Forms.TextBox();
+            this.tbNick = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -44,12 +44,12 @@
             this.tbPass.Size = new System.Drawing.Size(170, 20);
             this.tbPass.TabIndex = 11;
             // 
-            // tbIdBedel
+            // tbNick
             // 
-            this.tbIdBedel.Location = new System.Drawing.Point(102, 18);
-            this.tbIdBedel.Name = "tbIdBedel";
-            this.tbIdBedel.Size = new System.Drawing.Size(170, 20);
-            this.tbIdBedel.TabIndex = 10;
+            this.tbNick.Location = new System.Drawing.Point(102, 18);
+            this.tbNick.Name = "tbNick";
+            this.tbNick.Size = new System.Drawing.Size(170, 20);
+            this.tbNick.TabIndex = 10;
             // 
             // label2
             // 
@@ -65,9 +65,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "ID Bedel";
+            this.label1.Text = "Nick";
             // 
             // btnCancelar
             // 
@@ -95,7 +95,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 133);
             this.Controls.Add(this.tbPass);
-            this.Controls.Add(this.tbIdBedel);
+            this.Controls.Add(this.tbNick);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
@@ -117,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbPass;
-        private System.Windows.Forms.TextBox tbIdBedel;
+        private System.Windows.Forms.TextBox tbNick;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;

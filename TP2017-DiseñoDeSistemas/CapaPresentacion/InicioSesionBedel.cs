@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace Autenticacion
     public partial class InicioSesionBedel : Form
     {
         private Form padre;
+        private GestorDeUsuario gestorUsuario;
 
         public InicioSesionBedel(Form papa)
         {
             this.padre = papa;
+            this.gestorUsuario = new GestorDeUsuario();
             InitializeComponent();
         }
 
@@ -28,17 +31,18 @@ namespace Autenticacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //Falta validar los campos
+            if(!gestorUsuario.existeBedel(tbNick.Text, tbPass.Text))
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("Los datos ingresados no son válidos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.Hide();
 
-            this.Hide();
-
-            MenuBedel bedel = new MenuBedel(this);
-            bedel.Show();
-        }
-
-        private void InicioSesionBedel_Load(object sender, EventArgs e)
-        {
-
+                MenuBedel bedel = new MenuBedel(this, tbNick.Text);
+                bedel.Show();
+            }
         }
     }
 }

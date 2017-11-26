@@ -14,16 +14,18 @@ namespace Autenticacion
     public partial class MenuBedel : Form
     {
         private Form padre;
+        public string nickBedel;
 
-        public MenuBedel(Form papa)
+        public MenuBedel(Form papa, string nickBedel)
         {
             this.padre = papa;
+            this.nickBedel = nickBedel;
             InitializeComponent();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            RegistrarReserva_1 reserva = new RegistrarReserva_1(this);
+            RegistrarReserva_1 reserva = new RegistrarReserva_1(this, nickBedel);
             reserva.Show();
         }
 
