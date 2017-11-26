@@ -15,14 +15,15 @@ namespace CapaDatos
     public partial class DetalleReserva
     {
         public int id_detalle_reserva { get; set; }
-        public Nullable<int> id_dia { get; set; }
+        public string dia { get; set; }
         public Nullable<int> id_reserva { get; set; }
         public Nullable<int> id_aula { get; set; }
         public Nullable<System.TimeSpan> hora_inicio { get; set; }
         public Nullable<System.TimeSpan> duracion { get; set; }
+        public Nullable<int> id_cuatrimestre { get; set; }
     
         public virtual Aula Aula { get; set; }
-        public virtual Dia Dia { get; set; }
+        public virtual Cuatrimestre Cuatrimestre { get; set; }
         public virtual Reserva Reserva { get; set; }
     }
 }

@@ -69,7 +69,7 @@
     <Compile Include="Clases\HistContrasenia.cs" />
     <Compile Include="Clases\TP2017Entities.cs" />
     <Compile Include="Clases\Usuario.cs" />
-    <Compile Include="C__MigrationHistory.cs">
+    <Compile Include="Cuatrimestre.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="DAODB\AsignaturaDAODB.cs" />
@@ -79,41 +79,21 @@
     <Compile Include="DetalleReserva.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dia.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
     <Compile Include="Docente.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="HistContrasenia.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
-    <Compile Include="NombreDia.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Periodo.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAODB\UsuarioDAODB.cs" />
     <Compile Include="Reserva.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoAsignatura.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoAula.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TipoPeriodo.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TipoPizarron.cs">
-      <DependentUpon>TP2017.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TipoReserva.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoUsuario.cs">
@@ -134,7 +114,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TP2017.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAODB\UsuarioDAODB.cs" />
     <Compile Include="Usuario.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>

@@ -31,11 +31,10 @@ namespace CapaDatos
         public Nullable<bool> dvd { get; set; }
         public Nullable<bool> tv { get; set; }
         public Nullable<bool> pc { get; set; }
-        public Nullable<int> id_tipo_pizarron { get; set; }
+        public string tipo_pizarron { get; set; }
         public Nullable<int> id_tipo_aula { get; set; }
     
         public virtual TipoAula TipoAula { get; set; }
-        public virtual TipoPizarron TipoPizarron { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleReserva> DetalleReservas { get; set; }
     }

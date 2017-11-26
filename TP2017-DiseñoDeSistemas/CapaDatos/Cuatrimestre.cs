@@ -12,18 +12,21 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class NombreDia
+    public partial class Cuatrimestre
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NombreDia()
+        public Cuatrimestre()
         {
-            this.Dias = new HashSet<Dia>();
+            this.DetalleReservas = new HashSet<DetalleReserva>();
         }
     
-        public int id_nombre_dia { get; set; }
-        public string descripcion { get; set; }
+        public int id_cuatrimestre { get; set; }
+        public Nullable<System.DateTime> fecha_inicio { get; set; }
+        public Nullable<System.DateTime> fecha_fin { get; set; }
+        public Nullable<int> id_anio_lectivo { get; set; }
     
+        public virtual AnioLectivo AnioLectivo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dia> Dias { get; set; }
+        public virtual ICollection<DetalleReserva> DetalleReservas { get; set; }
     }
 }

@@ -25,23 +25,16 @@ namespace CapaDatos
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AnioLectivo> AnioLectivoes { get; set; }
         public virtual DbSet<Asignatura> Asignaturas { get; set; }
         public virtual DbSet<Aula> Aulas { get; set; }
+        public virtual DbSet<Cuatrimestre> Cuatrimestres { get; set; }
         public virtual DbSet<DetalleReserva> DetalleReservas { get; set; }
-        public virtual DbSet<Dia> Dias { get; set; }
         public virtual DbSet<Docente> Docentes { get; set; }
         public virtual DbSet<HistContrasenia> HistContrasenias { get; set; }
-        public virtual DbSet<NombreDia> NombreDias { get; set; }
-        public virtual DbSet<Periodo> Periodoes { get; set; }
         public virtual DbSet<Reserva> Reservas { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TipoAsignatura> TipoAsignaturas { get; set; }
         public virtual DbSet<TipoAula> TipoAulas { get; set; }
-        public virtual DbSet<TipoPeriodo> TipoPeriodoes { get; set; }
-        public virtual DbSet<TipoPizarron> TipoPizarrons { get; set; }
-        public virtual DbSet<TipoReserva> TipoReservas { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuarios { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
     }

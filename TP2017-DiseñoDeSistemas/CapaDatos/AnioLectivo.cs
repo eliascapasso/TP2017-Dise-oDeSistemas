@@ -17,7 +17,7 @@ namespace CapaDatos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AnioLectivo()
         {
-            this.Periodoes = new HashSet<Periodo>();
+            this.Cuatrimestres = new HashSet<Cuatrimestre>();
         }
     
         public int id_anio_lectivo { get; set; }
@@ -25,6 +25,6 @@ namespace CapaDatos
         public Nullable<System.DateTime> fecha_fin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Periodo> Periodoes { get; set; }
+        public virtual ICollection<Cuatrimestre> Cuatrimestres { get; set; }
     }
 }

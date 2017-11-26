@@ -18,7 +18,7 @@ namespace CapaDatos
         public Usuario()
         {
             this.HistContrasenias = new HashSet<HistContrasenia>();
-            this.Reserva = new HashSet<Reserva>();
+            this.Reservas = new HashSet<Reserva>();
         }
     
         public int id_usuario { get; set; }
@@ -29,8 +29,8 @@ namespace CapaDatos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistContrasenia> HistContrasenias { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reserva> Reserva { get; set; }
+        public virtual ICollection<Reserva> Reservas { get; set; }
+        public virtual TipoUsuario TipoUsuario { get; set; }
     }
 }
