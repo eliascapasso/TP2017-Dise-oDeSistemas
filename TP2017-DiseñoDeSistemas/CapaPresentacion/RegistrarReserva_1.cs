@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaClases;
 
 namespace Autenticacion
 {
@@ -58,14 +59,18 @@ namespace Autenticacion
             string apellidoDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
             string nombreDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
             string emailDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
-
+            
             int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
+            DataGridViewRowCollection fechas= dgvResultados.Rows;
 
             string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
             int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
+            ReservaDTO reservadto =new ReservaDTO(nickBedel, cbTipoReserva.Text, fechas, Convert.ToInt32(nudCantidadAlumnos.Value), idDocente, idAsignatura);
+            ArrayList disponibilidad=gestorAula.obtenerDisponibilidad(reservadto);
 
             this.Hide();
-            new RegistrarReserva_2(this).Show();
+
+            new RegistrarReserva_2(this,reservadto,disponibilidad).Show();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -295,5 +300,8 @@ namespace Autenticacion
                 default: return 0.0;
             }
         }
+
+        
     }
+    
 }

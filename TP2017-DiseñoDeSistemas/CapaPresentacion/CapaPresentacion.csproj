@@ -80,10 +80,6 @@
     <Compile Include="BuscarBedel.Designer.cs">
       <DependentUpon>BuscarBedel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clases\AsignaturaDTO.cs" />
-    <Compile Include="Clases\AulaDTO.cs" />
-    <Compile Include="Clases\DocenteDTO.cs" />
-    <Compile Include="Clases\ReservaDTO.cs" />
     <Compile Include="DisponibilidadAulas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +215,10 @@
     <None Include="Resources\ic_warning_128_28766.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaClases\CapaClases.csproj">
+      <Project>{a4f05621-2944-402e-a98f-8a6816c985b0}</Project>
+      <Name>CapaClases</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
       <Project>{1656ba91-5cf7-4d95-90b3-7de5acda2599}</Project>
       <Name>CapaDatos</Name>

@@ -1,4 +1,4 @@
-﻿namespace CapaPresentacion
+﻿namespace CapaClases
 {
     using System;
     using System.Collections.Generic;

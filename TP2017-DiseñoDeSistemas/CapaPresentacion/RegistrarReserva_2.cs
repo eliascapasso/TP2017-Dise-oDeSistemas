@@ -8,15 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaClases;
+using System.Collections;
 
 namespace CapaPresentacion
 {
     public partial class RegistrarReserva_2 : Form
     {
         private Form padre;
+        private ReservaDTO reservaDTO;
+        private ArrayList disponibilidad;
+        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO, ArrayList disponibilidad)
+        {
+            this.disponibilidad = disponibilidad;
+            this.reservaDTO = reservaDTO;
+            InitializeComponent();
+        }
         public RegistrarReserva_2(Form papa)
         {
-            this.padre = papa;
+            padre = papa;
             InitializeComponent();
         }
 
@@ -28,15 +38,17 @@ namespace CapaPresentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //Falta validar la disponibilidad de las aulas
-
-            DisponibilidadAulas dispAulas = new DisponibilidadAulas(this);
-            dispAulas.Show();
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

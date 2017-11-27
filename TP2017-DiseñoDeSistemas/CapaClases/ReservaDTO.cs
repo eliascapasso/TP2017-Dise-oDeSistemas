@@ -1,4 +1,4 @@
-﻿namespace CapaPresentacion
+﻿namespace CapaClases
 {
     using System;
     using System.Collections;
@@ -6,21 +6,23 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+    using System.Windows.Forms;
+
     public class ReservaDTO
     {
-        private int idUsuario;
+        private string nickUsuario;
         private string tipoReserva;
-        private ArrayList lista;
         private int cantAlumnos;
         private int idDocente;
         private int idAsignatura;
+        public int idAula;
+        DataGridViewRowCollection fechas;
 
-        public ReservaDTO(int idUsuario, string tipoReserva, ArrayList lista, int cantAlumnos, int idDocente, int idAsignatura)
+        public ReservaDTO(string nickUsuario, string tipoReserva, DataGridViewRowCollection fecha, int cantAlumnos, int idDocente, int idAsignatura)
         {
-            this.idUsuario = idUsuario;
+            this.nickUsuario= nickUsuario;
             this.tipoReserva = tipoReserva;
-            this.lista = lista;
+            this.fechas = fecha;
             this.cantAlumnos = cantAlumnos;
             this.idDocente = idDocente;
             this.idAsignatura = idAsignatura;

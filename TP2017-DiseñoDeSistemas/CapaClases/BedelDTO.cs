@@ -1,4 +1,4 @@
-﻿namespace CapaDatos
+﻿namespace CapaClases
 {
     using System;
     using System.Collections.Generic;

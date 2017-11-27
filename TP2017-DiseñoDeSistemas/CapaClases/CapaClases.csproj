@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1476AB5-6971-43EF-8751-BEEE6C67810D}</ProjectGuid>
+    <ProjectGuid>{A4F05621-2944-402E-A98F-8A6816C985B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CapaLogica</RootNamespace>
-    <AssemblyName>CapaLogica</AssemblyName>
+    <RootNamespace>CapaClases</RootNamespace>
+    <AssemblyName>CapaClases</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,26 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestorDeAula.cs" />
-    <Compile Include="GestorDeDocente.cs" />
-    <Compile Include="GestorDePoliticaDeContrasenia.cs" />
-    <Compile Include="GestorDeAsignatura.cs" />
-    <Compile Include="GestorDeUsuario.cs" />
+    <Compile Include="AsignaturaDTO.cs" />
+    <Compile Include="AulaDTO.cs" />
+    <Compile Include="BedelDTO.cs" />
+    <Compile Include="DocenteDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaClases\CapaClases.csproj">
-      <Project>{a4f05621-2944-402e-a98f-8a6816c985b0}</Project>
-      <Name>CapaClases</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{1656ba91-5cf7-4d95-90b3-7de5acda2599}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
-      <Project>{80311F07-E0C2-4264-8190-7DAB5CCE6CE3}</Project>
-      <Name>Excepciones</Name>
-    </ProjectReference>
+    <Compile Include="ReservaDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
