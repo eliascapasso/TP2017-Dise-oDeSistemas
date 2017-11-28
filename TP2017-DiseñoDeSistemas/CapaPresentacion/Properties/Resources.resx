@@ -121,8 +121,8 @@
   <data name="user-male-icon_34332" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-male-icon_34332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1485969916-8-shutdown_78906" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1485969916-8-shutdown_78906.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ic_warning_128_28766" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ic_warning_128_28766.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user-male-icon_343321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-male-icon_34332.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,13 +136,19 @@
   <data name="university_cap_icon-icons.com_66109" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\university_cap_icon-icons.com_66109.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hopstarter-soft-scraps-button-help" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hopstarter-soft-scraps-button-help.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="loginmanager_100291" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loginmanager_10029.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ios7-arrow-thin-left_icon-icons.com_50347" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ios7-arrow-thin-left_icon-icons.com_50347.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ic_warning_128_28766" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ic_warning_128_28766.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1485969916-8-shutdown_78906" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1485969916-8-shutdown_78906.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye-of-a-human_icon-icons.com_70972" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye-of-a-human_icon-icons.com_70972.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

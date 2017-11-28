@@ -1,4 +1,5 @@
-﻿using CapaDatos;
+﻿using CapaClases;
+using CapaDatos;
 using CapaLogica;
 using Excepciones;
 using System;
@@ -24,13 +25,6 @@ namespace Autenticacion
             this.padre = papa;
             InitializeComponent();
             this.bedelSeleccionado = bedelSeleccionado;
-
-            tbNombre.Text = bedelSeleccionado.nombre;
-            tbApellido.Text = bedelSeleccionado.apellido;
-            tbPass.Text = bedelSeleccionado.contrasenia;
-            tbConfPass.Text = bedelSeleccionado.contrasenia;
-            tbNick.Text = bedelSeleccionado.nick;
-            cbTurno.Text = bedelSeleccionado.turno;
         }
 
         private void bAceptar_Click(object sender, EventArgs e)
@@ -75,6 +69,39 @@ namespace Autenticacion
         {
             this.Close();
             this.padre.Show();
+        }
+
+        private void ModificarBedel_Load(object sender, EventArgs e)
+        {
+            tbNombre.Text = bedelSeleccionado.nombre;
+            tbApellido.Text = bedelSeleccionado.apellido;
+            tbPass.Text = bedelSeleccionado.contrasenia;
+            tbConfPass.Text = bedelSeleccionado.contrasenia;
+            tbNick.Text = bedelSeleccionado.nick;
+            cbTurno.Text = bedelSeleccionado.turno;
+        }
+
+        private void tbPass_Click(object sender, EventArgs e)
+        {
+            notificacion.Visible = true;
+            notificacion.BalloonTipText = "Al menos:\n8 caractéres\nUn signo (@#$%&*)\nUna letra mayúscula\nUn dígito";
+
+            notificacion.BalloonTipTitle = "Políticas de contraseña";
+            notificacion.ShowBalloonTip(10000);
+        }
+
+        private void btnMostrarPass_Click(object sender, EventArgs e)
+        {
+            if (tbPass.UseSystemPasswordChar)
+            {
+                tbPass.UseSystemPasswordChar = false;
+                tbConfPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbPass.UseSystemPasswordChar = true;
+                tbConfPass.UseSystemPasswordChar = true;
+            }
         }
     }
 }

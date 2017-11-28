@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Autenticacion
+﻿namespace Autenticacion
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using CapaPresentacion;
+
+
     static class Program
     {
         /// <summary>
@@ -16,7 +18,7 @@ namespace Autenticacion
         {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Autenticacion());
+            Application.Run(new RegistrarReserva_1(new Form()));
         }
     }
 }

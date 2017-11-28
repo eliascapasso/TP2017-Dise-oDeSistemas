@@ -86,5 +86,28 @@ namespace Autenticacion
                 tbPass.Text.Equals("");
 
         }
+
+        private void tbPass_Click(object sender, EventArgs e)
+        {
+            notificacion.Visible = true;
+            notificacion.BalloonTipText = "Al menos:\n8 caractéres\nUn signo (@#$%&*)\nUna letra mayúscula\nUn dígito";
+
+            notificacion.BalloonTipTitle = "Políticas de contraseña";
+            notificacion.ShowBalloonTip(10000);
+        }
+
+        private void btnMostrarPass_Click(object sender, EventArgs e)
+        {
+            if (tbPass.UseSystemPasswordChar)
+            {
+                tbPass.UseSystemPasswordChar = false;
+                tbConfirmarPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbPass.UseSystemPasswordChar = true;
+                tbConfirmarPass.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

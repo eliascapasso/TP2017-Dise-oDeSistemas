@@ -275,7 +275,6 @@ namespace Autenticacion
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(332, 150);
             this.dgvResultados.TabIndex = 26;
-            this.dgvResultados.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResultados_RowHeaderMouseClick);
             // 
             // columnaDia
             // 
@@ -343,7 +342,6 @@ namespace Autenticacion
             this.dgvSolicitantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSolicitantes.Size = new System.Drawing.Size(408, 81);
             this.dgvSolicitantes.TabIndex = 30;
-            this.dgvSolicitantes.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSolicitante_RowHeaderMouseClick);
             // 
             // Apellido
             // 

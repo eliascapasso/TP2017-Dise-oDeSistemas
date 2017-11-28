@@ -10,13 +10,13 @@
 
     public class ReservaDTO
     {
-        private string nickUsuario;
-        private string tipoReserva;
-        private int cantAlumnos;
-        private int idDocente;
-        private int idAsignatura;
+        public string nickUsuario;
+        public string tipoReserva;
+        public int cantAlumnos;
+        public int idDocente;
+        public int idAsignatura;
         public int idAula;
-        DataGridViewRowCollection fechas;
+        public DataGridViewRowCollection fechas; /*Columna 1: Dia, Columna 2: horaInicio, Columna 3: duracion*/
 
         public ReservaDTO(string nickUsuario, string tipoReserva, DataGridViewRowCollection fecha, int cantAlumnos, int idDocente, int idAsignatura)
         {

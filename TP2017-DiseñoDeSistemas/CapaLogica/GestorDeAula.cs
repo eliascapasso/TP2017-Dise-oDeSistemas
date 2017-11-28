@@ -8,7 +8,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using CapaClases;
-
+    using System.Windows.Forms;
 
     public class GestorDeAula
     {
@@ -24,9 +24,9 @@
             return aulaDAODB.obtenerTiposAula();
         }
 
-        public ArrayList obtenerDisponibilidad(ReservaDTO reservadto)
+        public HashSet<DataGridViewRow> obtenerDisponibilidad(ReservaDTO reservadto)
         {
-            return new ArrayList();
+            return new HashSet<DataGridViewRow>();
         }
     }
 }

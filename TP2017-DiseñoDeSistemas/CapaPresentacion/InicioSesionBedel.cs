@@ -44,5 +44,23 @@ namespace Autenticacion
                 bedel.Show();
             }
         }
+
+        private void InicioSesionBedel_Load(object sender, EventArgs e)
+        {
+            tbNick.Text = "";
+            tbPass.Text = "";
+        }
+
+        private void btnMostrarPass_Click(object sender, EventArgs e)
+        {
+            if (tbPass.UseSystemPasswordChar)
+            {
+                tbPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbPass.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

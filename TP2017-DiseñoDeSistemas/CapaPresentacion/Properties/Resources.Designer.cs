@@ -73,6 +73,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye_of_a_human_icon_icons_com_70972 {
+            get {
+                object obj = ResourceManager.GetObject("eye-of-a-human_icon-icons.com_70972", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hopstarter_soft_scraps_button_help {
+            get {
+                object obj = ResourceManager.GetObject("hopstarter-soft-scraps-button-help", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_warning_128_28766 {
             get {
                 object obj = ResourceManager.GetObject("ic_warning_128_28766", resourceCulture);

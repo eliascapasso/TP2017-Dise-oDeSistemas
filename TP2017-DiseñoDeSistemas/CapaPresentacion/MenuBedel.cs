@@ -29,18 +29,18 @@ namespace Autenticacion
             reserva.Show();
         }
 
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            Autenticacion autenticacion = new Autenticacion();
-            autenticacion.Show();
-        }
-
         private void btnBuscarAula_Click(object sender, EventArgs e)
         {
             BuscarAula buscar = new BuscarAula(this);
             buscar.Show();
+        }
+
+        private void tsCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+            Autenticacion autenticacion = new Autenticacion();
+            autenticacion.Show();
         }
     }
 }

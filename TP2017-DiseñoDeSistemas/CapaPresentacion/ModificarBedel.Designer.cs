@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificarBedel));
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -44,12 +45,14 @@
             this.cbTurno = new System.Windows.Forms.ComboBox();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbConfPass = new System.Windows.Forms.TextBox();
+            this.notificacion = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnMostrarPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCerrar
             // 
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCerrar.Location = new System.Drawing.Point(116, 255);
+            this.btnCerrar.Location = new System.Drawing.Point(136, 255);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 30;
@@ -59,7 +62,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(197, 255);
+            this.btnAceptar.Location = new System.Drawing.Point(217, 255);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 31;
@@ -172,18 +175,36 @@
             this.tbPass.Location = new System.Drawing.Point(77, 168);
             this.tbPass.MaxLength = 20;
             this.tbPass.Name = "tbPass";
-            this.tbPass.PasswordChar = '*';
             this.tbPass.Size = new System.Drawing.Size(195, 20);
             this.tbPass.TabIndex = 28;
+            this.tbPass.UseSystemPasswordChar = true;
+            this.tbPass.Click += new System.EventHandler(this.tbPass_Click);
             // 
             // tbConfPass
             // 
             this.tbConfPass.Location = new System.Drawing.Point(77, 201);
             this.tbConfPass.MaxLength = 20;
             this.tbConfPass.Name = "tbConfPass";
-            this.tbConfPass.PasswordChar = '*';
             this.tbConfPass.Size = new System.Drawing.Size(195, 20);
             this.tbConfPass.TabIndex = 29;
+            this.tbConfPass.UseSystemPasswordChar = true;
+            // 
+            // notificacion
+            // 
+            this.notificacion.Icon = ((System.Drawing.Icon)(resources.GetObject("notificacion.Icon")));
+            this.notificacion.Text = "notifyIcon1";
+            this.notificacion.Visible = true;
+            // 
+            // btnMostrarPass
+            // 
+            this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
+            this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarPass.Location = new System.Drawing.Point(278, 167);
+            this.btnMostrarPass.Name = "btnMostrarPass";
+            this.btnMostrarPass.Size = new System.Drawing.Size(21, 20);
+            this.btnMostrarPass.TabIndex = 32;
+            this.btnMostrarPass.UseVisualStyleBackColor = true;
+            this.btnMostrarPass.Click += new System.EventHandler(this.btnMostrarPass_Click);
             // 
             // ModificarBedel
             // 
@@ -191,7 +212,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCerrar;
-            this.ClientSize = new System.Drawing.Size(293, 295);
+            this.ClientSize = new System.Drawing.Size(304, 296);
+            this.Controls.Add(this.btnMostrarPass);
             this.Controls.Add(this.tbConfPass);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.cbTurno);
@@ -209,11 +231,12 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(309, 334);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
             this.MinimumSize = new System.Drawing.Size(309, 334);
             this.Name = "ModificarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificación de Bedel";
+            this.Load += new System.EventHandler(this.ModificarBedel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +259,7 @@
         private System.Windows.Forms.ComboBox cbTurno;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.TextBox tbConfPass;
+        private System.Windows.Forms.NotifyIcon notificacion;
+        private System.Windows.Forms.Button btnMostrarPass;
     }
 }

@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnMostrarPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbPass
@@ -43,6 +44,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(170, 20);
             this.tbPass.TabIndex = 11;
+            this.tbPass.UseSystemPasswordChar = true;
             // 
             // tbNick
             // 
@@ -71,7 +73,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(102, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(143, 102);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -81,7 +83,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(197, 102);
+            this.btnAceptar.Location = new System.Drawing.Point(224, 102);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -89,11 +91,23 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // btnMostrarPass
+            // 
+            this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
+            this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarPass.Location = new System.Drawing.Point(278, 66);
+            this.btnMostrarPass.Name = "btnMostrarPass";
+            this.btnMostrarPass.Size = new System.Drawing.Size(21, 20);
+            this.btnMostrarPass.TabIndex = 12;
+            this.btnMostrarPass.UseVisualStyleBackColor = true;
+            this.btnMostrarPass.Click += new System.EventHandler(this.btnMostrarPass_Click);
+            // 
             // InicioSesionBedel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 133);
+            this.ClientSize = new System.Drawing.Size(306, 133);
+            this.Controls.Add(this.btnMostrarPass);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbNick);
             this.Controls.Add(this.label2);
@@ -103,7 +117,7 @@
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(300, 171);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
             this.MinimumSize = new System.Drawing.Size(300, 171);
             this.Name = "InicioSesionBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -122,5 +136,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnMostrarPass;
     }
 }

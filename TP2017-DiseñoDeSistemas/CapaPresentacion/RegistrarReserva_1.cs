@@ -40,6 +40,18 @@ namespace Autenticacion
             InitializeComponent();
         }
 
+        public RegistrarReserva_1(Form papa)
+        {
+            this.padre = papa;
+            this.gestorUsuario = new GestorDeUsuario();
+            this.gestorAsignatura = new GestorDeAsignatura();
+            this.gestorAula = new GestorDeAula();
+            this.gestorDocente = new GestorDeDocente();
+            this.docentes = new ArrayList();
+            this.asignaturas = new ArrayList();
+            InitializeComponent();
+        }
+
         private void RegistrarReserva_1_Load(object sender, EventArgs e)
         {
             this.llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
@@ -65,12 +77,13 @@ namespace Autenticacion
 
             string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
             int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
-            ReservaDTO reservadto =new ReservaDTO(nickBedel, cbTipoReserva.Text, fechas, Convert.ToInt32(nudCantidadAlumnos.Value), idDocente, idAsignatura);
-            ArrayList disponibilidad=gestorAula.obtenerDisponibilidad(reservadto);
+
+            ReservaDTO reservaDTO =new ReservaDTO(nickBedel, cbTipoReserva.Text, fechas, Convert.ToInt32(nudCantidadAlumnos.Value), idDocente, idAsignatura);
+
+            HashSet<DataGridViewRow> disponibilidad=gestorAula.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
 
             this.Hide();
-
-            new RegistrarReserva_2(this,reservadto,disponibilidad).Show();
+            new RegistrarReserva_2(this,reservaDTO,disponibilidad).Show();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -114,17 +127,6 @@ namespace Autenticacion
             {
                 dgvResultados.Rows.Add(cbNoEsporadico.Text, cbHoraInicio.Text, calcularDuracion(cbHoraInicio.Text, cbHoraFin.Text));
             }
-        }
-
-
-        private void dgvResultados_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //Falta implementar
-        }
-
-        private void dgvSolicitante_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            //Falta implementar
         }
 
         //METODOS PROPIOS
@@ -300,7 +302,6 @@ namespace Autenticacion
                 default: return 0.0;
             }
         }
-
         
     }
     

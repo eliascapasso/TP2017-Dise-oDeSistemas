@@ -48,3 +48,5 @@ C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSist
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaClases.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaClases.pdb

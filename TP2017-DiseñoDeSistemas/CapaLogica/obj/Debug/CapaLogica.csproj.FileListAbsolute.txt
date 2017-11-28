@@ -53,3 +53,5 @@ C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSist
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.csprojResolveAssemblyReference.cache
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.dll
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaClases.dll
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaClases.pdb

@@ -34,8 +34,10 @@
             this.btnBuscarAula = new System.Windows.Forms.Button();
             this.btnListaResDia = new System.Windows.Forms.Button();
             this.btnListaResCurso = new System.Windows.Forms.Button();
-            this.btnAtras = new System.Windows.Forms.Button();
+            this.tsBotones = new System.Windows.Forms.ToolStrip();
+            this.tsCerrarSesion = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tsBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -49,7 +51,7 @@
             // 
             // btnRegistrarReserva
             // 
-            this.btnRegistrarReserva.Location = new System.Drawing.Point(12, 12);
+            this.btnRegistrarReserva.Location = new System.Drawing.Point(12, 28);
             this.btnRegistrarReserva.Name = "btnRegistrarReserva";
             this.btnRegistrarReserva.Size = new System.Drawing.Size(133, 60);
             this.btnRegistrarReserva.TabIndex = 1;
@@ -59,7 +61,7 @@
             // 
             // btnBuscarAula
             // 
-            this.btnBuscarAula.Location = new System.Drawing.Point(204, 12);
+            this.btnBuscarAula.Location = new System.Drawing.Point(204, 28);
             this.btnBuscarAula.Name = "btnBuscarAula";
             this.btnBuscarAula.Size = new System.Drawing.Size(133, 60);
             this.btnBuscarAula.TabIndex = 2;
@@ -85,22 +87,34 @@
             this.btnListaResCurso.Text = "Listar reservas de curso";
             this.btnListaResCurso.UseVisualStyleBackColor = true;
             // 
-            // btnAtras
+            // tsBotones
             // 
-            this.btnAtras.Location = new System.Drawing.Point(12, 182);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(75, 23);
-            this.btnAtras.TabIndex = 5;
-            this.btnAtras.Text = "<- Atras";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            this.tsBotones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsCerrarSesion});
+            this.tsBotones.Location = new System.Drawing.Point(0, 0);
+            this.tsBotones.Name = "tsBotones";
+            this.tsBotones.Size = new System.Drawing.Size(354, 25);
+            this.tsBotones.TabIndex = 6;
+            this.tsBotones.Text = "toolStrip1";
+            // 
+            // tsCerrarSesion
+            // 
+            this.tsCerrarSesion.CheckOnClick = true;
+            this.tsCerrarSesion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("tsCerrarSesion.Image")));
+            this.tsCerrarSesion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsCerrarSesion.Name = "tsCerrarSesion";
+            this.tsCerrarSesion.Size = new System.Drawing.Size(80, 22);
+            this.tsCerrarSesion.Text = "Cerrar Sesión";
+            this.tsCerrarSesion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.tsCerrarSesion.Click += new System.EventHandler(this.tsCerrarSesion_Click);
             // 
             // MenuBedel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 217);
-            this.Controls.Add(this.btnAtras);
+            this.ClientSize = new System.Drawing.Size(354, 184);
+            this.Controls.Add(this.tsBotones);
             this.Controls.Add(this.btnListaResCurso);
             this.Controls.Add(this.btnListaResDia);
             this.Controls.Add(this.btnBuscarAula);
@@ -113,7 +127,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bedel";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tsBotones.ResumeLayout(false);
+            this.tsBotones.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,6 +141,7 @@
         private System.Windows.Forms.Button btnBuscarAula;
         private System.Windows.Forms.Button btnListaResDia;
         private System.Windows.Forms.Button btnListaResCurso;
-        private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.ToolStrip tsBotones;
+        private System.Windows.Forms.ToolStripButton tsCerrarSesion;
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace CapaDatos
 {
+    using CapaClases;
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -79,21 +80,19 @@
             return bedelObtenido;
         }
 
-        //OBTIENE UN SOLO BEDEL A TRAVEZ DE SU NICK Y SU PASS
-        public Bedel obtenerBedel(string nickActual, string pass)
+        //VERIFICA SI EXISTE UN BEDEL CON EL NICK Y PASS INGRESADOS
+        public bool existeBedel(string nickActual, string pass)
         {
-            Bedel bedelObtenido = new Bedel();
-
             using (TP2017Entities bd = new TP2017Entities())
             {
                 var bedeles = from usuario in bd.Bedeles where usuario.nick.Equals(nickActual) && usuario.contrasenia.Equals(pass) select usuario;
 
-                foreach (var bedel in bedeles)
+                foreach (Bedel bedel in bedeles)
                 {
-                    bedelObtenido = bedel;
+                    return true;
                 }
             }
-            return bedelObtenido;
+            return false;
         }
 
         //METODO PARA GUARDAR UN BEDEL MODIFICADO
@@ -103,11 +102,13 @@
             {    
                 try
                 {
+                    bd.Entry(bedel).State = EntityState.Modified;
+
                     bd.SaveChanges();
                 }
                 catch(Exception e)
                 {
-                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos");
+                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos, " + e.Message);
                 }
             }
         }
@@ -147,39 +148,9 @@
                 }
                 catch (Exception e)
                 {
-                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos");
+                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos, " + e.Message);
                 }
-                
              }
-        }
-
-        public void modificarBedel(BedelDTO bedelSeleccionado, string apellido, string nombre, string turno, string pass, bool passModificada)
-        {
-            using (var bd = new TP2017Entities())
-            {
-                var bedeles = (from usuario in bd.Bedeles where usuario.nick.Equals(bedelSeleccionado.nick) select usuario);
-
-                foreach (var bedel in bedeles)
-                {
-                    bedel.setValores(nombre,apellido,turno,pass);
-
-                    if (passModificada)
-                    {
-                        HistContrasenia historial = new HistContrasenia(pass, bedel.id_usuario);
-                        bedel.agregarHistorial(historial);
-                    }
-                }
-
-                try
-                {
-                    bd.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos");
-                }
-
-            }
         }
 
         //METODO PARA ELIMINAR UN BEDEL (no funciona)

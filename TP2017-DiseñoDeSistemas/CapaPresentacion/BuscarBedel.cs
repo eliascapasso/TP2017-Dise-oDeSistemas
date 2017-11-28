@@ -1,4 +1,5 @@
-﻿using CapaDatos;
+﻿using CapaClases;
+using CapaDatos;
 using CapaLogica;
 using Excepciones;
 using System;

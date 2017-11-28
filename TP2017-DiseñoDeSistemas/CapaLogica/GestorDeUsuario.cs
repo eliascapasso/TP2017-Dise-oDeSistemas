@@ -3,6 +3,7 @@ using Excepciones;
 using CapaDatos;
 using System.Windows.Forms;
 using System.Collections;
+using CapaClases;
 
 namespace CapaLogica
 {
@@ -61,7 +62,7 @@ namespace CapaLogica
         //METODO PARA VERIFICAR SI EXISTE UN BEDEL CON EL NICK Y PASS INGRESADOS
         public bool existeBedel(string nick, string pass)
         {
-            return !userDAODB.obtenerBedel(nick, pass).Equals(null);
+            return userDAODB.existeBedel(nick, pass);
         }
 
         //METODO PARA MODIFICAR UN BEDEL
@@ -74,20 +75,17 @@ namespace CapaLogica
             //Comprueba politicas de contraseña o que no haya sido modificada
             if (!passModificada || gestorPoliticas.comprobarPoliticas(pass))
             {
-                userDAODB.modificarBedel(bedelSeleccionado, apellido, nombre, turno, pass, passModificada);
+                Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
 
-                ////CONSULTAR AL PROFESOR
-                //Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
+                bedelObt.setValores(nombre, apellido, turno, pass);
 
-                //bedelObt.setValores(nombre, apellido, turno, pass);
+                if (passModificada)
+                {
+                    HistContrasenia historial = new HistContrasenia(pass, bedelObt.id_usuario);
+                    bedelObt.agregarHistorial(historial);
+                }
 
-                //if (passModificada)
-                //{
-                //    HistContrasenia historial = new HistContrasenia(pass, bedelObt.id_usuario);
-                //    bedelObt.agregarHistorial(historial);
-                //}
-
-                //userDAODB.guardarBedelModificado(bedelObt);
+                userDAODB.guardarBedelModificado(bedelObt);
             }
             else
             {
