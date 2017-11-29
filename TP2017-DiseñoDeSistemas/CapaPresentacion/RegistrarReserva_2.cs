@@ -11,6 +11,7 @@
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using CapaClases;
+    using CapaLogica;
     using System.Collections;
 
 
@@ -18,12 +19,14 @@
     {
         private Form padre;
         private ReservaDTO reservaDTO; /*reservaDTO.fechas -> Columna 1: Dia, Columna 2: horaInicio, Columna 3: duracion*/
-        private HashSet<DataGridViewRow> disponibilidad; 
+ 
         private List<DataGridView> listaAulasDisponibles = new List<DataGridView>();
+        private GestorDeAula gestorAula = new GestorDeAula();
 
-        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO, HashSet<DataGridViewRow> disponibilidad)
+
+        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO)
         {
-            this.disponibilidad = disponibilidad;
+
             this.reservaDTO = reservaDTO;
             padre = papa;
             InitializeComponent();
@@ -42,7 +45,14 @@
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -54,17 +64,18 @@
         private void RegistrarReserva_2_Load(object sender, EventArgs e)
         {
             //EJECUTAR OBTENER DISPONIBILIDAD EN EL METODO llenarTabControl()??
+
             this.llenarTabControl();
         }
         
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int indicePestaniaSeleccionada = tcPestañas.SelectedIndex;
+            int indicePestaniaSeleccionada = tcPestañasDias.SelectedIndex;
             DataGridView dataGridActual = this.listaAulasDisponibles[indicePestaniaSeleccionada];
 
             DataGridViewRow aulaDisponibleSeleccionada = dataGridActual.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas disponibles
 
-            string columnaDia = tcPestañas.SelectedTab.Name;
+            string columnaDia = tcPestañasDias.SelectedTab.Name;
             string columnaAula = Convert.ToString(aulaDisponibleSeleccionada.Cells[0].Value);
             string columnaDuracion = Convert.ToString(aulaDisponibleSeleccionada.Cells[1].Value);
             string columnaCapacidad = Convert.ToString(aulaDisponibleSeleccionada.Cells[2].Value);
@@ -92,14 +103,16 @@
 
         private void llenarTabControl()
         {
+
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
+                HashSet<DataGridViewRow> disponibilidad = gestorAula.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
 
                 DataGridView dgvAulasDisponibles = new DataGridView();
 
                 //Propiedades del dataGrid
-                dgvAulasDisponibles.Size = tcPestañas.Size;
+                dgvAulasDisponibles.Size = tcPestañasDias.Size;
                 dgvAulasDisponibles.AllowUserToAddRows = false;
                 dgvAulasDisponibles.AllowUserToDeleteRows = false;
 
@@ -109,21 +122,21 @@
                 dgvAulasDisponibles.Columns.Add("Capacidad", "Capacidad");
 
                 //Se agregan las filas
-                //foreach(DataGridViewRow aulaDisponible in this.disponibilidad)
-                //{
-                //    grid.Rows.Add(aulaDisponible);
-                //}
-
-                //PRUEBAS
-                dgvAulasDisponibles.Rows.Add("hola", "k ace", "asd");
-                dgvAulasDisponibles.Rows.Add("chau", "nada", "blabla");
-                dgvAulasDisponibles.Rows.Add("asda", "elco", "pato");
+                foreach (DataGridViewRow aulaDisponible in disponibilidad)
+                {
+                    dgvAulasDisponibles.Rows.Add(aulaDisponible);
+                }
+                //TODO: Mariano: validar datagrid reserva 1 para no poder agregar dos veces lo mismo, validar en reserva 1 que no se pueda agregar dos tipos de reserva, obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
+                ////PRUEBAS
+                //dgvAulasDisponibles.Rows.Add("hola", "k ace", "asd");
+                //dgvAulasDisponibles.Rows.Add("chau", "nada", "blabla");
+                //dgvAulasDisponibles.Rows.Add("asda", "elco", "pato");
 
                 TabPage pestania = new TabPage(dia);
                 pestania.Name = dia;
                 pestania.Controls.Add(dgvAulasDisponibles);
 
-                tcPestañas.TabPages.Add(pestania); //Agrego una pestaña nueva con su respectivo dataGrid
+                tcPestañasDias.TabPages.Add(pestania); //Agrego una pestaña nueva con su respectivo dataGrid
 
                 this.listaAulasDisponibles.Add(dgvAulasDisponibles);
             }
@@ -140,6 +153,13 @@
                 }
             }
             return false;
+        }
+
+        private void timerReserva_Tick(object sender, EventArgs e)
+        {
+            //Cada vez que se abre reserva 2 se contara con 10 min antes de que se cierre, por disponibilidad.
+            this.Close();
+            padre.Show();
         }
     }
 }

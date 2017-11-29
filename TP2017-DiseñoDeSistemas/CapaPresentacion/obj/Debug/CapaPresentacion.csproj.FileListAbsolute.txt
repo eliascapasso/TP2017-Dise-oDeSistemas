@@ -178,3 +178,36 @@ C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSist
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.dll
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.dll
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaLogica.dll
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\EntityFramework.dll
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\Excepciones.dll
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaDatos.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaLogica.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\Excepciones.pdb
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\EntityFramework.xml
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.Autenticacion.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.BarraProgresiva.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.BuscarAula.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.BuscarBedel.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.DisponibilidadAulas.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.InicioSesionAdmin.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.InicioSesionBedel.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.MenuAdmin.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.MenuBedel.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.ModificarBedel.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.RegistrarBedel.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.RegistrarReserva_1.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.RegistrarReserva_2.resources
+C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache

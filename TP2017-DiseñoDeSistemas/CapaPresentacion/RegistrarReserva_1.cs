@@ -80,10 +80,9 @@ namespace Autenticacion
 
             ReservaDTO reservaDTO =new ReservaDTO(nickBedel, cbTipoReserva.Text, fechas, Convert.ToInt32(nudCantidadAlumnos.Value), idDocente, idAsignatura);
 
-            HashSet<DataGridViewRow> disponibilidad=gestorAula.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
-
+           
             this.Hide();
-            new RegistrarReserva_2(this,reservaDTO,disponibilidad).Show();
+            new RegistrarReserva_2(this,reservaDTO).Show();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

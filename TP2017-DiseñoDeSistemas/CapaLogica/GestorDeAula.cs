@@ -26,6 +26,7 @@
 
         public HashSet<DataGridViewRow> obtenerDisponibilidad(ReservaDTO reservadto)
         {
+            //TODO: No implementado
             return new HashSet<DataGridViewRow>();
         }
     }

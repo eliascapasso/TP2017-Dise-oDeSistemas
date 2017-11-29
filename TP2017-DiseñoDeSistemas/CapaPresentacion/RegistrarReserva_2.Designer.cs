@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarReserva_2));
             this.label1 = new System.Windows.Forms.Label();
-            this.tcPestañas = new System.Windows.Forms.TabControl();
+            this.tcPestañasDias = new System.Windows.Forms.TabControl();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.Duración = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Caracteristicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAulasSeleccionadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,13 +58,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Agregue un aula disponible para cada día";
             // 
-            // tcPestañas
+            // tcPestañasDias
             // 
-            this.tcPestañas.Location = new System.Drawing.Point(15, 38);
-            this.tcPestañas.Name = "tcPestañas";
-            this.tcPestañas.SelectedIndex = 0;
-            this.tcPestañas.Size = new System.Drawing.Size(413, 147);
-            this.tcPestañas.TabIndex = 2;
+            this.tcPestañasDias.Location = new System.Drawing.Point(15, 38);
+            this.tcPestañasDias.Name = "tcPestañasDias";
+            this.tcPestañasDias.SelectedIndex = 0;
+            this.tcPestañasDias.Size = new System.Drawing.Size(413, 147);
+            this.tcPestañasDias.TabIndex = 2;
             // 
             // btnAgregar
             // 
@@ -172,13 +174,19 @@
             this.Caracteristicas.Name = "Caracteristicas";
             this.Caracteristicas.ReadOnly = true;
             // 
+            // timerReserva
+            // 
+            this.timerReserva.Enabled = true;
+            this.timerReserva.Interval = 30000;
+            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
+            // 
             // RegistrarReserva_2
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(440, 531);
+            this.ClientSize = new System.Drawing.Size(440, 530);
             this.Controls.Add(this.dgvAulasSeleccionadas);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -186,7 +194,7 @@
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.tcPestañas);
+            this.Controls.Add(this.tcPestañasDias);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -206,7 +214,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tcPestañas;
+        private System.Windows.Forms.TabControl tcPestañasDias;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnQuitar;
@@ -219,5 +227,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Duración;
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caracteristicas;
+        private System.Windows.Forms.Timer timerReserva;
     }
 }
