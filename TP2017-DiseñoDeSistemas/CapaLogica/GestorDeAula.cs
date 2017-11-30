@@ -1,15 +1,15 @@
-﻿namespace CapaLogica
-{
-    using CapaDatos;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using CapaClases;
-    using System.Windows.Forms;
+﻿using CapaDatos;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CapaClases;
+using System.Windows.Forms;
 
+namespace CapaLogica
+{
     public class GestorDeAula
     {
         private AulaDAODB aulaDAODB;

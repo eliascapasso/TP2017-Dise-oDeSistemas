@@ -211,3 +211,5 @@ C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oD
 C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.RegistrarReserva_1.resources
 C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.RegistrarReserva_2.resources
 C:\Users\Eliana\Desktop\Mariano\TPDisenio\TP2017-Dise-oDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.dll
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.pdb
