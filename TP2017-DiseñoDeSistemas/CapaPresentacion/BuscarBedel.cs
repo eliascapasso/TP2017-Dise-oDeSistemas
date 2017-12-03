@@ -90,9 +90,12 @@ namespace Autenticacion
                 int i = 0;
                 foreach (BedelDTO bedel in this.bedelesBuscados)
                 {
-                    dgvResultadosBusqueda.Rows.Insert(i, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
+                    if (!bedel.nick.Equals("admin"))
+                    {
+                        dgvResultadosBusqueda.Rows.Insert(i, bedel.nick, bedel.apellido, bedel.nombre, bedel.turno);
 
-                    i++;
+                        i++;
+                    }
                 }
             }
             //No existen bedeles que cumplan con los criterios ingresados

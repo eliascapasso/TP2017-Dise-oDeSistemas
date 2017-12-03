@@ -57,13 +57,15 @@ namespace Autenticacion
             this.calendarioEsporadico = new System.Windows.Forms.DateTimePicker();
             this.cbNoEsporadico = new System.Windows.Forms.ComboBox();
             this.nudCantidadAlumnos = new System.Windows.Forms.NumericUpDown();
-            this.dgvSolicitantes = new System.Windows.Forms.DataGridView();
+            this.dgvDocentes = new System.Windows.Forms.DataGridView();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbBusquedaDocente = new System.Windows.Forms.TextBox();
+            this.btnBuscarDocente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitantes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -184,11 +186,11 @@ namespace Autenticacion
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 370);
+            this.label7.Location = new System.Drawing.Point(12, 382);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 13);
+            this.label7.Size = new System.Drawing.Size(124, 13);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Seleccione un solicitante*";
+            this.label7.Text = "Seleccione un docente*:";
             // 
             // label10
             // 
@@ -234,7 +236,7 @@ namespace Autenticacion
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label12.Location = new System.Drawing.Point(12, 485);
+            this.label12.Location = new System.Drawing.Point(17, 506);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(114, 13);
             this.label12.TabIndex = 23;
@@ -242,7 +244,7 @@ namespace Autenticacion
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(348, 485);
+            this.btnSiguiente.Location = new System.Drawing.Point(348, 506);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
             this.btnSiguiente.TabIndex = 24;
@@ -253,7 +255,7 @@ namespace Autenticacion
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(258, 485);
+            this.btnCancelar.Location = new System.Drawing.Point(267, 506);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
@@ -323,25 +325,35 @@ namespace Autenticacion
             // nudCantidadAlumnos
             // 
             this.nudCantidadAlumnos.Location = new System.Drawing.Point(121, 309);
+            this.nudCantidadAlumnos.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudCantidadAlumnos.Name = "nudCantidadAlumnos";
             this.nudCantidadAlumnos.Size = new System.Drawing.Size(51, 20);
             this.nudCantidadAlumnos.TabIndex = 29;
+            this.nudCantidadAlumnos.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // dgvSolicitantes
             // 
-            this.dgvSolicitantes.AllowUserToAddRows = false;
-            this.dgvSolicitantes.AllowUserToDeleteRows = false;
-            this.dgvSolicitantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSolicitantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDocentes.AllowUserToAddRows = false;
+            this.dgvDocentes.AllowUserToDeleteRows = false;
+            this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Apellido,
             this.Nombre,
             this.Email});
-            this.dgvSolicitantes.Location = new System.Drawing.Point(15, 386);
-            this.dgvSolicitantes.Name = "dgvSolicitantes";
-            this.dgvSolicitantes.ReadOnly = true;
-            this.dgvSolicitantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSolicitantes.Size = new System.Drawing.Size(408, 81);
-            this.dgvSolicitantes.TabIndex = 30;
+            this.dgvDocentes.Location = new System.Drawing.Point(15, 407);
+            this.dgvDocentes.Name = "dgvSolicitantes";
+            this.dgvDocentes.ReadOnly = true;
+            this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDocentes.Size = new System.Drawing.Size(408, 81);
+            this.dgvDocentes.TabIndex = 30;
             // 
             // Apellido
             // 
@@ -362,14 +374,33 @@ namespace Autenticacion
             this.Email.ReadOnly = true;
             this.Email.Width = 165;
             // 
+            // tbBusquedaDocente
+            // 
+            this.tbBusquedaDocente.Location = new System.Drawing.Point(169, 379);
+            this.tbBusquedaDocente.Name = "tbBusquedaDocente";
+            this.tbBusquedaDocente.Size = new System.Drawing.Size(173, 20);
+            this.tbBusquedaDocente.TabIndex = 31;
+            // 
+            // btnBuscarDocente
+            // 
+            this.btnBuscarDocente.Location = new System.Drawing.Point(348, 377);
+            this.btnBuscarDocente.Name = "btnBuscarDocente";
+            this.btnBuscarDocente.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarDocente.TabIndex = 32;
+            this.btnBuscarDocente.Text = "Buscar";
+            this.btnBuscarDocente.UseVisualStyleBackColor = true;
+            this.btnBuscarDocente.Click += new System.EventHandler(this.btnBuscarDocente_Click);
+            // 
             // RegistrarReserva_1
             // 
             this.AcceptButton = this.btnSiguiente;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(440, 520);
-            this.Controls.Add(this.dgvSolicitantes);
+            this.ClientSize = new System.Drawing.Size(440, 544);
+            this.Controls.Add(this.btnBuscarDocente);
+            this.Controls.Add(this.tbBusquedaDocente);
+            this.Controls.Add(this.dgvDocentes);
             this.Controls.Add(this.nudCantidadAlumnos);
             this.Controls.Add(this.cbNoEsporadico);
             this.Controls.Add(this.calendarioEsporadico);
@@ -396,7 +427,7 @@ namespace Autenticacion
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(456, 569);
+            this.MaximumSize = new System.Drawing.Size(700, 700);
             this.MinimumSize = new System.Drawing.Size(456, 558);
             this.Name = "RegistrarReserva_1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -404,7 +435,7 @@ namespace Autenticacion
             this.Load += new System.EventHandler(this.RegistrarReserva_1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSolicitantes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,9 +469,11 @@ namespace Autenticacion
         private System.Windows.Forms.DateTimePicker calendarioEsporadico;
         private System.Windows.Forms.ComboBox cbNoEsporadico;
         private System.Windows.Forms.NumericUpDown nudCantidadAlumnos;
-        private System.Windows.Forms.DataGridView dgvSolicitantes;
+        private System.Windows.Forms.DataGridView dgvDocentes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.TextBox tbBusquedaDocente;
+        private System.Windows.Forms.Button btnBuscarDocente;
     }
 }

@@ -67,6 +67,7 @@
         public Bedel obtenerBedel(string nickActual)
         {
             Bedel bedelObtenido = new Bedel();
+            HashSet<HistContrasenia> historiales = new HashSet<HistContrasenia>();
 
             using (TP2017Entities bd = new TP2017Entities())
             {
@@ -76,6 +77,13 @@
                 {
                     bedelObtenido = bedel;
                 }
+
+                foreach(HistContrasenia hist in bedelObtenido.HistContrasenias)
+                {
+                    historiales.Add(hist);
+                }
+
+                bedelObtenido.HistContrasenias = historiales;
             }
             return bedelObtenido;
         }
@@ -104,11 +112,13 @@
                 {
                     bd.Entry(bedel).State = EntityState.Modified;
 
+                    bd.Entry(bedel.HistContrasenias.Last()).State = EntityState.Added;
+
                     bd.SaveChanges();
                 }
                 catch(Exception e)
                 {
-                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos, " + e.Message);
+                    Console.Write("ERROR: No se pudieron guardar las modificaciones del bedel en la base de datos, " + e.Message);
                 }
             }
         }

@@ -13,10 +13,11 @@
 
         }
 
-        public HistContrasenia(string pass, int idUsu)
+        public HistContrasenia(string pass, Usuario usuario)
         {
             this.contrasenia = pass;
-            this.id_usuario = idUsu;
+            this.Usuario = usuario;
+            this.id_usuario = usuario.id_usuario;
             this.fecha_creacion = DateTime.Now;
         }
     }

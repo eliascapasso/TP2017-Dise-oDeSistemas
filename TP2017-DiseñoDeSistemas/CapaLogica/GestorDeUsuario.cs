@@ -29,7 +29,7 @@ namespace CapaLogica
                 if (userDAODB.comprobarNickRepetido(nick)) 
                 {
                     Bedel bedelNuevo = new Bedel(nick, pass, nombre, apellido, turno);
-                    HistContrasenia historial = new HistContrasenia(pass,bedelNuevo.id_usuario);
+                    HistContrasenia historial = new HistContrasenia(pass,bedelNuevo);
 
                     bedelNuevo.agregarHistorial(historial);
                     userDAODB.guardarBedel(bedelNuevo);
@@ -79,9 +79,14 @@ namespace CapaLogica
 
                 bedelObt.setValores(nombre, apellido, turno, pass);
 
+                foreach (HistContrasenia hist in bedelObt.HistContrasenias)
+                {
+                    MessageBox.Show(hist.id_usuario.ToString() + " ");
+                }
+
                 if (passModificada)
                 {
-                    HistContrasenia historial = new HistContrasenia(pass, bedelObt.id_usuario);
+                    HistContrasenia historial = new HistContrasenia(pass, bedelObt);
                     bedelObt.agregarHistorial(historial);
                 }
 

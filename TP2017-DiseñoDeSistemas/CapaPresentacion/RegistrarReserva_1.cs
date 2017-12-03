@@ -57,20 +57,21 @@ namespace Autenticacion
             this.llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
             this.llenarTiposAulaEnComboBox();
             this.llenarAsignaturasEnComboBox();
-            this.llenarSolicitantesEnDataGridView();
+            this.llenarDocentesEnDataGridView();
 
             cbHoraInicio.SelectedIndex = 0;
             cbTipoReserva.SelectedIndex = 0;
             cbNoEsporadico.SelectedIndex = 0;
             cbNombreCurso.SelectedIndex = 0;
             cbTipoAula.SelectedIndex = 0;
+            tbBusquedaDocente.Text = "";
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         { 
-            string apellidoDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
-            string nombreDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
-            string emailDocente = Convert.ToString(dgvSolicitantes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
+            string apellidoDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
+            string nombreDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
+            string emailDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
             
             int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
             DataGridViewRowCollection fechas= dgvResultados.Rows;
@@ -134,6 +135,21 @@ namespace Autenticacion
             }
         }
 
+        private void btnBuscarDocente_Click(object sender, EventArgs e)
+        {
+            dgvDocentes.Rows.Clear();
+
+            int i = 0;
+            foreach (DocenteDTO docente in this.docentes)
+            {
+                if (docente.apellido.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) || docente.nombre.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) || docente.email.ToLower().Contains(tbBusquedaDocente.Text.ToLower()))
+                {
+                    dgvDocentes.Rows.Insert(i, docente.apellido, docente.nombre, docente.email);
+                    i++;
+                }
+            }
+        }
+
         //METODOS PROPIOS
 
         private void llenarAsignaturasEnComboBox()
@@ -147,12 +163,12 @@ namespace Autenticacion
             }
         }
 
-        private void llenarSolicitantesEnDataGridView()
+        private void llenarDocentesEnDataGridView()
         {
             int i = 0;
             foreach (Docente docente in gestorDocente.obtenerDocentes())
             {
-                dgvSolicitantes.Rows.Insert(i, docente.apellido_docente, docente.nombre_docente, docente.email_docente);
+                dgvDocentes.Rows.Insert(i, docente.apellido_docente, docente.nombre_docente, docente.email_docente);
 
                 //Agrega el docenteDTO a la lista de docentes
                 this.docentes.Add(new DocenteDTO(docente.id_docente, docente.apellido_docente, docente.nombre_docente, docente.email_docente));
@@ -217,7 +233,6 @@ namespace Autenticacion
             string aux =ts.TotalMinutes.ToString()+" Min";
             return aux;
        }
-        
     }
     
 }
