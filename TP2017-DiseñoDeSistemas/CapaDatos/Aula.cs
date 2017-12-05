@@ -25,12 +25,6 @@ namespace CapaDatos
         public int piso { get; set; }
         public Nullable<bool> aire_acond { get; set; }
         public int capacidad { get; set; }
-        public Nullable<bool> ventilador { get; set; }
-        public Nullable<int> cant_pc { get; set; }
-        public Nullable<bool> canion { get; set; }
-        public Nullable<bool> dvd { get; set; }
-        public Nullable<bool> tv { get; set; }
-        public Nullable<bool> pc { get; set; }
         public string tipo_pizarron { get; set; }
         public Nullable<int> id_tipo_aula { get; set; }
     

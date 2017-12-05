@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class DisponibilidadAulas
+    partial class ObtenerDisponibilidadAula
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisponibilidadAulas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ObtenerDisponibilidadAula));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -145,7 +145,7 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // DisponibilidadAulas
+            // ObtenerDisponibilidadAula
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,9 +160,10 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(457, 345);
             this.MinimumSize = new System.Drawing.Size(457, 345);
-            this.Name = "DisponibilidadAulas";
+            this.Name = "ObtenerDisponibilidadAula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Disponibilidad de aulas";
+            this.Load += new System.EventHandler(this.ObtenerDisponibilidadAula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorasSuperpuestas)).EndInit();
             this.ResumeLayout(false);

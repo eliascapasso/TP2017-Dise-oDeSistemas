@@ -80,11 +80,11 @@
     <Compile Include="BuscarBedel.Designer.cs">
       <DependentUpon>BuscarBedel.cs</DependentUpon>
     </Compile>
-    <Compile Include="DisponibilidadAulas.cs">
+    <Compile Include="ObtenerDisponibilidadAula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DisponibilidadAulas.Designer.cs">
-      <DependentUpon>DisponibilidadAulas.cs</DependentUpon>
+    <Compile Include="ObtenerDisponibilidadAula.Designer.cs">
+      <DependentUpon>ObtenerDisponibilidadAula.cs</DependentUpon>
     </Compile>
     <Compile Include="InicioSesionAdmin.cs">
       <SubType>Form</SubType>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="BuscarBedel.resx">
       <DependentUpon>BuscarBedel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DisponibilidadAulas.resx">
-      <DependentUpon>DisponibilidadAulas.cs</DependentUpon>
+    <EmbeddedResource Include="ObtenerDisponibilidadAula.resx">
+      <DependentUpon>ObtenerDisponibilidadAula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioSesionAdmin.resx">
       <DependentUpon>InicioSesionAdmin.cs</DependentUpon>

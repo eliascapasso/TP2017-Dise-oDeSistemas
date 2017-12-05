@@ -79,7 +79,12 @@ namespace Autenticacion
             string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
             int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
 
-            ReservaDTO reservaDTO =new ReservaDTO(nickBedel, cbTipoReserva.Text, fechas, Convert.ToInt32(nudCantidadAlumnos.Value), idDocente, idAsignatura);
+            ReservaDTO reservaDTO =new ReservaDTO(nickBedel, 
+                                                  cbTipoReserva.Text,
+                                                  fechas,
+                                                  Convert.ToInt32(nudCantidadAlumnos.Value),
+                                                  idDocente,
+                                                  idAsignatura);
 
            
             this.Hide();
@@ -168,10 +173,15 @@ namespace Autenticacion
             int i = 0;
             foreach (Docente docente in gestorDocente.obtenerDocentes())
             {
-                dgvDocentes.Rows.Insert(i, docente.apellido_docente, docente.nombre_docente, docente.email_docente);
+                dgvDocentes.Rows.Insert(i, docente.apellido_docente,
+                                        docente.nombre_docente, 
+                                        docente.email_docente);
 
                 //Agrega el docenteDTO a la lista de docentes
-                this.docentes.Add(new DocenteDTO(docente.id_docente, docente.apellido_docente, docente.nombre_docente, docente.email_docente));
+                this.docentes.Add(new DocenteDTO(docente.id_docente,
+                                                 docente.apellido_docente,
+                                                 docente.nombre_docente,
+                                                 docente.email_docente));
             }
         }
 
@@ -208,7 +218,9 @@ namespace Autenticacion
         {
             foreach (DocenteDTO docente in this.docentes)
             {
-                if(docente.apellido.Equals(apellido) && docente.nombre.Equals(nombre) && docente.email.Equals(email))
+                if(docente.apellido.Equals(apellido) &&
+                   docente.nombre.Equals(nombre) &&
+                   docente.email.Equals(email))
                 {
                     return docente.id_docente;
                 }

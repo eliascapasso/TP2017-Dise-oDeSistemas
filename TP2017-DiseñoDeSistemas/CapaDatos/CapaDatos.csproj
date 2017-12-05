@@ -61,6 +61,15 @@
     <Compile Include="Aula.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
+    <Compile Include="AulaComputacion.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AulaMultimedios.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AulaSinRecursosAdicionales.cs">
+      <DependentUpon>TP2017.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bedel.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>

@@ -19,7 +19,8 @@
     {
         private Form padre;
         private ReservaDTO reservaDTO; /*reservaDTO.fechas -> Columna 1: Dia, Columna 2: horaInicio, Columna 3: duracion*/
- 
+        private ObtenerDisponibilidadAula obtenerDisponibilidad;
+
         private List<DataGridView> listaAulasDisponibles = new List<DataGridView>();
         private GestorDeAula gestorAula = new GestorDeAula();
 
@@ -37,35 +38,26 @@
             InitializeComponent();
         }
 
+        private void RegistrarReserva_2_Load(object sender, EventArgs e)
+        {
+            obtenerDisponibilidad = new ObtenerDisponibilidadAula(this);
+            obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO);
+            //EJECUTAR OBTENER DISPONIBILIDAD EN EL METODO llenarTabControl()??
+
+            this.llenarTabControl();
+        }
+
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.Hide();
             padre.Show();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                
-            }
-            catch
-            {
-
-            }
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             padre.Close();
             this.Close();
-        }
-
-        private void RegistrarReserva_2_Load(object sender, EventArgs e)
-        {
-            //EJECUTAR OBTENER DISPONIBILIDAD EN EL METODO llenarTabControl()??
-
-            this.llenarTabControl();
         }
         
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -99,6 +91,17 @@
             this.dgvAulasSeleccionadas.Refresh();
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch
+            {
+
+            }
+        }
         //METODOS PROPIOS
 
         private void llenarTabControl()
@@ -126,7 +129,10 @@
                 {
                     dgvAulasDisponibles.Rows.Add(aulaDisponible);
                 }
-                //TODO: Mariano: validar datagrid reserva 1 para no poder agregar dos veces lo mismo, validar en reserva 1 que no se pueda agregar dos tipos de reserva, obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
+                //TODO: Mariano: validar datagrid reserva 1 para no poder agregar dos veces lo mismo,
+                //validar en reserva 1 que no se pueda agregar dos tipos de reserva, 
+                //obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
+                
                 ////PRUEBAS
                 //dgvAulasDisponibles.Rows.Add("hola", "k ace", "asd");
                 //dgvAulasDisponibles.Rows.Add("chau", "nada", "blabla");

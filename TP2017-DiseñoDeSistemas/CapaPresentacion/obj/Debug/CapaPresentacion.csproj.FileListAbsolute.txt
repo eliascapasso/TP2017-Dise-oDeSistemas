@@ -165,7 +165,6 @@ C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSist
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.BarraProgresiva.resources
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.BuscarAula.resources
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.BuscarBedel.resources
-C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.DisponibilidadAulas.resources
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.InicioSesionAdmin.resources
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.InicioSesionBedel.resources
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.MenuAdmin.resources
@@ -215,3 +214,4 @@ C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSist
 C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.pdb
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.dll
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\bin\Debug\CapaClases.pdb
+C:\Mariano\TP2017-DisenioDeSistemas\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.ObtenerDisponibilidadAula.resources

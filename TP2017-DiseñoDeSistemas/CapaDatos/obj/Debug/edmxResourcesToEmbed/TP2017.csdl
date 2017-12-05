@@ -30,12 +30,6 @@
     <Property Name="piso" Type="Int32" Nullable="false" />
     <Property Name="aire_acond" Type="Boolean" />
     <Property Name="capacidad" Type="Int32" Nullable="false" />
-    <Property Name="ventilador" Type="Boolean" />
-    <Property Name="cant_pc" Type="Int32" />
-    <Property Name="canion" Type="Boolean" />
-    <Property Name="dvd" Type="Boolean" />
-    <Property Name="tv" Type="Boolean" />
-    <Property Name="pc" Type="Boolean" />
     <Property Name="tipo_pizarron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="id_tipo_aula" Type="Int32" />
     <NavigationProperty Name="TipoAula" Relationship="Self.FK__Aula__id_tipo_au__1A14E395" FromRole="Aula" ToRole="TipoAula" />
@@ -344,5 +338,18 @@
     <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AulaMultimedios" BaseType="TP2017Model.Aula">
+    <Property Name="canion" Type="Boolean" />
+    <Property Name="pc" Type="Boolean" />
+    <Property Name="tv" Type="Boolean" />
+    <Property Name="dvd" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AulaSinRecursosAdicionales" BaseType="TP2017Model.Aula">
+    <Property Name="ventilador" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AulaComputacion" BaseType="TP2017Model.Aula">
+    <Property Name="cant_pc" Type="Int32" />
+    <Property Name="canion" Type="Boolean" />
   </EntityType>
 </Schema>

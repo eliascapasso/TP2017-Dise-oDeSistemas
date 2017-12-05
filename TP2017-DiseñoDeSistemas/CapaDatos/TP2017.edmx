@@ -392,12 +392,6 @@
           <Property Name="piso" Type="Int32" Nullable="false" />
           <Property Name="aire_acond" Type="Boolean" />
           <Property Name="capacidad" Type="Int32" Nullable="false" />
-          <Property Name="ventilador" Type="Boolean" />
-          <Property Name="cant_pc" Type="Int32" />
-          <Property Name="canion" Type="Boolean" />
-          <Property Name="dvd" Type="Boolean" />
-          <Property Name="tv" Type="Boolean" />
-          <Property Name="pc" Type="Boolean" />
           <Property Name="tipo_pizarron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_tipo_aula" Type="Int32" />
           <NavigationProperty Name="TipoAula" Relationship="Self.FK__Aula__id_tipo_au__1A14E395" FromRole="Aula" ToRole="TipoAula" />
@@ -707,6 +701,19 @@
           <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
+        <EntityType Name="AulaMultimedios" BaseType="TP2017Model.Aula" >
+          <Property Name="canion" Type="Boolean" />
+          <Property Name="pc" Type="Boolean" />
+          <Property Name="tv" Type="Boolean" />
+          <Property Name="dvd" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AulaSinRecursosAdicionales" BaseType="TP2017Model.Aula" >
+          <Property Name="ventilador" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AulaComputacion" BaseType="TP2017Model.Aula" >
+          <Property Name="cant_pc" Type="Int32" />
+          <Property Name="canion" Type="Boolean" />
+          </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -733,21 +740,40 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Aulas">
-            <EntityTypeMapping TypeName="TP2017Model.Aula">
+            <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.Aula)">
               <MappingFragment StoreEntitySet="Aula">
                 <ScalarProperty Name="id_aula" ColumnName="id_aula" />
-                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
-                <ScalarProperty Name="piso" ColumnName="piso" />
-                <ScalarProperty Name="aire_acond" ColumnName="aire_acond" />
-                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
-                <ScalarProperty Name="ventilador" ColumnName="ventilador" />
-                <ScalarProperty Name="cant_pc" ColumnName="cant_pc" />
-                <ScalarProperty Name="canion" ColumnName="canion" />
-                <ScalarProperty Name="dvd" ColumnName="dvd" />
-                <ScalarProperty Name="tv" ColumnName="tv" />
-                <ScalarProperty Name="pc" ColumnName="pc" />
-                <ScalarProperty Name="tipo_pizarron" ColumnName="tipo_pizarron" />
                 <ScalarProperty Name="id_tipo_aula" ColumnName="id_tipo_aula" />
+                <ScalarProperty Name="tipo_pizarron" ColumnName="tipo_pizarron" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="aire_acond" ColumnName="aire_acond" />
+                <ScalarProperty Name="piso" ColumnName="piso" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaMultimedios)">
+              <MappingFragment StoreEntitySet="Aula">
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <Condition ColumnName="canion" IsNull="false" />
+                <Condition ColumnName="pc" IsNull="false" />
+                <Condition ColumnName="tv" IsNull="false" />
+                <Condition ColumnName="dvd" IsNull="false" />
+                <Condition ColumnName="ventilador" IsNull="false" />
+                <Condition ColumnName="cant_pc" IsNull="false" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaSinRecursosAdicionales)">
+              <MappingFragment StoreEntitySet="Aula">
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <Condition ColumnName="ventilador" IsNull="false" />
+                <Condition ColumnName="cant_pc" IsNull="false" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaComputacion)">
+              <MappingFragment StoreEntitySet="Aula">
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <Condition ColumnName="cant_pc" IsNull="false" />
+                <Condition ColumnName="canion" IsNull="false" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
