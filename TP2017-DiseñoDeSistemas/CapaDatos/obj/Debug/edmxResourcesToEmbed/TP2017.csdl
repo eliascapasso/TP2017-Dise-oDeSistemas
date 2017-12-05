@@ -21,7 +21,7 @@
     <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__id_asig__2D27B809" FromRole="Asignatura" ToRole="Reserva" />
     <NavigationProperty Name="Docentes" Relationship="Self.DocenteAsignatura" FromRole="Asignatura" ToRole="Docente" />
   </EntityType>
-  <EntityType Name="Aula">
+  <EntityType Name="Aula" Abstract="false">
     <Key>
       <PropertyRef Name="id_aula" />
     </Key>
@@ -34,6 +34,7 @@
     <Property Name="id_tipo_aula" Type="Int32" />
     <NavigationProperty Name="TipoAula" Relationship="Self.FK__Aula__id_tipo_au__1A14E395" FromRole="Aula" ToRole="TipoAula" />
     <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_au__31EC6D26" FromRole="Aula" ToRole="DetalleReserva" />
+    <Property Name="canion" Type="Boolean" />
   </EntityType>
   <EntityType Name="Cuatrimestre">
     <Key>
@@ -340,16 +341,14 @@
     <Property Name="turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
   <EntityType Name="AulaMultimedios" BaseType="TP2017Model.Aula">
-    <Property Name="canion" Type="Boolean" />
-    <Property Name="pc" Type="Boolean" />
-    <Property Name="tv" Type="Boolean" />
-    <Property Name="dvd" Type="Boolean" />
+    <Property Name="tv" Type="Boolean" Nullable="false" />
+    <Property Name="pc" Type="Boolean" Nullable="false" />
+    <Property Name="dvd" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AulaInformatica" BaseType="TP2017Model.Aula">
+    <Property Name="cant_pc" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="AulaSinRecursosAdicionales" BaseType="TP2017Model.Aula">
-    <Property Name="ventilador" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="AulaComputacion" BaseType="TP2017Model.Aula">
-    <Property Name="cant_pc" Type="Int32" />
-    <Property Name="canion" Type="Boolean" />
+    <Property Name="ventilador" Type="Boolean" Nullable="false" />
   </EntityType>
 </Schema>
