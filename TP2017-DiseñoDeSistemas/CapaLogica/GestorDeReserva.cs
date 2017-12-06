@@ -18,7 +18,7 @@ namespace CapaLogica
 
         public void registrarReserva(ReservaDTO reservadto)
         {
-            gestorAula.obtenerDisponibilidad(reservadto);
+            //gestorAula.obtenerDisponibilidad(reservadto);
         } 
     }
 }

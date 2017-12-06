@@ -24,10 +24,10 @@ namespace CapaLogica
             return aulaDAODB.obtenerTiposAula();
         }
 
-        public HashSet<DataGridViewRow> obtenerDisponibilidad(ReservaDTO reservadto)
+        public DataGridViewRow obtenerDisponibilidad(AulaDTO auladto)
         {
             //TODO: No implementado
-            return new HashSet<DataGridViewRow>();
+            return new DataGridViewRow();
         }
     }
 }

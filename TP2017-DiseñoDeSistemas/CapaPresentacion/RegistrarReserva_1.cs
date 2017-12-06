@@ -26,6 +26,7 @@ namespace Autenticacion
         public string nickBedel;
         private ArrayList docentes;
         private ArrayList asignaturas;
+        private ArrayList tiposAula;
 
         public RegistrarReserva_1(Form papa, string nickBedel)
         {
@@ -37,6 +38,7 @@ namespace Autenticacion
             this.nickBedel = nickBedel;
             this.docentes = new ArrayList();
             this.asignaturas = new ArrayList();
+            this.tiposAula = new ArrayList();
             InitializeComponent();
         }
 
@@ -49,6 +51,7 @@ namespace Autenticacion
             this.gestorDocente = new GestorDeDocente();
             this.docentes = new ArrayList();
             this.asignaturas = new ArrayList();
+            this.tiposAula = new ArrayList();
             InitializeComponent();
         }
 
@@ -74,6 +77,7 @@ namespace Autenticacion
             string emailDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
             
             int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
+            int idTipoAula = this.obtenerIdTiposAula(cbTipoAula.Text);
             DataGridViewRowCollection fechas= dgvResultados.Rows;
 
             string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
@@ -84,7 +88,8 @@ namespace Autenticacion
                                                   fechas,
                                                   Convert.ToInt32(nudCantidadAlumnos.Value),
                                                   idDocente,
-                                                  idAsignatura);
+                                                  idAsignatura,
+                                                  idTipoAula);
 
            
             this.Hide();
@@ -128,15 +133,15 @@ namespace Autenticacion
 
             if (cbTipoReserva.SelectedItem.Equals("Esporádica"))
             {
-                dgvResultados.Rows.Add(calendarioEsporadico.Value.ToShortDateString(),
-                                       cbHoraInicio.Text,
-                                       duracionTotal());
+                AddToDatagrid(calendarioEsporadico.Value.ToShortDateString(),
+                              cbHoraInicio.Text,
+                              duracionTotal());
             }
             else
             {
-                dgvResultados.Rows.Add(cbNoEsporadico.Text,
-                                       cbHoraInicio.Text,
-                                       duracionTotal());
+                AddToDatagrid(cbNoEsporadico.Text,
+                              cbHoraInicio.Text,
+                              duracionTotal());
             }
         }
 
@@ -190,6 +195,10 @@ namespace Autenticacion
             foreach (TipoAula tipoAula in gestorAula.obtenerTiposAula())
             {
                 cbTipoAula.Items.Add(tipoAula.descripcion);
+
+                //Agrega el tipoAulaDTO a la lista de tiposAulas
+                this.tiposAula.Add(new TipoAulaDTO(tipoAula.id_tipo_aula,
+                                                 tipoAula.descripcion));
             }
         }
 
@@ -225,7 +234,14 @@ namespace Autenticacion
                     return docente.id_docente;
                 }
             }
-            return 0; //EN CASO DE QUE NO EXISTA ASIGNATURA CON LAS CONDICIONES ANTES PUESTAS
+            return -1; //EN CASO DE QUE NO EXISTA ASIGNATURA CON LAS CONDICIONES ANTES PUESTAS
+        }
+
+        private int obtenerIdTiposAula(string descripcion)
+        {
+            foreach (TipoAulaDTO tipoAula in this.tiposAula)
+                if (tipoAula.descripcion.Equals(descripcion)) return tipoAula.idTipoAula;
+                return 0; //EN CASO DE QUE NO EXISTA ASIGNATURA CON LAS CONDICIONES ANTES PUESTAS
         }
 
         private int obtenerIdAsignatura(string nombre)
@@ -242,9 +258,26 @@ namespace Autenticacion
 
         private string duracionTotal(){
             TimeSpan ts = DateTime.Parse(cbHoraFin.SelectedItem.ToString()) - DateTime.Parse(cbHoraInicio.SelectedItem.ToString());
-            string aux =ts.TotalMinutes.ToString()+" Min";
+            string aux =ts.TotalMinutes.ToString();
             return aux;
        }
+
+        private void AddToDatagrid(string fecha, string hora, string duracion)
+        {
+
+            List<DataGridViewRow> listaDeFilas = new List<DataGridViewRow>();
+
+            foreach (DataGridViewRow row in dgvResultados.Rows) listaDeFilas.Add(row);
+            bool existe= listaDeFilas.Any(x => x.Cells[0].Value.Equals(fecha));
+
+            if (existe)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else dgvResultados.Rows.Add(fecha, hora, duracion);
+
+        }
     }
     
 }

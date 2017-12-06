@@ -16,10 +16,12 @@ namespace CapaClases
         public int idDocente;
         public int idAsignatura;
         public int idAula;
+        public int idTipoAula;
         public DataGridViewRowCollection fechas; /*Columna 1: Dia, Columna 2: horaInicio, Columna 3: duracion*/
 
-        public ReservaDTO(string nickUsuario, string tipoReserva, DataGridViewRowCollection fecha, int cantAlumnos, int idDocente, int idAsignatura)
+        public ReservaDTO(string nickUsuario, string tipoReserva, DataGridViewRowCollection fecha, int cantAlumnos, int idDocente, int idAsignatura,int idtipoaula)
         {
+            this.idTipoAula = idtipoaula;
             this.nickUsuario= nickUsuario;
             this.tipoReserva = tipoReserva;
             this.fechas = fecha;

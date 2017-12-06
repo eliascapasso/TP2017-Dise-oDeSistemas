@@ -36,9 +36,22 @@ namespace CapaPresentacion
 
 
 
-        public void obtenerDisponibilidad(ReservaDTO reservaDTO)
+        public HashSet<DataGridViewRow> obtenerDisponibilidad(ReservaDTO reservaDTO)
         {
-            //gestorAula.obtenerDisponibilidad(reservaDTO);
+            HashSet<DataGridViewRow> disponibilidad = new HashSet<DataGridViewRow>();
+
+            foreach (DataGridViewRow fecha in reservaDTO.fechas)
+            {
+                
+                aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, obtenerIdPeriodo(fecha));
+                disponibilidad.Add(gestorAula.obtenerDisponibilidad(aulaDTO));
+            }
+            return disponibilidad;
+        }
+
+        private int obtenerIdPeriodo(DataGridViewRow fecha)
+        {
+            return 0;
         }
     }
 }

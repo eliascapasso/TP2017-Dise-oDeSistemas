@@ -18,3 +18,8 @@ C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistema
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.csprojResolveAssemblyReference.cache
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.dll
 C:\Users\escritorio\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.pdb
+C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\bin\Debug\CapaClases.dll
+C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\bin\Debug\CapaClases.pdb
+C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.csprojResolveAssemblyReference.cache
+C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.dll
+C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Debug\CapaClases.pdb

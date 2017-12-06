@@ -40,8 +40,7 @@
 
         private void RegistrarReserva_2_Load(object sender, EventArgs e)
         {
-            obtenerDisponibilidad = new ObtenerDisponibilidadAula(this);
-            obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO);
+            
             //EJECUTAR OBTENER DISPONIBILIDAD EN EL METODO llenarTabControl()??
 
             this.llenarTabControl();
@@ -71,16 +70,8 @@
             string columnaAula = Convert.ToString(aulaDisponibleSeleccionada.Cells[0].Value);
             string columnaDuracion = Convert.ToString(aulaDisponibleSeleccionada.Cells[1].Value);
             string columnaCapacidad = Convert.ToString(aulaDisponibleSeleccionada.Cells[2].Value);
-
-            if (this.existeDia(columnaDia)) //Valida que en el dataGrid de aulas seleccionadas no exista el dia seleccionado
-            {
-                System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show("Ya agregó un aula en este día", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                dgvAulasSeleccionadas.Rows.Add(columnaDia, columnaAula, columnaDuracion, columnaCapacidad);
-            }
+            
+            AddToDatagrid(columnaDia, columnaAula, columnaDuracion, columnaCapacidad);
         }
         
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -110,7 +101,9 @@
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
-                HashSet<DataGridViewRow> disponibilidad = gestorAula.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
+                obtenerDisponibilidad = new ObtenerDisponibilidadAula(this);
+                
+                HashSet<DataGridViewRow> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
 
                 DataGridView dgvAulasDisponibles = new DataGridView();
 
@@ -132,7 +125,7 @@
                 //TODO: Mariano: validar datagrid reserva 1 para no poder agregar dos veces lo mismo,
                 //validar en reserva 1 que no se pueda agregar dos tipos de reserva, 
                 //obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
-                
+
                 ////PRUEBAS
                 //dgvAulasDisponibles.Rows.Add("hola", "k ace", "asd");
                 //dgvAulasDisponibles.Rows.Add("chau", "nada", "blabla");
@@ -148,24 +141,28 @@
             }
         }
 
-        private bool existeDia(string dia)
-        {
-            foreach (DataGridViewRow fila in this.dgvAulasSeleccionadas.Rows)
-            {
-                string diaFila = Convert.ToString(fila.Cells[0].Value);
-                if (diaFila.Equals(dia))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void timerReserva_Tick(object sender, EventArgs e)
         {
             //Cada vez que se abre reserva 2 se contara con 10 min antes de que se cierre, por disponibilidad.
             this.Close();
             padre.Show();
+        }
+
+        private void AddToDatagrid(string fecha, string aula, string duracion, string capacidad)
+        {
+
+            List<DataGridViewRow> listaDeFilas = new List<DataGridViewRow>();
+
+            foreach (DataGridViewRow row in dgvAulasSeleccionadas.Rows) listaDeFilas.Add(row);
+            bool existe = listaDeFilas.Any(x => x.Cells[0].Value.Equals(fecha));
+
+            if (existe)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else dgvAulasSeleccionadas.Rows.Add(fecha,aula, duracion,capacidad);
+
         }
     }
 }

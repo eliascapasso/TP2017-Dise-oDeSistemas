@@ -54,77 +54,86 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 13);
+            this.label1.Size = new System.Drawing.Size(260, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese los datos del nuevo Bedel:";
             // 
             // lbNombre
             // 
             this.lbNombre.AutoSize = true;
-            this.lbNombre.Location = new System.Drawing.Point(12, 45);
+            this.lbNombre.Location = new System.Drawing.Point(16, 55);
+            this.lbNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(48, 13);
+            this.lbNombre.Size = new System.Drawing.Size(63, 17);
             this.lbNombre.TabIndex = 1;
             this.lbNombre.Text = "Nombre*";
             // 
             // lbApellido
             // 
             this.lbApellido.AutoSize = true;
-            this.lbApellido.Location = new System.Drawing.Point(12, 75);
+            this.lbApellido.Location = new System.Drawing.Point(16, 92);
+            this.lbApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbApellido.Name = "lbApellido";
-            this.lbApellido.Size = new System.Drawing.Size(48, 13);
+            this.lbApellido.Size = new System.Drawing.Size(63, 17);
             this.lbApellido.TabIndex = 2;
             this.lbApellido.Text = "Apellido*";
             // 
             // lbNick
             // 
             this.lbNick.AutoSize = true;
-            this.lbNick.Location = new System.Drawing.Point(12, 107);
+            this.lbNick.Location = new System.Drawing.Point(16, 132);
+            this.lbNick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNick.Name = "lbNick";
-            this.lbNick.Size = new System.Drawing.Size(39, 13);
+            this.lbNick.Size = new System.Drawing.Size(51, 17);
             this.lbNick.TabIndex = 3;
             this.lbNick.Text = "Turno*";
             // 
             // lbTurno
             // 
             this.lbTurno.AutoSize = true;
-            this.lbTurno.Location = new System.Drawing.Point(12, 139);
+            this.lbTurno.Location = new System.Drawing.Point(16, 171);
+            this.lbTurno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTurno.Name = "lbTurno";
-            this.lbTurno.Size = new System.Drawing.Size(33, 13);
+            this.lbTurno.Size = new System.Drawing.Size(40, 17);
             this.lbTurno.TabIndex = 4;
             this.lbTurno.Text = "Nick*";
             // 
             // lbPass
             // 
             this.lbPass.AutoSize = true;
-            this.lbPass.Location = new System.Drawing.Point(12, 171);
+            this.lbPass.Location = new System.Drawing.Point(16, 210);
+            this.lbPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPass.Name = "lbPass";
-            this.lbPass.Size = new System.Drawing.Size(65, 13);
+            this.lbPass.Size = new System.Drawing.Size(86, 17);
             this.lbPass.TabIndex = 5;
             this.lbPass.Text = "Contraseña*";
             // 
             // lbConfirmarPass
             // 
-            this.lbConfirmarPass.Location = new System.Drawing.Point(12, 204);
+            this.lbConfirmarPass.Location = new System.Drawing.Point(16, 251);
+            this.lbConfirmarPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbConfirmarPass.Name = "lbConfirmarPass";
-            this.lbConfirmarPass.Size = new System.Drawing.Size(70, 32);
+            this.lbConfirmarPass.Size = new System.Drawing.Size(93, 39);
             this.lbConfirmarPass.TabIndex = 6;
             this.lbConfirmarPass.Text = "Confirmar Contraseña*";
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(77, 45);
+            this.tbNombre.Location = new System.Drawing.Point(103, 55);
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(195, 20);
+            this.tbNombre.Size = new System.Drawing.Size(259, 22);
             this.tbNombre.TabIndex = 7;
             // 
             // tbApellido
             // 
-            this.tbApellido.Location = new System.Drawing.Point(77, 72);
+            this.tbApellido.Location = new System.Drawing.Point(103, 89);
+            this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbApellido.Name = "tbApellido";
-            this.tbApellido.Size = new System.Drawing.Size(195, 20);
+            this.tbApellido.Size = new System.Drawing.Size(259, 22);
             this.tbApellido.TabIndex = 8;
             // 
             // cbTurno
@@ -135,51 +144,57 @@
             "Mañana",
             "Tarde",
             "Noche"});
-            this.cbTurno.Location = new System.Drawing.Point(77, 104);
+            this.cbTurno.Location = new System.Drawing.Point(103, 128);
+            this.cbTurno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbTurno.Name = "cbTurno";
-            this.cbTurno.Size = new System.Drawing.Size(195, 21);
+            this.cbTurno.Size = new System.Drawing.Size(259, 24);
             this.cbTurno.TabIndex = 9;
             // 
             // tbNick
             // 
-            this.tbNick.Location = new System.Drawing.Point(77, 136);
+            this.tbNick.Location = new System.Drawing.Point(103, 167);
+            this.tbNick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNick.Name = "tbNick";
-            this.tbNick.Size = new System.Drawing.Size(195, 20);
+            this.tbNick.Size = new System.Drawing.Size(259, 22);
             this.tbNick.TabIndex = 10;
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(77, 168);
+            this.tbPass.Location = new System.Drawing.Point(103, 207);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPass.MaxLength = 20;
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(195, 20);
+            this.tbPass.Size = new System.Drawing.Size(259, 22);
             this.tbPass.TabIndex = 11;
             this.tbPass.UseSystemPasswordChar = true;
             this.tbPass.Click += new System.EventHandler(this.tbPass_Click);
             // 
             // tbConfirmarPass
             // 
-            this.tbConfirmarPass.Location = new System.Drawing.Point(77, 204);
+            this.tbConfirmarPass.Location = new System.Drawing.Point(103, 251);
+            this.tbConfirmarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbConfirmarPass.MaxLength = 20;
             this.tbConfirmarPass.Name = "tbConfirmarPass";
-            this.tbConfirmarPass.Size = new System.Drawing.Size(195, 20);
+            this.tbConfirmarPass.Size = new System.Drawing.Size(259, 22);
             this.tbConfirmarPass.TabIndex = 12;
             this.tbConfirmarPass.UseSystemPasswordChar = true;
             // 
             // label8
             // 
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(12, 260);
+            this.label8.Location = new System.Drawing.Point(16, 320);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 32);
+            this.label8.Size = new System.Drawing.Size(104, 39);
             this.label8.TabIndex = 13;
             this.label8.Text = "Campos obligatorios (*)";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(215, 266);
+            this.btnAceptar.Location = new System.Drawing.Point(287, 327);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 14;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -187,9 +202,10 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(134, 266);
+            this.btnCerrar.Location = new System.Drawing.Point(179, 327);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(100, 28);
             this.btnCerrar.TabIndex = 13;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -204,9 +220,10 @@
             // 
             this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
             this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMostrarPass.Location = new System.Drawing.Point(278, 168);
+            this.btnMostrarPass.Location = new System.Drawing.Point(371, 207);
+            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMostrarPass.Name = "btnMostrarPass";
-            this.btnMostrarPass.Size = new System.Drawing.Size(21, 20);
+            this.btnMostrarPass.Size = new System.Drawing.Size(28, 25);
             this.btnMostrarPass.TabIndex = 15;
             this.btnMostrarPass.UseVisualStyleBackColor = true;
             this.btnMostrarPass.Click += new System.EventHandler(this.btnMostrarPass_Click);
@@ -214,9 +231,9 @@
             // RegistrarBedel
             // 
             this.AcceptButton = this.btnAceptar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 301);
+            this.ClientSize = new System.Drawing.Size(403, 370);
             this.Controls.Add(this.btnMostrarPass);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAceptar);
@@ -236,9 +253,10 @@
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(500, 500);
-            this.MinimumSize = new System.Drawing.Size(300, 339);
+            this.MaximumSize = new System.Drawing.Size(661, 605);
+            this.MinimumSize = new System.Drawing.Size(394, 406);
             this.Name = "RegistrarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Bedel";
