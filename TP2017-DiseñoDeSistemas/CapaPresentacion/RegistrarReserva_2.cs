@@ -20,20 +20,17 @@
         private Form padre;
         private ReservaDTO reservaDTO; /*reservaDTO.fechas -> Columna 1: Dia, Columna 2: horaInicio, Columna 3: duracion*/
         private ObtenerDisponibilidadAula obtenerDisponibilidad;
-
+        private ArrayList anios;
+        private ArrayList cuatrimestres;
         private List<DataGridView> listaAulasDisponibles = new List<DataGridView>();
         private GestorDeAula gestorAula = new GestorDeAula();
 
 
-        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO)
+        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO, ArrayList anios, ArrayList cuatrimestres)
         {
-
+            this.anios = anios;
+            this.cuatrimestres = cuatrimestres;
             this.reservaDTO = reservaDTO;
-            padre = papa;
-            InitializeComponent();
-        }
-        public RegistrarReserva_2(Form papa)
-        {
             padre = papa;
             InitializeComponent();
         }
@@ -101,7 +98,7 @@
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
-                obtenerDisponibilidad = new ObtenerDisponibilidadAula(this);
+                obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, anios, cuatrimestres);
                 
                 HashSet<DataGridViewRow> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
 

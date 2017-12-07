@@ -47,6 +47,7 @@
     <Compile Include="GestorDeAsignatura.cs" />
     <Compile Include="GestorDeReserva.cs" />
     <Compile Include="GestorDeUsuario.cs" />
+    <Compile Include="GestorPeriodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

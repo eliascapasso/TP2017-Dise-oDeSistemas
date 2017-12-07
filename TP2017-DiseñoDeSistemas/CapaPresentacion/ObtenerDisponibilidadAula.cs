@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaLogica;
 using CapaClases;
+using System.Collections;
 
 namespace CapaPresentacion
 {
@@ -17,8 +18,13 @@ namespace CapaPresentacion
         private Form padre;
         private GestorDeAula gestorAula;
         private AulaDTO aulaDTO;
-        public ObtenerDisponibilidadAula(Form papa)
+        private ArrayList anios;
+        private ArrayList cuatrimestres;
+
+        public ObtenerDisponibilidadAula(Form papa, ArrayList anios, ArrayList cuatrimestres)
         {
+            this.anios = anios;
+            this.cuatrimestres = cuatrimestres;
             this.padre = papa;
             gestorAula = new GestorDeAula();
             InitializeComponent();
@@ -43,15 +49,28 @@ namespace CapaPresentacion
             foreach (DataGridViewRow fecha in reservaDTO.fechas)
             {
                 
-                aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, obtenerIdPeriodo(fecha));
+                aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, obtenerIdPeriodo(fecha, reservaDTO.tipoReserva));
                 disponibilidad.Add(gestorAula.obtenerDisponibilidad(aulaDTO));
             }
             return disponibilidad;
         }
 
-        private int obtenerIdPeriodo(DataGridViewRow fecha)
+        private int obtenerIdPeriodo(DataGridViewRow fecha, string tipoReserva)
         {
+            if (tipoReserva == "Anual")
+            {
+                ArrayList idPeriodos = new ArrayList() ;
+                foreach (AnioLectivoDTO anio in this.anios)
+                {
+                    if (fecha.Cells[0].Value.ToString().Equals(anio.fecha_inicio.Value.ToShortDateString()))
+                    {
+                        idPeriodos.Add(anio.cuatrimestres[0]);
+                        //idPeriodos.add
+                    }
+                }
+            }
             return 0;
         }
+        
     }
 }

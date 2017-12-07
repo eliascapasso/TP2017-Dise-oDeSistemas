@@ -51,6 +51,9 @@ namespace Autenticacion
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calendarioEsporadico = new System.Windows.Forms.DateTimePicker();
             this.cbNoEsporadico = new System.Windows.Forms.ComboBox();
             this.nudCantidadAlumnos = new System.Windows.Forms.NumericUpDown();
@@ -60,9 +63,8 @@ namespace Autenticacion
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBusquedaDocente = new System.Windows.Forms.TextBox();
             this.btnBuscarDocente = new System.Windows.Forms.Button();
-            this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbPeriodo = new System.Windows.Forms.ComboBox();
+            this.lbPeriodo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
@@ -100,9 +102,9 @@ namespace Autenticacion
             "Cuatrimestral",
             "Anual"});
             this.cbTipoReserva.Location = new System.Drawing.Point(124, 7);
-            this.cbTipoReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTipoReserva.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoReserva.Name = "cbTipoReserva";
-            this.cbTipoReserva.Size = new System.Drawing.Size(228, 24);
+            this.cbTipoReserva.Size = new System.Drawing.Size(154, 24);
             this.cbTipoReserva.TabIndex = 2;
             this.cbTipoReserva.SelectedValueChanged += new System.EventHandler(this.cbTipoReserva_SelectedValueChanged);
             // 
@@ -144,7 +146,7 @@ namespace Autenticacion
             this.cbHoraInicio.FormattingEnabled = true;
             this.cbHoraInicio.IntegralHeight = false;
             this.cbHoraInicio.Location = new System.Drawing.Point(312, 84);
-            this.cbHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbHoraInicio.Margin = new System.Windows.Forms.Padding(4);
             this.cbHoraInicio.Name = "cbHoraInicio";
             this.cbHoraInicio.Size = new System.Drawing.Size(83, 24);
             this.cbHoraInicio.TabIndex = 7;
@@ -158,7 +160,7 @@ namespace Autenticacion
             this.cbHoraFin.FormattingEnabled = true;
             this.cbHoraFin.IntegralHeight = false;
             this.cbHoraFin.Location = new System.Drawing.Point(480, 84);
-            this.cbHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbHoraFin.Margin = new System.Windows.Forms.Padding(4);
             this.cbHoraFin.Name = "cbHoraFin";
             this.cbHoraFin.Size = new System.Drawing.Size(83, 24);
             this.cbHoraFin.TabIndex = 8;
@@ -166,7 +168,7 @@ namespace Autenticacion
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(464, 130);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 28);
             this.btnAgregar.TabIndex = 9;
@@ -177,7 +179,7 @@ namespace Autenticacion
             // btnQuitar
             // 
             this.btnQuitar.Location = new System.Drawing.Point(464, 166);
-            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(100, 28);
             this.btnQuitar.TabIndex = 10;
@@ -221,7 +223,7 @@ namespace Autenticacion
             this.cbTipoAula.FormattingEnabled = true;
             this.cbTipoAula.IntegralHeight = false;
             this.cbTipoAula.Location = new System.Drawing.Point(161, 340);
-            this.cbTipoAula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTipoAula.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoAula.Name = "cbTipoAula";
             this.cbTipoAula.Size = new System.Drawing.Size(300, 24);
             this.cbTipoAula.TabIndex = 16;
@@ -243,7 +245,7 @@ namespace Autenticacion
             this.cbNombreCurso.FormattingEnabled = true;
             this.cbNombreCurso.IntegralHeight = false;
             this.cbNombreCurso.Location = new System.Drawing.Point(161, 415);
-            this.cbNombreCurso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbNombreCurso.Margin = new System.Windows.Forms.Padding(4);
             this.cbNombreCurso.Name = "cbNombreCurso";
             this.cbNombreCurso.Size = new System.Drawing.Size(300, 24);
             this.cbNombreCurso.TabIndex = 22;
@@ -262,7 +264,7 @@ namespace Autenticacion
             // btnSiguiente
             // 
             this.btnSiguiente.Location = new System.Drawing.Point(464, 623);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(100, 28);
             this.btnSiguiente.TabIndex = 24;
@@ -274,7 +276,7 @@ namespace Autenticacion
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(356, 623);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 25;
@@ -291,17 +293,35 @@ namespace Autenticacion
             this.columnaHoraInicio,
             this.columnaDuracion});
             this.dgvResultados.Location = new System.Drawing.Point(20, 130);
-            this.dgvResultados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvResultados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultados.Size = new System.Drawing.Size(443, 185);
             this.dgvResultados.TabIndex = 26;
             // 
+            // columnaDia
+            // 
+            this.columnaDia.HeaderText = "Dia";
+            this.columnaDia.Name = "columnaDia";
+            this.columnaDia.ReadOnly = true;
+            // 
+            // columnaHoraInicio
+            // 
+            this.columnaHoraInicio.HeaderText = "Hora Inicio";
+            this.columnaHoraInicio.Name = "columnaHoraInicio";
+            this.columnaHoraInicio.ReadOnly = true;
+            // 
+            // columnaDuracion
+            // 
+            this.columnaDuracion.HeaderText = "Duración (Min)";
+            this.columnaDuracion.Name = "columnaDuracion";
+            this.columnaDuracion.ReadOnly = true;
+            // 
             // calendarioEsporadico
             // 
             this.calendarioEsporadico.Location = new System.Drawing.Point(60, 85);
-            this.calendarioEsporadico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.calendarioEsporadico.Margin = new System.Windows.Forms.Padding(4);
             this.calendarioEsporadico.Name = "calendarioEsporadico";
             this.calendarioEsporadico.Size = new System.Drawing.Size(152, 22);
             this.calendarioEsporadico.TabIndex = 27;
@@ -321,7 +341,7 @@ namespace Autenticacion
             "Viernes",
             "Sabado"});
             this.cbNoEsporadico.Location = new System.Drawing.Point(60, 85);
-            this.cbNoEsporadico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbNoEsporadico.Margin = new System.Windows.Forms.Padding(4);
             this.cbNoEsporadico.Name = "cbNoEsporadico";
             this.cbNoEsporadico.Size = new System.Drawing.Size(152, 24);
             this.cbNoEsporadico.TabIndex = 28;
@@ -329,7 +349,7 @@ namespace Autenticacion
             // nudCantidadAlumnos
             // 
             this.nudCantidadAlumnos.Location = new System.Drawing.Point(161, 380);
-            this.nudCantidadAlumnos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudCantidadAlumnos.Margin = new System.Windows.Forms.Padding(4);
             this.nudCantidadAlumnos.Minimum = new decimal(new int[] {
             1,
             0,
@@ -354,7 +374,7 @@ namespace Autenticacion
             this.Nombre,
             this.Email});
             this.dgvDocentes.Location = new System.Drawing.Point(20, 501);
-            this.dgvDocentes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDocentes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDocentes.Name = "dgvDocentes";
             this.dgvDocentes.ReadOnly = true;
             this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -383,7 +403,7 @@ namespace Autenticacion
             // tbBusquedaDocente
             // 
             this.tbBusquedaDocente.Location = new System.Drawing.Point(225, 466);
-            this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4);
             this.tbBusquedaDocente.Name = "tbBusquedaDocente";
             this.tbBusquedaDocente.Size = new System.Drawing.Size(229, 22);
             this.tbBusquedaDocente.TabIndex = 31;
@@ -391,7 +411,7 @@ namespace Autenticacion
             // btnBuscarDocente
             // 
             this.btnBuscarDocente.Location = new System.Drawing.Point(464, 464);
-            this.btnBuscarDocente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarDocente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarDocente.Name = "btnBuscarDocente";
             this.btnBuscarDocente.Size = new System.Drawing.Size(100, 28);
             this.btnBuscarDocente.TabIndex = 32;
@@ -399,23 +419,31 @@ namespace Autenticacion
             this.btnBuscarDocente.UseVisualStyleBackColor = true;
             this.btnBuscarDocente.Click += new System.EventHandler(this.btnBuscarDocente_Click);
             // 
-            // columnaDia
+            // cbPeriodo
             // 
-            this.columnaDia.HeaderText = "Dia";
-            this.columnaDia.Name = "columnaDia";
-            this.columnaDia.ReadOnly = true;
+            this.cbPeriodo.DropDownHeight = 60;
+            this.cbPeriodo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPeriodo.FormattingEnabled = true;
+            this.cbPeriodo.IntegralHeight = false;
+            this.cbPeriodo.Items.AddRange(new object[] {
+            "Esporádica",
+            "Cuatrimestral",
+            "Anual"});
+            this.cbPeriodo.Location = new System.Drawing.Point(417, 10);
+            this.cbPeriodo.Margin = new System.Windows.Forms.Padding(4);
+            this.cbPeriodo.Name = "cbPeriodo";
+            this.cbPeriodo.Size = new System.Drawing.Size(154, 24);
+            this.cbPeriodo.TabIndex = 34;
             // 
-            // columnaHoraInicio
+            // lbPeriodo
             // 
-            this.columnaHoraInicio.HeaderText = "Hora Inicio";
-            this.columnaHoraInicio.Name = "columnaHoraInicio";
-            this.columnaHoraInicio.ReadOnly = true;
-            // 
-            // columnaDuracion
-            // 
-            this.columnaDuracion.HeaderText = "Duración (Min)";
-            this.columnaDuracion.Name = "columnaDuracion";
-            this.columnaDuracion.ReadOnly = true;
+            this.lbPeriodo.AutoSize = true;
+            this.lbPeriodo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbPeriodo.Location = new System.Drawing.Point(309, 14);
+            this.lbPeriodo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPeriodo.Name = "lbPeriodo";
+            this.lbPeriodo.Size = new System.Drawing.Size(2, 19);
+            this.lbPeriodo.TabIndex = 33;
             // 
             // RegistrarReserva_1
             // 
@@ -424,6 +452,8 @@ namespace Autenticacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(587, 670);
+            this.Controls.Add(this.cbPeriodo);
+            this.Controls.Add(this.lbPeriodo);
             this.Controls.Add(this.btnBuscarDocente);
             this.Controls.Add(this.tbBusquedaDocente);
             this.Controls.Add(this.dgvDocentes);
@@ -452,7 +482,7 @@ namespace Autenticacion
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(927, 851);
             this.MinimumSize = new System.Drawing.Size(602, 676);
@@ -502,5 +532,7 @@ namespace Autenticacion
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDuracion;
+        private System.Windows.Forms.ComboBox cbPeriodo;
+        private System.Windows.Forms.Label lbPeriodo;
     }
 }
