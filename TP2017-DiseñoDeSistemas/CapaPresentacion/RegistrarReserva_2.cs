@@ -20,16 +20,12 @@
         private Form padre;
         private ReservaDTO reservaDTO; /*reservaDTO.fechas -> Columna 1: Dia, Columna 2: horaInicio, Columna 3: duracion*/
         private ObtenerDisponibilidadAula obtenerDisponibilidad;
-        private ArrayList anios;
-        private ArrayList cuatrimestres;
+        private GestorAnioLectivo gestorAnio = new GestorAnioLectivo();
         private List<DataGridView> listaAulasDisponibles = new List<DataGridView>();
         private GestorDeAula gestorAula = new GestorDeAula();
 
-
-        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO, ArrayList anios, ArrayList cuatrimestres)
+        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO)
         {
-            this.anios = anios;
-            this.cuatrimestres = cuatrimestres;
             this.reservaDTO = reservaDTO;
             padre = papa;
             InitializeComponent();
@@ -37,9 +33,6 @@
 
         private void RegistrarReserva_2_Load(object sender, EventArgs e)
         {
-            
-            //EJECUTAR OBTENER DISPONIBILIDAD EN EL METODO llenarTabControl()??
-
             this.llenarTabControl();
         }
 
@@ -90,18 +83,26 @@
 
             }
         }
+
         //METODOS PROPIOS
+
+        private HashSet<CuatrimestreDTO> obtenerTodosLosPeriodos()
+        {
+            return gestorAnio.obtenerTodosLosPeriodos();
+        }
 
         private void llenarTabControl()
         {
+            obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, this.obtenerTodosLosPeriodos());
+
+            HashSet<DataGridViewRow> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
+                                                                                                                estan disponibles para todos los dias 
+                                                                                                                (CU ObtenerDisponibilidad)
+                                                                                                                */
 
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
-                obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, anios, cuatrimestres);
-                
-                HashSet<DataGridViewRow> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); //Obtiene una lista con las aulas que estan disponibles (CU ObtenerDisponibilidad)
-
                 DataGridView dgvAulasDisponibles = new DataGridView();
 
                 //Propiedades del dataGrid
@@ -111,23 +112,23 @@
 
                 //Se asignan los nombres de cada columna
                 dgvAulasDisponibles.Columns.Add("Aula", "Aula");
-                dgvAulasDisponibles.Columns.Add("Ubicación", "Ubicación");
                 dgvAulasDisponibles.Columns.Add("Capacidad", "Capacidad");
+                dgvAulasDisponibles.Columns.Add("Caracteristicas", "Caracteristicas");
 
                 //Se agregan las filas
                 foreach (DataGridViewRow aulaDisponible in disponibilidad)
                 {
-                    dgvAulasDisponibles.Rows.Add(aulaDisponible);
+                        /*fila oculta en donde se especifica el dia*/
+                    if (aulaDisponible.Cells[3].Value.ToString().Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
+                    {
+                        dgvAulasDisponibles.Rows.Add(aulaDisponible);
+                        disponibilidad.Remove(aulaDisponible);
+                    }
                 }
                 //TODO: Mariano: validar datagrid reserva 1 para no poder agregar dos veces lo mismo,
                 //validar en reserva 1 que no se pueda agregar dos tipos de reserva, 
                 //obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
-
-                ////PRUEBAS
-                //dgvAulasDisponibles.Rows.Add("hola", "k ace", "asd");
-                //dgvAulasDisponibles.Rows.Add("chau", "nada", "blabla");
-                //dgvAulasDisponibles.Rows.Add("asda", "elco", "pato");
-
+                
                 TabPage pestania = new TabPage(dia);
                 pestania.Name = dia;
                 pestania.Controls.Add(dgvAulasDisponibles);
@@ -147,10 +148,10 @@
 
         private void AddToDatagrid(string fecha, string aula, string duracion, string capacidad)
         {
-
             List<DataGridViewRow> listaDeFilas = new List<DataGridViewRow>();
 
             foreach (DataGridViewRow row in dgvAulasSeleccionadas.Rows) listaDeFilas.Add(row);
+
             bool existe = listaDeFilas.Any(x => x.Cells[0].Value.Equals(fecha));
 
             if (existe)
@@ -159,7 +160,6 @@
                 MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else dgvAulasSeleccionadas.Rows.Add(fecha,aula, duracion,capacidad);
-
         }
     }
 }

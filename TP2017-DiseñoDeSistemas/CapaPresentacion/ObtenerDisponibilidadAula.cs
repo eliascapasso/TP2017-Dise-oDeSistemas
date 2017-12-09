@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaLogica;
 using CapaClases;
-using System.Collections;
 
 namespace CapaPresentacion
 {
@@ -18,30 +17,16 @@ namespace CapaPresentacion
         private Form padre;
         private GestorDeAula gestorAula;
         private AulaDTO aulaDTO;
-        private ArrayList anios;
-        private ArrayList cuatrimestres;
+        private HashSet<CuatrimestreDTO> todosLosPeriodos;
 
-        public ObtenerDisponibilidadAula(Form papa, ArrayList anios, ArrayList cuatrimestres)
+        public ObtenerDisponibilidadAula(Form papa, HashSet<CuatrimestreDTO> todosLosPeriodos)
         {
-            this.anios = anios;
-            this.cuatrimestres = cuatrimestres;
+            this.todosLosPeriodos = todosLosPeriodos;
             this.padre = papa;
             gestorAula = new GestorDeAula();
             InitializeComponent();
         }
-
-        private void ObtenerDisponibilidadAula_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
-
+        
         public HashSet<DataGridViewRow> obtenerDisponibilidad(ReservaDTO reservaDTO)
         {
             HashSet<DataGridViewRow> disponibilidad = new HashSet<DataGridViewRow>();
@@ -49,28 +34,43 @@ namespace CapaPresentacion
             foreach (DataGridViewRow fecha in reservaDTO.fechas)
             {
                 
-                aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, obtenerIdPeriodo(fecha, reservaDTO.tipoReserva));
-                disponibilidad.Add(gestorAula.obtenerDisponibilidad(aulaDTO));
+                aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, this.calcularPeriodo(fecha, reservaDTO.tipoReserva));
+                disponibilidad.Concat(gestorAula.obtenerDisponibilidad(aulaDTO));
             }
             return disponibilidad;
         }
 
-        private int obtenerIdPeriodo(DataGridViewRow fecha, string tipoReserva)
+        private HashSet<CuatrimestreDTO> calcularPeriodo(DataGridViewRow fecha, string tipoReserva)
         {
-            if (tipoReserva == "Anual")
+            HashSet<CuatrimestreDTO> periodo = new HashSet<CuatrimestreDTO>();
+
+            foreach (CuatrimestreDTO cuatrimestre in todosLosPeriodos)
             {
-                ArrayList idPeriodos = new ArrayList() ;
-                foreach (AnioLectivoDTO anio in this.anios)
+                if (tipoReserva.Equals("Anual"))
                 {
-                    if (fecha.Cells[0].Value.ToString().Equals(anio.fecha_inicio.Value.ToShortDateString()))
+                    if (DateTime.Now >= cuatrimestre.FechaInicio) //se agregan 1 o 2 cuatrimestres
                     {
-                        idPeriodos.Add(anio.cuatrimestres[0]);
-                        //idPeriodos.add
+                        periodo.Add(cuatrimestre);
+                    }
+                }
+                else if (tipoReserva.Equals("Cuatrimestral"))
+                {
+                    if (DateTime.Now >= cuatrimestre.FechaInicio && DateTime.Now <= cuatrimestre.FechaFin) //solo se agrega un cuatrimestre
+                    {
+                        periodo.Add(cuatrimestre);
+                    }
+                }
+                else //Esporadica
+                {
+                    DateTime dia = Convert.ToDateTime(fecha.Cells[0].Value.ToString());
+
+                    if (dia >= cuatrimestre.FechaInicio && dia <= cuatrimestre.FechaFin) //solo se agrega un cuatrimestre
+                    {
+                        periodo.Add(cuatrimestre);
                     }
                 }
             }
-            return 0;
+            return periodo;
         }
-        
     }
 }

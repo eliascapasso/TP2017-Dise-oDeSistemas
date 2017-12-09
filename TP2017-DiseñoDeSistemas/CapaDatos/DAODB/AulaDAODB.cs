@@ -25,5 +25,21 @@
             }
             return tiposAula;
         }
+
+        public HashSet<Aula> obtenerAulas(int capacidadAula, int idTipoAula)
+        {
+            HashSet<Aula> aulasCumplen = new HashSet<Aula>();
+
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                var aulas = from aula in bd.Aulas where aula.capacidad.Equals(capacidadAula) && aula.id_tipo_aula.Equals(idTipoAula) select aula;
+
+                foreach(var aula in aulas)
+                {
+                    aulasCumplen.Add(aula);
+                }
+            }
+            return aulasCumplen;
+        }
     }
 }

@@ -41,13 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestorAnioLectivo.cs" />
     <Compile Include="GestorDeAula.cs" />
     <Compile Include="GestorDeDocente.cs" />
     <Compile Include="GestorDePoliticaDeContrasenia.cs" />
     <Compile Include="GestorDeAsignatura.cs" />
     <Compile Include="GestorDeReserva.cs" />
     <Compile Include="GestorDeUsuario.cs" />
-    <Compile Include="GestorPeriodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

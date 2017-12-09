@@ -1,18 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CapaClases
 {
     public class CuatrimestreDTO
     {
-        private DateTime? fecha_fin;
-        private DateTime? fecha_inicio;
-        private int id_cuatrimestre;
+        private DateTime? fechaInicio;
+        private DateTime? fechaFin;
 
-        public CuatrimestreDTO(int id_cuatrimestre, DateTime? fecha_inicio, DateTime? fecha_fin)
+        public DateTime? FechaInicio
         {
-            this.id_cuatrimestre = id_cuatrimestre;
-            this.fecha_inicio = fecha_inicio;
-            this.fecha_fin = fecha_fin;
+            get
+            {
+                return fechaInicio;
+            }
+
+            set
+            {
+                fechaInicio = value;
+            }
+        }
+
+        public DateTime? FechaFin
+        {
+            get
+            {
+                return fechaFin;
+            }
+
+            set
+            {
+                fechaFin = value;
+            }
+        }
+
+        public CuatrimestreDTO(DateTime? fechaI, DateTime? fechaF)
+        {
+            this.fechaInicio = fechaI;
+            this.fechaFin = fechaF;
         }
     }
 }

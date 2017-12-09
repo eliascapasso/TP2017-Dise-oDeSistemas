@@ -143,7 +143,6 @@
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // ObtenerDisponibilidadAula
             // 
@@ -163,7 +162,6 @@
             this.Name = "ObtenerDisponibilidadAula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Disponibilidad de aulas";
-            this.Load += new System.EventHandler(this.ObtenerDisponibilidadAula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorasSuperpuestas)).EndInit();
             this.ResumeLayout(false);

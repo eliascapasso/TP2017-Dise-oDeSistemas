@@ -11,17 +11,17 @@ namespace CapaClases
     {
         public int capacidad;
         public int idTipoAula;
-        public DataGridViewRow lista; //dia, horaInicio, Duracion
+        public DataGridViewRow lista; //diaReserva, horaInicio, Duracion
         public string tipoReserva;
-        public int idPeriodo;
+        public HashSet<CuatrimestreDTO> periodo;
 
-        public AulaDTO(int capacidad, int idtipoaula, DataGridViewRow lista, string tiporeserva, int idperiodo)
+        public AulaDTO(int capacidad, int idtipoaula, DataGridViewRow lista, string tiporeserva, HashSet<CuatrimestreDTO> periodo)
         {
             this.capacidad = capacidad;
             idTipoAula = idtipoaula;
             this.lista = lista;
             tipoReserva = tiporeserva;
-            idPeriodo = idperiodo;
+            this.periodo = periodo;
         }
     }
 }

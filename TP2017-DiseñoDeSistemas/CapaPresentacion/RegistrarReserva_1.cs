@@ -23,13 +23,10 @@ namespace Autenticacion
         private GestorDeAsignatura gestorAsignatura;
         private GestorDeAula gestorAula;
         private GestorDeDocente gestorDocente;
-        private GestorPeriodo gestorperiodo;
         public string nickBedel;
         private ArrayList docentes;
         private ArrayList asignaturas;
         private ArrayList tiposAula;
-        private ArrayList anios;
-        private ArrayList cuatrimestres;
 
         public RegistrarReserva_1(Form papa, string nickBedel)
         {
@@ -42,9 +39,6 @@ namespace Autenticacion
             this.docentes = new ArrayList();
             this.asignaturas = new ArrayList();
             this.tiposAula = new ArrayList();
-            this.gestorperiodo = new GestorPeriodo();
-            this.anios = new ArrayList();
-            this.cuatrimestres = new ArrayList();
             InitializeComponent();
         }
 
@@ -58,15 +52,11 @@ namespace Autenticacion
             this.docentes = new ArrayList();
             this.asignaturas = new ArrayList();
             this.tiposAula = new ArrayList();
-            this.anios = new ArrayList();
-            this.gestorperiodo = new GestorPeriodo();
-            this.cuatrimestres = new ArrayList();
             InitializeComponent();
         }
 
         private void RegistrarReserva_1_Load(object sender, EventArgs e)
         {
-            
             this.llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
             this.llenarTiposAulaEnComboBox();
             this.llenarAsignaturasEnComboBox();
@@ -103,7 +93,7 @@ namespace Autenticacion
 
            
             this.Hide();
-            new RegistrarReserva_2(this,reservaDTO, anios, cuatrimestres).Show();
+            new RegistrarReserva_2(this,reservaDTO).Show();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -122,30 +112,19 @@ namespace Autenticacion
 
         private void cbTipoReserva_SelectedValueChanged(object sender, EventArgs e)
         {
-            string tiporeserva = cbTipoReserva.SelectedItem.ToString();
-
-            switch (tiporeserva)
+            if (cbTipoReserva.SelectedItem.ToString().Equals("Esporádica"))
             {
-                case "Esporádica":
-                    cbPeriodo.Visible = false;
-                    cbNoEsporadico.Visible = false;
-                    calendarioEsporadico.Visible = true;
-                    calendarioEsporadico.MinDate = DateTime.Now;
-                    calendarioEsporadico.Value = DateTime.Now;
-
-                    break;
-                case "Anual":
-                    lbPeriodo.Text = "Año";
-                    cargarCbPeriodo(tiporeserva);
-
-                    break;
-                case "Cuatrimestral":
-                    lbPeriodo.Text = "Cuatrimestre";
-                    cargarCbPeriodo(tiporeserva);
-    
-                    break;
+                cbNoEsporadico.Visible = false;
+                calendarioEsporadico.Visible = true;
+                calendarioEsporadico.MinDate = DateTime.Now;
+                calendarioEsporadico.Value = DateTime.Now;
+                
             }
-            
+            else
+            {
+                cbNoEsporadico.Visible = true;
+                calendarioEsporadico.Visible = false;
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -299,51 +278,6 @@ namespace Autenticacion
             else dgvResultados.Rows.Add(fecha, hora, duracion);
 
         }
-
-        private void cargarCbPeriodo(string tiporeserva)
-        {
-            
-            cbPeriodo.Visible = true;
-            cbNoEsporadico.Visible = true;
-            calendarioEsporadico.Visible = false;
-            if (tiporeserva.Equals("Anual")) {
-                HashSet<Cuatrimestre> cuats = new HashSet<Cuatrimestre>();
-                         
-                foreach (Cuatrimestre cuatrimestre in gestorperiodo.getCuatrimestres())
-                {
-                    cuats.Add(cuatrimestre);
-
-                    //Agrega  2 CuatrimestreDTO a la lista de cuatrimestres
-                    this.cuatrimestres.Add(new CuatrimestreDTO(cuatrimestre.id_cuatrimestre,
-                                                      cuatrimestre.fecha_inicio,
-                                                      cuatrimestre.fecha_fin));
-                }
-
-                foreach (Cuatrimestre cuat in cuats)
-                {
-                    cbPeriodo.Items.Add(cuat.AnioLectivo.fecha_inicio.Value.ToShortDateString() + " a " + cuat.AnioLectivo.fecha_fin.Value.ToShortDateString());
-                }
-                
-
-            }
-            else
-            {
-                foreach (Cuatrimestre cuatrimestre in gestorperiodo.getCuatrimestres())
-                {
-                    cbPeriodo.Items.Add(cuatrimestre.fecha_inicio.Value.ToShortDateString() + " a " + cuatrimestre.fecha_fin.Value.ToShortDateString());
-
-                    //Agrega el CuatrimestreDTO a la lista de cuatrimestres
-
-                    this.cuatrimestres.Add(new CuatrimestreDTO(cuatrimestre.id_cuatrimestre,
-                                                      cuatrimestre.fecha_inicio,
-                                                      cuatrimestre.fecha_fin));
-                }
-                
-            }
-            
-        }
-
-
     }
     
 }

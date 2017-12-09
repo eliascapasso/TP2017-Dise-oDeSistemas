@@ -80,6 +80,7 @@
     <Compile Include="Cuatrimestre.cs">
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAODB\AnioLectivoDAODB.cs" />
     <Compile Include="DAODB\AsignaturaDAODB.cs" />
     <Compile Include="DAODB\AulaDAODB.cs" />
     <Compile Include="DAODB\DocenteDAODB.cs" />
