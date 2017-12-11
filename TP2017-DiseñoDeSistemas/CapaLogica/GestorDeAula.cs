@@ -27,7 +27,7 @@ namespace CapaLogica
             return aulaDAO.obtenerTiposAula();
         }
 
-        public HashSet<DataGridViewRow> obtenerDisponibilidad(AulaDTO aulaDTO)
+        public HashSet<AulaDTO> obtenerDisponibilidad(AulaDTO aulaDTO)
         {
             HashSet<DateTime> fechasReserva = new HashSet<DateTime>();
 
@@ -41,51 +41,55 @@ namespace CapaLogica
             }
 
             HashSet<Aula> aulasCumplen = aulaDAO.obtenerAulas(aulaDTO.capacidad, aulaDTO.idTipoAula);
-
+            
             HashSet<Aula> aulasOcupadas = new HashSet<Aula>();
-            HashSet<Aula> aulasLibres = new HashSet<Aula>();
-            HashSet<DataGridViewRow> disponibilidad = new HashSet<DataGridViewRow>();
+            HashSet<AulaDTO> aulasLibres = new HashSet<AulaDTO>();
 
             foreach (DateTime fecha in fechasReserva)
             {
-                aulasOcupadas.Concat(reservaDAO.obtenerAulasOcupadas(aulaDTO.lista.Cells[0].Value.ToString(), //fechaReserva
-                                                                                aulaDTO.lista.Cells[1].Value.ToString(), //horaInicio
-                                                                                aulaDTO.lista.Cells[2].Value.ToString())); //duracion
-
-                aulasLibres.Concat(this.obtenerAulasLibres(aulasCumplen, aulasOcupadas));
-
-                foreach (Aula aula in aulasLibres)
+                //Obtiene las aulas ocupadas
+                foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(aulaDTO.lista.Cells[0].Value.ToString(), //fechaReserva
+                                                                      aulaDTO.lista.Cells[1].Value.ToString(), //horaInicio
+                                                                      aulaDTO.lista.Cells[2].Value.ToString()))  //duracion)
                 {
-                    DataGridViewRow fila = new DataGridViewRow();
-
-                    fila.Cells[0].Value = aula.id_aula;
-                    fila.Cells[1].Value = aula.capacidad;
-                    fila.Cells[2].Value = "";
-
-                    if (aulaDTO.tipoReserva.Equals("Anual") || aulaDTO.tipoReserva.Equals("Cuatrimestral"))
-                    {
-                        fila.Cells[3].Value = fecha.ToString("dddd", new CultureInfo("es-ES"));
-                    }
-                    else //Esporadica
-                    {
-                        fila.Cells[3].Value = fecha.ToShortDateString();
-                    }
-
-                    disponibilidad.Add(fila);
-            }
+                    aulasOcupadas.Add(aulaOcupada);
+                }
+                
+                //Obtiene las aulas libres
+                foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
+                {
+                    aulasLibres.Add(new AulaDTO(aulaLibre.id_aula, aulaLibre.capacidad, aulaLibre.id_tipo_aula, aulaDTO.lista, aulaDTO.tipoReserva, aulaDTO.periodo));
+                }
             }
 
-            if (disponibilidad.Equals(null))
-            {
-                throw new NullReferenceException(); //No existen aulas libres para los dias u horarios especificados
-            }
-
-            return disponibilidad;
+            return aulasLibres;
         }
 
         private HashSet<Aula> obtenerAulasLibres(HashSet<Aula> aulasCumplen, HashSet<Aula> aulasOcupadas)
         {
-            return (HashSet<Aula>)aulasCumplen.Intersect(aulasCumplen);
+            //return (HashSet<Aula>)aulasCumplen.Intersect(aulasCumplen);
+            //TODO: intentar optimizar, complejidad muy alta
+            
+            if (!(aulasOcupadas.Count == 0))
+            {
+                HashSet<Aula> aulasLibres = new HashSet<Aula>();
+
+                foreach (Aula aulaCumple in aulasCumplen)
+                {
+                    foreach (Aula aulaOcupada in aulasOcupadas)
+                    {
+                        if (!aulaOcupada.id_aula.Equals(aulaCumple.id_aula))
+                        {
+                            aulasLibres.Add(aulaCumple);
+                        }
+                    }
+                }
+                return aulasLibres;
+            }
+            else
+            {
+                return aulasCumplen;
+            }
         }
 
         private HashSet<DateTime> convertToFechas(string diaReserva, HashSet<CuatrimestreDTO> periodo)

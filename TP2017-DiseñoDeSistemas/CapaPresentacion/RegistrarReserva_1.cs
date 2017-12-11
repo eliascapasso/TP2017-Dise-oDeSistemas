@@ -86,7 +86,7 @@ namespace Autenticacion
             ReservaDTO reservaDTO =new ReservaDTO(nickBedel, 
                                                   cbTipoReserva.Text,
                                                   fechas,
-                                                  Convert.ToInt32(nudCantidadAlumnos.Value),
+                                                  Convert.ToInt32(nudCantidadAlumnos.Value.ToString()),
                                                   idDocente,
                                                   idAsignatura,
                                                   idTipoAula);
@@ -264,7 +264,6 @@ namespace Autenticacion
 
         private void AddToDatagrid(string fecha, string hora, string duracion)
         {
-
             List<DataGridViewRow> listaDeFilas = new List<DataGridViewRow>();
 
             foreach (DataGridViewRow row in dgvResultados.Rows) listaDeFilas.Add(row);

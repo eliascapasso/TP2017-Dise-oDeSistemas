@@ -30,7 +30,6 @@ C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Cap
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.Autenticacion.resources
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.BuscarAula.resources
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.BuscarBedel.resources
-C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.DisponibilidadAulas.resources
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.InicioSesionAdmin.resources
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.InicioSesionBedel.resources
 C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.MenuAdmin.resources
@@ -248,3 +247,4 @@ C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPres
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\Autenticacion.RegistrarReserva_1.resources
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.RegistrarReserva_2.resources
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.Cache
+C:\Users\Mi Pc\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaPresentacion\obj\Debug\CapaPresentacion.ObtenerDisponibilidadAula.resources

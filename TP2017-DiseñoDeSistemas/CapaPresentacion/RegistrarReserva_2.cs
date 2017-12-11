@@ -14,7 +14,6 @@
     using CapaLogica;
     using System.Collections;
 
-
     public partial class RegistrarReserva_2 : Form
     {
         private Form padre;
@@ -95,11 +94,13 @@
         {
             obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, this.obtenerTodosLosPeriodos());
 
-            HashSet<DataGridViewRow> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
-                                                                                                                estan disponibles para todos los dias 
-                                                                                                                (CU ObtenerDisponibilidad)
-                                                                                                                */
-
+            HashSet<AulaDTO> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
+                                                                                                      estan disponibles para todos los dias 
+                                                                                                      (CU ObtenerDisponibilidad)*/
+            if (disponibilidad.Count== 0)
+            {
+                MessageBox.Show("vacio");
+            }
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
@@ -116,12 +117,11 @@
                 dgvAulasDisponibles.Columns.Add("Caracteristicas", "Caracteristicas");
 
                 //Se agregan las filas
-                foreach (DataGridViewRow aulaDisponible in disponibilidad)
+                foreach (AulaDTO aulaDisponible in disponibilidad)
                 {
-                        /*fila oculta en donde se especifica el dia*/
-                    if (aulaDisponible.Cells[3].Value.ToString().Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
+                    if (aulaDisponible.lista.Cells[0].Value.ToString().Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
                     {
-                        dgvAulasDisponibles.Rows.Add(aulaDisponible);
+                        dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
                         disponibilidad.Remove(aulaDisponible);
                     }
                 }

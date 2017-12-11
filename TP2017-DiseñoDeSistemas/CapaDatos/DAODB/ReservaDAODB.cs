@@ -16,11 +16,20 @@ namespace CapaDatos
 
             using (TP2017Entities bd = new TP2017Entities())
             {
-                var aulas = from DetalleReserva in bd.DetalleReservas where DetalleReserva.dia.Equals(fechaReserva) && DetalleReserva.hora_inicio.Equals(horaInicio) && DetalleReserva.duracion.Equals(duaracion) select DetalleReserva.Aula;
+                var aulas = from DetalleReserva in bd.DetalleReservas
+                            where DetalleReserva.dia.Equals(fechaReserva) 
+                            && DetalleReserva.hora_inicio.Equals(horaInicio) 
+                            && DetalleReserva.duracion.Equals(duaracion)
+                            select DetalleReserva.Aula;
 
-                foreach(Aula aula in aulas)
+                foreach(DetalleReserva detalle in bd.DetalleReservas)
                 {
-                    aulasOcupadas.Add(aula);
+                    if (detalle.dia.Equals(fechaReserva)
+                            && detalle.hora_inicio.Equals(horaInicio)
+                            && detalle.duracion.Equals(duaracion))
+                    {
+                        aulasOcupadas.Add(detalle.Aula);
+                    }
                 }
             }
             return aulasOcupadas;

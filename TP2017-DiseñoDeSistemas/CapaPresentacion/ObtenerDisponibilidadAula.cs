@@ -23,17 +23,16 @@ namespace CapaPresentacion
         {
             this.todosLosPeriodos = todosLosPeriodos;
             this.padre = papa;
-            gestorAula = new GestorDeAula();
+            this.gestorAula = new GestorDeAula();
             InitializeComponent();
         }
         
-        public HashSet<DataGridViewRow> obtenerDisponibilidad(ReservaDTO reservaDTO)
+        public HashSet<AulaDTO> obtenerDisponibilidad(ReservaDTO reservaDTO)
         {
-            HashSet<DataGridViewRow> disponibilidad = new HashSet<DataGridViewRow>();
+            HashSet<AulaDTO> disponibilidad = new HashSet<AulaDTO>();
 
             foreach (DataGridViewRow fecha in reservaDTO.fechas)
             {
-                
                 aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, this.calcularPeriodo(fecha, reservaDTO.tipoReserva));
                 disponibilidad.Concat(gestorAula.obtenerDisponibilidad(aulaDTO));
             }
