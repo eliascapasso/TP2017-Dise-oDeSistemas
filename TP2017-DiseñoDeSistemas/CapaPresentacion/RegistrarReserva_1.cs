@@ -71,29 +71,35 @@ namespace Autenticacion
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
-        { 
-            string apellidoDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
-            string nombreDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
-            string emailDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
-            
-            int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
-            int idTipoAula = this.obtenerIdTiposAula(cbTipoAula.Text);
-            DataGridViewRowCollection fechas= dgvResultados.Rows;
+        {
+            if (!(dgvResultados.Rows.Count == 0)) //Si se agregó almenos un horario
+            {
+                string apellidoDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
+                string nombreDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
+                string emailDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[2].Value); //obtengo el valor de la tercer columna
 
-            string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
-            int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
+                int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
+                int idTipoAula = this.obtenerIdTiposAula(cbTipoAula.Text);
+                DataGridViewRowCollection fechas = dgvResultados.Rows;
 
-            ReservaDTO reservaDTO =new ReservaDTO(nickBedel, 
-                                                  cbTipoReserva.Text,
-                                                  fechas,
-                                                  Convert.ToInt32(nudCantidadAlumnos.Value.ToString()),
-                                                  idDocente,
-                                                  idAsignatura,
-                                                  idTipoAula);
+                string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
+                int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
 
-           
-            this.Hide();
-            new RegistrarReserva_2(this,reservaDTO).Show();
+                ReservaDTO reservaDTO = new ReservaDTO(nickBedel,
+                                                      cbTipoReserva.Text,
+                                                      fechas,
+                                                      Convert.ToInt32(nudCantidadAlumnos.Value.ToString()),
+                                                      idDocente,
+                                                      idAsignatura,
+                                                      idTipoAula);
+                this.Hide();
+                new RegistrarReserva_2(this, reservaDTO).Show();
+            }
+            else
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No se agregó ningún horario", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            } 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -129,19 +135,19 @@ namespace Autenticacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-           
-
             if (cbTipoReserva.SelectedItem.Equals("Esporádica"))
             {
                 AddToDatagrid(calendarioEsporadico.Value.ToShortDateString(),
                               cbHoraInicio.Text,
-                              duracionTotal());
+                              duracionTotal(),
+                              cbTipoReserva.Text);
             }
             else
             {
                 AddToDatagrid(cbNoEsporadico.Text,
                               cbHoraInicio.Text,
-                              duracionTotal());
+                              duracionTotal(),
+                              cbTipoReserva.Text);
             }
         }
 
@@ -158,6 +164,14 @@ namespace Autenticacion
                     i++;
                 }
             }
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow aulaSeleccionada = this.dgvResultados.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas seleccionadas
+
+            this.dgvResultados.Rows.Remove(aulaSeleccionada);
+            this.dgvResultados.Refresh();
         }
 
         //METODOS PROPIOS
@@ -262,20 +276,25 @@ namespace Autenticacion
             return aux;
        }
 
-        private void AddToDatagrid(string fecha, string hora, string duracion)
+        private void AddToDatagrid(string fecha, string hora, string duracion, string tipoReserva)
         {
             List<DataGridViewRow> listaDeFilas = new List<DataGridViewRow>();
 
             foreach (DataGridViewRow row in dgvResultados.Rows) listaDeFilas.Add(row);
-            bool existe= listaDeFilas.Any(x => x.Cells[0].Value.Equals(fecha));
+            bool filaExistente= listaDeFilas.Any(x => x.Cells[0].Value.Equals(fecha));
+            bool tipoReservaCompatible = listaDeFilas.Any(x => x.Cells[3].Value.Equals(tipoReserva));
 
-            if (existe)
+            if (filaExistente)
             {
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else dgvResultados.Rows.Add(fecha, hora, duracion);
-
+            else if (!tipoReservaCompatible && !(listaDeFilas.Count == 0))
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No se pueden agregar filas con diferentes tipos de reserva", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else dgvResultados.Rows.Add(fecha, hora, duracion, tipoReserva);
         }
     }
     

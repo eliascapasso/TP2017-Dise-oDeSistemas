@@ -34,7 +34,11 @@ namespace CapaPresentacion
             foreach (DataGridViewRow fecha in reservaDTO.fechas)
             {
                 aulaDTO = new AulaDTO(reservaDTO.cantAlumnos, reservaDTO.idTipoAula, fecha, reservaDTO.tipoReserva, this.calcularPeriodo(fecha, reservaDTO.tipoReserva));
-                disponibilidad.Concat(gestorAula.obtenerDisponibilidad(aulaDTO));
+
+                foreach (AulaDTO aulaDisponible in gestorAula.obtenerDisponibilidad(aulaDTO))
+                {
+                    disponibilidad.Add(aulaDisponible);
+                }
             }
             return disponibilidad;
         }

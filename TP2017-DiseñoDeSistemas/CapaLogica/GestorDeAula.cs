@@ -45,23 +45,22 @@ namespace CapaLogica
             HashSet<Aula> aulasOcupadas = new HashSet<Aula>();
             HashSet<AulaDTO> aulasLibres = new HashSet<AulaDTO>();
 
-            foreach (DateTime fecha in fechasReserva)
+            //Obtiene las aulas ocupadas
+            foreach (DateTime fechaReserva in fechasReserva)
             {
-                //Obtiene las aulas ocupadas
-                foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(aulaDTO.lista.Cells[0].Value.ToString(), //fechaReserva
-                                                                      aulaDTO.lista.Cells[1].Value.ToString(), //horaInicio
-                                                                      aulaDTO.lista.Cells[2].Value.ToString()))  //duracion)
+                foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva.ToShortDateString(), //fechaReserva
+                                                                            aulaDTO.lista.Cells[1].Value.ToString(), //horaInicio
+                                                                            aulaDTO.lista.Cells[2].Value.ToString()))  //duracion)
                 {
                     aulasOcupadas.Add(aulaOcupada);
                 }
-                
+
                 //Obtiene las aulas libres
                 foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
                 {
                     aulasLibres.Add(new AulaDTO(aulaLibre.id_aula, aulaLibre.capacidad, aulaLibre.id_tipo_aula, aulaDTO.lista, aulaDTO.tipoReserva, aulaDTO.periodo));
                 }
             }
-
             return aulasLibres;
         }
 

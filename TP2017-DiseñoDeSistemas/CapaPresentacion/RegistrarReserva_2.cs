@@ -97,10 +97,7 @@
             HashSet<AulaDTO> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
                                                                                                       estan disponibles para todos los dias 
                                                                                                       (CU ObtenerDisponibilidad)*/
-            if (disponibilidad.Count== 0)
-            {
-                MessageBox.Show("vacio");
-            }
+            MessageBox.Show(disponibilidad.Count.ToString());
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
@@ -122,12 +119,10 @@
                     if (aulaDisponible.lista.Cells[0].Value.ToString().Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
                     {
                         dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
-                        disponibilidad.Remove(aulaDisponible);
                     }
-                }
-                //TODO: Mariano: validar datagrid reserva 1 para no poder agregar dos veces lo mismo,
-                //validar en reserva 1 que no se pueda agregar dos tipos de reserva, 
-                //obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
+                } 
+
+                //TODO: obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
                 
                 TabPage pestania = new TabPage(dia);
                 pestania.Name = dia;

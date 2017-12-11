@@ -63,6 +63,7 @@ namespace Autenticacion
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBusquedaDocente = new System.Windows.Forms.TextBox();
             this.btnBuscarDocente = new System.Windows.Forms.Button();
+            this.TipoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
@@ -173,6 +174,7 @@ namespace Autenticacion
             this.btnQuitar.TabIndex = 10;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // label6
             // 
@@ -270,7 +272,8 @@ namespace Autenticacion
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaDia,
             this.columnaHoraInicio,
-            this.columnaDuracion});
+            this.columnaDuracion,
+            this.TipoReserva});
             this.dgvResultados.Location = new System.Drawing.Point(15, 106);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
@@ -391,6 +394,13 @@ namespace Autenticacion
             this.btnBuscarDocente.UseVisualStyleBackColor = true;
             this.btnBuscarDocente.Click += new System.EventHandler(this.btnBuscarDocente_Click);
             // 
+            // TipoReserva
+            // 
+            this.TipoReserva.HeaderText = "TipoReserva";
+            this.TipoReserva.Name = "TipoReserva";
+            this.TipoReserva.ReadOnly = true;
+            this.TipoReserva.Visible = false;
+            // 
             // RegistrarReserva_1
             // 
             this.AcceptButton = this.btnSiguiente;
@@ -475,5 +485,6 @@ namespace Autenticacion
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDuracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoReserva;
     }
 }
