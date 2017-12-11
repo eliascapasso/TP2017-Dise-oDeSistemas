@@ -29,11 +29,14 @@ namespace CapaLogica
 
         public HashSet<AulaDTO> obtenerDisponibilidad(AulaDTO aulaDTO)
         {
-            HashSet<DateTime> fechasReserva = new HashSet<DateTime>();
+            HashSet<DateTime> fechasReserva = new HashSet<DateTime>(); //Fechas a ser convertidas a una lista de fechas
 
             if (aulaDTO.tipoReserva.Equals("Anual") || aulaDTO.tipoReserva.Equals("Cuatrimestral"))
-            {                                                         /*diaReserva*/
+            {
+                
+                                                            /*diaReserva*/
                 fechasReserva = this.convertToFechas(aulaDTO.lista.Cells[0].Value.ToString(), aulaDTO.periodo);
+                
             }
             else //Esporadica
             {                                                           /*diaReserva*/
@@ -54,13 +57,15 @@ namespace CapaLogica
                 {
                     aulasOcupadas.Add(aulaOcupada);
                 }
-
+                
                 //Obtiene las aulas libres
                 foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
                 {
+                   
                     aulasLibres.Add(new AulaDTO(aulaLibre.id_aula, aulaLibre.capacidad, aulaLibre.id_tipo_aula, aulaDTO.lista, aulaDTO.tipoReserva, aulaDTO.periodo));
                 }
             }
+
             return aulasLibres;
         }
 
@@ -95,20 +100,27 @@ namespace CapaLogica
         {
             HashSet<DateTime> fechas = new HashSet<DateTime>();
             DateTime fecha = DateTime.Now;
-            string diaDeFecha = fecha.ToString("dddd", new CultureInfo("es-ES"));
-
-            while(!diaDeFecha.Equals(diaReserva))
+            string diaDeFecha = fecha.ToString("dddd", new CultureInfo("es-ES")).ToUpper();
+            
+            while (!diaDeFecha.Equals(diaReserva.ToUpper()))
             {
-                fecha.AddDays(1); //incrementa 1 dia hasta que la fecha sea la correspondiente a diaReserva
+                Console.Write(diaDeFecha+'\n');
+                fecha = fecha.AddDays(1);
+
+                diaDeFecha = fecha.ToString("dddd", new CultureInfo("es-ES")).ToUpper();
+                //incrementa 1 dia hasta que la fecha sea la correspondiente a diaReserva
             }
 
-            foreach(CuatrimestreDTO cuatrimestre in periodo)
+
+            foreach (CuatrimestreDTO cuatrimestre in periodo)
             {
-                for(DateTime f = fecha; f <= cuatrimestre.FechaFin; f.AddDays(7))
+                for (DateTime f = fecha; f <= cuatrimestre.FechaFin; f=f.AddDays(7))
                 {
+                    Console.Write(f.ToString());
                     fechas.Add(f);
                 }
             }
+            
             return fechas;
         }
     }

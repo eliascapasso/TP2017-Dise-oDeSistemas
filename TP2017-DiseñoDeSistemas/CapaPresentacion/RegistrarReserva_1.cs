@@ -118,6 +118,7 @@ namespace Autenticacion
 
         private void cbTipoReserva_SelectedValueChanged(object sender, EventArgs e)
         {
+            //TODO: Deberia vaciar la lista dgv
             if (cbTipoReserva.SelectedItem.ToString().Equals("Esporádica"))
             {
                 cbNoEsporadico.Visible = false;

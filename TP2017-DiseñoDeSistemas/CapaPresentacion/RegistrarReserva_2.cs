@@ -97,7 +97,8 @@
             HashSet<AulaDTO> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
                                                                                                       estan disponibles para todos los dias 
                                                                                                       (CU ObtenerDisponibilidad)*/
-            MessageBox.Show(disponibilidad.Count.ToString());
+            
+
             foreach (DataGridViewRow fila in reservaDTO.fechas)
             {
                 string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)

@@ -19,7 +19,7 @@ namespace CapaDatos
             {
                 foreach(Cuatrimestre cuat in bd.Cuatrimestres)
                 {
-                    periodos.Add(new CuatrimestreDTO(cuat.fecha_inicio, cuat.fecha_fin));
+                    periodos.Add(new CuatrimestreDTO(cuat.fecha_inicio, cuat.fecha_fin, cuat.id_anio_lectivo));
                 }
             }
             return periodos;
