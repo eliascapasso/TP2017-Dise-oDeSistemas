@@ -23,3 +23,8 @@ C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepcio
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.csprojResolveAssemblyReference.cache
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.dll
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.csprojResolveAssemblyReference.cache
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\Excepciones\obj\Debug\Excepciones.pdb

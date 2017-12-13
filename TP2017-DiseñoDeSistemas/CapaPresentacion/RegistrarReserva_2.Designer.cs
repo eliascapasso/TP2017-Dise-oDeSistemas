@@ -39,12 +39,12 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvAulasSeleccionadas = new System.Windows.Forms.DataGridView();
-            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duración = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Caracteristicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAulasSeleccionadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,25 +52,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 13);
+            this.label1.Size = new System.Drawing.Size(312, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Agregue un aula disponible para cada día";
             // 
             // tcPestañasDias
             // 
-            this.tcPestañasDias.Location = new System.Drawing.Point(15, 38);
+            this.tcPestañasDias.Location = new System.Drawing.Point(20, 47);
+            this.tcPestañasDias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcPestañasDias.Name = "tcPestañasDias";
             this.tcPestañasDias.SelectedIndex = 0;
-            this.tcPestañasDias.Size = new System.Drawing.Size(413, 147);
+            this.tcPestañasDias.Size = new System.Drawing.Size(551, 181);
             this.tcPestañasDias.TabIndex = 2;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(12, 187);
+            this.btnAgregar.Location = new System.Drawing.Point(20, 236);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(100, 28);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -80,17 +83,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 228);
+            this.label2.Location = new System.Drawing.Point(16, 281);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 13);
+            this.label2.Size = new System.Drawing.Size(156, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Aulas seleccionadas";
             // 
             // btnQuitar
             // 
-            this.btnQuitar.Location = new System.Drawing.Point(12, 410);
+            this.btnQuitar.Location = new System.Drawing.Point(20, 506);
+            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.Size = new System.Drawing.Size(100, 28);
             this.btnQuitar.TabIndex = 6;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
@@ -98,9 +103,10 @@
             // 
             // btnAtras
             // 
-            this.btnAtras.Location = new System.Drawing.Point(176, 496);
+            this.btnAtras.Location = new System.Drawing.Point(235, 610);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(75, 23);
+            this.btnAtras.Size = new System.Drawing.Size(100, 28);
             this.btnAtras.TabIndex = 7;
             this.btnAtras.Text = "<- Atras";
             this.btnAtras.UseVisualStyleBackColor = true;
@@ -108,9 +114,10 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(257, 496);
+            this.btnAceptar.Location = new System.Drawing.Point(343, 610);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 8;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -119,9 +126,10 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(353, 496);
+            this.btnCancelar.Location = new System.Drawing.Point(471, 610);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -138,18 +146,13 @@
             this.Duración,
             this.Capacidad,
             this.Caracteristicas});
-            this.dgvAulasSeleccionadas.Location = new System.Drawing.Point(15, 254);
+            this.dgvAulasSeleccionadas.Location = new System.Drawing.Point(20, 313);
+            this.dgvAulasSeleccionadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAulasSeleccionadas.Name = "dgvAulasSeleccionadas";
             this.dgvAulasSeleccionadas.ReadOnly = true;
             this.dgvAulasSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAulasSeleccionadas.Size = new System.Drawing.Size(413, 150);
+            this.dgvAulasSeleccionadas.Size = new System.Drawing.Size(551, 185);
             this.dgvAulasSeleccionadas.TabIndex = 27;
-            // 
-            // timerReserva
-            // 
-            this.timerReserva.Enabled = true;
-            this.timerReserva.Interval = 30000;
-            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
             // 
             // columnaDia
             // 
@@ -181,13 +184,19 @@
             this.Caracteristicas.Name = "Caracteristicas";
             this.Caracteristicas.ReadOnly = true;
             // 
+            // timerReserva
+            // 
+            this.timerReserva.Enabled = true;
+            this.timerReserva.Interval = 60000;
+            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
+            // 
             // RegistrarReserva_2
             // 
             this.AcceptButton = this.btnAceptar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(440, 530);
+            this.ClientSize = new System.Drawing.Size(584, 642);
             this.Controls.Add(this.dgvAulasSeleccionadas);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -199,9 +208,10 @@
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(456, 569);
-            this.MinimumSize = new System.Drawing.Size(456, 558);
+            this.MaximumSize = new System.Drawing.Size(602, 689);
+            this.MinimumSize = new System.Drawing.Size(602, 676);
             this.Name = "RegistrarReserva_2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de reserva de aulas";

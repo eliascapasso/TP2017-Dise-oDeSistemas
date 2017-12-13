@@ -78,3 +78,15 @@ C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDato
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaClases.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\CapaClases.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Debug\CapaDatos.pdb

@@ -16,7 +16,6 @@ namespace CapaPresentacion
     {
         private Form padre;
         private GestorDeAula gestorAula;
-        private AulaDTO aulaDTO;
         private HashSet<CuatrimestreDTO> todosLosPeriodos;
 
         public ObtenerDisponibilidadAula(Form papa, HashSet<CuatrimestreDTO> todosLosPeriodos)
@@ -31,72 +30,70 @@ namespace CapaPresentacion
         {
             HashSet<AulaDTO> disponibilidad = new HashSet<AulaDTO>();
 
-            foreach (DataGridViewRow filaDiaHInicioDuracion in reservaDTO.fechas)
-            { //TODO: ver como concatenar al agregar aula DTO
-                aulaDTO = new AulaDTO(reservaDTO.cantAlumnos,
-                                      reservaDTO.idTipoAula,
-                                      filaDiaHInicioDuracion,
-                                      reservaDTO.tipoReserva,
-                                      this.calcularPeriodo(filaDiaHInicioDuracion, reservaDTO.tipoReserva));
+            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
+            { 
+                AulaDTO aulaDTO = new AulaDTO(reservaDTO.cantAlumnos,
+                                              reservaDTO.idTipoAula,
+                                              detalleReserva,
+                                              reservaDTO.tipoReserva,
+                                              this.calcularPeriodo(detalleReserva, reservaDTO.tipoReserva));
 
                 foreach (AulaDTO aulaDisponible in gestorAula.obtenerDisponibilidad(aulaDTO))
                 {
                     disponibilidad.Add(aulaDisponible);
                 }
             }
-
             
             return disponibilidad;
         }
 
-        private HashSet<CuatrimestreDTO> calcularPeriodo(DataGridViewRow filaDiaHInicioDuracion, string tipoReserva)
+        private HashSet<CuatrimestreDTO> calcularPeriodo(DetalleReservaDTO detalleReserva, string tipoReserva)
         {
             HashSet<CuatrimestreDTO> periodo = new HashSet<CuatrimestreDTO>();
-
-            //Obtenemos el periodo actual
             
-
+            //Obtenemos el periodo actual
             foreach (CuatrimestreDTO cuatrimestre in todosLosPeriodos)
             {
                 switch (tipoReserva)
                 {
-
                     case "Anual":
-                        if (periodo.Count != 0)
-                        {
-                                
-                            if (cuatrimestre.IdAnioLectivo==periodo.Last<CuatrimestreDTO>().IdAnioLectivo){
-
+                        //Puede agregar 1 o 2 cuatrimestres
+                        if (periodo.Count != 0) 
+                        {   
+                            if (cuatrimestre.IdAnioLectivo==periodo.Last<CuatrimestreDTO>().IdAnioLectivo)
+                            {
                                 periodo.Add(cuatrimestre);
                             }
                         }
-                        else
+                        else //la lista de periodos está vacia
                         {
-                            
                             periodo.Add(cuatrimestre);
                         } 
                         break;
                     case "Cuatrimestral":
+                        //Solo agrega un cuatrimestre
+                        Console.Write(DateTime.Now.ToShortDateString() +" "+cuatrimestre.FechaInicio + "\n");
                         if (DateTime.Now >= cuatrimestre.FechaInicio && DateTime.Now <= cuatrimestre.FechaFin)
                         {
                             periodo.Add(cuatrimestre);
                         }
-
+                        else if (todosLosPeriodos.Last().Equals(cuatrimestre)) //Agrega el cuatrimestre mas proximo
+                        {
+                            periodo.Add(todosLosPeriodos.First());
+                        }
                         break;
                     case "Esporádica":
-                        DateTime dia = Convert.ToDateTime(filaDiaHInicioDuracion.Cells[0].Value.ToString());
+                        //Agrega un solo cuatrimestre
+                        DateTime dia = Convert.ToDateTime(detalleReserva.diaReserva);
 
                         if (dia >= cuatrimestre.FechaInicio && dia <= cuatrimestre.FechaFin) //solo se agrega un cuatrimestre
                         {
                             periodo.Add(cuatrimestre);
                         }
-                        break;
+                        return periodo;
                 }
-                
             }
-            
             return periodo;
         }
-
     }
 }

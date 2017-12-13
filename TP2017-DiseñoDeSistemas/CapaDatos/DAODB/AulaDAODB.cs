@@ -26,7 +26,7 @@
             return tiposAula;
         }
 
-        public HashSet<Aula> obtenerAulas(int capacidadAula, int idTipoAula)
+        public HashSet<Aula> obtenerAulas(int capacidadAula, int? idTipoAula)
         {
             HashSet<Aula> aulasCumplen = new HashSet<Aula>();
 

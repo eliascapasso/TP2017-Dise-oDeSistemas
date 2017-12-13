@@ -33,18 +33,14 @@ namespace CapaLogica
 
             if (aulaDTO.tipoReserva.Equals("Anual") || aulaDTO.tipoReserva.Equals("Cuatrimestral"))
             {
-                
-                                                            /*diaReserva*/
-                fechasReserva = this.convertToFechas(aulaDTO.lista.Cells[0].Value.ToString(), aulaDTO.periodo);
-                
+                fechasReserva = this.convertToFechas(aulaDTO.detalleReserva.diaReserva, aulaDTO.periodo);
             }
             else //Esporadica
-            {                                                           /*diaReserva*/
-                fechasReserva.Add(Convert.ToDateTime(aulaDTO.lista.Cells[0].Value.ToString()));
+            {
+                fechasReserva.Add(Convert.ToDateTime(aulaDTO.detalleReserva.diaReserva));
             }
 
             HashSet<Aula> aulasCumplen = aulaDAO.obtenerAulas(aulaDTO.capacidad, aulaDTO.idTipoAula);
-            
             HashSet<Aula> aulasOcupadas = new HashSet<Aula>();
             HashSet<AulaDTO> aulasLibres = new HashSet<AulaDTO>();
 
@@ -52,26 +48,35 @@ namespace CapaLogica
             foreach (DateTime fechaReserva in fechasReserva)
             {
                 foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva.ToShortDateString(), //fechaReserva
-                                                                            aulaDTO.lista.Cells[1].Value.ToString(), //horaInicio
-                                                                            aulaDTO.lista.Cells[2].Value.ToString()))  //duracion)
+                                                                            aulaDTO.detalleReserva.horaInicio,
+                                                                            aulaDTO.detalleReserva.duracion)) 
                 {
                     aulasOcupadas.Add(aulaOcupada);
                 }
-                
+
                 //Obtiene las aulas libres
                 foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
                 {
-                   
-                    aulasLibres.Add(new AulaDTO(aulaLibre.id_aula, aulaLibre.capacidad, aulaLibre.id_tipo_aula, aulaDTO.lista, aulaDTO.tipoReserva, aulaDTO.periodo));
+                    AulaDTO aulaLibreDTO = new AulaDTO(aulaLibre.id_aula,
+                                                       aulaLibre.capacidad,
+                                                       aulaLibre.id_tipo_aula,
+                                                       aulaDTO.detalleReserva,
+                                                       aulaDTO.tipoReserva,
+                                                       aulaDTO.detalleReserva.periodo);
+
+                    //TODO:Intentar optimizar
+                    bool noExisteAula = true;
+                    foreach (AulaDTO aula in aulasLibres) //descarta aulas libres repetidas
+                        if (aula.idAula == aulaLibreDTO.idAula) { noExisteAula = false; }
+
+                    if (noExisteAula) { aulasLibres.Add(aulaLibreDTO); }
                 }
             }
-
             return aulasLibres;
         }
 
         private HashSet<Aula> obtenerAulasLibres(HashSet<Aula> aulasCumplen, HashSet<Aula> aulasOcupadas)
         {
-            //return (HashSet<Aula>)aulasCumplen.Intersect(aulasCumplen);
             //TODO: intentar optimizar, complejidad muy alta
             
             if (!(aulasOcupadas.Count == 0))
@@ -104,23 +109,19 @@ namespace CapaLogica
             
             while (!diaDeFecha.Equals(diaReserva.ToUpper()))
             {
-                Console.Write(diaDeFecha+'\n');
-                fecha = fecha.AddDays(1);
+                fecha = fecha.AddDays(1); //incrementa 1 dia hasta que la fecha sea la correspondiente a diaReserva
 
                 diaDeFecha = fecha.ToString("dddd", new CultureInfo("es-ES")).ToUpper();
-                //incrementa 1 dia hasta que la fecha sea la correspondiente a diaReserva
             }
-
-
+            
             foreach (CuatrimestreDTO cuatrimestre in periodo)
             {
                 for (DateTime f = fecha; f <= cuatrimestre.FechaFin; f=f.AddDays(7))
                 {
-                    Console.Write(f.ToString());
+                    Console.Write(f.ToShortDateString() + '\n'); //Visualiza en consola las fechas que fueron convertidas del dia de la reserva
                     fechas.Add(f);
                 }
             }
-            
             return fechas;
         }
     }

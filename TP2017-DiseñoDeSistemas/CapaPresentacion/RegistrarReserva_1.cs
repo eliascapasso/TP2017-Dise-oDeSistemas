@@ -80,14 +80,19 @@ namespace Autenticacion
 
                 int idDocente = this.obtenerIdDocente(apellidoDocente, nombreDocente, emailDocente);
                 int idTipoAula = this.obtenerIdTiposAula(cbTipoAula.Text);
-                DataGridViewRowCollection fechas = dgvResultados.Rows;
+
+                HashSet<DetalleReservaDTO> detallesReservas = new HashSet<DetalleReservaDTO>();
+                foreach (DataGridViewRow fila in dgvResultados.Rows)
+                {
+                    detallesReservas.Add(new DetalleReservaDTO(fila.Cells[0].Value.ToString(), fila.Cells[1].Value.ToString(), fila.Cells[2].Value.ToString()));
+                }
 
                 string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
                 int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
 
                 ReservaDTO reservaDTO = new ReservaDTO(nickBedel,
                                                       cbTipoReserva.Text,
-                                                      fechas,
+                                                      detallesReservas,
                                                       Convert.ToInt32(nudCantidadAlumnos.Value.ToString()),
                                                       idDocente,
                                                       idAsignatura,

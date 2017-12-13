@@ -45,6 +45,7 @@
     <Compile Include="AulaDTO.cs" />
     <Compile Include="BedelDTO.cs" />
     <Compile Include="CuatrimestreDTO.cs" />
+    <Compile Include="DetalleReservaDTO.cs" />
     <Compile Include="DocenteDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservaDTO.cs" />

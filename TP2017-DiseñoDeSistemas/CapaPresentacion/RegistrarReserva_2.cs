@@ -22,8 +22,9 @@
         private GestorAnioLectivo gestorAnio = new GestorAnioLectivo();
         private List<DataGridView> listaAulasDisponibles = new List<DataGridView>();
         private GestorDeAula gestorAula = new GestorDeAula();
+        GestorDeReserva gestorReserva = new GestorDeReserva();
 
-        public RegistrarReserva_2(Form papa,ReservaDTO reservaDTO)
+        public RegistrarReserva_2(Form papa, ReservaDTO reservaDTO)
         {
             this.reservaDTO = reservaDTO;
             padre = papa;
@@ -47,7 +48,7 @@
             padre.Close();
             this.Close();
         }
-        
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             int indicePestaniaSeleccionada = tcPestañasDias.SelectedIndex;
@@ -59,10 +60,10 @@
             string columnaAula = Convert.ToString(aulaDisponibleSeleccionada.Cells[0].Value);
             string columnaDuracion = Convert.ToString(aulaDisponibleSeleccionada.Cells[1].Value);
             string columnaCapacidad = Convert.ToString(aulaDisponibleSeleccionada.Cells[2].Value);
-            
+
             AddToDatagrid(columnaDia, columnaAula, columnaDuracion, columnaCapacidad);
         }
-        
+
         private void btnQuitar_Click(object sender, EventArgs e)
         {
             DataGridViewRow aulaSeleccionada = this.dgvAulasSeleccionadas.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas seleccionadas
@@ -73,13 +74,21 @@
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvAulasSeleccionadas.Rows.Count == 0)
             {
-                
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No seleccionó ningún aula", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch
+            else
             {
+                try
+                {
+                    this.gestorReserva.registrarReserva(reservaDTO);
+                }
+                catch
+                {
 
+                }
             }
         }
 
@@ -97,11 +106,9 @@
             HashSet<AulaDTO> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
                                                                                                       estan disponibles para todos los dias 
                                                                                                       (CU ObtenerDisponibilidad)*/
-            
-
-            foreach (DataGridViewRow fila in reservaDTO.fechas)
+            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
             {
-                string dia = Convert.ToString(fila.Cells[0].Value); //Obtengo el valor de la primer columna (dia)
+                string dia = Convert.ToString(detalleReserva.diaReserva); //Obtengo el valor de la primer columna (dia)
                 DataGridView dgvAulasDisponibles = new DataGridView();
 
                 //Propiedades del dataGrid
@@ -117,7 +124,7 @@
                 //Se agregan las filas
                 foreach (AulaDTO aulaDisponible in disponibilidad)
                 {
-                    if (aulaDisponible.lista.Cells[0].Value.ToString().Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
+                    if (aulaDisponible.detalleReserva.diaReserva.Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
                     {
                         dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
                     }

@@ -85,3 +85,16 @@ C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogi
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.csprojResolveAssemblyReference.cache
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.dll
 C:\Users\nmari\Desktop\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaLogica.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaLogica.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaClases.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaDatos.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\Excepciones.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\EntityFramework.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaClases.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\CapaDatos.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\Excepciones.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\bin\Debug\EntityFramework.xml
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.csprojResolveAssemblyReference.cache
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaLogica\obj\Debug\CapaLogica.pdb
