@@ -32,7 +32,6 @@ namespace Autenticacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             BuscarBedel busqueda = new BuscarBedel(this);
-            this.Hide();
             busqueda.Show();
         }
 

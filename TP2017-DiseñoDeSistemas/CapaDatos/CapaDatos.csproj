@@ -74,7 +74,9 @@
       <DependentUpon>TP2017.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\Bedel.cs" />
+    <Compile Include="Clases\DetalleReserva.cs" />
     <Compile Include="Clases\HistContrasenia.cs" />
+    <Compile Include="Clases\Reserva.cs" />
     <Compile Include="Clases\TP2017Entities.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Cuatrimestre.cs">

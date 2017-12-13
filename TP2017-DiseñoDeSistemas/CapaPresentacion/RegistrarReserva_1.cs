@@ -155,6 +155,8 @@ namespace Autenticacion
                               duracionTotal(),
                               cbTipoReserva.Text);
             }
+
+            cbTipoReserva.Enabled = false;
         }
 
         private void btnBuscarDocente_Click(object sender, EventArgs e)
@@ -174,10 +176,18 @@ namespace Autenticacion
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow aulaSeleccionada = this.dgvResultados.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas seleccionadas
+            if (!(this.dgvResultados.Rows.Count == 0))
+            {
+                DataGridViewRow aulaSeleccionada = this.dgvResultados.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas seleccionadas
 
-            this.dgvResultados.Rows.Remove(aulaSeleccionada);
-            this.dgvResultados.Refresh();
+                this.dgvResultados.Rows.Remove(aulaSeleccionada);
+                this.dgvResultados.Refresh();
+
+                if (this.dgvResultados.Rows.Count == 0)
+                {
+                    cbTipoReserva.Enabled = true;
+                }
+            }
         }
 
         //METODOS PROPIOS

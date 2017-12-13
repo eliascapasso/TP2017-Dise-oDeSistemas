@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusquedaException.cs" />
+    <Compile Include="DisponibilidadException.cs" />
     <Compile Include="DocenteException.cs" />
     <Compile Include="HoraDuracionException.cs" />
     <Compile Include="NickException.cs" />

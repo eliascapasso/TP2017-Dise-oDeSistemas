@@ -20,6 +20,7 @@
             this.id_tipo_usuario = 1;
 
             this.HistContrasenias = new HashSet<HistContrasenia>();
+            this.Reservas = new HashSet<Reserva>();
         }
         public void setValores(string nombre, string apellido, string turno, string pass)
         {

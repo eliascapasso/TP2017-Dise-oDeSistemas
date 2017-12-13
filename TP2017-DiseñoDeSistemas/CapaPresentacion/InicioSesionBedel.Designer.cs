@@ -40,53 +40,60 @@
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(102, 66);
+            this.tbPass.Location = new System.Drawing.Point(136, 81);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(170, 20);
+            this.tbPass.Size = new System.Drawing.Size(225, 22);
             this.tbPass.TabIndex = 11;
             this.tbPass.UseSystemPasswordChar = true;
             // 
             // tbNick
             // 
-            this.tbNick.Location = new System.Drawing.Point(102, 18);
+            this.tbNick.Location = new System.Drawing.Point(136, 22);
+            this.tbNick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNick.Name = "tbNick";
-            this.tbNick.Size = new System.Drawing.Size(170, 20);
+            this.tbNick.Size = new System.Drawing.Size(225, 22);
             this.tbNick.TabIndex = 10;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 69);
+            this.label2.Location = new System.Drawing.Point(16, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nick";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(143, 102);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(191, 126);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 7;
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(224, 102);
+            this.btnAceptar.Location = new System.Drawing.Point(299, 126);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Size = new System.Drawing.Size(100, 28);
+            this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -95,18 +102,21 @@
             // 
             this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
             this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMostrarPass.Location = new System.Drawing.Point(278, 66);
+            this.btnMostrarPass.Location = new System.Drawing.Point(371, 81);
+            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMostrarPass.Name = "btnMostrarPass";
-            this.btnMostrarPass.Size = new System.Drawing.Size(21, 20);
-            this.btnMostrarPass.TabIndex = 12;
+            this.btnMostrarPass.Size = new System.Drawing.Size(28, 25);
+            this.btnMostrarPass.TabIndex = 14;
             this.btnMostrarPass.UseVisualStyleBackColor = true;
             this.btnMostrarPass.Click += new System.EventHandler(this.btnMostrarPass_Click);
             // 
             // InicioSesionBedel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnAceptar;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 133);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(408, 164);
             this.Controls.Add(this.btnMostrarPass);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbNick);
@@ -116,9 +126,10 @@
             this.Controls.Add(this.btnAceptar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(500, 500);
-            this.MinimumSize = new System.Drawing.Size(300, 171);
+            this.MaximumSize = new System.Drawing.Size(661, 605);
+            this.MinimumSize = new System.Drawing.Size(394, 200);
             this.Name = "InicioSesionBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InicioSesionBedel";

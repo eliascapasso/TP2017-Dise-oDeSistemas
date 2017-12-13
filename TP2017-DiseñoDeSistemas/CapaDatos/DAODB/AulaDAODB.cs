@@ -47,5 +47,20 @@
             }
             return aulasCumplen;
         }
+
+        public Aula getAula(int idAula)
+        {
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                foreach (Aula aula in bd.Aulas)
+                {
+                    if (aula.id_aula.Equals(idAula))
+                    {
+                        return aula;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

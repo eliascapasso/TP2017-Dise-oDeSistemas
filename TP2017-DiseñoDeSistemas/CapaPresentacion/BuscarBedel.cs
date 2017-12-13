@@ -66,18 +66,17 @@ namespace Autenticacion
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Asterisk.Play();
-            MessageBox.Show("CU No solicitado");
-            //DialogResult resultadoElim = MessageBox.Show("¿Seguro que desea eliminar el Bedel? \nApellido: " + this.bedelSeleccionado.apellido+ "\nNombre: " +this.bedelSeleccionado.nombre + "\nTurno: " + this.bedelSeleccionado.turno, "ADVERTENCIA", MessageBoxButtons.YesNo);
+            DialogResult resultadoElim = MessageBox.Show("¿Seguro que desea eliminar el Bedel? \nApellido: " + this.bedelSeleccionado.apellido+ "\nNombre: " +this.bedelSeleccionado.nombre + "\nTurno: " + this.bedelSeleccionado.turno, "ADVERTENCIA", MessageBoxButtons.YesNo);
 
-            //if (resultadoElim == DialogResult.Yes)
-            //{
-            //    gestor.eliminarBedel(this.bedelSeleccionado.nick);
+            if (resultadoElim == DialogResult.Yes)
+            {
+                gestor.eliminarBedel(this.bedelSeleccionado.nick);
 
-            //    System.Media.SystemSounds.Asterisk.Play();
-            //    MessageBox.Show("Se ha eliminado el Bedel seleccionado", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                System.Media.SystemSounds.Asterisk.Play();
+                MessageBox.Show("Se ha eliminado el Bedel seleccionado", "", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-            //    dgvResultadosBusqueda.Rows.Clear();
-            //}
+                dgvResultadosBusqueda.Rows.Clear();
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

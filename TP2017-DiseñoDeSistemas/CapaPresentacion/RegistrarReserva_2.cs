@@ -13,6 +13,7 @@
     using CapaClases;
     using CapaLogica;
     using System.Collections;
+    using Excepciones;
 
     public partial class RegistrarReserva_2 : Form
     {
@@ -74,7 +75,7 @@
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (dgvAulasSeleccionadas.Rows.Count == 0)
+            if (dgvAulasSeleccionadas.Rows.Count == 0) //No se selecciona ningun aula
             {
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("No seleccionó ningún aula", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -84,10 +85,25 @@
                 try
                 {
                     this.gestorReserva.registrarReserva(reservaDTO);
-                }
-                catch
-                {
 
+                    System.Media.SystemSounds.Hand.Play();
+                    DialogResult respuesta = MessageBox.Show("¿Seguro que desea guardar la reserva?", 
+                                                             "Reserva", 
+                                                             MessageBoxButtons.YesNo, 
+                                                             MessageBoxIcon.Question);
+
+                    if (respuesta.Equals(DialogResult.Yes))
+                    {
+                        System.Media.SystemSounds.Hand.Play();
+                        MessageBox.Show("Reserva almacenada con éxito", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Close();
+                    }
+                }
+                catch(DisponibilidadException d)
+                {
+                    System.Media.SystemSounds.Exclamation.Play();
+                    MessageBox.Show(d.Message, "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -140,7 +156,6 @@
 
                 this.listaAulasDisponibles.Add(dgvAulasDisponibles);
             }
-            
         }
 
         private void timerReserva_Tick(object sender, EventArgs e)
@@ -163,12 +178,18 @@
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else dgvAulasSeleccionadas.Rows.Add(fecha,aula, duracion,capacidad);
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
+            else
+            {
+                foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservas)
+                {
+                    if (detalle.diaReserva.Equals(fecha))
+                    {
+                        detalle.idAula = Convert.ToInt32(aula); 
+                        //Console.Write(detalle.idAula + "\n");
+                    }
+                }
+                dgvAulasSeleccionadas.Rows.Add(fecha, aula, duracion, capacidad);
+            }
         }
     }
 }

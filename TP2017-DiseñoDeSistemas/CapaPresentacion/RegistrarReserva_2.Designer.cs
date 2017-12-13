@@ -36,15 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvAulasSeleccionadas = new System.Windows.Forms.DataGridView();
+            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duración = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Caracteristicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAulasSeleccionadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,16 +111,16 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
-            // btnAceptar
+            // btnGuardar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(343, 610);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(100, 28);
-            this.btnAceptar.TabIndex = 8;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(343, 610);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(100, 28);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -143,7 +142,6 @@
             this.dgvAulasSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaDia,
             this.Aula,
-            this.Duración,
             this.Capacidad,
             this.Caracteristicas});
             this.dgvAulasSeleccionadas.Location = new System.Drawing.Point(20, 313);
@@ -153,6 +151,12 @@
             this.dgvAulasSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAulasSeleccionadas.Size = new System.Drawing.Size(551, 185);
             this.dgvAulasSeleccionadas.TabIndex = 27;
+            // 
+            // timerReserva
+            // 
+            this.timerReserva.Enabled = true;
+            this.timerReserva.Interval = 60000;
+            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
             // 
             // columnaDia
             // 
@@ -166,12 +170,6 @@
             this.Aula.Name = "Aula";
             this.Aula.ReadOnly = true;
             // 
-            // Duración
-            // 
-            this.Duración.HeaderText = "Duración (Min)";
-            this.Duración.Name = "Duración";
-            this.Duración.ReadOnly = true;
-            // 
             // Capacidad
             // 
             this.Capacidad.HeaderText = "Capacidad";
@@ -184,22 +182,16 @@
             this.Caracteristicas.Name = "Caracteristicas";
             this.Caracteristicas.ReadOnly = true;
             // 
-            // timerReserva
-            // 
-            this.timerReserva.Enabled = true;
-            this.timerReserva.Interval = 60000;
-            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
-            // 
             // RegistrarReserva_2
             // 
-            this.AcceptButton = this.btnAceptar;
+            this.AcceptButton = this.btnGuardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(584, 642);
             this.Controls.Add(this.dgvAulasSeleccionadas);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.label2);
@@ -230,13 +222,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvAulasSeleccionadas;
         private System.Windows.Forms.Timer timerReserva;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duración;
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Caracteristicas;
     }

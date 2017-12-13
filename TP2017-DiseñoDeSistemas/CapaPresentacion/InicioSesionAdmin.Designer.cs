@@ -39,20 +39,23 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(197, 100);
+            this.btnAceptar.Location = new System.Drawing.Point(263, 123);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 0;
+            this.btnAceptar.Size = new System.Drawing.Size(100, 28);
+            this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(102, 100);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(136, 123);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -60,40 +63,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(16, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nick";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 66);
+            this.label2.Location = new System.Drawing.Point(16, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
             // tbIdAdmin
             // 
-            this.tbIdAdmin.Location = new System.Drawing.Point(102, 15);
+            this.tbIdAdmin.Location = new System.Drawing.Point(136, 18);
+            this.tbIdAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbIdAdmin.Name = "tbIdAdmin";
-            this.tbIdAdmin.Size = new System.Drawing.Size(170, 20);
+            this.tbIdAdmin.Size = new System.Drawing.Size(225, 22);
             this.tbIdAdmin.TabIndex = 4;
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(102, 63);
+            this.tbPass.Location = new System.Drawing.Point(136, 78);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(170, 20);
+            this.tbPass.Size = new System.Drawing.Size(225, 22);
             this.tbPass.TabIndex = 5;
             // 
             // InicioSesionAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.btnAceptar;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 133);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(376, 153);
             this.Controls.Add(this.tbPass);
             this.Controls.Add(this.tbIdAdmin);
             this.Controls.Add(this.label2);
@@ -102,9 +111,10 @@
             this.Controls.Add(this.btnAceptar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(300, 171);
-            this.MinimumSize = new System.Drawing.Size(300, 171);
+            this.MaximumSize = new System.Drawing.Size(394, 200);
+            this.MinimumSize = new System.Drawing.Size(394, 200);
             this.Name = "InicioSesionAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesión Administrador";

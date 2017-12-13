@@ -25,5 +25,20 @@
             }
             return asignaturas;
         }
+
+        public Asignatura getAsignatura(int idAsignatura)
+        {
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                foreach (Asignatura asignatura in bd.Asignaturas)
+                {
+                    if (asignatura.id_asignatura.Equals(idAsignatura))
+                    {
+                        return asignatura;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

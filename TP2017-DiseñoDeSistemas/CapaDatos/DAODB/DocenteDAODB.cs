@@ -26,5 +26,19 @@
             return docentes;
         }
 
+        public Docente getDocente(int idDocente)
+        {
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                foreach (Docente docente in bd.Docentes)
+                {
+                    if (docente.id_docente.Equals(idDocente))
+                    {
+                        return docente;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
