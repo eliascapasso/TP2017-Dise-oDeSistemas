@@ -75,22 +75,22 @@ namespace CapaLogica
             //Comprueba politicas de contraseña o que no haya sido modificada
             if (!passModificada || gestorPoliticas.comprobarPoliticas(pass))
             {
-                Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
+                Bedel bedelObtenido = userDAODB.obtenerBedel(bedelSeleccionado.nick);
 
-                bedelObt.setValores(nombre, apellido, turno, pass);
+                bedelObtenido.setValores(nombre, apellido, turno, pass);
 
-                foreach (HistContrasenia hist in bedelObt.HistContrasenias)
+                foreach (HistContrasenia hist in bedelObtenido.HistContrasenias)
                 {
                     MessageBox.Show(hist.id_usuario.ToString() + " ");
                 }
 
                 if (passModificada)
                 {
-                    HistContrasenia historial = new HistContrasenia(pass, bedelObt);
-                    bedelObt.agregarHistorial(historial);
+                    HistContrasenia historial = new HistContrasenia(pass, bedelObtenido);
+                    bedelObtenido.agregarHistorial(historial);
                 }
 
-                userDAODB.guardarBedelModificado(bedelObt);
+                userDAODB.guardarBedelModificado(bedelObtenido);
             }
             else
             {

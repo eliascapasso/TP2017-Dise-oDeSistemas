@@ -36,7 +36,11 @@ namespace Autenticacion
                 {
                     //Se intenta modificar el bedel
                     GestorDeUsuario gestor = new GestorDeUsuario();
-                    gestor.modificarBedel(this.bedelSeleccionado, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
+                    gestor.modificarBedel(this.bedelSeleccionado,
+                                          tbApellido.Text,
+                                          tbNombre.Text,
+                                          cbTurno.SelectedItem.ToString(),
+                                          tbPass.Text);
 
                     //Llegado a este punto el bedel se modifico con exito
                     System.Media.SystemSounds.Asterisk.Play();

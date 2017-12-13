@@ -62,7 +62,7 @@
             // tcPestañasDias
             // 
             this.tcPestañasDias.Location = new System.Drawing.Point(20, 47);
-            this.tcPestañasDias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcPestañasDias.Margin = new System.Windows.Forms.Padding(4);
             this.tcPestañasDias.Name = "tcPestañasDias";
             this.tcPestañasDias.SelectedIndex = 0;
             this.tcPestañasDias.Size = new System.Drawing.Size(551, 181);
@@ -71,7 +71,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(20, 236);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 28);
             this.btnAgregar.TabIndex = 3;
@@ -93,7 +93,7 @@
             // btnQuitar
             // 
             this.btnQuitar.Location = new System.Drawing.Point(20, 506);
-            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(100, 28);
             this.btnQuitar.TabIndex = 6;
@@ -104,7 +104,7 @@
             // btnAtras
             // 
             this.btnAtras.Location = new System.Drawing.Point(235, 610);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAtras.Margin = new System.Windows.Forms.Padding(4);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(100, 28);
             this.btnAtras.TabIndex = 7;
@@ -115,7 +115,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(343, 610);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 8;
@@ -127,7 +127,7 @@
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(471, 610);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 9;
@@ -147,7 +147,7 @@
             this.Capacidad,
             this.Caracteristicas});
             this.dgvAulasSeleccionadas.Location = new System.Drawing.Point(20, 313);
-            this.dgvAulasSeleccionadas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAulasSeleccionadas.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAulasSeleccionadas.Name = "dgvAulasSeleccionadas";
             this.dgvAulasSeleccionadas.ReadOnly = true;
             this.dgvAulasSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -208,7 +208,7 @@
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(602, 689);
             this.MinimumSize = new System.Drawing.Size(602, 676);

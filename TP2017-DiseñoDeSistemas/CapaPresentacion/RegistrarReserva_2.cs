@@ -140,6 +140,7 @@
 
                 this.listaAulasDisponibles.Add(dgvAulasDisponibles);
             }
+            
         }
 
         private void timerReserva_Tick(object sender, EventArgs e)
@@ -163,6 +164,11 @@
                 MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else dgvAulasSeleccionadas.Rows.Add(fecha,aula, duracion,capacidad);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
