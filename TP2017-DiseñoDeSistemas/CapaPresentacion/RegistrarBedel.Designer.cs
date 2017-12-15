@@ -48,6 +48,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.notificacion = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnMostrarPass = new System.Windows.Forms.Button();
+            this.labelPoliticas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +114,7 @@
             // 
             // lbConfirmarPass
             // 
-            this.lbConfirmarPass.Location = new System.Drawing.Point(16, 251);
+            this.lbConfirmarPass.Location = new System.Drawing.Point(16, 260);
             this.lbConfirmarPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbConfirmarPass.Name = "lbConfirmarPass";
             this.lbConfirmarPass.Size = new System.Drawing.Size(93, 39);
@@ -123,7 +124,7 @@
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(103, 55);
-            this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(259, 22);
             this.tbNombre.TabIndex = 7;
@@ -131,7 +132,7 @@
             // tbApellido
             // 
             this.tbApellido.Location = new System.Drawing.Point(103, 89);
-            this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbApellido.Margin = new System.Windows.Forms.Padding(4);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(259, 22);
             this.tbApellido.TabIndex = 8;
@@ -145,7 +146,7 @@
             "Tarde",
             "Noche"});
             this.cbTurno.Location = new System.Drawing.Point(103, 128);
-            this.cbTurno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTurno.Margin = new System.Windows.Forms.Padding(4);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(259, 24);
             this.cbTurno.TabIndex = 9;
@@ -153,7 +154,7 @@
             // tbNick
             // 
             this.tbNick.Location = new System.Drawing.Point(103, 167);
-            this.tbNick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNick.Margin = new System.Windows.Forms.Padding(4);
             this.tbNick.Name = "tbNick";
             this.tbNick.Size = new System.Drawing.Size(259, 22);
             this.tbNick.TabIndex = 10;
@@ -161,7 +162,7 @@
             // tbPass
             // 
             this.tbPass.Location = new System.Drawing.Point(103, 207);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbPass.MaxLength = 20;
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(259, 22);
@@ -171,8 +172,8 @@
             // 
             // tbConfirmarPass
             // 
-            this.tbConfirmarPass.Location = new System.Drawing.Point(103, 251);
-            this.tbConfirmarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbConfirmarPass.Location = new System.Drawing.Point(103, 260);
+            this.tbConfirmarPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbConfirmarPass.MaxLength = 20;
             this.tbConfirmarPass.Name = "tbConfirmarPass";
             this.tbConfirmarPass.Size = new System.Drawing.Size(259, 22);
@@ -192,7 +193,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(287, 327);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 14;
@@ -203,7 +204,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Location = new System.Drawing.Point(179, 327);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(100, 28);
             this.btnCerrar.TabIndex = 13;
@@ -221,12 +222,25 @@
             this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
             this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMostrarPass.Location = new System.Drawing.Point(371, 207);
-            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4);
             this.btnMostrarPass.Name = "btnMostrarPass";
             this.btnMostrarPass.Size = new System.Drawing.Size(28, 25);
             this.btnMostrarPass.TabIndex = 15;
             this.btnMostrarPass.UseVisualStyleBackColor = true;
             this.btnMostrarPass.Click += new System.EventHandler(this.btnMostrarPass_Click);
+            // 
+            // labelPoliticas
+            // 
+            this.labelPoliticas.AutoSize = true;
+            this.labelPoliticas.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPoliticas.ForeColor = System.Drawing.Color.Red;
+            this.labelPoliticas.Location = new System.Drawing.Point(100, 233);
+            this.labelPoliticas.Name = "labelPoliticas";
+            this.labelPoliticas.Size = new System.Drawing.Size(227, 18);
+            this.labelPoliticas.TabIndex = 80;
+            this.labelPoliticas.Text = "Acá se muestran las politicas incumplidas";
+            this.labelPoliticas.UseCompatibleTextRendering = true;
+            this.labelPoliticas.Visible = false;
             // 
             // RegistrarBedel
             // 
@@ -234,6 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 370);
+            this.Controls.Add(this.labelPoliticas);
             this.Controls.Add(this.btnMostrarPass);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAceptar);
@@ -253,7 +268,7 @@
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(661, 605);
             this.MinimumSize = new System.Drawing.Size(394, 406);
@@ -285,5 +300,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.NotifyIcon notificacion;
         private System.Windows.Forms.Button btnMostrarPass;
+        private System.Windows.Forms.Label labelPoliticas;
     }
 }

@@ -31,7 +31,7 @@ namespace Autenticacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(!gestorUsuario.existeBedel(tbNick.Text, tbPass.Text))
+            if(!gestorUsuario.existeUsuario(tbNick.Text, tbPass.Text))
             {
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("Los datos ingresados no son válidos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

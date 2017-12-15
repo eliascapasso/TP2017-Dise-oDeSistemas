@@ -50,6 +50,7 @@ namespace Autenticacion
             {
                 try 
                 {
+                    labelPoliticas.Visible = false;
                     //Se intenta registrar el bedel
                     gestor.registrarBedel(tbNick.Text, tbPass.Text, tbNombre.Text, tbApellido.Text, cbTurno.SelectedItem.ToString());
 
@@ -61,8 +62,34 @@ namespace Autenticacion
                 }
                 catch (PoliticasContraseniaException p)
                 {
-                    System.Media.SystemSounds.Exclamation.Play();
-                    MessageBox.Show(p.Message.ToString(), "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Console.Write(p.Message);
+
+                    //Muestra la pass y su confimacion
+                    tbPass.UseSystemPasswordChar = false;
+                    tbConfirmarPass.UseSystemPasswordChar = false;
+
+                    //Muestra el la politica que falta cumplir
+                    labelPoliticas.Visible = true;
+                    bool caracterEspecial = tbPass.Text.Any(x => x.Equals('@') || x.Equals('#') || x.Equals('$') || x.Equals('%') || x.Equals('&') || x.Equals('*'));
+                    bool tieneMayusculas = tbPass.Text.Any(c => char.IsUpper(c));
+                    bool tieneDigitos = tbPass.Text.Any(c => char.IsDigit(c));
+
+                    if (tbPass.Text.Count() < 8)
+                    {
+                        labelPoliticas.Text = "La longitud debe ser mínimo de 8 caracteres";
+                    }
+                    else if(!caracterEspecial)
+                    {
+                        labelPoliticas.Text = "Debe haber almenos un caracter especial (@ # $ % & *)";
+                    }
+                    else if (!tieneMayusculas)
+                    {
+                        labelPoliticas.Text = "No hay almenos una letra mayúscula";
+                    }
+                    else if (!tieneDigitos)
+                    {
+                        labelPoliticas.Text = "Debe haber almenos un dígito";
+                    }
                 }
                 catch (NickException n)
                 {
@@ -92,7 +119,7 @@ namespace Autenticacion
         private void tbPass_Click(object sender, EventArgs e)
         {
             notificacion.Visible = true;
-            notificacion.BalloonTipText = "Al menos:\n8 caractéres\nUn signo (@#$%&*)\nUna letra mayúscula\nUn dígito";
+            notificacion.BalloonTipText = "Al menos:\n8 caractéres\nUn signo (@ # $ % & *)\nUna letra mayúscula\nUn dígito";
 
             notificacion.BalloonTipTitle = "Políticas de contraseña";
             notificacion.ShowBalloonTip(10000);

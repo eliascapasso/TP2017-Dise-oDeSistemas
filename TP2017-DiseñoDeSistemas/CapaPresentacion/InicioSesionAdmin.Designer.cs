@@ -33,14 +33,15 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbIdAdmin = new System.Windows.Forms.TextBox();
+            this.tbNick = new System.Windows.Forms.TextBox();
             this.tbPass = new System.Windows.Forms.TextBox();
+            this.btnMostrarPass = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(263, 123);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Location = new System.Drawing.Point(297, 123);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 7;
@@ -51,8 +52,8 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(136, 123);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Location = new System.Drawing.Point(189, 123);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 6;
@@ -80,21 +81,34 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
-            // tbIdAdmin
+            // tbNick
             // 
-            this.tbIdAdmin.Location = new System.Drawing.Point(136, 18);
-            this.tbIdAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbIdAdmin.Name = "tbIdAdmin";
-            this.tbIdAdmin.Size = new System.Drawing.Size(225, 22);
-            this.tbIdAdmin.TabIndex = 4;
+            this.tbNick.Location = new System.Drawing.Point(136, 18);
+            this.tbNick.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNick.Name = "tbNick";
+            this.tbNick.Size = new System.Drawing.Size(225, 22);
+            this.tbNick.TabIndex = 4;
             // 
             // tbPass
             // 
             this.tbPass.Location = new System.Drawing.Point(136, 78);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4);
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(225, 22);
             this.tbPass.TabIndex = 5;
+            this.tbPass.UseSystemPasswordChar = true;
+            // 
+            // btnMostrarPass
+            // 
+            this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
+            this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMostrarPass.Location = new System.Drawing.Point(369, 77);
+            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarPass.Name = "btnMostrarPass";
+            this.btnMostrarPass.Size = new System.Drawing.Size(28, 25);
+            this.btnMostrarPass.TabIndex = 15;
+            this.btnMostrarPass.UseVisualStyleBackColor = true;
+            this.btnMostrarPass.Click += new System.EventHandler(this.btnMostrarPass_Click);
             // 
             // InicioSesionAdmin
             // 
@@ -102,22 +116,24 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(376, 153);
+            this.ClientSize = new System.Drawing.Size(403, 153);
+            this.Controls.Add(this.btnMostrarPass);
             this.Controls.Add(this.tbPass);
-            this.Controls.Add(this.tbIdAdmin);
+            this.Controls.Add(this.tbNick);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(394, 200);
+            this.MaximumSize = new System.Drawing.Size(500, 200);
             this.MinimumSize = new System.Drawing.Size(394, 200);
             this.Name = "InicioSesionAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesión Administrador";
+            this.Load += new System.EventHandler(this.InicioSesionAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,7 +145,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbIdAdmin;
+        private System.Windows.Forms.TextBox tbNick;
         private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.Button btnMostrarPass;
     }
 }

@@ -55,14 +55,13 @@ namespace CapaLogica
             {
                 bedelesDTO.Add(new BedelDTO(bedel.nick, bedel.contrasenia, bedel.nombre, bedel.apellido, bedel.turno));
             }
-
             return bedelesDTO;
         }
 
-        //METODO PARA VERIFICAR SI EXISTE UN BEDEL CON EL NICK Y PASS INGRESADOS
-        public bool existeBedel(string nick, string pass)
+        //METODO PARA VERIFICAR SI EXISTE UN USUARIO CON EL NICK Y PASS INGRESADOS
+        public bool existeUsuario(string nick, string pass)
         {
-            return userDAODB.existeBedel(nick, pass);
+            return userDAODB.existeUsuario(nick, pass);
         }
 
         //METODO PARA MODIFICAR UN BEDEL
@@ -70,19 +69,12 @@ namespace CapaLogica
         {
             bool passModificada = !pass.Equals(bedelSeleccionado.contrasenia);
             
-            
-
             //Comprueba politicas de contraseña o que no haya sido modificada
             if (!passModificada || gestorPoliticas.comprobarPoliticas(pass))
             {
                 Bedel bedelObt = userDAODB.obtenerBedel(bedelSeleccionado.nick);
 
                 bedelObt.setValores(nombre, apellido, turno, pass);
-
-                foreach (HistContrasenia hist in bedelObt.HistContrasenias)
-                {
-                    MessageBox.Show(hist.id_usuario.ToString() + " ");
-                }
 
                 if (passModificada)
                 {

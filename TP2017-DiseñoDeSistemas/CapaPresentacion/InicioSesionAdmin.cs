@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Autenticacion
     public partial class InicioSesionAdmin : Form
     {
         private Form padre;
+        private GestorDeUsuario gestorUsuario = new GestorDeUsuario();
+
         public InicioSesionAdmin(Form papa)
         {
             this.padre = papa;
@@ -22,17 +25,41 @@ namespace Autenticacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-
-            Autenticacion autenticacion = new Autenticacion();
-            autenticacion.Show();
+            padre.Show();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            this.Hide(); //Falta hacer todas las validaciones para poder iniciar sesion
+            if (!gestorUsuario.existeUsuario(tbNick.Text, tbPass.Text) || !tbNick.Text.Equals("admin"))
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("Los datos ingresados no son válidos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.Hide();
 
-            MenuAdmin panAdmin = new MenuAdmin(this);
-            panAdmin.Show();
+                MenuAdmin admin = new MenuAdmin(this);
+                admin.Show();
+            }
+        }
+
+        private void InicioSesionAdmin_Load(object sender, EventArgs e)
+        {
+            tbNick.Text = "";
+            tbPass.Text = "";
+        }
+
+        private void btnMostrarPass_Click(object sender, EventArgs e)
+        {
+            if (tbPass.UseSystemPasswordChar)
+            {
+                tbPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                tbPass.UseSystemPasswordChar = true;
+            }
         }
     }
 }

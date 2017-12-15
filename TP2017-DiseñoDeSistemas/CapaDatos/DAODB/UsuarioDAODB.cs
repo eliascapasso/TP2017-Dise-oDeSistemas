@@ -90,17 +90,17 @@
             return bedelObtenido;
         }
 
-        //VERIFICA SI EXISTE UN BEDEL CON EL NICK Y PASS INGRESADOS
-        public bool existeBedel(string nickActual, string pass)
+        //VERIFICA SI EXISTE UN USUARIO CON EL NICK Y PASS INGRESADOS
+        public bool existeUsuario(string nickActual, string pass)
         {
             using (TP2017Entities bd = new TP2017Entities())
             {
-                var bedeles = from usuario in bd.Bedeles
+                var usuarios = from usuario in bd.Usuarios
                               where usuario.nick.Equals(nickActual) 
                               && usuario.contrasenia.Equals(pass)
                               select usuario;
 
-                foreach (Bedel bedel in bedeles)
+                foreach (Usuario usuario in usuarios)
                 {
                     return true;
                 }

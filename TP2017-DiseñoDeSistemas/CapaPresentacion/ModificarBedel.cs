@@ -34,6 +34,7 @@ namespace Autenticacion
             {
                 try
                 {
+                    labelPoliticas.Visible = false;
                     //Se intenta modificar el bedel
                     GestorDeUsuario gestor = new GestorDeUsuario();
                     gestor.modificarBedel(this.bedelSeleccionado, tbApellido.Text, tbNombre.Text, cbTurno.SelectedItem.ToString(), tbPass.Text);
@@ -48,8 +49,35 @@ namespace Autenticacion
                 }
                 catch (PoliticasContraseniaException p)
                 {
-                    System.Media.SystemSounds.Exclamation.Play();
-                    MessageBox.Show(p.Message.ToString(), "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Console.Write(p.Message);
+
+                    //Muestra la pass y su confimacion
+                    tbPass.UseSystemPasswordChar = false;
+                    tbConfPass.UseSystemPasswordChar = false;
+                    tbConfPass.Text = "";
+
+                    //Muestra el la politica que falta cumplir
+                    labelPoliticas.Visible = true;
+                    bool caracterEspecial = tbPass.Text.Any(x => x.Equals('@') || x.Equals('#') || x.Equals('$') || x.Equals('%') || x.Equals('&') || x.Equals('*'));
+                    bool tieneMayusculas = tbPass.Text.Any(c => char.IsUpper(c));
+                    bool tieneDigitos = tbPass.Text.Any(c => char.IsDigit(c));
+
+                    if (tbPass.Text.Count() < 8)
+                    {
+                        labelPoliticas.Text = "La longitud debe ser mínimo de 8 caracteres";
+                    }
+                    else if (!caracterEspecial)
+                    {
+                        labelPoliticas.Text = "Debe haber almenos un caracter especial (@ # $ % & *)";
+                    }
+                    else if (!tieneMayusculas)
+                    {
+                        labelPoliticas.Text = "No hay almenos una letra mayúscula";
+                    }
+                    else if (!tieneDigitos)
+                    {
+                        labelPoliticas.Text = "Debe haber almenos un dígito";
+                    }
                 }
                 catch (NickException n)
                 {
