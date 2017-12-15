@@ -14,7 +14,6 @@
             this.id_reserva = reserva.id_reserva;
             this.hora_inicio = hora_inicio;
             this.duracion = duracion;
-            this.Aula = aula;
         }
     }
 }
