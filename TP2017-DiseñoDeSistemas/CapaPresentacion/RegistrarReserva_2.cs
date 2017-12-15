@@ -1,18 +1,18 @@
 ﻿
-    using Autenticacion;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
-    using CapaClases;
-    using CapaLogica;
-    using System.Collections;
-    using Excepciones;
+using Autenticacion;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using CapaClases;
+using CapaLogica;
+using System.Collections;
+using Excepciones;
 
 namespace CapaPresentacion
 {

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TP2017Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TP2017Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AnioLectivo">
           <Key>
             <PropertyRef Name="id_anio_lectivo" />
@@ -55,6 +55,7 @@
           </Key>
           <Property Name="id_detalle_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="dia" Type="varchar" MaxLength="50" />
+          <Property Name="fecha" Type="datetime" />
           <Property Name="id_reserva" Type="int" />
           <Property Name="id_aula" Type="int" />
           <Property Name="hora_inicio" Type="time" Precision="7" />
@@ -92,7 +93,7 @@
             <PropertyRef Name="id_reserva" />
           </Key>
           <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="hora_inicio" Type="time" Precision="7" />
+          <Property Name="fechaReserva" Type="time" Precision="7" />
           <Property Name="capacidad" Type="int" />
           <Property Name="activa" Type="bit" />
           <Property Name="id_usuario" Type="int" />
@@ -119,7 +120,7 @@
             <PropertyRef Name="id_tipo_usuario" />
           </Key>
           <Property Name="id_tipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion" Type="varchar" MaxLength="10" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -127,11 +128,11 @@
           </Key>
           <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="activo" Type="bit" />
-          <Property Name="nick" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="contrasenia" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="20" />
-          <Property Name="apellido" Type="varchar" MaxLength="20" />
-          <Property Name="turno" Type="varchar" MaxLength="20" />
+          <Property Name="nick" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasenia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="turno" Type="varchar" MaxLength="50" />
           <Property Name="id_tipo_usuario" Type="int" />
         </EntityType>
         <Association Name="FK__Asignatur__id_ti__20C1E124">
@@ -357,8 +358,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TP2017Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -423,6 +423,7 @@
           <NavigationProperty Name="Aula" Relationship="Self.FK__DetalleRe__id_au__31EC6D26" FromRole="DetalleReserva" ToRole="Aula" />
           <NavigationProperty Name="Cuatrimestre" Relationship="Self.FK__DetalleRe__id_cu__32E0915F" FromRole="DetalleReserva" ToRole="Cuatrimestre" />
           <NavigationProperty Name="Reserva" Relationship="Self.FK__DetalleRe__id_re__30F848ED" FromRole="DetalleReserva" ToRole="Reserva" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Docente">
           <Key>
@@ -450,7 +451,6 @@
             <PropertyRef Name="id_reserva" />
           </Key>
           <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="hora_inicio" Type="Time" Precision="7" />
           <Property Name="capacidad" Type="Int32" />
           <Property Name="activa" Type="Boolean" />
           <Property Name="id_usuario" Type="Int32" />
@@ -461,6 +461,7 @@
           <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_re__30F848ED" FromRole="Reserva" ToRole="DetalleReserva" />
           <NavigationProperty Name="Docente" Relationship="Self.FK__Reserva__id_doce__2E1BDC42" FromRole="Reserva" ToRole="Docente" />
           <NavigationProperty Name="Usuario" Relationship="Self.FK__Reserva__id_usua__2C3393D0" FromRole="Reserva" ToRole="Usuario" />
+          <Property Name="fechaReserva" Type="Time" Precision="7" />
         </EntityType>
         <EntityType Name="TipoAsignatura">
           <Key>
@@ -483,7 +484,7 @@
             <PropertyRef Name="id_tipo_usuario" />
           </Key>
           <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuario__id_tipo__1273C1CD" FromRole="TipoUsuario" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Usuario">
@@ -492,8 +493,8 @@
           </Key>
           <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="activo" Type="Boolean" />
-          <Property Name="nick" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_tipo_usuario" Type="Int32" />
           <NavigationProperty Name="HistContrasenias" Relationship="Self.FK__HistContr__id_us__15502E78" FromRole="Usuario" ToRole="HistContrasenia" />
           <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__id_usua__2C3393D0" FromRole="Usuario" ToRole="Reserva" />
@@ -698,20 +699,20 @@
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Bedel" BaseType="TP2017Model.Usuario" >
-          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AulaMultimedios" BaseType="TP2017Model.Aula" >
-          <Property Name="tv" Type="Boolean" Nullable="false" />
-          <Property Name="pc" Type="Boolean" Nullable="false" />
-          <Property Name="dvd" Type="Boolean" Nullable="false" />
+          <Property Name="tv" Type="Boolean" />
+          <Property Name="pc" Type="Boolean" />
+          <Property Name="dvd" Type="Boolean" />
         </EntityType>
         <EntityType Name="AulaInformatica" BaseType="TP2017Model.Aula" >
-          <Property Name="cant_pc" Type="Int32" Nullable="false" />
+          <Property Name="cant_pc" Type="Int32" />
         </EntityType>
         <EntityType Name="AulaSinRecursosAdicionales" BaseType="TP2017Model.Aula" >
-          <Property Name="ventilador" Type="Boolean" Nullable="false" />
+          <Property Name="ventilador" Type="Boolean" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -754,12 +755,19 @@
             <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaMultimedios)">
               <MappingFragment StoreEntitySet="Aula">
                 <ScalarProperty Name="id_aula" ColumnName="id_aula" />
-                <ScalarProperty Name="pc" ColumnName="pc" />
-                <ScalarProperty Name="tv" ColumnName="tv" />
                 <ScalarProperty Name="dvd" ColumnName="dvd" />
+                <ScalarProperty Name="tv" ColumnName="tv" />
+                <ScalarProperty Name="pc" ColumnName="pc" />
                 <Condition ColumnName="dvd" IsNull="false" />
                 <Condition ColumnName="pc" IsNull="false" />
                 <Condition ColumnName="tv" IsNull="false" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaSinRecursosAdicionales)">
+              <MappingFragment StoreEntitySet="Aula">
+                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+                <ScalarProperty Name="ventilador" ColumnName="ventilador" />
+                <Condition ColumnName="ventilador" IsNull="false" />
               </MappingFragment>
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaInformatica)">
@@ -767,13 +775,6 @@
                 <ScalarProperty Name="id_aula" ColumnName="id_aula" />
                 <ScalarProperty Name="cant_pc" ColumnName="cant_pc" />
                 <Condition ColumnName="cant_pc" IsNull="false" />
-              </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaSinRecursosAdicionales)">
-              <MappingFragment StoreEntitySet="Aula">
-                <ScalarProperty Name="ventilador" ColumnName="ventilador" />
-                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
-                <Condition ColumnName="ventilador" IsNull="false" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -790,6 +791,7 @@
           <EntitySetMapping Name="DetalleReservas">
             <EntityTypeMapping TypeName="TP2017Model.DetalleReserva">
               <MappingFragment StoreEntitySet="DetalleReserva">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="id_detalle_reserva" ColumnName="id_detalle_reserva" />
                 <ScalarProperty Name="dia" ColumnName="dia" />
                 <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
@@ -823,8 +825,8 @@
           <EntitySetMapping Name="Reservas">
             <EntityTypeMapping TypeName="TP2017Model.Reserva">
               <MappingFragment StoreEntitySet="Reserva">
+                <ScalarProperty Name="fechaReserva" ColumnName="fechaReserva" />
                 <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
-                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
                 <ScalarProperty Name="capacidad" ColumnName="capacidad" />
                 <ScalarProperty Name="activa" ColumnName="activa" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
@@ -871,11 +873,11 @@
             <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.Bedel)">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-                <ScalarProperty Name="turno" ColumnName="turno" />
-                <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <Condition ColumnName="nombre" IsNull="false" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="turno" ColumnName="turno" />
                 <Condition ColumnName="apellido" IsNull="false" />
+                <Condition ColumnName="nombre" IsNull="false" />
                 <Condition ColumnName="turno" IsNull="false" />
               </MappingFragment>
             </EntityTypeMapping>

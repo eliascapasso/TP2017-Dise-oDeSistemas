@@ -21,13 +21,13 @@ namespace CapaDatos
         }
     
         public int id_reserva { get; set; }
-        public Nullable<System.TimeSpan> hora_inicio { get; set; }
         public Nullable<int> capacidad { get; set; }
         public Nullable<bool> activa { get; set; }
         public Nullable<int> id_usuario { get; set; }
         public Nullable<int> id_asignatura { get; set; }
         public string tipo_reserva { get; set; }
         public Nullable<int> id_docente { get; set; }
+        public Nullable<System.TimeSpan> fechaReserva { get; set; }
     
         public virtual Asignatura Asignatura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

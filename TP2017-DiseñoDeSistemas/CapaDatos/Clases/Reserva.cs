@@ -5,7 +5,7 @@
 
     public partial class Reserva
     {
-        public Reserva(Bedel bedel, string tipoReserva, int cantAlumnos, Docente docente, Asignatura asignatura)
+        public Reserva(Bedel bedel, string tipoReserva, int cantAlumnos, Docente docente, Asignatura asignatura, DateTime fechaReserva)
         {
             this.id_usuario = bedel.id_usuario;
             this.tipo_reserva = tipoReserva;
@@ -14,6 +14,7 @@
             this.id_asignatura = asignatura.id_asignatura;
             this.DetalleReservas = new HashSet<DetalleReserva>();
             this.activa = true;
+            this.fechaReserva = TimeSpan.Parse(fechaReserva.ToString());
         }
 
         public void agregarDetalle(DetalleReserva detalleReserva)

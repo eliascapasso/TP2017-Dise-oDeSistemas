@@ -50,6 +50,7 @@
     </Key>
     <Property Name="id_detalle_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="dia" Type="varchar" MaxLength="50" />
+    <Property Name="fecha" Type="datetime" />
     <Property Name="id_reserva" Type="int" />
     <Property Name="id_aula" Type="int" />
     <Property Name="hora_inicio" Type="time" Precision="7" />
@@ -87,7 +88,7 @@
       <PropertyRef Name="id_reserva" />
     </Key>
     <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="hora_inicio" Type="time" Precision="7" />
+    <Property Name="fechaReserva" Type="time" Precision="7" />
     <Property Name="capacidad" Type="int" />
     <Property Name="activa" Type="bit" />
     <Property Name="id_usuario" Type="int" />
@@ -114,7 +115,7 @@
       <PropertyRef Name="id_tipo_usuario" />
     </Key>
     <Property Name="id_tipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="10" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -122,11 +123,11 @@
     </Key>
     <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="activo" Type="bit" />
-    <Property Name="nick" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="contrasenia" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="20" />
-    <Property Name="apellido" Type="varchar" MaxLength="20" />
-    <Property Name="turno" Type="varchar" MaxLength="20" />
+    <Property Name="nick" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="turno" Type="varchar" MaxLength="50" />
     <Property Name="id_tipo_usuario" Type="int" />
   </EntityType>
   <Association Name="FK__Asignatur__id_ti__20C1E124">

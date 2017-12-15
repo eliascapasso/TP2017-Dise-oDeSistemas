@@ -61,6 +61,7 @@
     <NavigationProperty Name="Aula" Relationship="Self.FK__DetalleRe__id_au__31EC6D26" FromRole="DetalleReserva" ToRole="Aula" />
     <NavigationProperty Name="Cuatrimestre" Relationship="Self.FK__DetalleRe__id_cu__32E0915F" FromRole="DetalleReserva" ToRole="Cuatrimestre" />
     <NavigationProperty Name="Reserva" Relationship="Self.FK__DetalleRe__id_re__30F848ED" FromRole="DetalleReserva" ToRole="Reserva" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Docente">
     <Key>
@@ -88,7 +89,6 @@
       <PropertyRef Name="id_reserva" />
     </Key>
     <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="hora_inicio" Type="Time" Precision="7" />
     <Property Name="capacidad" Type="Int32" />
     <Property Name="activa" Type="Boolean" />
     <Property Name="id_usuario" Type="Int32" />
@@ -99,6 +99,7 @@
     <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_re__30F848ED" FromRole="Reserva" ToRole="DetalleReserva" />
     <NavigationProperty Name="Docente" Relationship="Self.FK__Reserva__id_doce__2E1BDC42" FromRole="Reserva" ToRole="Docente" />
     <NavigationProperty Name="Usuario" Relationship="Self.FK__Reserva__id_usua__2C3393D0" FromRole="Reserva" ToRole="Usuario" />
+    <Property Name="fechaReserva" Type="Time" Precision="7" />
   </EntityType>
   <EntityType Name="TipoAsignatura">
     <Key>
@@ -121,7 +122,7 @@
       <PropertyRef Name="id_tipo_usuario" />
     </Key>
     <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuario__id_tipo__1273C1CD" FromRole="TipoUsuario" ToRole="Usuario" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -130,8 +131,8 @@
     </Key>
     <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="activo" Type="Boolean" />
-    <Property Name="nick" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="contrasenia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="id_tipo_usuario" Type="Int32" />
     <NavigationProperty Name="HistContrasenias" Relationship="Self.FK__HistContr__id_us__15502E78" FromRole="Usuario" ToRole="HistContrasenia" />
     <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__id_usua__2C3393D0" FromRole="Usuario" ToRole="Reserva" />
@@ -336,19 +337,19 @@
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Bedel" BaseType="TP2017Model.Usuario">
-    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="turno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="AulaMultimedios" BaseType="TP2017Model.Aula">
-    <Property Name="tv" Type="Boolean" Nullable="false" />
-    <Property Name="pc" Type="Boolean" Nullable="false" />
-    <Property Name="dvd" Type="Boolean" Nullable="false" />
+    <Property Name="tv" Type="Boolean" />
+    <Property Name="pc" Type="Boolean" />
+    <Property Name="dvd" Type="Boolean" />
   </EntityType>
   <EntityType Name="AulaInformatica" BaseType="TP2017Model.Aula">
-    <Property Name="cant_pc" Type="Int32" Nullable="false" />
+    <Property Name="cant_pc" Type="Int32" />
   </EntityType>
   <EntityType Name="AulaSinRecursosAdicionales" BaseType="TP2017Model.Aula">
-    <Property Name="ventilador" Type="Boolean" Nullable="false" />
+    <Property Name="ventilador" Type="Boolean" />
   </EntityType>
 </Schema>

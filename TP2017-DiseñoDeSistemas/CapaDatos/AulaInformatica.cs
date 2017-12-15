@@ -14,6 +14,6 @@ namespace CapaDatos
     
     public partial class AulaInformatica : Aula
     {
-        public int cant_pc { get; set; }
+        public Nullable<int> cant_pc { get; set; }
     }
 }

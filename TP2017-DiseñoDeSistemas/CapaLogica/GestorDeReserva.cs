@@ -32,27 +32,27 @@ namespace CapaLogica
             HashSet<AulaDTO> disponibilidad = new HashSet<AulaDTO>();
             
             foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
-            { //TODO: ver como concatenar al agregar aula DTO
+            {
                 AulaDTO aulaDTO = new AulaDTO(reservaDTO.cantAlumnos,
                                       reservaDTO.idTipoAula,
                                       detalleReserva,
                                       reservaDTO.tipoReserva,
                                       gestorAula.calcularPeriodo(detalleReserva, reservaDTO.tipoReserva));
-                
-                //bool todaviaDisponible = false;
-                //foreach (AulaDTO aulaDisponible in gestorAula.obtenerDisponibilidad(aulaDTO))
-                //{
-                //    if (aulaDisponible.idAula.Equals(detalleReserva.idAula))
-                //    {
-                //        todaviaDisponible = true;
-                        
-                //    }
-                //}
 
-                //if (!todaviaDisponible)
-                //{
-                //    throw new DisponibilidadException();
-                //}
+                bool todaviaDisponible = false;
+                foreach (AulaDTO aulaDisponible in gestorAula.obtenerDisponibilidad(aulaDTO))
+                {
+                    if (aulaDisponible.idAula.Equals(detalleReserva.idAula))
+                    {
+                        todaviaDisponible = true;
+
+                    }
+                }
+
+                if (!todaviaDisponible)
+                {
+                    throw new DisponibilidadException();
+                }
             }
 
             //Obtiene el docente seleccionado
@@ -64,8 +64,9 @@ namespace CapaLogica
                                           reservaDTO.tipoReserva,
                                           reservaDTO.cantAlumnos,
                                           docente,
-                                          asignatura);
-            //TODO:No carga los detalles de reserva
+                                          asignatura,
+                                          DateTime.Now);
+
             foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservas)
             {
                 Aula aula = aulaDAO.getAula(detalle.idAula);
@@ -97,7 +98,6 @@ namespace CapaLogica
                 straux = (aux / 60).ToString()+":"+(aux%60).ToString();
             }
             
-
             return TimeSpan.Parse(straux);
         }
     }

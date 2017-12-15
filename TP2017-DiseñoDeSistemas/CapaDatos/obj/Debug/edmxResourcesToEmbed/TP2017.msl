@@ -36,12 +36,19 @@
       <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaMultimedios)">
         <MappingFragment StoreEntitySet="Aula">
           <ScalarProperty Name="id_aula" ColumnName="id_aula" />
-          <ScalarProperty Name="pc" ColumnName="pc" />
-          <ScalarProperty Name="tv" ColumnName="tv" />
           <ScalarProperty Name="dvd" ColumnName="dvd" />
+          <ScalarProperty Name="tv" ColumnName="tv" />
+          <ScalarProperty Name="pc" ColumnName="pc" />
           <Condition ColumnName="dvd" IsNull="false" />
           <Condition ColumnName="pc" IsNull="false" />
           <Condition ColumnName="tv" IsNull="false" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaSinRecursosAdicionales)">
+        <MappingFragment StoreEntitySet="Aula">
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="ventilador" ColumnName="ventilador" />
+          <Condition ColumnName="ventilador" IsNull="false" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaInformatica)">
@@ -49,13 +56,6 @@
           <ScalarProperty Name="id_aula" ColumnName="id_aula" />
           <ScalarProperty Name="cant_pc" ColumnName="cant_pc" />
           <Condition ColumnName="cant_pc" IsNull="false" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaSinRecursosAdicionales)">
-        <MappingFragment StoreEntitySet="Aula">
-          <ScalarProperty Name="ventilador" ColumnName="ventilador" />
-          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
-          <Condition ColumnName="ventilador" IsNull="false" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -72,6 +72,7 @@
     <EntitySetMapping Name="DetalleReservas">
       <EntityTypeMapping TypeName="TP2017Model.DetalleReserva">
         <MappingFragment StoreEntitySet="DetalleReserva">
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="id_detalle_reserva" ColumnName="id_detalle_reserva" />
           <ScalarProperty Name="dia" ColumnName="dia" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
@@ -105,8 +106,8 @@
     <EntitySetMapping Name="Reservas">
       <EntityTypeMapping TypeName="TP2017Model.Reserva">
         <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="fechaReserva" ColumnName="fechaReserva" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
-          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
           <ScalarProperty Name="capacidad" ColumnName="capacidad" />
           <ScalarProperty Name="activa" ColumnName="activa" />
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
@@ -153,11 +154,11 @@
       <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.Bedel)">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
-          <ScalarProperty Name="turno" ColumnName="turno" />
-          <ScalarProperty Name="apellido" ColumnName="apellido" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <Condition ColumnName="nombre" IsNull="false" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="turno" ColumnName="turno" />
           <Condition ColumnName="apellido" IsNull="false" />
+          <Condition ColumnName="nombre" IsNull="false" />
           <Condition ColumnName="turno" IsNull="false" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -22,16 +22,16 @@ namespace CapaDatos
                             && DetalleReserva.hora_inicio.Equals(horaInicio) 
                             && DetalleReserva.duracion.Equals(duaracion)
                             select DetalleReserva.Aula;
-                //TODO: Descomentar una vez que ya se haya guardado un detalleReserva
-                //foreach (DetalleReserva detalle in bd.DetalleReservas)
-                //{
-                //    if (detalle.dia.Equals(fechaReserva)
-                //            && detalle.hora_inicio.Equals(horaInicio)
-                //            && detalle.duracion.Equals(duaracion))
-                //    {
-                //        aulasOcupadas.Add(detalle.Aula);
-                //    }
-                //}
+                
+                foreach (DetalleReserva detalle in bd.DetalleReservas)
+                {
+                    if (detalle.dia.Equals(fechaReserva)
+                            && detalle.hora_inicio.Equals(horaInicio)
+                            && detalle.duracion.Equals(duaracion))
+                    {
+                        aulasOcupadas.Add(detalle.Aula);
+                    }
+                }
             }
             return aulasOcupadas;
         }
