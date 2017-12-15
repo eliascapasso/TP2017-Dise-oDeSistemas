@@ -88,7 +88,7 @@
       <PropertyRef Name="id_reserva" />
     </Key>
     <Property Name="id_reserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fechaReserva" Type="time" Precision="7" />
+    <Property Name="fechaReserva" Type="datetime" />
     <Property Name="capacidad" Type="int" />
     <Property Name="activa" Type="bit" />
     <Property Name="id_usuario" Type="int" />

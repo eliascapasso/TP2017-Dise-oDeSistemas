@@ -14,7 +14,7 @@
             this.id_asignatura = asignatura.id_asignatura;
             this.DetalleReservas = new HashSet<DetalleReserva>();
             this.activa = true;
-            this.fechaReserva = TimeSpan.Parse(fechaReserva.ToString());
+            this.fechaReserva = fechaReserva;
         }
 
         public void agregarDetalle(DetalleReserva detalleReserva)

@@ -21,7 +21,7 @@ namespace CapaDatos
         }
     
         public int id_reserva { get; set; }
-        public Nullable<System.TimeSpan> fechaReserva { get; set; }
+        public Nullable<System.DateTime> fechaReserva { get; set; }
         public Nullable<int> capacidad { get; set; }
         public Nullable<bool> activa { get; set; }
         public Nullable<int> id_usuario { get; set; }

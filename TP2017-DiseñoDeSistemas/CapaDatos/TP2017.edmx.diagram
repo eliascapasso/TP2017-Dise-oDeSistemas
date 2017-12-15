@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0a0bb767068b46b693f159a4b49e3217" Name="Diagram1">
-        <EntityTypeShape EntityType="TP2017Model.AnioLectivo" Width="1.5" PointX="13.875" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Asignatura" Width="1.5" PointX="2.875" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Aula" Width="1.5" PointX="8.875" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Cuatrimestre" Width="1.5" PointX="13.875" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.DetalleReserva" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Docente" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.HistContrasenia" Width="1.5" PointX="6.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Reserva" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.TipoAsignatura" Width="1.5" PointX="0.5" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.TipoAula" Width="1.5" PointX="11.375" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.TipoUsuario" Width="1.5" PointX="1.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Usuario" Width="1.5" PointX="3.875" PointY="0.5" IsExpanded="true" />
+      <Diagram DiagramId="73c562c6bbe345fda7baf98828afbcdd" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="TP2017Model.AnioLectivo" Width="1.5" PointX="13.125" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Asignatura" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Aula" Width="1.5" PointX="7.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Cuatrimestre" Width="1.5" PointX="13.125" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.DetalleReserva" Width="1.5" PointX="11.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Docente" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.HistContrasenia" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Reserva" Width="1.5" PointX="8.625" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.TipoAsignatura" Width="1.5" PointX="0.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.TipoAula" Width="1.5" PointX="4.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.TipoUsuario" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Usuario" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="TP2017Model.FK__Cuatrimes__id_an__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__Asignatur__id_ti__276EDEB3" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__Reserva__id_asig__300424B4" ManuallyRouted="false" />
@@ -26,17 +26,17 @@
         <AssociationConnector Association="TP2017Model.FK__DetalleRe__id_re__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__Reserva__id_doce__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__HistContr__id_us__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="TP2017Model.FK__Reserva__id_usua__31EC6D26" ManuallyRouted="false" ></AssociationConnector>
+        <AssociationConnector Association="TP2017Model.FK__Reserva__id_usua__31EC6D26" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__Usuario__id_tipo__32E0915F" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.DocenteAsignatura" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="TP2017Model.AulaInformatica" Width="1.5" PointX="7" PointY="12.5" />
-        <InheritanceConnector EntityType="TP2017Model.AulaInformatica" />
-        <EntityTypeShape EntityType="TP2017Model.AulaSinRecursosAdicionales" Width="1.5" PointX="8.875" PointY="12.5" />
-        <InheritanceConnector EntityType="TP2017Model.AulaSinRecursosAdicionales" />
-        <EntityTypeShape EntityType="TP2017Model.AulaMultimedios" Width="1.5" PointX="10.625" PointY="12.5" />
-        <InheritanceConnector EntityType="TP2017Model.AulaMultimedios" />
-        <EntityTypeShape EntityType="TP2017Model.Bedel" Width="1.5" PointX="3.875" PointY="3.75" />
+        <EntityTypeShape EntityType="TP2017Model.Bedel" Width="1.5" PointX="5.25" PointY="3.75" />
         <InheritanceConnector EntityType="TP2017Model.Bedel" />
+        <EntityTypeShape EntityType="TP2017Model.AulaSinRecursosAdicionales" Width="1.5" PointX="5.5" PointY="12.625" />
+        <InheritanceConnector EntityType="TP2017Model.AulaSinRecursosAdicionales" />
+        <EntityTypeShape EntityType="TP2017Model.AulaInformatica" Width="1.5" PointX="7.5" PointY="12.625" />
+        <InheritanceConnector EntityType="TP2017Model.AulaInformatica" />
+        <EntityTypeShape EntityType="TP2017Model.AulaMultimedios" Width="1.5" PointX="9.375" PointY="12.625" />
+        <InheritanceConnector EntityType="TP2017Model.AulaMultimedios" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

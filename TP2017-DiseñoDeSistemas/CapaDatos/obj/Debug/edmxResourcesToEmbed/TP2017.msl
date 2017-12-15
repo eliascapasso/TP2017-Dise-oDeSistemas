@@ -33,17 +33,6 @@
           <ScalarProperty Name="habilitado" ColumnName="habilitado" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaInformatica)">
-        <MappingFragment StoreEntitySet="Aula">
-          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
-          <ScalarProperty Name="pc" ColumnName="pc" />
-          <ScalarProperty Name="tv" ColumnName="tv" />
-          <ScalarProperty Name="dvd" ColumnName="dvd" />
-          <Condition ColumnName="dvd" IsNull="false" />
-          <Condition ColumnName="tv" IsNull="false" />
-          <Condition ColumnName="pc" IsNull="false" />
-        </MappingFragment>
-      </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaSinRecursosAdicionales)">
         <MappingFragment StoreEntitySet="Aula">
           <ScalarProperty Name="id_aula" ColumnName="id_aula" />
@@ -51,11 +40,22 @@
           <Condition ColumnName="ventilador" IsNull="false" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaMultimedios)">
+      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaInformatica)">
         <MappingFragment StoreEntitySet="Aula">
           <ScalarProperty Name="id_aula" ColumnName="id_aula" />
           <ScalarProperty Name="cant_pc" ColumnName="cant_pc" />
           <Condition ColumnName="cant_pc" IsNull="false" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(TP2017Model.AulaMultimedios)">
+        <MappingFragment StoreEntitySet="Aula">
+          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="pc" ColumnName="pc" />
+          <ScalarProperty Name="tv" ColumnName="tv" />
+          <ScalarProperty Name="dvd" ColumnName="dvd" />
+          <Condition ColumnName="dvd" IsNull="false" />
+          <Condition ColumnName="pc" IsNull="false" />
+          <Condition ColumnName="tv" IsNull="false" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

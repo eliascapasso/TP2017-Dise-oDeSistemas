@@ -14,8 +14,6 @@ namespace CapaDatos
     
     public partial class AulaInformatica : Aula
     {
-        public bool dvd { get; set; }
-        public bool tv { get; set; }
-        public bool pc { get; set; }
+        public int cant_pc { get; set; }
     }
 }
