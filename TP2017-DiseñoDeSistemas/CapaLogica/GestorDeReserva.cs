@@ -18,38 +18,41 @@ namespace CapaLogica
         private UsuarioDAODB usuarioDAO = new UsuarioDAODB();
         private AulaDAODB aulaDAO = new AulaDAODB();
         private ReservaDAODB reservaDAO = new ReservaDAODB();
+        private HashSet<CuatrimestreDTO> todosLosPeriodos;
 
         public GestorDeReserva()
         {
             this.gestorAula = new GestorDeAula();
+            this.todosLosPeriodos = new AnioLectivoDAODB().obtenerTodosLosPeriodos();
         }
 
         public void registrarReserva(ReservaDTO reservaDTO)
         {
             //Chequea que la disponibilidad de las aulas sean las mismas
             HashSet<AulaDTO> disponibilidad = new HashSet<AulaDTO>();
-
+            
             foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
             { //TODO: ver como concatenar al agregar aula DTO
                 AulaDTO aulaDTO = new AulaDTO(reservaDTO.cantAlumnos,
                                       reservaDTO.idTipoAula,
                                       detalleReserva,
                                       reservaDTO.tipoReserva,
-                                      detalleReserva.periodo);
+                                      gestorAula.calcularPeriodo(detalleReserva, reservaDTO.tipoReserva));
                 
-                bool todaviaDisponible = false;
-                foreach (AulaDTO aulaDisponible in gestorAula.obtenerDisponibilidad(aulaDTO))
-                {
-                    if (aulaDisponible.idAula.Equals(detalleReserva.idAula))
-                    {
-                        todaviaDisponible = true;
-                    }
-                }
+                //bool todaviaDisponible = false;
+                //foreach (AulaDTO aulaDisponible in gestorAula.obtenerDisponibilidad(aulaDTO))
+                //{
+                //    if (aulaDisponible.idAula.Equals(detalleReserva.idAula))
+                //    {
+                //        todaviaDisponible = true;
+                        
+                //    }
+                //}
 
-                if (!todaviaDisponible)
-                {
-                    throw new DisponibilidadException();
-                }
+                //if (!todaviaDisponible)
+                //{
+                //    throw new DisponibilidadException();
+                //}
             }
 
             //Obtiene el docente seleccionado
@@ -63,20 +66,22 @@ namespace CapaLogica
                                           docente,
                                           asignatura);
             //TODO:No carga los detalles de reserva
-            //foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservas)
-            //{
-            //    Aula aula = aulaDAO.getAula(detalle.idAula);
+            foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservas)
+            {
+                Aula aula = aulaDAO.getAula(detalle.idAula);
+                
+                DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio),
+                                                                   TimeSpan.Parse(detalle.duracion),
+                                                                   detalle.diaReserva,
+                                                                   aula,
+                                                                   reserva);
 
-            //    DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio), 
-            //                                                       TimeSpan.Parse(detalle.duracion), 
-            //                                                       detalle.diaReserva, 
-            //                                                       aula, 
-            //                                                       reserva);
+                reserva.agregarDetalle(detalleReserva);
+            }
 
-            //    reserva.agregarDetalle(detalleReserva);
-            //}
+           reservaDAO.guardarReserva(reserva);
+        }
 
-            reservaDAO.guardarReserva(reserva);
-        } 
+
     }
 }

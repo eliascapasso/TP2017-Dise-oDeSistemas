@@ -41,16 +41,16 @@ namespace CapaDatos
             using (TP2017Entities bd = new TP2017Entities())
             {
                 bd.Reservas.Add(reserva);
-                
+
                 try
                 {
                     bd.SaveChanges();
                 }
-                catch (Exception e)
+                    catch (Exception e)
                 {
                     Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos, " + e.Message);
                 }
-            }
+        }
         }
     }
 }

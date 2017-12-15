@@ -1,5 +1,4 @@
-﻿namespace CapaPresentacion
-{
+﻿
     using Autenticacion;
     using System;
     using System.Collections.Generic;
@@ -15,6 +14,8 @@
     using System.Collections;
     using Excepciones;
 
+namespace CapaPresentacion
+{
     public partial class RegistrarReserva_2 : Form
     {
         private Form padre;
@@ -42,7 +43,6 @@
             this.Hide();
             padre.Show();
         }
-
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -126,11 +126,13 @@
             {
                 string dia = Convert.ToString(detalleReserva.diaReserva); //Obtengo el valor de la primer columna (dia)
                 DataGridView dgvAulasDisponibles = new DataGridView();
-
+                
                 //Propiedades del dataGrid
                 dgvAulasDisponibles.Size = tcPestañasDias.Size;
                 dgvAulasDisponibles.AllowUserToAddRows = false;
                 dgvAulasDisponibles.AllowUserToDeleteRows = false;
+                dgvAulasDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgvAulasDisponibles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 //Se asignan los nombres de cada columna
                 dgvAulasDisponibles.Columns.Add("Aula", "Aula");
@@ -185,7 +187,7 @@
                     if (detalle.diaReserva.Equals(fecha))
                     {
                         detalle.idAula = Convert.ToInt32(aula); 
-                        //Console.Write(detalle.idAula + "\n");
+                       
                     }
                 }
                 dgvAulasSeleccionadas.Rows.Add(fecha, aula, duracion, capacidad);

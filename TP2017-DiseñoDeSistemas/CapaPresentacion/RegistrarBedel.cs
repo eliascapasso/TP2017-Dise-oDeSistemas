@@ -16,6 +16,7 @@ namespace Autenticacion
     public partial class RegistrarBedel : Form
     {
         private Form padre;
+        GestorDeUsuario gestor = new GestorDeUsuario();
 
         public RegistrarBedel(Form papa)
         {
@@ -24,7 +25,12 @@ namespace Autenticacion
             InitializeComponent();
         }
 
-        GestorDeUsuario gestor = new GestorDeUsuario();
+
+        private void RegistrarBedel_Load(object sender, EventArgs e)
+        {
+            //No implementado
+        }
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -72,10 +78,6 @@ namespace Autenticacion
             this.Hide();
         }
 
-        private void RegistrarBedel_Load(object sender, EventArgs e)
-        {
-            //No implementado
-        }
 
         private bool existeUnCampoVacio()
         {

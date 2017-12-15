@@ -101,7 +101,7 @@ namespace Autenticacion
             "Cuatrimestral",
             "Anual"});
             this.cbTipoReserva.Location = new System.Drawing.Point(124, 7);
-            this.cbTipoReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTipoReserva.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoReserva.Name = "cbTipoReserva";
             this.cbTipoReserva.Size = new System.Drawing.Size(228, 24);
             this.cbTipoReserva.TabIndex = 2;
@@ -145,7 +145,7 @@ namespace Autenticacion
             this.cbHoraInicio.FormattingEnabled = true;
             this.cbHoraInicio.IntegralHeight = false;
             this.cbHoraInicio.Location = new System.Drawing.Point(312, 84);
-            this.cbHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbHoraInicio.Margin = new System.Windows.Forms.Padding(4);
             this.cbHoraInicio.Name = "cbHoraInicio";
             this.cbHoraInicio.Size = new System.Drawing.Size(83, 24);
             this.cbHoraInicio.TabIndex = 7;
@@ -159,7 +159,7 @@ namespace Autenticacion
             this.cbHoraFin.FormattingEnabled = true;
             this.cbHoraFin.IntegralHeight = false;
             this.cbHoraFin.Location = new System.Drawing.Point(480, 84);
-            this.cbHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbHoraFin.Margin = new System.Windows.Forms.Padding(4);
             this.cbHoraFin.Name = "cbHoraFin";
             this.cbHoraFin.Size = new System.Drawing.Size(83, 24);
             this.cbHoraFin.TabIndex = 8;
@@ -167,7 +167,7 @@ namespace Autenticacion
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(464, 130);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(100, 28);
             this.btnAgregar.TabIndex = 9;
@@ -178,7 +178,7 @@ namespace Autenticacion
             // btnQuitar
             // 
             this.btnQuitar.Location = new System.Drawing.Point(464, 166);
-            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(100, 28);
             this.btnQuitar.TabIndex = 10;
@@ -223,7 +223,7 @@ namespace Autenticacion
             this.cbTipoAula.FormattingEnabled = true;
             this.cbTipoAula.IntegralHeight = false;
             this.cbTipoAula.Location = new System.Drawing.Point(161, 340);
-            this.cbTipoAula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTipoAula.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoAula.Name = "cbTipoAula";
             this.cbTipoAula.Size = new System.Drawing.Size(300, 24);
             this.cbTipoAula.TabIndex = 16;
@@ -245,7 +245,7 @@ namespace Autenticacion
             this.cbNombreCurso.FormattingEnabled = true;
             this.cbNombreCurso.IntegralHeight = false;
             this.cbNombreCurso.Location = new System.Drawing.Point(161, 415);
-            this.cbNombreCurso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbNombreCurso.Margin = new System.Windows.Forms.Padding(4);
             this.cbNombreCurso.Name = "cbNombreCurso";
             this.cbNombreCurso.Size = new System.Drawing.Size(300, 24);
             this.cbNombreCurso.TabIndex = 22;
@@ -264,7 +264,7 @@ namespace Autenticacion
             // btnSiguiente
             // 
             this.btnSiguiente.Location = new System.Drawing.Point(464, 623);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(100, 28);
             this.btnSiguiente.TabIndex = 24;
@@ -276,7 +276,7 @@ namespace Autenticacion
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(356, 623);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 25;
@@ -287,6 +287,7 @@ namespace Autenticacion
             // dgvResultados
             // 
             this.dgvResultados.AllowUserToAddRows = false;
+            this.dgvResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaDia,
@@ -294,7 +295,7 @@ namespace Autenticacion
             this.columnaDuracion,
             this.TipoReserva});
             this.dgvResultados.Location = new System.Drawing.Point(20, 130);
-            this.dgvResultados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvResultados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.ReadOnly = true;
             this.dgvResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -329,7 +330,7 @@ namespace Autenticacion
             // calendarioEsporadico
             // 
             this.calendarioEsporadico.Location = new System.Drawing.Point(60, 85);
-            this.calendarioEsporadico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.calendarioEsporadico.Margin = new System.Windows.Forms.Padding(4);
             this.calendarioEsporadico.Name = "calendarioEsporadico";
             this.calendarioEsporadico.Size = new System.Drawing.Size(152, 22);
             this.calendarioEsporadico.TabIndex = 27;
@@ -349,7 +350,7 @@ namespace Autenticacion
             "Viernes",
             "Sábado"});
             this.cbNoEsporadico.Location = new System.Drawing.Point(60, 85);
-            this.cbNoEsporadico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbNoEsporadico.Margin = new System.Windows.Forms.Padding(4);
             this.cbNoEsporadico.Name = "cbNoEsporadico";
             this.cbNoEsporadico.Size = new System.Drawing.Size(152, 24);
             this.cbNoEsporadico.TabIndex = 28;
@@ -357,7 +358,7 @@ namespace Autenticacion
             // nudCantidadAlumnos
             // 
             this.nudCantidadAlumnos.Location = new System.Drawing.Point(161, 380);
-            this.nudCantidadAlumnos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudCantidadAlumnos.Margin = new System.Windows.Forms.Padding(4);
             this.nudCantidadAlumnos.Minimum = new decimal(new int[] {
             1,
             0,
@@ -376,13 +377,14 @@ namespace Autenticacion
             // 
             this.dgvDocentes.AllowUserToAddRows = false;
             this.dgvDocentes.AllowUserToDeleteRows = false;
+            this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Apellido,
             this.Nombre,
             this.Email});
             this.dgvDocentes.Location = new System.Drawing.Point(20, 501);
-            this.dgvDocentes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDocentes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDocentes.Name = "dgvDocentes";
             this.dgvDocentes.ReadOnly = true;
             this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -406,12 +408,11 @@ namespace Autenticacion
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
-            this.Email.Width = 165;
             // 
             // tbBusquedaDocente
             // 
             this.tbBusquedaDocente.Location = new System.Drawing.Point(225, 466);
-            this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4);
             this.tbBusquedaDocente.Name = "tbBusquedaDocente";
             this.tbBusquedaDocente.Size = new System.Drawing.Size(229, 22);
             this.tbBusquedaDocente.TabIndex = 31;
@@ -419,7 +420,7 @@ namespace Autenticacion
             // btnBuscarDocente
             // 
             this.btnBuscarDocente.Location = new System.Drawing.Point(464, 464);
-            this.btnBuscarDocente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarDocente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarDocente.Name = "btnBuscarDocente";
             this.btnBuscarDocente.Size = new System.Drawing.Size(100, 28);
             this.btnBuscarDocente.TabIndex = 32;
@@ -462,7 +463,7 @@ namespace Autenticacion
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1061, 974);
             this.MinimumSize = new System.Drawing.Size(602, 555);

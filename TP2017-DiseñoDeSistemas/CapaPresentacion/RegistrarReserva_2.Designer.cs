@@ -39,11 +39,11 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvAulasSeleccionadas = new System.Windows.Forms.DataGridView();
-            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Caracteristicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAulasSeleccionadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,6 +138,7 @@
             // 
             this.dgvAulasSeleccionadas.AllowUserToAddRows = false;
             this.dgvAulasSeleccionadas.AllowUserToDeleteRows = false;
+            this.dgvAulasSeleccionadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAulasSeleccionadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAulasSeleccionadas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnaDia,
@@ -151,12 +152,6 @@
             this.dgvAulasSeleccionadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAulasSeleccionadas.Size = new System.Drawing.Size(551, 185);
             this.dgvAulasSeleccionadas.TabIndex = 27;
-            // 
-            // timerReserva
-            // 
-            this.timerReserva.Enabled = true;
-            this.timerReserva.Interval = 60000;
-            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
             // 
             // columnaDia
             // 
@@ -181,6 +176,12 @@
             this.Caracteristicas.HeaderText = "Caracteristicas";
             this.Caracteristicas.Name = "Caracteristicas";
             this.Caracteristicas.ReadOnly = true;
+            // 
+            // timerReserva
+            // 
+            this.timerReserva.Enabled = true;
+            this.timerReserva.Interval = 60000;
+            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
             // 
             // RegistrarReserva_2
             // 

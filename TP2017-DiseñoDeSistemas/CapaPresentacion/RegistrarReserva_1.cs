@@ -84,7 +84,9 @@ namespace Autenticacion
                 HashSet<DetalleReservaDTO> detallesReservas = new HashSet<DetalleReservaDTO>();
                 foreach (DataGridViewRow fila in dgvResultados.Rows)
                 {
-                    detallesReservas.Add(new DetalleReservaDTO(fila.Cells[0].Value.ToString(), fila.Cells[1].Value.ToString(), fila.Cells[2].Value.ToString()));
+                    detallesReservas.Add(new DetalleReservaDTO(fila.Cells[0].Value.ToString(),
+                                                               fila.Cells[1].Value.ToString(), 
+                                                               fila.Cells[2].Value.ToString()));
                 }
 
                 string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
@@ -166,7 +168,9 @@ namespace Autenticacion
             int i = 0;
             foreach (DocenteDTO docente in this.docentes)
             {
-                if (docente.apellido.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) || docente.nombre.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) || docente.email.ToLower().Contains(tbBusquedaDocente.Text.ToLower()))
+                if (docente.apellido.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) ||
+                    docente.nombre.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) ||
+                    docente.email.ToLower().Contains(tbBusquedaDocente.Text.ToLower()))
                 {
                     dgvDocentes.Rows.Insert(i, docente.apellido, docente.nombre, docente.email);
                     i++;
