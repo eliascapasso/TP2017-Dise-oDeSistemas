@@ -25,9 +25,9 @@ namespace CapaDatos
         public int piso { get; set; }
         public Nullable<bool> aire_acond { get; set; }
         public int capacidad { get; set; }
+        public Nullable<bool> canion { get; set; }
         public string tipo_pizarron { get; set; }
         public Nullable<int> id_tipo_aula { get; set; }
-        public Nullable<bool> canion { get; set; }
     
         public virtual TipoAula TipoAula { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

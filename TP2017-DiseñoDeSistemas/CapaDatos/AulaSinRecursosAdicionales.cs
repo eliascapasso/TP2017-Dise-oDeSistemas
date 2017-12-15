@@ -14,6 +14,6 @@ namespace CapaDatos
     
     public partial class AulaSinRecursosAdicionales : Aula
     {
-        public Nullable<bool> ventilador { get; set; }
+        public bool ventilador { get; set; }
     }
 }

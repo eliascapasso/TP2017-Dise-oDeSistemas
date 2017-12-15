@@ -130,7 +130,7 @@
     <Property Name="turno" Type="varchar" MaxLength="50" />
     <Property Name="id_tipo_usuario" Type="int" />
   </EntityType>
-  <Association Name="FK__Asignatur__id_ti__20C1E124">
+  <Association Name="FK__Asignatur__id_ti__276EDEB3">
     <End Role="TipoAsignatura" Type="Self.TipoAsignatura" Multiplicity="0..1" />
     <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="*" />
     <ReferentialConstraint>
@@ -142,7 +142,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Aula__id_tipo_au__1A14E395">
+  <Association Name="FK__Aula__id_tipo_au__286302EC">
     <End Role="TipoAula" Type="Self.TipoAula" Multiplicity="0..1" />
     <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
     <ReferentialConstraint>
@@ -166,7 +166,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleRe__id_au__31EC6D26">
+  <Association Name="FK__DetalleRe__id_au__2A4B4B5E">
     <End Role="Aula" Type="Self.Aula" Multiplicity="0..1" />
     <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
     <ReferentialConstraint>
@@ -178,7 +178,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleRe__id_cu__32E0915F">
+  <Association Name="FK__DetalleRe__id_cu__2B3F6F97">
     <End Role="Cuatrimestre" Type="Self.Cuatrimestre" Multiplicity="0..1" />
     <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
     <ReferentialConstraint>
@@ -190,7 +190,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleRe__id_re__30F848ED">
+  <Association Name="FK__DetalleRe__id_re__2C3393D0">
     <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
     <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
     <ReferentialConstraint>
@@ -202,7 +202,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DocenteAs__id_as__239E4DCF">
+  <Association Name="FK__DocenteAs__id_as__2D27B809">
     <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="1" />
     <End Role="DocenteAsignatura" Type="Self.DocenteAsignatura" Multiplicity="*" />
     <ReferentialConstraint>
@@ -214,7 +214,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DocenteAs__id_do__24927208">
+  <Association Name="FK__DocenteAs__id_do__2E1BDC42">
     <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
     <End Role="DocenteAsignatura" Type="Self.DocenteAsignatura" Multiplicity="*" />
     <ReferentialConstraint>
@@ -226,7 +226,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HistContr__id_us__15502E78">
+  <Association Name="FK__HistContr__id_us__2F10007B">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
     <End Role="HistContrasenia" Type="Self.HistContrasenia" Multiplicity="*" />
     <ReferentialConstraint>
@@ -238,7 +238,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reserva__id_asig__2D27B809">
+  <Association Name="FK__Reserva__id_asig__300424B4">
     <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="0..1" />
     <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
     <ReferentialConstraint>
@@ -250,7 +250,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reserva__id_doce__2E1BDC42">
+  <Association Name="FK__Reserva__id_doce__30F848ED">
     <End Role="Docente" Type="Self.Docente" Multiplicity="0..1" />
     <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
     <ReferentialConstraint>
@@ -262,7 +262,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reserva__id_usua__2C3393D0">
+  <Association Name="FK__Reserva__id_usua__31EC6D26">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
     <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
     <ReferentialConstraint>
@@ -274,7 +274,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Usuario__id_tipo__1273C1CD">
+  <Association Name="FK__Usuario__id_tipo__32E0915F">
     <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
     <ReferentialConstraint>
@@ -300,11 +300,11 @@
     <EntitySet Name="TipoAula" EntityType="Self.TipoAula" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Asignatur__id_ti__20C1E124" Association="Self.FK__Asignatur__id_ti__20C1E124">
+    <AssociationSet Name="FK__Asignatur__id_ti__276EDEB3" Association="Self.FK__Asignatur__id_ti__276EDEB3">
       <End Role="TipoAsignatura" EntitySet="TipoAsignatura" />
       <End Role="Asignatura" EntitySet="Asignatura" />
     </AssociationSet>
-    <AssociationSet Name="FK__Aula__id_tipo_au__1A14E395" Association="Self.FK__Aula__id_tipo_au__1A14E395">
+    <AssociationSet Name="FK__Aula__id_tipo_au__286302EC" Association="Self.FK__Aula__id_tipo_au__286302EC">
       <End Role="TipoAula" EntitySet="TipoAula" />
       <End Role="Aula" EntitySet="Aula" />
     </AssociationSet>
@@ -312,43 +312,43 @@
       <End Role="AnioLectivo" EntitySet="AnioLectivo" />
       <End Role="Cuatrimestre" EntitySet="Cuatrimestre" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleRe__id_au__31EC6D26" Association="Self.FK__DetalleRe__id_au__31EC6D26">
+    <AssociationSet Name="FK__DetalleRe__id_au__2A4B4B5E" Association="Self.FK__DetalleRe__id_au__2A4B4B5E">
       <End Role="Aula" EntitySet="Aula" />
       <End Role="DetalleReserva" EntitySet="DetalleReserva" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleRe__id_cu__32E0915F" Association="Self.FK__DetalleRe__id_cu__32E0915F">
+    <AssociationSet Name="FK__DetalleRe__id_cu__2B3F6F97" Association="Self.FK__DetalleRe__id_cu__2B3F6F97">
       <End Role="Cuatrimestre" EntitySet="Cuatrimestre" />
       <End Role="DetalleReserva" EntitySet="DetalleReserva" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleRe__id_re__30F848ED" Association="Self.FK__DetalleRe__id_re__30F848ED">
+    <AssociationSet Name="FK__DetalleRe__id_re__2C3393D0" Association="Self.FK__DetalleRe__id_re__2C3393D0">
       <End Role="Reserva" EntitySet="Reserva" />
       <End Role="DetalleReserva" EntitySet="DetalleReserva" />
     </AssociationSet>
-    <AssociationSet Name="FK__DocenteAs__id_as__239E4DCF" Association="Self.FK__DocenteAs__id_as__239E4DCF">
+    <AssociationSet Name="FK__DocenteAs__id_as__2D27B809" Association="Self.FK__DocenteAs__id_as__2D27B809">
       <End Role="Asignatura" EntitySet="Asignatura" />
       <End Role="DocenteAsignatura" EntitySet="DocenteAsignatura" />
     </AssociationSet>
-    <AssociationSet Name="FK__DocenteAs__id_do__24927208" Association="Self.FK__DocenteAs__id_do__24927208">
+    <AssociationSet Name="FK__DocenteAs__id_do__2E1BDC42" Association="Self.FK__DocenteAs__id_do__2E1BDC42">
       <End Role="Docente" EntitySet="Docente" />
       <End Role="DocenteAsignatura" EntitySet="DocenteAsignatura" />
     </AssociationSet>
-    <AssociationSet Name="FK__HistContr__id_us__15502E78" Association="Self.FK__HistContr__id_us__15502E78">
+    <AssociationSet Name="FK__HistContr__id_us__2F10007B" Association="Self.FK__HistContr__id_us__2F10007B">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="HistContrasenia" EntitySet="HistContrasenia" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reserva__id_asig__2D27B809" Association="Self.FK__Reserva__id_asig__2D27B809">
+    <AssociationSet Name="FK__Reserva__id_asig__300424B4" Association="Self.FK__Reserva__id_asig__300424B4">
       <End Role="Asignatura" EntitySet="Asignatura" />
       <End Role="Reserva" EntitySet="Reserva" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reserva__id_doce__2E1BDC42" Association="Self.FK__Reserva__id_doce__2E1BDC42">
+    <AssociationSet Name="FK__Reserva__id_doce__30F848ED" Association="Self.FK__Reserva__id_doce__30F848ED">
       <End Role="Docente" EntitySet="Docente" />
       <End Role="Reserva" EntitySet="Reserva" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reserva__id_usua__2C3393D0" Association="Self.FK__Reserva__id_usua__2C3393D0">
+    <AssociationSet Name="FK__Reserva__id_usua__31EC6D26" Association="Self.FK__Reserva__id_usua__31EC6D26">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Reserva" EntitySet="Reserva" />
     </AssociationSet>
-    <AssociationSet Name="FK__Usuario__id_tipo__1273C1CD" Association="Self.FK__Usuario__id_tipo__1273C1CD">
+    <AssociationSet Name="FK__Usuario__id_tipo__32E0915F" Association="Self.FK__Usuario__id_tipo__32E0915F">
       <End Role="TipoUsuario" EntitySet="TipoUsuario" />
       <End Role="Usuario" EntitySet="Usuario" />
     </AssociationSet>

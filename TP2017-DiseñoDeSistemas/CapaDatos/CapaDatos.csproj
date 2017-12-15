@@ -145,6 +145,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaClases\CapaClases.csproj">
+      <Project>{a4f05621-2944-402e-a98f-8a6816c985b0}</Project>
+      <Name>CapaClases</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="TP2017.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TP2017.edmx</DependentUpon>
@@ -155,12 +161,6 @@
       <DependentUpon>TP2017.edmx</DependentUpon>
       <LastGenOutput>TP2017.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaClases\CapaClases.csproj">
-      <Project>{a4f05621-2944-402e-a98f-8a6816c985b0}</Project>
-      <Name>CapaClases</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
