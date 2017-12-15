@@ -55,7 +55,10 @@ namespace CapaLogica
                 {
                     aulasOcupadas.Add(aulaOcupada);
                 }
-
+                if(aulasOcupadas.Count == 0)
+                {
+                    Console.Write("algo\n");
+                }
                 //Obtiene las aulas libres
                 foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
                 {

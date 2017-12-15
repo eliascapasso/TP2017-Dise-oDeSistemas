@@ -293,8 +293,8 @@ namespace Autenticacion
 
         private string duracionTotal(){
             TimeSpan ts = DateTime.Parse(cbHoraFin.SelectedItem.ToString()) - DateTime.Parse(cbHoraInicio.SelectedItem.ToString());
-            string aux =ts.TotalMinutes.ToString();
-            return aux;
+            //string aux =ts.TotalMinutes.ToString();
+            return ts.ToString();
        }
 
         private void AddToDatagrid(string fecha, string hora, string duracion, string tipoReserva)
