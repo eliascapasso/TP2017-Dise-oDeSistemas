@@ -42,15 +42,15 @@ namespace CapaDatos
             {
                 bd.Reservas.Add(reserva);
 
-                try
-                {
+                //try
+                //{
                     bd.SaveChanges();
-                }
-                    catch (Exception e)
-                {
-                    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos, " + e.Message);
-                }
-        }
+                //}
+                //    catch (Exception e)
+                //{
+                //    Console.Write("ERROR: No se pudieron guardar los cambios en la base de datos, " + e.Message);
+                //}
+            }
         }
     }
 }

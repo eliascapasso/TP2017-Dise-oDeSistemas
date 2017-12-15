@@ -70,8 +70,9 @@ namespace CapaLogica
             {
                 Aula aula = aulaDAO.getAula(detalle.idAula);
                 
+
                 DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio),
-                                                                   TimeSpan.Parse(detalle.duracion),
+                                                                   convertToTimespan(detalle.duracion),
                                                                    detalle.diaReserva,
                                                                    aula,
                                                                    reserva);
@@ -82,6 +83,22 @@ namespace CapaLogica
            reservaDAO.guardarReserva(reserva);
         }
 
+        private TimeSpan convertToTimespan(string duracion)
+        {
+            int aux = Int32.Parse(duracion);
+            string straux;
+            
+            if (aux <= 59)
+            {
+                straux = "00:" + aux.ToString();
+            }
+            else 
+            {
+                straux = (aux / 60).ToString()+":"+(aux%60).ToString();
+            }
+            
 
+            return TimeSpan.Parse(straux);
+        }
     }
 }

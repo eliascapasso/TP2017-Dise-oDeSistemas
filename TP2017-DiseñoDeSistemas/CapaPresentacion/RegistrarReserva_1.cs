@@ -30,6 +30,7 @@ namespace Autenticacion
 
         public RegistrarReserva_1(Form papa, string nickBedel)
         {
+            
             this.padre = papa;
             this.gestorUsuario = new GestorDeUsuario();
             this.gestorAsignatura = new GestorDeAsignatura();
