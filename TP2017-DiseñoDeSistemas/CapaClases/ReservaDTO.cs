@@ -15,7 +15,7 @@ namespace CapaClases
         public int cantAlumnos;
         public int idDocente;
         public int idAsignatura;
-        public HashSet<DetalleReservaDTO> detallesReservas; /*diaReserva, horaInicio, duracion, idAula, periodo*/
+        public HashSet<DetalleReservaDTO> detallesReservasDTOs; /*diaReserva, horaInicio, duracion, idAula, periodo*/
         public int idTipoAula;
 
         public ReservaDTO(string nickUsuario, string tipoReserva, HashSet<DetalleReservaDTO> detallesReservas, int cantAlumnos, int idDocente, int idAsignatura,int idtipoaula)
@@ -23,7 +23,7 @@ namespace CapaClases
             this.idTipoAula = idtipoaula;
             this.nickUsuario= nickUsuario;
             this.tipoReserva = tipoReserva;
-            this.detallesReservas = detallesReservas;
+            this.detallesReservasDTOs = detallesReservas;
             this.cantAlumnos = cantAlumnos;
             this.idDocente = idDocente;
             this.idAsignatura = idAsignatura;

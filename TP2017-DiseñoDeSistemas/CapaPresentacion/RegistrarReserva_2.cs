@@ -35,19 +35,7 @@ namespace CapaPresentacion
 
         private void RegistrarReserva_2_Load(object sender, EventArgs e)
         {
-            this.llenarTabControl();
-        }
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            padre.Show();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            padre.Close();
-            this.Close();
+            this.llenarDgvPestanias();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -71,6 +59,18 @@ namespace CapaPresentacion
 
             this.dgvAulasSeleccionadas.Rows.Remove(aulaSeleccionada);
             this.dgvAulasSeleccionadas.Refresh();
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            padre.Show();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            padre.Close();
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -115,34 +115,39 @@ namespace CapaPresentacion
             return gestorAnio.obtenerTodosLosPeriodos();
         }
 
-        private void llenarTabControl()
+        private void configurarDgvAulasDisponibles(DataGridView dgvAulasDisponibles)
+        {
+            //Propiedades del dataGrid
+            dgvAulasDisponibles.Size = tcPestañasDias.Size;
+            dgvAulasDisponibles.AllowUserToAddRows = false;
+            dgvAulasDisponibles.AllowUserToDeleteRows = false;
+            dgvAulasDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAulasDisponibles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            //Se asignan los nombres de cada columna
+            dgvAulasDisponibles.Columns.Add("Aula", "Aula");
+            dgvAulasDisponibles.Columns.Add("Capacidad", "Capacidad");
+            dgvAulasDisponibles.Columns.Add("Caracteristicas", "Caracteristicas");
+        }
+
+        private void llenarDgvPestanias()
         {
             obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, this.obtenerTodosLosPeriodos());
 
             HashSet<AulaDTO> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
                                                                                                       estan disponibles para todos los dias 
                                                                                                       (CU ObtenerDisponibilidad)*/
-            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
+            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservasDTOs)
             {
-                string dia = Convert.ToString(detalleReserva.diaReserva); //Obtengo el valor de la primer columna (dia)
+                string nombreDiaoFecha = Convert.ToString(detalleReserva.diaReserva); //Obtengo el valor de la primer columna (dia)
                 DataGridView dgvAulasDisponibles = new DataGridView();
-                
-                //Propiedades del dataGrid
-                dgvAulasDisponibles.Size = tcPestañasDias.Size;
-                dgvAulasDisponibles.AllowUserToAddRows = false;
-                dgvAulasDisponibles.AllowUserToDeleteRows = false;
-                dgvAulasDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dgvAulasDisponibles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                //Se asignan los nombres de cada columna
-                dgvAulasDisponibles.Columns.Add("Aula", "Aula");
-                dgvAulasDisponibles.Columns.Add("Capacidad", "Capacidad");
-                dgvAulasDisponibles.Columns.Add("Caracteristicas", "Caracteristicas");
+                this.configurarDgvAulasDisponibles(dgvAulasDisponibles);
 
                 //Se agregan las filas
                 foreach (AulaDTO aulaDisponible in disponibilidad)
                 {
-                    if (aulaDisponible.detalleReserva.diaReserva.Equals(dia)) //Compara que el dia del aula sea igual al dia de la pestaña
+                    if (aulaDisponible.detalleReserva.diaReserva.Equals(nombreDiaoFecha)) //Compara que el dia del aula sea igual al dia de la pestaña
                     {
                         dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
                     }
@@ -150,8 +155,8 @@ namespace CapaPresentacion
 
                 //TODO: obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
                 
-                TabPage pestania = new TabPage(dia);
-                pestania.Name = dia;
+                TabPage pestania = new TabPage(nombreDiaoFecha);
+                pestania.Name = nombreDiaoFecha;
                 pestania.Controls.Add(dgvAulasDisponibles);
 
                 tcPestañasDias.TabPages.Add(pestania); //Agrego una pestaña nueva con su respectivo dataGrid
@@ -182,7 +187,7 @@ namespace CapaPresentacion
             }
             else
             {
-                foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservas)
+                foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservasDTOs)
                 {
                     if (detalle.diaReserva.Equals(fecha))
                     {

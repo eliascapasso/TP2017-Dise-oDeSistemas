@@ -17,15 +17,10 @@ namespace CapaDatos
 
             using (TP2017Entities bd = new TP2017Entities())
             {
-                //var DetalleReservas = from DetalleReserva in bd.DetalleReservas
-                //                      where DetalleReserva.dia.Equals(fechaReserva) 
-                //                      && DetalleReserva.hora_inicio.Equals(horaInicio) 
-                //                      && DetalleReserva.duracion.Equals(duaracion)
-                //                      select DetalleReserva.Aula;
-
                 foreach (DetalleReserva detalle in bd.DetalleReservas)
                 {
                     Console.Write(TimeSpan.Parse(horaInicio) + " - " + TimeSpan.Parse(duracion) + "\n");
+                    //TODO: cambiar el detalle.dia
                     if (detalle.dia.Equals(fechaReserva)
                             && detalle.hora_inicio.Equals(TimeSpan.Parse(horaInicio))
                             && detalle.duracion.Equals(TimeSpan.Parse(duracion)))

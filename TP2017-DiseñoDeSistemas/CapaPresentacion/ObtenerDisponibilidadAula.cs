@@ -30,7 +30,7 @@ namespace CapaPresentacion
         {
             HashSet<AulaDTO> disponibilidad = new HashSet<AulaDTO>();
 
-            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
+            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservasDTOs)
             { 
                 AulaDTO aulaDTO = new AulaDTO(reservaDTO.cantAlumnos,
                                               reservaDTO.idTipoAula,

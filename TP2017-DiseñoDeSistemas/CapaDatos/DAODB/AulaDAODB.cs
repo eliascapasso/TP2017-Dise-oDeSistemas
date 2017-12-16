@@ -32,11 +32,6 @@
 
             using (TP2017Entities bd = new TP2017Entities())
             {
-                //var aulas = from Aula in bd.AulasInformatica
-                //            where Aula.capacidad >= capacidadAula 
-                //            && Aula.id_tipo_aula.Equals(idTipoAula)
-                //            select Aula;
-
                 foreach(Aula aula in bd.Aulas)
                 {
                     if(aula.capacidad >= capacidadAula && aula.id_tipo_aula.Equals(idTipoAula))

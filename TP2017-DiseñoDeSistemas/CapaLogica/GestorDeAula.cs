@@ -55,10 +55,7 @@ namespace CapaLogica
                 {
                     aulasOcupadas.Add(aulaOcupada);
                 }
-                if(aulasOcupadas.Count == 0)
-                {
-                    Console.Write("algo\n");
-                }
+                
                 //Obtiene las aulas libres
                 foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
                 {
@@ -83,7 +80,6 @@ namespace CapaLogica
         private HashSet<Aula> obtenerAulasLibres(HashSet<Aula> aulasCumplen, HashSet<Aula> aulasOcupadas)
         {
             //TODO: intentar optimizar, complejidad muy alta
-            
             if (!(aulasOcupadas.Count == 0))
             {
                 HashSet<Aula> aulasLibres = new HashSet<Aula>();
@@ -106,7 +102,7 @@ namespace CapaLogica
             }
         }
 
-        private HashSet<DateTime> convertToFechas(string diaReserva, HashSet<CuatrimestreDTO> periodo)
+        public HashSet<DateTime> convertToFechas(string diaReserva, HashSet<CuatrimestreDTO> periodo)
         {
             HashSet<DateTime> fechas = new HashSet<DateTime>();
             DateTime fecha = DateTime.Now;

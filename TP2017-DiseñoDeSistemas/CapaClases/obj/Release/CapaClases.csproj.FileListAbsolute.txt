@@ -1,0 +1,4 @@
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\bin\Release\CapaClases.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\bin\Release\CapaClases.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Release\CapaClases.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaClases\obj\Release\CapaClases.pdb

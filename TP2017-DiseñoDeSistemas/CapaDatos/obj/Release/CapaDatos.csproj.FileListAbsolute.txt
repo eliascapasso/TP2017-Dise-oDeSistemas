@@ -1,0 +1,12 @@
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\CapaDatos.dll.config
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\CapaDatos.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\CapaDatos.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\CapaClases.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\EntityFramework.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\CapaClases.pdb
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\EntityFramework.xml
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Release\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Release\CapaDatos.dll
+C:\Users\Elias Capasso\Source\Repos\TP2017-Dise-oDeSistemas\TP2017-DiseñoDeSistemas\CapaDatos\obj\Release\CapaDatos.pdb

@@ -29,9 +29,59 @@ namespace CapaLogica
         public void registrarReserva(ReservaDTO reservaDTO)
         {
             //Chequea que la disponibilidad de las aulas sean las mismas
-            HashSet<AulaDTO> disponibilidad = new HashSet<AulaDTO>();
+            this.revalidadDisponibilidad(reservaDTO);
             
-            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservas)
+            //Obtiene el docente, asignatura y bedel seleccionados
+            Docente docente = docenteDAO.getDocente(reservaDTO.idDocente);
+            Asignatura asignatura = asignaturaDAO.getAsignatura(reservaDTO.idAsignatura);
+            Bedel bedel = usuarioDAO.obtenerBedel(reservaDTO.nickUsuario);
+
+            Reserva reserva = new Reserva(bedel,
+                                          reservaDTO.tipoReserva,
+                                          reservaDTO.cantAlumnos,
+                                          docente,
+                                          asignatura,
+                                          DateTime.Now);
+
+            foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservasDTOs)
+            {
+                //TODO:TRATAR DE OPTIMIZAR. IMPORTANTE!!!
+                if (reservaDTO.tipoReserva.Equals("Esporádica"))
+                {
+                    Aula aula = aulaDAO.getAula(detalle.idAula);
+
+                    DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio),
+                                                                       TimeSpan.Parse(detalle.duracion),
+                                                                       detalle.diaReserva,
+                                                                       aula,
+                                                                       reserva);
+
+                    reserva.agregarDetalle(detalleReserva);
+                }
+                else
+                {
+                    foreach (DateTime fecha in gestorAula.convertToFechas(detalle.diaReserva.ToUpper(), gestorAula.calcularPeriodo(detalle, reservaDTO.tipoReserva)))
+                    {
+                        Aula aula = aulaDAO.getAula(detalle.idAula);
+
+                        DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio),
+                                                                           TimeSpan.Parse(detalle.duracion),
+                                                                           detalle.diaReserva,
+                                                                           aula,
+                                                                           reserva);
+
+                        reserva.agregarDetalle(detalleReserva);
+                    }
+                }
+                
+            }
+
+           reservaDAO.guardarReserva(reserva);
+        }
+
+        private void revalidadDisponibilidad(ReservaDTO reservaDTO)
+        {
+            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservasDTOs)
             {
                 AulaDTO aulaDTO = new AulaDTO(reservaDTO.cantAlumnos,
                                       reservaDTO.idTipoAula,
@@ -54,34 +104,6 @@ namespace CapaLogica
                     throw new DisponibilidadException();
                 }
             }
-
-            //Obtiene el docente seleccionado
-            Docente docente = docenteDAO.getDocente(reservaDTO.idDocente);
-            Asignatura asignatura = asignaturaDAO.getAsignatura(reservaDTO.idAsignatura);
-            Bedel bedel = usuarioDAO.obtenerBedel(reservaDTO.nickUsuario);
-
-            Reserva reserva = new Reserva(bedel,
-                                          reservaDTO.tipoReserva,
-                                          reservaDTO.cantAlumnos,
-                                          docente,
-                                          asignatura,
-                                          DateTime.Now);
-
-            foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservas)
-            {
-                Aula aula = aulaDAO.getAula(detalle.idAula);
-                
-
-                DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio),
-                                                                   TimeSpan.Parse(detalle.duracion),
-                                                                   detalle.diaReserva,
-                                                                   aula,
-                                                                   reserva);
-
-                reserva.agregarDetalle(detalleReserva);
-            }
-
-           reservaDAO.guardarReserva(reserva);
         }
 
         //TODO:Eliminar?
@@ -89,7 +111,7 @@ namespace CapaLogica
         //{
         //    int aux = Int32.Parse(duracion);
         //    string straux;
-            
+
         //    if (aux <= 59)
         //    {
         //        straux = "00:" + aux.ToString();
@@ -98,7 +120,7 @@ namespace CapaLogica
         //    {
         //        straux = (aux / 60).ToString()+":"+(aux%60).ToString();
         //    }
-            
+
         //    return TimeSpan.Parse(straux);
         //}
     }
