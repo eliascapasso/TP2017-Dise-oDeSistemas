@@ -8,7 +8,7 @@
     using System.Threading.Tasks;
 
 
-    public class DocenteDAODB
+    public class DocenteDAODB : DocenteDAO
     {
         public DocenteDAODB() { }
 

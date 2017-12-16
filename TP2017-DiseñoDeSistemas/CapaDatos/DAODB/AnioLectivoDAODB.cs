@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class AnioLectivoDAODB
+    public class AnioLectivoDAODB : AnioLectivoDAO
     {
         public AnioLectivoDAODB() { }
 

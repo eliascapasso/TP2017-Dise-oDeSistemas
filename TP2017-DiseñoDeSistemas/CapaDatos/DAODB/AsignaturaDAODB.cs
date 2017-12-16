@@ -7,7 +7,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    public class AsignaturaDAODB
+    public class AsignaturaDAODB : AsignaturaDAO
     {
         public AsignaturaDAODB() { }
 

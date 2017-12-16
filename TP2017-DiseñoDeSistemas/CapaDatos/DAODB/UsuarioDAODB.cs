@@ -8,7 +8,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    public class UsuarioDAODB
+    public class UsuarioDAODB : UsuarioDAO
     {
         public UsuarioDAODB() { }
 
@@ -138,21 +138,6 @@
                             select nick).Count();
 
                 return (query == 0);
-            }
-        }
-
-        //METODO PARA COMPROBAR SI EL DOCENTE EXISTE
-        public bool existeDocente(string apellidoDocente, string nombreDocente, string emailDocente)
-        {
-            using (TP2017Entities bd = new TP2017Entities())
-            {
-                var docentes = (from docente in bd.Docentes
-                                where docente.apellido_docente.Equals(apellidoDocente) 
-                                && docente.nombre_docente.Equals(nombreDocente) 
-                                && docente.email_docente.Equals(emailDocente)
-                                select docente).Count();
-
-                return (docentes != 0);
             }
         }
 

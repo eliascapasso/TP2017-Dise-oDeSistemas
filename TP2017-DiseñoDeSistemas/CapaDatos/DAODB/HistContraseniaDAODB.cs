@@ -7,7 +7,7 @@ using CapaDatos;
 
 namespace CapaDatos
 {
-    public class HistContraseniaDAODB
+    public class HistContraseniaDAODB : HistorialContraseniaDAO
     {
         public HistContraseniaDAODB() { }
         
@@ -15,15 +15,18 @@ namespace CapaDatos
         {
             HashSet<HistContrasenia> historiales = new HashSet<HistContrasenia>();
 
-            /*using (TP2017Entities bd = new TP2017Entities())
+            using (TP2017Entities bd = new TP2017Entities())
             {
-                var query = from HistContrasenia in bd.HistContrasenias where HistContrasenia.id_usuario.Equals(bedelObt.id_usuario) select HistContrasenia;
+                var query = from HistContrasenia 
+                            in bd.HistContrasenias
+                            where HistContrasenia.id_usuario.Equals(bedelObt.id_usuario)
+                            select HistContrasenia;
 
                 foreach(var hist in query)
                 {
                     historiales.Add(hist);
                 }
-            }*/
+            }
             return historiales;
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class ReservaDAODB
+    public class ReservaDAODB : ReservaDAO
     {
         public ReservaDAODB() { }
 

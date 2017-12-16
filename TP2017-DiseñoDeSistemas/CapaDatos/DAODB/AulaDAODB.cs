@@ -7,7 +7,7 @@
     using System.Linq;
     using System.Windows.Forms;
 
-    public class AulaDAODB
+    public class AulaDAODB : AulaDAO
     {
         public AulaDAODB() { }
 
