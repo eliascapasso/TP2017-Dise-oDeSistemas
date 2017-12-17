@@ -33,7 +33,7 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
-        private void RegistrarReserva_2_Load(object sender, EventArgs e)
+        public void RegistrarReserva_2_Load(object sender, EventArgs e)
         {
             this.llenarDgvPestanias();
         }
@@ -79,6 +79,11 @@ namespace CapaPresentacion
             {
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("No seleccionó ningún aula", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if(dgvAulasSeleccionadas.Rows.Count!=tcPestañasDias.TabCount)
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("Seleccione un aula para cada día", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
@@ -150,7 +155,14 @@ namespace CapaPresentacion
                     {
                         dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
                     }
-                } 
+                }
+
+                if (dgvAulasDisponibles.Rows.Count == 0)
+                {
+                    MessageBox.Show("No existen aulas disponibles para completar la reserva", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                    padre.Show();
+                }
 
                 //TODO: obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
                 

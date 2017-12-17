@@ -183,6 +183,8 @@ namespace Autenticacion
                                                       idTipoAula);
                 this.Hide();
                 new RegistrarReserva_2(this, reservaDTO).Show();
+
+
             }
             else
             {
