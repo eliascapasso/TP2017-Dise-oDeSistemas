@@ -11,6 +11,7 @@ namespace CapaClases
         private DateTime? fechaInicio;
         private DateTime? fechaFin;
         private int? idAnioLectivo;
+        private int idCuatrimestre;
 
         public DateTime? FechaInicio
         {
@@ -51,8 +52,22 @@ namespace CapaClases
             }
         }
 
-        public CuatrimestreDTO(DateTime? fechaI, DateTime? fechaF, int? idAnioLectivo)
+        public int IdCuatrimestre
         {
+            get
+            {
+                return idCuatrimestre;
+            }
+
+            set
+            {
+                idCuatrimestre = value;
+            }
+        }
+
+        public CuatrimestreDTO(DateTime? fechaI, DateTime? fechaF, int? idAnioLectivo, int idCuatrimestre)
+        {
+            this.IdCuatrimestre = idCuatrimestre;
             this.fechaInicio = fechaI;
             this.fechaFin = fechaF;
             this.idAnioLectivo = idAnioLectivo;

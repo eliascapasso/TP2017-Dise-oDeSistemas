@@ -11,7 +11,7 @@ namespace CapaDatos
     {
         public ReservaDAODB() { }
 
-        public HashSet<Aula> obtenerAulasOcupadas(string fechaReserva, string horaInicio, string duracion)
+        public HashSet<Aula> obtenerAulasOcupadas(DateTime fechaReserva, string horaInicio, string duracion)
         {
             HashSet<Aula> aulasOcupadas = new HashSet<Aula>();
 
@@ -19,9 +19,7 @@ namespace CapaDatos
             {
                 foreach (DetalleReserva detalle in bd.DetalleReservas)
                 {
-                    Console.Write(TimeSpan.Parse(horaInicio) + " - " + TimeSpan.Parse(duracion) + "\n");
-                    //TODO: cambiar el detalle.dia
-                    if (detalle.dia.Equals(fechaReserva)
+                    if (detalle.fecha.Equals(DateTime.Parse(fechaReserva.ToShortDateString()))
                             && detalle.hora_inicio.Equals(TimeSpan.Parse(horaInicio))
                             && detalle.duracion.Equals(TimeSpan.Parse(duracion)))
                     {
@@ -37,10 +35,11 @@ namespace CapaDatos
             using (TP2017Entities bd = new TP2017Entities())
             {
                 bd.Reservas.Add(reserva);
-
+                //TODO:poner dentro del try
+                bd.SaveChanges();
                 try
                 {
-                    bd.SaveChanges();
+                    
                 }
                 catch (Exception e)
                 {

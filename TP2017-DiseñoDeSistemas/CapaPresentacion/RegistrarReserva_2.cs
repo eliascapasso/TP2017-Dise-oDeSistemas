@@ -84,8 +84,6 @@ namespace CapaPresentacion
             {
                 try
                 {
-                    this.gestorReserva.registrarReserva(reservaDTO);
-
                     System.Media.SystemSounds.Hand.Play();
                     DialogResult respuesta = MessageBox.Show("¿Seguro que desea guardar la reserva?", 
                                                              "Reserva", 
@@ -97,6 +95,7 @@ namespace CapaPresentacion
                         System.Media.SystemSounds.Hand.Play();
                         MessageBox.Show("Reserva almacenada con éxito", "INFORMACION", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        this.gestorReserva.registrarReserva(reservaDTO);
                         this.Close();
                     }
                 }
@@ -139,7 +138,7 @@ namespace CapaPresentacion
                                                                                                       (CU ObtenerDisponibilidad)*/
             foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservasDTOs)
             {
-                string nombreDiaoFecha = Convert.ToString(detalleReserva.diaReserva); //Obtengo el valor de la primer columna (dia)
+                string nombreDiaoFecha = Convert.ToString(detalleReserva.diaOFecha); //Obtengo el valor de la primer columna (dia)
                 DataGridView dgvAulasDisponibles = new DataGridView();
 
                 this.configurarDgvAulasDisponibles(dgvAulasDisponibles);
@@ -147,7 +146,7 @@ namespace CapaPresentacion
                 //Se agregan las filas
                 foreach (AulaDTO aulaDisponible in disponibilidad)
                 {
-                    if (aulaDisponible.detalleReserva.diaReserva.Equals(nombreDiaoFecha)) //Compara que el dia del aula sea igual al dia de la pestaña
+                    if (aulaDisponible.detalleReserva.diaOFecha.Equals(nombreDiaoFecha)) //Compara que el dia del aula sea igual al dia de la pestaña
                     {
                         dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
                     }
@@ -189,7 +188,7 @@ namespace CapaPresentacion
             {
                 foreach (DetalleReservaDTO detalle in reservaDTO.detallesReservasDTOs)
                 {
-                    if (detalle.diaReserva.Equals(fecha))
+                    if (detalle.diaOFecha.Equals(fecha))
                     {
                         detalle.idAula = Convert.ToInt32(aula); 
                        

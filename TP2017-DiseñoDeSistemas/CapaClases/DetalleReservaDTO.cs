@@ -8,7 +8,7 @@ namespace CapaClases
 {
     public class DetalleReservaDTO
     {
-        public string diaReserva;
+        public string diaOFecha;
         public string horaInicio;
         public string duracion;
         public int idAula;
@@ -16,7 +16,7 @@ namespace CapaClases
 
         public DetalleReservaDTO(string diaReserva, string horaInicio, string duracion)
         {
-            this.diaReserva = diaReserva;
+            this.diaOFecha = diaReserva;
             this.horaInicio = horaInicio;
             this.duracion = duracion;
         }

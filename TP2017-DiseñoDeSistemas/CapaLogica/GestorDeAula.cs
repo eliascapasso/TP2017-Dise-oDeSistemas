@@ -35,11 +35,11 @@ namespace CapaLogica
 
             if (aulaDTO.tipoReserva.Equals("Anual") || aulaDTO.tipoReserva.Equals("Cuatrimestral"))
             {
-                fechasReserva = this.convertToFechas(aulaDTO.detalleReserva.diaReserva, aulaDTO.periodo);
+                fechasReserva = this.convertToFechas(aulaDTO.detalleReserva.diaOFecha, aulaDTO.periodo);
             }
             else //Esporadica
             {
-                fechasReserva.Add(Convert.ToDateTime(aulaDTO.detalleReserva.diaReserva));
+                fechasReserva.Add(Convert.ToDateTime(aulaDTO.detalleReserva.diaOFecha));
             }
 
             HashSet<Aula> aulasCumplen = aulaDAO.obtenerAulas(aulaDTO.capacidad, aulaDTO.idTipoAula);
@@ -49,7 +49,7 @@ namespace CapaLogica
             //Obtiene las aulas ocupadas
             foreach (DateTime fechaReserva in fechasReserva)
             {
-                foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva.ToShortDateString(), //fechaReserva
+                foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva,
                                                                             aulaDTO.detalleReserva.horaInicio,
                                                                             aulaDTO.detalleReserva.duracion)) 
                 {
@@ -117,9 +117,14 @@ namespace CapaLogica
             
             foreach (CuatrimestreDTO cuatrimestre in periodo)
             {
+                if (fecha < cuatrimestre.FechaInicio)
+                {
+                    fecha = DateTime.Parse(cuatrimestre.FechaInicio.ToString());
+                }
+
                 for (DateTime f = fecha; f <= cuatrimestre.FechaFin; f=f.AddDays(7))
                 {
-                    //Console.Write(f.ToShortDateString() + '\n'); //Visualiza en consola las fechas que fueron convertidas del dia de la reserva
+                    Console.WriteLine("Fecha a reservar" + f.ToShortDateString()); //Visualiza en consola las fechas que fueron convertidas del dia de la reserva
                     fechas.Add(f);
                 }
             }
@@ -164,7 +169,7 @@ namespace CapaLogica
                         break;
                     case "Esporádica":
                         //Agrega un solo cuatrimestre
-                        DateTime dia = Convert.ToDateTime(detalleReserva.diaReserva);
+                        DateTime dia = Convert.ToDateTime(detalleReserva.diaOFecha);
 
                         if (dia >= cuatrimestre.FechaInicio && dia <= cuatrimestre.FechaFin) //solo se agrega un cuatrimestre
                         {
