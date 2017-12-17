@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="TP2017Model.DetalleReserva" Width="1.5" PointX="11.625" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.Docente" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.HistContrasenia" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TP2017Model.Reserva" Width="1.5" PointX="8.625" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TP2017Model.Reserva" Width="1.5" PointX="8.875" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.TipoAsignatura" Width="1.5" PointX="0.5" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.TipoAula" Width="1.5" PointX="4.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TP2017Model.TipoUsuario" Width="1.5" PointX="2.5" PointY="0.75" IsExpanded="true" />
@@ -26,7 +26,6 @@
         <AssociationConnector Association="TP2017Model.FK__DetalleRe__id_re__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__Reserva__id_doce__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__HistContr__id_us__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="TP2017Model.FK__Reserva__id_usua__31EC6D26" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.FK__Usuario__id_tipo__32E0915F" ManuallyRouted="false" />
         <AssociationConnector Association="TP2017Model.DocenteAsignatura" ManuallyRouted="false" />
         <EntityTypeShape EntityType="TP2017Model.Bedel" Width="1.5" PointX="5.25" PointY="3.75" />
@@ -37,6 +36,7 @@
         <InheritanceConnector EntityType="TP2017Model.AulaInformatica" />
         <EntityTypeShape EntityType="TP2017Model.AulaMultimedios" Width="1.5" PointX="9.375" PointY="12.625" />
         <InheritanceConnector EntityType="TP2017Model.AulaMultimedios" />
+        <AssociationConnector Association="TP2017Model.BedelReserva" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -106,11 +106,11 @@
     <EntitySetMapping Name="Reservas">
       <EntityTypeMapping TypeName="TP2017Model.Reserva">
         <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="Bedel_id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
           <ScalarProperty Name="fechaReserva" ColumnName="fechaReserva" />
           <ScalarProperty Name="capacidad" ColumnName="capacidad" />
           <ScalarProperty Name="activa" ColumnName="activa" />
-          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
           <ScalarProperty Name="tipo_reserva" ColumnName="tipo_reserva" />
           <ScalarProperty Name="id_docente" ColumnName="id_docente" />

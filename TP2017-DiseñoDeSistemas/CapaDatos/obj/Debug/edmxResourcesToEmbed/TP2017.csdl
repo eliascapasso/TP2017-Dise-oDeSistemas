@@ -92,14 +92,14 @@
     <Property Name="fechaReserva" Type="DateTime" Precision="3" />
     <Property Name="capacidad" Type="Int32" />
     <Property Name="activa" Type="Boolean" />
-    <Property Name="id_usuario" Type="Int32" />
     <Property Name="id_asignatura" Type="Int32" />
     <Property Name="tipo_reserva" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="id_docente" Type="Int32" />
     <NavigationProperty Name="Asignatura" Relationship="Self.FK__Reserva__id_asig__300424B4" FromRole="Reserva" ToRole="Asignatura" />
     <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_re__2C3393D0" FromRole="Reserva" ToRole="DetalleReserva" />
     <NavigationProperty Name="Docente" Relationship="Self.FK__Reserva__id_doce__30F848ED" FromRole="Reserva" ToRole="Docente" />
-    <NavigationProperty Name="Usuario" Relationship="Self.FK__Reserva__id_usua__31EC6D26" FromRole="Reserva" ToRole="Usuario" />
+    <NavigationProperty Name="Bedel" Relationship="TP2017Model.BedelReserva" FromRole="Reserva" ToRole="Bedel" />
+    <Property Name="Bedel_id_usuario" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TipoAsignatura">
     <Key>
@@ -135,7 +135,6 @@
     <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="id_tipo_usuario" Type="Int32" />
     <NavigationProperty Name="HistContrasenias" Relationship="Self.FK__HistContr__id_us__2F10007B" FromRole="Usuario" ToRole="HistContrasenia" />
-    <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__id_usua__31EC6D26" FromRole="Usuario" ToRole="Reserva" />
     <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__Usuario__id_tipo__32E0915F" FromRole="Usuario" ToRole="TipoUsuario" />
   </EntityType>
   <Association Name="FK__Cuatrimes__id_an__29572725">
@@ -246,18 +245,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reserva__id_usua__31EC6D26">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
-    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="id_usuario" />
-      </Principal>
-      <Dependent Role="Reserva">
-        <PropertyRef Name="id_usuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Usuario__id_tipo__32E0915F">
     <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
@@ -323,10 +310,6 @@
       <End Role="Usuario" EntitySet="Usuarios" />
       <End Role="HistContrasenia" EntitySet="HistContrasenias" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reserva__id_usua__31EC6D26" Association="Self.FK__Reserva__id_usua__31EC6D26">
-      <End Role="Usuario" EntitySet="Usuarios" />
-      <End Role="Reserva" EntitySet="Reservas" />
-    </AssociationSet>
     <AssociationSet Name="FK__Usuario__id_tipo__32E0915F" Association="Self.FK__Usuario__id_tipo__32E0915F">
       <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
       <End Role="Usuario" EntitySet="Usuarios" />
@@ -335,11 +318,16 @@
       <End Role="Asignatura" EntitySet="Asignaturas" />
       <End Role="Docente" EntitySet="Docentes" />
     </AssociationSet>
+    <AssociationSet Name="BedelReserva" Association="TP2017Model.BedelReserva">
+      <End Role="Bedel" EntitySet="Usuarios" />
+      <End Role="Reserva" EntitySet="Reservas" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Bedel" BaseType="TP2017Model.Usuario">
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Reservas" Relationship="TP2017Model.BedelReserva" FromRole="Bedel" ToRole="Reserva" />
   </EntityType>
   <EntityType Name="AulaSinRecursosAdicionales" BaseType="TP2017Model.Aula">
     <Property Name="ventilador" Type="Boolean" Nullable="false" />
@@ -352,4 +340,16 @@
     <Property Name="tv" Type="Boolean" Nullable="false" />
     <Property Name="pc" Type="Boolean" Nullable="false" />
   </EntityType>
+  <Association Name="BedelReserva">
+    <End Type="TP2017Model.Bedel" Role="Bedel" Multiplicity="1" />
+    <End Type="TP2017Model.Reserva" Role="Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bedel">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="Bedel_id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -5,9 +5,9 @@
 
     public partial class Bedel : Usuario
     {
-        public Bedel() {
-            this.HistContrasenias = new HashSet<HistContrasenia>();
-        }
+        //public Bedel() {
+        //    this.HistContrasenias = new HashSet<HistContrasenia>();
+        //}
 
         public Bedel(string nick, string pass, string nombre, string apellido, string turno)
         {

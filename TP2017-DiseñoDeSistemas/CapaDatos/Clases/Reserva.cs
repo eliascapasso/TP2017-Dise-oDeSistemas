@@ -7,7 +7,7 @@
     {
         public Reserva(Bedel bedel, string tipoReserva, int cantAlumnos, Docente docente, Asignatura asignatura, DateTime fechaReserva)
         {
-            this.id_usuario = bedel.id_usuario;
+            this.Bedel_id_usuario = bedel.id_usuario;
             this.tipo_reserva = tipoReserva;
             this.capacidad = cantAlumnos;
             this.id_docente = docente.id_docente;

@@ -49,13 +49,16 @@ namespace CapaLogica
             //Obtiene las aulas ocupadas
             foreach (DateTime fechaReserva in fechasReserva)
             {
-                foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva,
-                                                                            aulaDTO.detalleReserva.horaInicio,
-                                                                            aulaDTO.detalleReserva.duracion)) 
-                {
-                    aulasOcupadas.Add(aulaOcupada);
-                }
-                
+                //foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva,
+                //                                                            aulaDTO.detalleReserva.horaInicio,
+                //                                                            aulaDTO.detalleReserva.duracion)) 
+                //{
+                //    aulasOcupadas.Add(aulaOcupada);
+                //}
+                aulasOcupadas= reservaDAO.obtenerAulasOcupadas(fechaReserva,
+                                                               aulaDTO.detalleReserva.horaInicio,                               
+                                                               aulaDTO.detalleReserva.duracion) ;
+
                 //Obtiene las aulas libres
                 foreach (Aula aulaLibre in this.obtenerAulasLibres(aulasCumplen, aulasOcupadas))
                 {
@@ -74,11 +77,13 @@ namespace CapaLogica
                     if (noExisteAula) { aulasLibres.Add(aulaLibreDTO); }
                 }
             }
+            Console.WriteLine("aulasLibres: " + aulasLibres.Count);
             return aulasLibres;
         }
 
         private HashSet<Aula> obtenerAulasLibres(HashSet<Aula> aulasCumplen, HashSet<Aula> aulasOcupadas)
         {
+            
             //TODO: intentar optimizar, complejidad muy alta
             if (!(aulasOcupadas.Count == 0))
             {

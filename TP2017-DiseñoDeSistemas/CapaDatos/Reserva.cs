@@ -24,15 +24,15 @@ namespace CapaDatos
         public Nullable<System.DateTime> fechaReserva { get; set; }
         public Nullable<int> capacidad { get; set; }
         public Nullable<bool> activa { get; set; }
-        public Nullable<int> id_usuario { get; set; }
         public Nullable<int> id_asignatura { get; set; }
         public string tipo_reserva { get; set; }
         public Nullable<int> id_docente { get; set; }
+        public int Bedel_id_usuario { get; set; }
     
         public virtual Asignatura Asignatura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleReserva> DetalleReservas { get; set; }
         public virtual Docente Docente { get; set; }
-        public virtual Usuario Usuario { get; set; }
+        public virtual Bedel Bedel { get; set; }
     }
 }
