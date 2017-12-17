@@ -83,28 +83,24 @@ namespace CapaLogica
 
         private HashSet<Aula> obtenerAulasLibres(HashSet<Aula> aulasCumplen, HashSet<Aula> aulasOcupadas)
         {
-            
-            //TODO: intentar optimizar, complejidad muy alta
             if (!(aulasOcupadas.Count == 0))
             {
-                HashSet<Aula> aulasLibres = new HashSet<Aula>();
+                HashSet<Aula> aulasReservadas = new HashSet<Aula>();
 
-                foreach (Aula aulaCumple in aulasCumplen)
+                foreach (Aula aulaOcupada in aulasOcupadas)
                 {
-                    foreach (Aula aulaOcupada in aulasOcupadas)
-                    {
-                        if (!aulaOcupada.id_aula.Equals(aulaCumple.id_aula))
-                        {
-                            aulasLibres.Add(aulaCumple);
-                        }
-                    }
+                    aulasCumplen.RemoveWhere(aulaCumple => aulaCumple.id_aula.Equals(aulaOcupada.id_aula));
                 }
-                return aulasLibres;
+
+                Console.WriteLine(aulasCumplen.Count);
+                return aulasCumplen;
             }
             else
             {
                 return aulasCumplen;
             }
+
+           
         }
 
         public HashSet<DateTime> convertToFechas(string diaReserva, HashSet<CuatrimestreDTO> periodo)

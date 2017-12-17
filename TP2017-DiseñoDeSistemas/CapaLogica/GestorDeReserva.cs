@@ -30,7 +30,7 @@ namespace CapaLogica
         public void registrarReserva(ReservaDTO reservaDTO)
         {
             //Chequea que la disponibilidad de las aulas sean las mismas
-            this.revalidarDisponibilidad(reservaDTO);
+            //this.revalidarDisponibilidad(reservaDTO);
             
             //Obtiene el docente, asignatura y bedel seleccionados
             Docente docente = docenteDAO.getDocente(reservaDTO.idDocente);
