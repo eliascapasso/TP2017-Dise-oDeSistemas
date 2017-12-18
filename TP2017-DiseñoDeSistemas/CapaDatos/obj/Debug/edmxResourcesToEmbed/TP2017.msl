@@ -62,24 +62,24 @@
     <EntitySetMapping Name="Cuatrimestres">
       <EntityTypeMapping TypeName="TP2017Model.Cuatrimestre">
         <MappingFragment StoreEntitySet="Cuatrimestre">
+          <ScalarProperty Name="AnioLectivo_id_anio_lectivo" ColumnName="id_anio_lectivo" />
           <ScalarProperty Name="id_cuatrimestre" ColumnName="id_cuatrimestre" />
           <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
           <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-          <ScalarProperty Name="id_anio_lectivo" ColumnName="id_anio_lectivo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DetalleReservas">
       <EntityTypeMapping TypeName="TP2017Model.DetalleReserva">
         <MappingFragment StoreEntitySet="DetalleReserva">
+          <ScalarProperty Name="Cuatrimestre_id_cuatrimestre" ColumnName="id_cuatrimestre" />
+          <ScalarProperty Name="Aula_id_aula" ColumnName="id_aula" />
+          <ScalarProperty Name="Reserva_id_reserva" ColumnName="id_reserva" />
           <ScalarProperty Name="id_detalle_reserva" ColumnName="id_detalle_reserva" />
           <ScalarProperty Name="dia" ColumnName="dia" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
-          <ScalarProperty Name="id_aula" ColumnName="id_aula" />
           <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
           <ScalarProperty Name="duracion" ColumnName="duracion" />
-          <ScalarProperty Name="id_cuatrimestre" ColumnName="id_cuatrimestre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -96,9 +96,9 @@
     <EntitySetMapping Name="HistContrasenias">
       <EntityTypeMapping TypeName="TP2017Model.HistContrasenia">
         <MappingFragment StoreEntitySet="HistContrasenia">
+          <ScalarProperty Name="Usuario_id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="id_historial" ColumnName="id_historial" />
           <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
-          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -106,14 +106,14 @@
     <EntitySetMapping Name="Reservas">
       <EntityTypeMapping TypeName="TP2017Model.Reserva">
         <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="Asignatura_id_asignatura" ColumnName="id_asignatura" />
+          <ScalarProperty Name="Docente_id_docente" ColumnName="id_docente" />
           <ScalarProperty Name="Bedel_id_usuario" ColumnName="id_usuario" />
           <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
           <ScalarProperty Name="fechaReserva" ColumnName="fechaReserva" />
           <ScalarProperty Name="capacidad" ColumnName="capacidad" />
           <ScalarProperty Name="activa" ColumnName="activa" />
-          <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
           <ScalarProperty Name="tipo_reserva" ColumnName="tipo_reserva" />
-          <ScalarProperty Name="id_docente" ColumnName="id_docente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

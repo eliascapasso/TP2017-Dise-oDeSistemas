@@ -370,7 +370,7 @@
           <Property Name="id_anio_lectivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
           <Property Name="fecha_fin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Cuatrimestres" Relationship="Self.FK__Cuatrimes__id_an__29572725" FromRole="AnioLectivo" ToRole="Cuatrimestre" />
+          <NavigationProperty Name="Cuatrimestres" Relationship="TP2017Model.AnioLectivoCuatrimestre" FromRole="AnioLectivo" ToRole="Cuatrimestre" />
         </EntityType>
         <EntityType Name="Asignatura">
           <Key>
@@ -381,8 +381,8 @@
           <Property Name="nombre_asignatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="duracion" Type="Time" Precision="7" />
           <NavigationProperty Name="TipoAsignatura" Relationship="Self.FK__Asignatur__id_ti__276EDEB3" FromRole="Asignatura" ToRole="TipoAsignatura" />
-          <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__id_asig__300424B4" FromRole="Asignatura" ToRole="Reserva" />
           <NavigationProperty Name="Docentes" Relationship="Self.DocenteAsignatura" FromRole="Asignatura" ToRole="Docente" />
+          <NavigationProperty Name="Reservas" Relationship="TP2017Model.AsignaturaReserva" FromRole="Asignatura" ToRole="Reserva" />
         </EntityType>
         <EntityType Name="Aula">
           <Key>
@@ -397,7 +397,7 @@
           <Property Name="tipo_pizarron" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_tipo_aula" Type="Int32" />
           <NavigationProperty Name="TipoAula" Relationship="Self.FK__Aula__id_tipo_au__286302EC" FromRole="Aula" ToRole="TipoAula" />
-          <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_au__2A4B4B5E" FromRole="Aula" ToRole="DetalleReserva" />
+          <NavigationProperty Name="DetalleReservas" Relationship="TP2017Model.AulaDetalleReserva" FromRole="Aula" ToRole="DetalleReserva" />
         </EntityType>
         <EntityType Name="Cuatrimestre">
           <Key>
@@ -406,9 +406,9 @@
           <Property Name="id_cuatrimestre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
           <Property Name="fecha_fin" Type="DateTime" Precision="0" />
-          <Property Name="id_anio_lectivo" Type="Int32" />
-          <NavigationProperty Name="AnioLectivo" Relationship="Self.FK__Cuatrimes__id_an__29572725" FromRole="Cuatrimestre" ToRole="AnioLectivo" />
-          <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_cu__2B3F6F97" FromRole="Cuatrimestre" ToRole="DetalleReserva" />
+          <NavigationProperty Name="DetalleReservas" Relationship="TP2017Model.CuatrimestreDetalleReserva" FromRole="Cuatrimestre" ToRole="DetalleReserva" />
+          <NavigationProperty Name="AnioLectivo" Relationship="TP2017Model.AnioLectivoCuatrimestre" FromRole="Cuatrimestre" ToRole="AnioLectivo" />
+          <Property Name="AnioLectivo_id_anio_lectivo" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="DetalleReserva">
           <Key>
@@ -417,14 +417,14 @@
           <Property Name="id_detalle_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="dia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="fecha" Type="DateTime" Precision="3" />
-          <Property Name="id_reserva" Type="Int32" />
-          <Property Name="id_aula" Type="Int32" />
           <Property Name="hora_inicio" Type="Time" Precision="7" />
           <Property Name="duracion" Type="Time" Precision="7" />
-          <Property Name="id_cuatrimestre" Type="Int32" />
-          <NavigationProperty Name="Aula" Relationship="Self.FK__DetalleRe__id_au__2A4B4B5E" FromRole="DetalleReserva" ToRole="Aula" />
-          <NavigationProperty Name="Cuatrimestre" Relationship="Self.FK__DetalleRe__id_cu__2B3F6F97" FromRole="DetalleReserva" ToRole="Cuatrimestre" />
-          <NavigationProperty Name="Reserva" Relationship="Self.FK__DetalleRe__id_re__2C3393D0" FromRole="DetalleReserva" ToRole="Reserva" />
+          <NavigationProperty Name="Reserva" Relationship="TP2017Model.ReservaDetalleReserva" FromRole="DetalleReserva" ToRole="Reserva" />
+          <Property Name="Reserva_id_reserva" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Aula" Relationship="TP2017Model.AulaDetalleReserva" FromRole="DetalleReserva" ToRole="Aula" />
+          <Property Name="Aula_id_aula" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cuatrimestre" Relationship="TP2017Model.CuatrimestreDetalleReserva" FromRole="DetalleReserva" ToRole="Cuatrimestre" />
+          <Property Name="Cuatrimestre_id_cuatrimestre" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Docente">
           <Key>
@@ -434,8 +434,8 @@
           <Property Name="nombre_docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="apellido_docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email_docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Reservas" Relationship="Self.FK__Reserva__id_doce__30F848ED" FromRole="Docente" ToRole="Reserva" />
           <NavigationProperty Name="Asignaturas" Relationship="Self.DocenteAsignatura" FromRole="Docente" ToRole="Asignatura" />
+          <NavigationProperty Name="Reservas" Relationship="TP2017Model.DocenteReserva" FromRole="Docente" ToRole="Reserva" />
         </EntityType>
         <EntityType Name="HistContrasenia">
           <Key>
@@ -443,9 +443,9 @@
           </Key>
           <Property Name="id_historial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id_usuario" Type="Int32" />
           <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK__HistContr__id_us__2F10007B" FromRole="HistContrasenia" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario" Relationship="TP2017Model.UsuarioHistContrasenia" FromRole="HistContrasenia" ToRole="Usuario" />
+          <Property Name="Usuario_id_usuario" Nullable="false" Type="Int32" />
         </EntityType>
         <EntityType Name="Reserva">
           <Key>
@@ -455,14 +455,14 @@
           <Property Name="fechaReserva" Type="DateTime" Precision="3" />
           <Property Name="capacidad" Type="Int32" />
           <Property Name="activa" Type="Boolean" />
-          <Property Name="id_asignatura" Type="Int32" />
           <Property Name="tipo_reserva" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id_docente" Type="Int32" />
-          <NavigationProperty Name="Asignatura" Relationship="Self.FK__Reserva__id_asig__300424B4" FromRole="Reserva" ToRole="Asignatura" />
-          <NavigationProperty Name="DetalleReservas" Relationship="Self.FK__DetalleRe__id_re__2C3393D0" FromRole="Reserva" ToRole="DetalleReserva" />
-          <NavigationProperty Name="Docente" Relationship="Self.FK__Reserva__id_doce__30F848ED" FromRole="Reserva" ToRole="Docente" />
           <NavigationProperty Name="Bedel" Relationship="TP2017Model.BedelReserva" FromRole="Reserva" ToRole="Bedel" />
           <Property Name="Bedel_id_usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DetalleReservas" Relationship="TP2017Model.ReservaDetalleReserva" FromRole="Reserva" ToRole="DetalleReserva" />
+          <NavigationProperty Name="Docente" Relationship="TP2017Model.DocenteReserva" FromRole="Reserva" ToRole="Docente" />
+          <Property Name="Docente_id_docente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Asignatura" Relationship="TP2017Model.AsignaturaReserva" FromRole="Reserva" ToRole="Asignatura" />
+          <Property Name="Asignatura_id_asignatura" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoAsignatura">
           <Key>
@@ -497,21 +497,9 @@
           <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_tipo_usuario" Type="Int32" />
-          <NavigationProperty Name="HistContrasenias" Relationship="Self.FK__HistContr__id_us__2F10007B" FromRole="Usuario" ToRole="HistContrasenia" />
           <NavigationProperty Name="TipoUsuario" Relationship="Self.FK__Usuario__id_tipo__32E0915F" FromRole="Usuario" ToRole="TipoUsuario" />
+          <NavigationProperty Name="HistContrasenias" Relationship="TP2017Model.UsuarioHistContrasenia" FromRole="Usuario" ToRole="HistContrasenia" />
         </EntityType>
-        <Association Name="FK__Cuatrimes__id_an__29572725">
-          <End Role="AnioLectivo" Type="Self.AnioLectivo" Multiplicity="0..1" />
-          <End Role="Cuatrimestre" Type="Self.Cuatrimestre" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AnioLectivo">
-              <PropertyRef Name="id_anio_lectivo" />
-            </Principal>
-            <Dependent Role="Cuatrimestre">
-              <PropertyRef Name="id_anio_lectivo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Asignatur__id_ti__276EDEB3">
           <End Role="TipoAsignatura" Type="Self.TipoAsignatura" Multiplicity="0..1" />
           <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="*" />
@@ -524,18 +512,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Reserva__id_asig__300424B4">
-          <End Role="Asignatura" Type="Self.Asignatura" Multiplicity="0..1" />
-          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Asignatura">
-              <PropertyRef Name="id_asignatura" />
-            </Principal>
-            <Dependent Role="Reserva">
-              <PropertyRef Name="id_asignatura" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Aula__id_tipo_au__286302EC">
           <End Role="TipoAula" Type="Self.TipoAula" Multiplicity="0..1" />
           <End Role="Aula" Type="Self.Aula" Multiplicity="*" />
@@ -545,66 +521,6 @@
             </Principal>
             <Dependent Role="Aula">
               <PropertyRef Name="id_tipo_aula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DetalleRe__id_au__2A4B4B5E">
-          <End Role="Aula" Type="Self.Aula" Multiplicity="0..1" />
-          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Aula">
-              <PropertyRef Name="id_aula" />
-            </Principal>
-            <Dependent Role="DetalleReserva">
-              <PropertyRef Name="id_aula" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DetalleRe__id_cu__2B3F6F97">
-          <End Role="Cuatrimestre" Type="Self.Cuatrimestre" Multiplicity="0..1" />
-          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cuatrimestre">
-              <PropertyRef Name="id_cuatrimestre" />
-            </Principal>
-            <Dependent Role="DetalleReserva">
-              <PropertyRef Name="id_cuatrimestre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DetalleRe__id_re__2C3393D0">
-          <End Role="Reserva" Type="Self.Reserva" Multiplicity="0..1" />
-          <End Role="DetalleReserva" Type="Self.DetalleReserva" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reserva">
-              <PropertyRef Name="id_reserva" />
-            </Principal>
-            <Dependent Role="DetalleReserva">
-              <PropertyRef Name="id_reserva" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Reserva__id_doce__30F848ED">
-          <End Role="Docente" Type="Self.Docente" Multiplicity="0..1" />
-          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Docente">
-              <PropertyRef Name="id_docente" />
-            </Principal>
-            <Dependent Role="Reserva">
-              <PropertyRef Name="id_docente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__HistContr__id_us__2F10007B">
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
-          <End Role="HistContrasenia" Type="Self.HistContrasenia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="id_usuario" />
-            </Principal>
-            <Dependent Role="HistContrasenia">
-              <PropertyRef Name="id_usuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -637,41 +553,13 @@
           <EntitySet Name="TipoAulas" EntityType="Self.TipoAula" />
           <EntitySet Name="TipoUsuarios" EntityType="Self.TipoUsuario" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK__Cuatrimes__id_an__29572725" Association="Self.FK__Cuatrimes__id_an__29572725">
-            <End Role="AnioLectivo" EntitySet="AnioLectivoes" />
-            <End Role="Cuatrimestre" EntitySet="Cuatrimestres" />
-          </AssociationSet>
           <AssociationSet Name="FK__Asignatur__id_ti__276EDEB3" Association="Self.FK__Asignatur__id_ti__276EDEB3">
             <End Role="TipoAsignatura" EntitySet="TipoAsignaturas" />
             <End Role="Asignatura" EntitySet="Asignaturas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Reserva__id_asig__300424B4" Association="Self.FK__Reserva__id_asig__300424B4">
-            <End Role="Asignatura" EntitySet="Asignaturas" />
-            <End Role="Reserva" EntitySet="Reservas" />
-          </AssociationSet>
           <AssociationSet Name="FK__Aula__id_tipo_au__286302EC" Association="Self.FK__Aula__id_tipo_au__286302EC">
             <End Role="TipoAula" EntitySet="TipoAulas" />
             <End Role="Aula" EntitySet="Aulas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DetalleRe__id_au__2A4B4B5E" Association="Self.FK__DetalleRe__id_au__2A4B4B5E">
-            <End Role="Aula" EntitySet="Aulas" />
-            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DetalleRe__id_cu__2B3F6F97" Association="Self.FK__DetalleRe__id_cu__2B3F6F97">
-            <End Role="Cuatrimestre" EntitySet="Cuatrimestres" />
-            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DetalleRe__id_re__2C3393D0" Association="Self.FK__DetalleRe__id_re__2C3393D0">
-            <End Role="Reserva" EntitySet="Reservas" />
-            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Reserva__id_doce__30F848ED" Association="Self.FK__Reserva__id_doce__30F848ED">
-            <End Role="Docente" EntitySet="Docentes" />
-            <End Role="Reserva" EntitySet="Reservas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HistContr__id_us__2F10007B" Association="Self.FK__HistContr__id_us__2F10007B">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="HistContrasenia" EntitySet="HistContrasenias" />
           </AssociationSet>
           <AssociationSet Name="FK__Usuario__id_tipo__32E0915F" Association="Self.FK__Usuario__id_tipo__32E0915F">
             <End Role="TipoUsuario" EntitySet="TipoUsuarios" />
@@ -684,6 +572,34 @@
           <AssociationSet Name="BedelReserva" Association="TP2017Model.BedelReserva">
             <End Role="Bedel" EntitySet="Usuarios" />
             <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioHistContrasenia" Association="TP2017Model.UsuarioHistContrasenia">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="HistContrasenia" EntitySet="HistContrasenias" />
+          </AssociationSet>
+          <AssociationSet Name="ReservaDetalleReserva" Association="TP2017Model.ReservaDetalleReserva">
+            <End Role="Reserva" EntitySet="Reservas" />
+            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
+          </AssociationSet>
+          <AssociationSet Name="AulaDetalleReserva" Association="TP2017Model.AulaDetalleReserva">
+            <End Role="Aula" EntitySet="Aulas" />
+            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
+          </AssociationSet>
+          <AssociationSet Name="CuatrimestreDetalleReserva" Association="TP2017Model.CuatrimestreDetalleReserva">
+            <End Role="Cuatrimestre" EntitySet="Cuatrimestres" />
+            <End Role="DetalleReserva" EntitySet="DetalleReservas" />
+          </AssociationSet>
+          <AssociationSet Name="DocenteReserva" Association="TP2017Model.DocenteReserva">
+            <End Role="Docente" EntitySet="Docentes" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="AsignaturaReserva" Association="TP2017Model.AsignaturaReserva">
+            <End Role="Asignatura" EntitySet="Asignaturas" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="AnioLectivoCuatrimestre" Association="TP2017Model.AnioLectivoCuatrimestre">
+            <End Role="AnioLectivo" EntitySet="AnioLectivoes" />
+            <End Role="Cuatrimestre" EntitySet="Cuatrimestres" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bedel" BaseType="TP2017Model.Usuario" >
@@ -712,6 +628,90 @@
             </Principal>
             <Dependent Role="Reserva">
               <PropertyRef Name="Bedel_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioHistContrasenia">
+          <End Type="TP2017Model.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="TP2017Model.HistContrasenia" Role="HistContrasenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="HistContrasenia">
+              <PropertyRef Name="Usuario_id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReservaDetalleReserva">
+          <End Type="TP2017Model.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="TP2017Model.DetalleReserva" Role="DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="id_reserva" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="Reserva_id_reserva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AulaDetalleReserva">
+          <End Type="TP2017Model.Aula" Role="Aula" Multiplicity="1" />
+          <End Type="TP2017Model.DetalleReserva" Role="DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aula">
+              <PropertyRef Name="id_aula" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="Aula_id_aula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CuatrimestreDetalleReserva">
+          <End Type="TP2017Model.Cuatrimestre" Role="Cuatrimestre" Multiplicity="1" />
+          <End Type="TP2017Model.DetalleReserva" Role="DetalleReserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cuatrimestre">
+              <PropertyRef Name="id_cuatrimestre" />
+            </Principal>
+            <Dependent Role="DetalleReserva">
+              <PropertyRef Name="Cuatrimestre_id_cuatrimestre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DocenteReserva">
+          <End Type="TP2017Model.Docente" Role="Docente" Multiplicity="1" />
+          <End Type="TP2017Model.Reserva" Role="Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="id_docente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="Docente_id_docente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AsignaturaReserva">
+          <End Type="TP2017Model.Asignatura" Role="Asignatura" Multiplicity="1" />
+          <End Type="TP2017Model.Reserva" Role="Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asignatura">
+              <PropertyRef Name="id_asignatura" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="Asignatura_id_asignatura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnioLectivoCuatrimestre">
+          <End Type="TP2017Model.AnioLectivo" Role="AnioLectivo" Multiplicity="1" />
+          <End Type="TP2017Model.Cuatrimestre" Role="Cuatrimestre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnioLectivo">
+              <PropertyRef Name="id_anio_lectivo" />
+            </Principal>
+            <Dependent Role="Cuatrimestre">
+              <PropertyRef Name="AnioLectivo_id_anio_lectivo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -782,24 +782,24 @@
           <EntitySetMapping Name="Cuatrimestres">
             <EntityTypeMapping TypeName="TP2017Model.Cuatrimestre">
               <MappingFragment StoreEntitySet="Cuatrimestre">
+                <ScalarProperty Name="AnioLectivo_id_anio_lectivo" ColumnName="id_anio_lectivo" />
                 <ScalarProperty Name="id_cuatrimestre" ColumnName="id_cuatrimestre" />
                 <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
                 <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-                <ScalarProperty Name="id_anio_lectivo" ColumnName="id_anio_lectivo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DetalleReservas">
             <EntityTypeMapping TypeName="TP2017Model.DetalleReserva">
               <MappingFragment StoreEntitySet="DetalleReserva">
+                <ScalarProperty Name="Cuatrimestre_id_cuatrimestre" ColumnName="id_cuatrimestre" />
+                <ScalarProperty Name="Aula_id_aula" ColumnName="id_aula" />
+                <ScalarProperty Name="Reserva_id_reserva" ColumnName="id_reserva" />
                 <ScalarProperty Name="id_detalle_reserva" ColumnName="id_detalle_reserva" />
                 <ScalarProperty Name="dia" ColumnName="dia" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
-                <ScalarProperty Name="id_aula" ColumnName="id_aula" />
                 <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
                 <ScalarProperty Name="duracion" ColumnName="duracion" />
-                <ScalarProperty Name="id_cuatrimestre" ColumnName="id_cuatrimestre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -816,9 +816,9 @@
           <EntitySetMapping Name="HistContrasenias">
             <EntityTypeMapping TypeName="TP2017Model.HistContrasenia">
               <MappingFragment StoreEntitySet="HistContrasenia">
+                <ScalarProperty Name="Usuario_id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="id_historial" ColumnName="id_historial" />
                 <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
-                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -826,14 +826,14 @@
           <EntitySetMapping Name="Reservas">
             <EntityTypeMapping TypeName="TP2017Model.Reserva">
               <MappingFragment StoreEntitySet="Reserva">
+                <ScalarProperty Name="Asignatura_id_asignatura" ColumnName="id_asignatura" />
+                <ScalarProperty Name="Docente_id_docente" ColumnName="id_docente" />
                 <ScalarProperty Name="Bedel_id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="id_reserva" ColumnName="id_reserva" />
                 <ScalarProperty Name="fechaReserva" ColumnName="fechaReserva" />
                 <ScalarProperty Name="capacidad" ColumnName="capacidad" />
                 <ScalarProperty Name="activa" ColumnName="activa" />
-                <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
                 <ScalarProperty Name="tipo_reserva" ColumnName="tipo_reserva" />
-                <ScalarProperty Name="id_docente" ColumnName="id_docente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

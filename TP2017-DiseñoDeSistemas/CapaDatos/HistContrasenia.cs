@@ -16,8 +16,8 @@ namespace CapaDatos
     {
         public int id_historial { get; set; }
         public string contrasenia { get; set; }
-        public Nullable<int> id_usuario { get; set; }
         public Nullable<System.DateTime> fecha_creacion { get; set; }
+        public int Usuario_id_usuario { get; set; }
     
         public virtual Usuario Usuario { get; set; }
     }

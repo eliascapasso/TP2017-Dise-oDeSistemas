@@ -17,7 +17,7 @@
         {
             this.contrasenia = pass;
             this.Usuario = usuario;
-            this.id_usuario = usuario.id_usuario;
+            this.Usuario_id_usuario = usuario.id_usuario;
             this.fecha_creacion = DateTime.Now;
         }
     }

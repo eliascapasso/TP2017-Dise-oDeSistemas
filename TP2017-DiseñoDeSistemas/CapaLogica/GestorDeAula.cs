@@ -49,12 +49,6 @@ namespace CapaLogica
             //Obtiene las aulas ocupadas
             foreach (DateTime fechaReserva in fechasReserva)
             {
-                //foreach (Aula aulaOcupada in reservaDAO.obtenerAulasOcupadas(fechaReserva,
-                //                                                            aulaDTO.detalleReserva.horaInicio,
-                //                                                            aulaDTO.detalleReserva.duracion)) 
-                //{
-                //    aulasOcupadas.Add(aulaOcupada);
-                //}
                 aulasOcupadas= reservaDAO.obtenerAulasOcupadas(fechaReserva,
                                                                aulaDTO.detalleReserva.horaInicio,                               
                                                                aulaDTO.detalleReserva.duracion) ;
@@ -69,15 +63,16 @@ namespace CapaLogica
                                                        aulaDTO.tipoReserva,
                                                        aulaDTO.detalleReserva.periodo);
 
-                    //TODO:Intentar optimizar
+                    //descarta aulas libres repetidas
                     bool noExisteAula = true;
-                    foreach (AulaDTO aula in aulasLibres) //descarta aulas libres repetidas
+                    foreach (AulaDTO aula in aulasLibres) 
                         if (aula.idAula == aulaLibreDTO.idAula) { noExisteAula = false; }
 
                     if (noExisteAula) { aulasLibres.Add(aulaLibreDTO); }
                 }
             }
-            Console.WriteLine("aulasLibres: " + aulasLibres.Count);
+
+            Console.WriteLine("Cantidad de aulas libres: " + aulasLibres.Count);
             return aulasLibres;
         }
 
@@ -92,22 +87,19 @@ namespace CapaLogica
                     aulasCumplen.RemoveWhere(aulaCumple => aulaCumple.id_aula.Equals(aulaOcupada.id_aula));
                 }
 
-                Console.WriteLine(aulasCumplen.Count);
                 return aulasCumplen;
             }
             else
             {
                 return aulasCumplen;
             }
-
-           
         }
 
         public HashSet<DateTime> convertToFechas(string diaReserva, HashSet<CuatrimestreDTO> periodo)
         {
             HashSet<DateTime> fechas = new HashSet<DateTime>();
             DateTime fecha = DateTime.Now;
-            string diaDeFecha = fecha.ToString("dddd", new CultureInfo("es-ES")).ToUpper();
+            string diaDeFecha = fecha.ToString("dddd", new CultureInfo("es-ES")).ToUpper(); //Convierte la fecha en su dia correspondiente de la semana
             
             while (!diaDeFecha.Equals(diaReserva.ToUpper()))
             {
@@ -125,14 +117,13 @@ namespace CapaLogica
 
                 for (DateTime f = fecha; f <= cuatrimestre.FechaFin; f=f.AddDays(7))
                 {
-                    Console.WriteLine("Fecha a reservar" + f.ToShortDateString()); //Visualiza en consola las fechas que fueron convertidas del dia de la reserva
+                    Console.WriteLine("Fecha a reservar: " + f.ToShortDateString()); //Visualiza en consola las fechas que fueron convertidas del dia de la reserva
                     fechas.Add(f);
                 }
             }
             return fechas;
         }
-
-        //TODO: Quitar de aca o de obtener disponibilidad?
+        
         public HashSet<CuatrimestreDTO> calcularPeriodo(DetalleReservaDTO detalleReserva, string tipoReserva)
         {
             HashSet<CuatrimestreDTO> periodo = new HashSet<CuatrimestreDTO>();
@@ -176,10 +167,8 @@ namespace CapaLogica
                         {
                             periodo.Add(cuatrimestre);
                         }
-
                         break;
                 }
-
             }
             return periodo;
         }

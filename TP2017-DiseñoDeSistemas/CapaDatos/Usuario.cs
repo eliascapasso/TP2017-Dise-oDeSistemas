@@ -26,8 +26,8 @@ namespace CapaDatos
         public string contrasenia { get; set; }
         public Nullable<int> id_tipo_usuario { get; set; }
     
+        public virtual TipoUsuario TipoUsuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistContrasenia> HistContrasenias { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
     }
 }

@@ -41,11 +41,10 @@ namespace CapaLogica
                                           reservaDTO.tipoReserva,
                                           reservaDTO.cantAlumnos,
                                           docente,
-                                          asignatura,
-                                          DateTime.Now);
+                                          asignatura);
 
             this.agregarDetalles(reservaDTO, reserva);
-
+            
             reservaDAO.guardarReserva(reserva);
         }
 
@@ -78,7 +77,6 @@ namespace CapaLogica
                 {
                     foreach (DateTime fecha in gestorAula.convertToFechas(detalle.diaOFecha.ToUpper(), periodo))
                     {
-                        //TODO: ver el id cuatrimestre y el periodo del año
                         DetalleReserva detalleReserva = new DetalleReserva(TimeSpan.Parse(detalle.horaInicio),
                                                                            TimeSpan.Parse(detalle.duracion),
                                                                            detalle.diaOFecha,
@@ -132,23 +130,5 @@ namespace CapaLogica
                 }
             }
         }
-
-        //TODO:Eliminar?
-        //private TimeSpan convertToTimespan(string duracion)
-        //{
-        //    int aux = Int32.Parse(duracion);
-        //    string straux;
-
-        //    if (aux <= 59)
-        //    {
-        //        straux = "00:" + aux.ToString();
-        //    }
-        //    else 
-        //    {
-        //        straux = (aux / 60).ToString()+":"+(aux%60).ToString();
-        //    }
-
-        //    return TimeSpan.Parse(straux);
-        //}
     }
 }

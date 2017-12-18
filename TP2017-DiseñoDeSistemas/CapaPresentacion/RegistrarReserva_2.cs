@@ -43,7 +43,8 @@ namespace CapaPresentacion
             int indicePestaniaSeleccionada = tcPestañasDias.SelectedIndex;
             DataGridView dataGridActual = this.listaAulasDisponibles[indicePestaniaSeleccionada];
 
-            DataGridViewRow aulaDisponibleSeleccionada = dataGridActual.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas disponibles
+            // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas disponibles
+            DataGridViewRow aulaDisponibleSeleccionada = dataGridActual.CurrentRow; 
 
             string columnaDia = tcPestañasDias.SelectedTab.Name;
             string columnaAula = Convert.ToString(aulaDisponibleSeleccionada.Cells[0].Value);
@@ -55,10 +56,18 @@ namespace CapaPresentacion
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow aulaSeleccionada = this.dgvAulasSeleccionadas.CurrentRow; // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas seleccionadas
-
-            this.dgvAulasSeleccionadas.Rows.Remove(aulaSeleccionada);
-            this.dgvAulasSeleccionadas.Refresh();
+            // Obtengo la fila actualmente seleccionada en el dataGrid de las aulas seleccionadas
+            DataGridViewRow aulaSeleccionada = this.dgvAulasSeleccionadas.CurrentRow; 
+            try
+            {
+                this.dgvAulasSeleccionadas.Rows.Remove(aulaSeleccionada);
+                this.dgvAulasSeleccionadas.Refresh();
+            }
+            catch (ArgumentNullException n)
+            {
+                Console.WriteLine("No existen aulas seleccionadas por quitar. " + n.Message);
+            }
+            
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -112,6 +121,13 @@ namespace CapaPresentacion
             }
         }
 
+        private void timerReserva_Tick(object sender, EventArgs e)
+        {
+            //Cada vez que se abre reserva 2 se contara con 10 min antes de que se cierre, por disponibilidad.
+            this.Close();
+            padre.Show();
+        }
+
         //METODOS PROPIOS
 
         private HashSet<CuatrimestreDTO> obtenerTodosLosPeriodos()
@@ -136,27 +152,19 @@ namespace CapaPresentacion
 
         private void llenarDgvPestanias()
         {
-            obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, this.obtenerTodosLosPeriodos());
+            HashSet<AulaDTO> disponibilidad = this.obtenerAulasDisponibles();
 
-            HashSet<AulaDTO> disponibilidad = obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
-                                                                                                      estan disponibles para todos los dias 
-                                                                                                      (CU ObtenerDisponibilidad)*/
-            foreach (DetalleReservaDTO detalleReserva in reservaDTO.detallesReservasDTOs)
+            //Recorro todas las filas seleccionadas en la tabla de la primer pantalla de la reserva
+            foreach (DetalleReservaDTO detalleReservaDTO in reservaDTO.detallesReservasDTOs)
             {
-                string nombreDiaoFecha = Convert.ToString(detalleReserva.diaOFecha); //Obtengo el valor de la primer columna (dia)
+                string nombreDiaoFecha = Convert.ToString(detalleReservaDTO.diaOFecha); //Obtengo el valor de la primer columna (dia)
                 DataGridView dgvAulasDisponibles = new DataGridView();
 
                 this.configurarDgvAulasDisponibles(dgvAulasDisponibles);
 
-                //Se agregan las filas
-                foreach (AulaDTO aulaDisponible in disponibilidad)
-                {
-                    if (aulaDisponible.detalleReserva.diaOFecha.Equals(nombreDiaoFecha)) //Compara que el dia del aula sea igual al dia de la pestaña
-                    {
-                        dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
-                    }
-                }
-
+                this.agregarFilasDgvAulasDisponibles(dgvAulasDisponibles, disponibilidad, nombreDiaoFecha);
+                
+                //En caso de que en alguno o en todos los dias no existan aulas disponibles
                 if (dgvAulasDisponibles.Rows.Count == 0)
                 {
                     MessageBox.Show("No existen aulas disponibles para completar la reserva", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -164,25 +172,43 @@ namespace CapaPresentacion
                     padre.Show();
                 }
 
-                //TODO: obtener idAula del datagrid de aulas seleccionadas y setear en reservadto parecido a idDocente en reserva 1 (Buscar)
+                this.configurarPestania(nombreDiaoFecha, dgvAulasDisponibles);                
                 
-                TabPage pestania = new TabPage(nombreDiaoFecha);
-                pestania.Name = nombreDiaoFecha;
-                pestania.Controls.Add(dgvAulasDisponibles);
-
-                tcPestañasDias.TabPages.Add(pestania); //Agrego una pestaña nueva con su respectivo dataGrid
-
+                //Para poder posteriormente agregar aulas a la tabla de aulas seleccionadas
                 this.listaAulasDisponibles.Add(dgvAulasDisponibles);
             }
         }
 
-        private void timerReserva_Tick(object sender, EventArgs e)
+        private void configurarPestania(string nombreDiaoFecha, DataGridView dgvAulasDisponibles)
         {
-            //Cada vez que se abre reserva 2 se contara con 10 min antes de que se cierre, por disponibilidad.
-            this.Close();
-            padre.Show();
+            TabPage pestania = new TabPage(nombreDiaoFecha);
+            pestania.Name = nombreDiaoFecha;
+            pestania.Controls.Add(dgvAulasDisponibles);
+
+            tcPestañasDias.TabPages.Add(pestania); //Agrego una pestaña nueva con su respectivo dataGrid
         }
 
+        private void agregarFilasDgvAulasDisponibles(DataGridView dgvAulasDisponibles, HashSet<AulaDTO> disponibilidad, string nombreDiaoFecha)
+        {
+            //Se agregan las filas a la tabla de aulas disponibles
+            foreach (AulaDTO aulaDisponible in disponibilidad)
+            {
+                if (aulaDisponible.detalleReserva.diaOFecha.Equals(nombreDiaoFecha)) //Compara que el dia del aula sea igual al dia de la pestaña
+                {
+                    dgvAulasDisponibles.Rows.Add(aulaDisponible.idAula, aulaDisponible.capacidad, "");
+                }
+            }
+        }
+
+        private HashSet<AulaDTO> obtenerAulasDisponibles()
+        {
+            obtenerDisponibilidad = new ObtenerDisponibilidadAula(this, this.obtenerTodosLosPeriodos());
+
+            return obtenerDisponibilidad.obtenerDisponibilidad(reservaDTO); /*Obtiene una lista con las aulas que 
+                                                                              estan disponibles para todos los dias 
+                                                                              (CU ObtenerDisponibilidad)*/
+        }
+        
         private void AddToDatagrid(string fecha, string aula, string duracion, string capacidad)
         {
             List<DataGridViewRow> listaDeFilas = new List<DataGridViewRow>();

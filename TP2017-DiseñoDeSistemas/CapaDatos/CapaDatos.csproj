@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Clases\Bedel.cs" />
     <Compile Include="Clases\DetalleReserva.cs" />
+    <Compile Include="Clases\Docente.cs" />
     <Compile Include="Clases\HistContrasenia.cs" />
     <Compile Include="Clases\Reserva.cs" />
     <Compile Include="Clases\TP2017Entities.cs" />

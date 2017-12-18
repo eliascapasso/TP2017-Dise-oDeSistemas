@@ -165,7 +165,6 @@ namespace Autenticacion
                 HashSet<DetalleReservaDTO> detallesReservasDTOs = new HashSet<DetalleReservaDTO>();
                 foreach (DataGridViewRow fila in dgvResultados.Rows)
                 {
-                    //TODO: posible error en detalleReservas
                     detallesReservasDTOs.Add(new DetalleReservaDTO(fila.Cells[0].Value.ToString(), //dia (fecha o nombreDia)
                                                                fila.Cells[1].Value.ToString(), //horaInicio
                                                                fila.Cells[2].Value.ToString())); //duracion
@@ -192,7 +191,12 @@ namespace Autenticacion
                 MessageBox.Show("No se agregó ningún horario", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } 
         }
-        
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         //METODOS PROPIOS
 
         private void llenarAsignaturasEnComboBox()
@@ -306,7 +310,7 @@ namespace Autenticacion
             if (filaExistente)
             {
                 System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show("No se puede agregar una fila igual a otra existente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Seleccione otro día", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else if (!tipoReservaCompatible && !(listaDeFilas.Count == 0))
             {

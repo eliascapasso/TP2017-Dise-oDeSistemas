@@ -23,10 +23,10 @@ namespace CapaDatos
         public int id_cuatrimestre { get; set; }
         public Nullable<System.DateTime> fecha_inicio { get; set; }
         public Nullable<System.DateTime> fecha_fin { get; set; }
-        public Nullable<int> id_anio_lectivo { get; set; }
+        public int AnioLectivo_id_anio_lectivo { get; set; }
     
-        public virtual AnioLectivo AnioLectivo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleReserva> DetalleReservas { get; set; }
+        public virtual AnioLectivo AnioLectivo { get; set; }
     }
 }

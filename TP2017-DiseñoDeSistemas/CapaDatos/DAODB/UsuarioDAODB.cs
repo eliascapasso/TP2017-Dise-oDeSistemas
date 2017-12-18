@@ -173,7 +173,7 @@
                 {
                     var historiales =
                     from HistContrasenia in bd.HistContrasenias
-                    where HistContrasenia.id_usuario == bedel.id_usuario
+                    where HistContrasenia.Usuario_id_usuario == bedel.id_usuario
                     select HistContrasenia;
 
                     foreach (HistContrasenia hist in historiales)

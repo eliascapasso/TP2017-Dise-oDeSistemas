@@ -19,7 +19,7 @@ namespace CapaDatos
             {
                 var query = from HistContrasenia 
                             in bd.HistContrasenias
-                            where HistContrasenia.id_usuario.Equals(bedelObt.id_usuario)
+                            where HistContrasenia.Usuario_id_usuario.Equals(bedelObt.id_usuario)
                             select HistContrasenia;
 
                 foreach(var hist in query)
