@@ -46,7 +46,7 @@ namespace Autenticacion
             this.label10 = new System.Windows.Forms.Label();
             this.cbTipoAula = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbNombreCurso = new System.Windows.Forms.ComboBox();
+            this.cbNombreAsignatura = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -64,6 +64,8 @@ namespace Autenticacion
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbBusquedaDocente = new System.Windows.Forms.TextBox();
             this.btnBuscarDocente = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbTipoAsignatura = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
@@ -199,7 +201,7 @@ namespace Autenticacion
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 470);
+            this.label7.Location = new System.Drawing.Point(17, 510);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 17);
@@ -209,12 +211,12 @@ namespace Autenticacion
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 418);
+            this.label10.Location = new System.Drawing.Point(16, 464);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 17);
+            this.label10.Size = new System.Drawing.Size(134, 17);
             this.label10.TabIndex = 15;
-            this.label10.Text = "Nombre Curso*";
+            this.label10.Text = "Nombre asignatura*";
             // 
             // cbTipoAula
             // 
@@ -238,23 +240,24 @@ namespace Autenticacion
             this.label11.TabIndex = 21;
             this.label11.Text = "Cantidad Alumnos*";
             // 
-            // cbNombreCurso
+            // cbNombreAsignatura
             // 
-            this.cbNombreCurso.DropDownHeight = 60;
-            this.cbNombreCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNombreCurso.FormattingEnabled = true;
-            this.cbNombreCurso.IntegralHeight = false;
-            this.cbNombreCurso.Location = new System.Drawing.Point(161, 415);
-            this.cbNombreCurso.Margin = new System.Windows.Forms.Padding(4);
-            this.cbNombreCurso.Name = "cbNombreCurso";
-            this.cbNombreCurso.Size = new System.Drawing.Size(300, 24);
-            this.cbNombreCurso.TabIndex = 22;
+            this.cbNombreAsignatura.DropDownHeight = 60;
+            this.cbNombreAsignatura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNombreAsignatura.Enabled = false;
+            this.cbNombreAsignatura.FormattingEnabled = true;
+            this.cbNombreAsignatura.IntegralHeight = false;
+            this.cbNombreAsignatura.Location = new System.Drawing.Point(161, 461);
+            this.cbNombreAsignatura.Margin = new System.Windows.Forms.Padding(4);
+            this.cbNombreAsignatura.Name = "cbNombreAsignatura";
+            this.cbNombreAsignatura.Size = new System.Drawing.Size(300, 24);
+            this.cbNombreAsignatura.TabIndex = 22;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label12.Location = new System.Drawing.Point(23, 623);
+            this.label12.Location = new System.Drawing.Point(22, 671);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 17);
@@ -263,7 +266,7 @@ namespace Autenticacion
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(464, 623);
+            this.btnSiguiente.Location = new System.Drawing.Point(463, 660);
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(100, 28);
@@ -275,7 +278,7 @@ namespace Autenticacion
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(356, 623);
+            this.btnCancelar.Location = new System.Drawing.Point(355, 660);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
@@ -383,7 +386,7 @@ namespace Autenticacion
             this.Apellido,
             this.Nombre,
             this.Email});
-            this.dgvDocentes.Location = new System.Drawing.Point(20, 501);
+            this.dgvDocentes.Location = new System.Drawing.Point(20, 540);
             this.dgvDocentes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDocentes.Name = "dgvDocentes";
             this.dgvDocentes.ReadOnly = true;
@@ -411,7 +414,7 @@ namespace Autenticacion
             // 
             // tbBusquedaDocente
             // 
-            this.tbBusquedaDocente.Location = new System.Drawing.Point(225, 466);
+            this.tbBusquedaDocente.Location = new System.Drawing.Point(227, 507);
             this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4);
             this.tbBusquedaDocente.Name = "tbBusquedaDocente";
             this.tbBusquedaDocente.Size = new System.Drawing.Size(229, 22);
@@ -419,7 +422,7 @@ namespace Autenticacion
             // 
             // btnBuscarDocente
             // 
-            this.btnBuscarDocente.Location = new System.Drawing.Point(464, 464);
+            this.btnBuscarDocente.Location = new System.Drawing.Point(464, 504);
             this.btnBuscarDocente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarDocente.Name = "btnBuscarDocente";
             this.btnBuscarDocente.Size = new System.Drawing.Size(100, 28);
@@ -428,13 +431,38 @@ namespace Autenticacion
             this.btnBuscarDocente.UseVisualStyleBackColor = true;
             this.btnBuscarDocente.Click += new System.EventHandler(this.btnBuscarDocente_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 423);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 17);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Tipo asignatura*";
+            // 
+            // cbTipoAsignatura
+            // 
+            this.cbTipoAsignatura.DropDownHeight = 60;
+            this.cbTipoAsignatura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoAsignatura.FormattingEnabled = true;
+            this.cbTipoAsignatura.IntegralHeight = false;
+            this.cbTipoAsignatura.Location = new System.Drawing.Point(161, 420);
+            this.cbTipoAsignatura.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTipoAsignatura.Name = "cbTipoAsignatura";
+            this.cbTipoAsignatura.Size = new System.Drawing.Size(300, 24);
+            this.cbTipoAsignatura.TabIndex = 34;
+            this.cbTipoAsignatura.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_cbTipoAsignatura);
+            // 
             // RegistrarReserva_1
             // 
             this.AcceptButton = this.btnSiguiente;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(587, 657);
+            this.ClientSize = new System.Drawing.Size(587, 701);
+            this.Controls.Add(this.cbTipoAsignatura);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnBuscarDocente);
             this.Controls.Add(this.tbBusquedaDocente);
             this.Controls.Add(this.dgvDocentes);
@@ -445,7 +473,7 @@ namespace Autenticacion
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.cbNombreCurso);
+            this.Controls.Add(this.cbNombreAsignatura);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cbTipoAula);
             this.Controls.Add(this.label10);
@@ -496,7 +524,7 @@ namespace Autenticacion
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbTipoAula;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbNombreCurso;
+        private System.Windows.Forms.ComboBox cbNombreAsignatura;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnCancelar;
@@ -514,5 +542,7 @@ namespace Autenticacion
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDuracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoReserva;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbTipoAsignatura;
     }
 }

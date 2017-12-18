@@ -16,7 +16,6 @@
     <Property Name="id_asignatura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_tipo_asignatura" Type="Int32" />
     <Property Name="nombre_asignatura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="duracion" Type="Time" Precision="7" />
     <NavigationProperty Name="TipoAsignatura" Relationship="Self.FK__Asignatur__id_ti__276EDEB3" FromRole="Asignatura" ToRole="TipoAsignatura" />
     <NavigationProperty Name="Docentes" Relationship="Self.DocenteAsignatura" FromRole="Asignatura" ToRole="Docente" />
     <NavigationProperty Name="Reservas" Relationship="TP2017Model.AsignaturaReserva" FromRole="Asignatura" ToRole="Reserva" />

@@ -20,7 +20,12 @@ namespace CapaLogica
 
         public ArrayList obtenerAsignaturas()
         {
-            return asigDAODB.obtenerAsgignaturas();
+            return asigDAODB.obtenerAsignaturas();
+        }
+
+        public ArrayList obtenerTiposAsignatura()
+        {
+            return asigDAODB.obtenerTiposAsignatura();
         }
     }
 }

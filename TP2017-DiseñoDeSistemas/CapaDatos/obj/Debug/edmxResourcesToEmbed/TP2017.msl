@@ -16,7 +16,6 @@
           <ScalarProperty Name="id_asignatura" ColumnName="id_asignatura" />
           <ScalarProperty Name="id_tipo_asignatura" ColumnName="id_tipo_asignatura" />
           <ScalarProperty Name="nombre_asignatura" ColumnName="nombre_asignatura" />
-          <ScalarProperty Name="duracion" ColumnName="duracion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

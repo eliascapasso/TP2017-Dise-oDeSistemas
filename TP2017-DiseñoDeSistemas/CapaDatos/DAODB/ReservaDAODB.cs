@@ -35,8 +35,6 @@ namespace CapaDatos
             using (TP2017Entities bd = new TP2017Entities())
             {
                 bd.Reservas.Add(reserva);
-                //reserva.Docente.Asignaturas.Add(reserva.Asignatura);
-                //reserva.Asignatura.Docentes.Add(reserva.Docente);
 
                 //TODO:poner dentro del try
                 bd.SaveChanges();

@@ -19,40 +19,28 @@ namespace Autenticacion
     public partial class RegistrarReserva_1 : Form
     {
         private Form padre;
-        private GestorDeUsuario gestorUsuario;
-        private GestorDeAsignatura gestorAsignatura;
-        private GestorDeAula gestorAula;
-        private GestorDeDocente gestorDocente;
         public string nickBedel;
-        private ArrayList docentes;
-        private ArrayList asignaturas;
-        private ArrayList tiposAula;
+
+        private GestorDeUsuario gestorUsuario = new GestorDeUsuario();
+        private GestorDeAsignatura gestorAsignatura = new GestorDeAsignatura();
+        private GestorDeAula gestorAula = new GestorDeAula();
+        private GestorDeDocente gestorDocente = new GestorDeDocente();
+        private ArrayList docentes = new ArrayList();
+        private ArrayList asignaturas = new ArrayList();
+        private ArrayList tiposAula = new ArrayList();
+        private ArrayList tiposAsignatura = new ArrayList();
 
         public RegistrarReserva_1(Form papa, string nickBedel)
         {
             
             this.padre = papa;
-            this.gestorUsuario = new GestorDeUsuario();
-            this.gestorAsignatura = new GestorDeAsignatura();
-            this.gestorAula = new GestorDeAula();
-            this.gestorDocente = new GestorDeDocente();
             this.nickBedel = nickBedel;
-            this.docentes = new ArrayList();
-            this.asignaturas = new ArrayList();
-            this.tiposAula = new ArrayList();
             InitializeComponent();
         }
 
         public RegistrarReserva_1(Form papa)
         {
             this.padre = papa;
-            this.gestorUsuario = new GestorDeUsuario();
-            this.gestorAsignatura = new GestorDeAsignatura();
-            this.gestorAula = new GestorDeAula();
-            this.gestorDocente = new GestorDeDocente();
-            this.docentes = new ArrayList();
-            this.asignaturas = new ArrayList();
-            this.tiposAula = new ArrayList();
             InitializeComponent();
         }
 
@@ -60,17 +48,17 @@ namespace Autenticacion
         {
             this.llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
             this.llenarTiposAulaEnComboBox();
-            this.llenarAsignaturasEnComboBox();
+            this.llenarTiposAsignaturaEnComboBox();
             this.llenarDocentesEnDataGridView();
 
             cbHoraInicio.SelectedIndex = 0;
+            cbTipoAsignatura.SelectedIndex = 0;
             cbTipoReserva.SelectedIndex = 0;
             cbNoEsporadico.SelectedIndex = 0;
-            cbNombreCurso.SelectedIndex = 0;
             cbTipoAula.SelectedIndex = 0;
             tbBusquedaDocente.Text = "";
         }
-
+        
         private void cbTipoReserva_SelectedValueChanged(object sender, EventArgs e)
         {
             //TODO: Deberia vaciar la lista dgv
@@ -134,6 +122,14 @@ namespace Autenticacion
             }
         }
 
+        private void SelectedIndexChanged_cbTipoAsignatura(object sender, EventArgs e)
+        {
+            this.llenarAsignaturasEnComboBox();
+
+            if(cbNombreAsignatura.Items.Count != 0)
+                cbNombreAsignatura.SelectedIndex = 0;
+        }
+
         private void btnBuscarDocente_Click(object sender, EventArgs e)
         {
             dgvDocentes.Rows.Clear();
@@ -170,7 +166,7 @@ namespace Autenticacion
                                                                fila.Cells[2].Value.ToString())); //duracion
                 }
 
-                string nombreAsignatura = cbNombreCurso.SelectedItem.ToString();
+                string nombreAsignatura = cbNombreAsignatura.SelectedItem.ToString();
                 int idAsignatura = this.obtenerIdAsignatura(nombreAsignatura);
 
                 ReservaDTO reservaDTO = new ReservaDTO(nickBedel,
@@ -201,12 +197,31 @@ namespace Autenticacion
 
         private void llenarAsignaturasEnComboBox()
         {
+            cbNombreAsignatura.Enabled = true;
+            cbNombreAsignatura.Items.Clear();
+
+            int idTipoAsignatura = this.obtenerIdTipoAsignatura();
+            
             foreach (Asignatura asig in gestorAsignatura.obtenerAsignaturas())
             {
-                cbNombreCurso.Items.Add(asig.nombre_asignatura);
+                if (idTipoAsignatura == asig.id_tipo_asignatura)
+                {
+                    cbNombreAsignatura.Items.Add(asig.nombre_asignatura);
+
+                    //Agrega la asignaturaDTO a la lista de asignaturas
+                    this.asignaturas.Add(new AsignaturaDTO(asig.id_asignatura, asig.nombre_asignatura));
+                }
+            }
+        }
+
+        private void llenarTiposAsignaturaEnComboBox()
+        {
+            foreach (TipoAsignatura tipo in gestorAsignatura.obtenerTiposAsignatura())
+            {
+                cbTipoAsignatura.Items.Add(tipo.descripcion);
 
                 //Agrega la asignaturaDTO a la lista de asignaturas
-                this.asignaturas.Add(new AsignaturaDTO(asig.id_asignatura, asig.nombre_asignatura));
+                this.tiposAsignatura.Add(new TipoAsignaturaDTO(tipo.id_tipo_asignatura, tipo.descripcion));
             }
         }
 
@@ -216,7 +231,7 @@ namespace Autenticacion
             foreach (Docente docente in gestorDocente.obtenerDocentes())
             {
                 dgvDocentes.Rows.Insert(i, docente.apellido_docente,
-                                        docente.nombre_docente, 
+                                        docente.nombre_docente,
                                         docente.email_docente);
 
                 //Agrega el docenteDTO a la lista de docentes
@@ -260,6 +275,18 @@ namespace Autenticacion
             cb.FormatString = "HH:mm";
         }
 
+        private int obtenerIdTipoAsignatura()
+        {
+            foreach (TipoAsignaturaDTO tipo in tiposAsignatura)
+            {
+                if (tipo.descripcion.Equals(cbTipoAsignatura.Text))
+                {
+                    return tipo.id_tipoAsignatura;
+                }
+            }
+            return -1;
+        }
+        
         private int obtenerIdDocente(string apellido, string nombre, string email)
         {
             foreach (DocenteDTO docente in this.docentes)

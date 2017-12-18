@@ -9,7 +9,8 @@ namespace CapaDatos
 {
     public interface AsignaturaDAO
     {
-        ArrayList obtenerAsgignaturas();
+        ArrayList obtenerAsignaturas();
+        ArrayList obtenerTiposAsignatura();
         Asignatura getAsignatura(int idAsignatura);
     }
 }

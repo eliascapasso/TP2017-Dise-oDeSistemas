@@ -12,7 +12,7 @@
         public AsignaturaDAODB() { }
 
         //Obtiene todas las asignaturas almacenadas en la bd
-        public ArrayList obtenerAsgignaturas()
+        public ArrayList obtenerAsignaturas()
         {
             ArrayList asignaturas = new ArrayList();
 
@@ -24,6 +24,20 @@
                 }
             }
             return asignaturas;
+        }
+
+        public ArrayList obtenerTiposAsignatura()
+        {
+            ArrayList tipos = new ArrayList();
+
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                foreach (TipoAsignatura tipo in bd.TipoAsignaturas)
+                {
+                    tipos.Add(tipo);
+                }
+            }
+            return tipos;
         }
 
         public Asignatura getAsignatura(int idAsignatura)
