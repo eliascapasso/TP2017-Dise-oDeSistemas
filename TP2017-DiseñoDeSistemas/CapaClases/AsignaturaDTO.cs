@@ -9,7 +9,7 @@ namespace CapaClases
     public class AsignaturaDTO
     {
         public string nombre;
-        public int id_asignatura;
+        public int id_asignatura; 
 
         public AsignaturaDTO(int id, string nombre)
         {
