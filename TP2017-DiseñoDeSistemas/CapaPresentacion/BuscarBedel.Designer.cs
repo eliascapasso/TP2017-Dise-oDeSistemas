@@ -48,25 +48,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Location = new System.Drawing.Point(9, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Apellido";
             // 
             // tbApellido
             // 
-            this.tbApellido.Location = new System.Drawing.Point(57, 17);
+            this.tbApellido.Location = new System.Drawing.Point(76, 21);
+            this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbApellido.MaxLength = 50;
             this.tbApellido.Name = "tbApellido";
-            this.tbApellido.Size = new System.Drawing.Size(122, 20);
+            this.tbApellido.Size = new System.Drawing.Size(161, 22);
             this.tbApellido.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(185, 20);
+            this.label3.Location = new System.Drawing.Point(247, 25);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Turno";
             // 
@@ -80,16 +84,18 @@
             "Mañana",
             "Noche",
             "Tarde"});
-            this.cbTurno.Location = new System.Drawing.Point(226, 17);
+            this.cbTurno.Location = new System.Drawing.Point(301, 21);
+            this.cbTurno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbTurno.Name = "cbTurno";
-            this.cbTurno.Size = new System.Drawing.Size(122, 21);
+            this.cbTurno.Size = new System.Drawing.Size(161, 24);
             this.cbTurno.TabIndex = 5;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(383, 17);
+            this.btnBuscar.Location = new System.Drawing.Point(511, 21);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(100, 28);
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -97,9 +103,10 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(12, 198);
+            this.btnModificar.Location = new System.Drawing.Point(16, 244);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.Size = new System.Drawing.Size(100, 28);
             this.btnModificar.TabIndex = 8;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -107,9 +114,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(93, 198);
+            this.btnEliminar.Location = new System.Drawing.Point(124, 244);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(100, 28);
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -118,9 +126,10 @@
             // btnCerrar
             // 
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCerrar.Location = new System.Drawing.Point(383, 225);
+            this.btnCerrar.Location = new System.Drawing.Point(511, 277);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.Size = new System.Drawing.Size(100, 28);
             this.btnCerrar.TabIndex = 10;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -138,11 +147,12 @@
             this.Apellido,
             this.Nombre,
             this.Turno});
-            this.dgvResultadosBusqueda.Location = new System.Drawing.Point(12, 46);
+            this.dgvResultadosBusqueda.Location = new System.Drawing.Point(16, 57);
+            this.dgvResultadosBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvResultadosBusqueda.Name = "dgvResultadosBusqueda";
             this.dgvResultadosBusqueda.ReadOnly = true;
             this.dgvResultadosBusqueda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(446, 150);
+            this.dgvResultadosBusqueda.Size = new System.Drawing.Size(595, 185);
             this.dgvResultadosBusqueda.TabIndex = 11;
             this.dgvResultadosBusqueda.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvResultadosBusqueda_RowHeaderMouseClick);
             // 
@@ -177,12 +187,12 @@
             // BuscarBedel
             // 
             this.AcceptButton = this.btnBuscar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btnCerrar;
-            this.ClientSize = new System.Drawing.Size(474, 260);
+            this.ClientSize = new System.Drawing.Size(632, 310);
             this.Controls.Add(this.dgvResultadosBusqueda);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEliminar);
@@ -194,8 +204,9 @@
             this.Controls.Add(this.label1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(585, 299);
+            this.MaximumSize = new System.Drawing.Size(774, 357);
             this.Name = "BuscarBedel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Busqueda de Bedeles";

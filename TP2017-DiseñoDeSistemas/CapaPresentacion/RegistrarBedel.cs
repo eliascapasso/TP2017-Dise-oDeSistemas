@@ -21,14 +21,9 @@ namespace Autenticacion
         public RegistrarBedel(Form papa)
         {
             this.padre = papa;
-
+            
             InitializeComponent();
-        }
 
-
-        private void RegistrarBedel_Load(object sender, EventArgs e)
-        {
-            //No implementado
         }
 
 
@@ -70,7 +65,13 @@ namespace Autenticacion
 
                     //Muestra el la politica que falta cumplir
                     labelPoliticas.Visible = true;
-                    bool caracterEspecial = tbPass.Text.Any(x => x.Equals('@') || x.Equals('#') || x.Equals('$') || x.Equals('%') || x.Equals('&') || x.Equals('*'));
+                    bool caracterEspecial = tbPass.Text.Any(x => x.Equals('@') ||
+                                                                 x.Equals('#') ||
+                                                                 x.Equals('$') || 
+                                                                 x.Equals('%') ||
+                                                                 x.Equals('&') ||
+                                                                 x.Equals('*'));
+
                     bool tieneMayusculas = tbPass.Text.Any(c => char.IsUpper(c));
                     bool tieneDigitos = tbPass.Text.Any(c => char.IsDigit(c));
 
@@ -110,7 +111,7 @@ namespace Autenticacion
         {
             return tbNombre.Text.Equals("") || 
                 tbApellido.Text.Equals("") || 
-                cbTurno.SelectedItem.ToString().Equals("") || 
+                (cbTurno.SelectedIndex!=0 && cbTurno.SelectedIndex != 2 && cbTurno.SelectedIndex != 1 ) || 
                 tbNick.Text.Equals("") || 
                 tbPass.Text.Equals("");
 
@@ -138,5 +139,7 @@ namespace Autenticacion
                 tbConfirmarPass.UseSystemPasswordChar = true;
             }
         }
+
+       
     }
 }

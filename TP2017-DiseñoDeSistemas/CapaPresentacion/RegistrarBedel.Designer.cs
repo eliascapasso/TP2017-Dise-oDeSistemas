@@ -125,6 +125,7 @@
             // 
             this.tbNombre.Location = new System.Drawing.Point(103, 55);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNombre.MaxLength = 50;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(259, 22);
             this.tbNombre.TabIndex = 7;
@@ -133,6 +134,7 @@
             // 
             this.tbApellido.Location = new System.Drawing.Point(103, 89);
             this.tbApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.tbApellido.MaxLength = 50;
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(259, 22);
             this.tbApellido.TabIndex = 8;
@@ -155,6 +157,7 @@
             // 
             this.tbNick.Location = new System.Drawing.Point(103, 167);
             this.tbNick.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNick.MaxLength = 50;
             this.tbNick.Name = "tbNick";
             this.tbNick.Size = new System.Drawing.Size(259, 22);
             this.tbNick.TabIndex = 10;
@@ -163,7 +166,7 @@
             // 
             this.tbPass.Location = new System.Drawing.Point(103, 207);
             this.tbPass.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPass.MaxLength = 20;
+            this.tbPass.MaxLength = 50;
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(259, 22);
             this.tbPass.TabIndex = 11;
@@ -174,7 +177,7 @@
             // 
             this.tbConfirmarPass.Location = new System.Drawing.Point(103, 260);
             this.tbConfirmarPass.Margin = new System.Windows.Forms.Padding(4);
-            this.tbConfirmarPass.MaxLength = 20;
+            this.tbConfirmarPass.MaxLength = 50;
             this.tbConfirmarPass.Name = "tbConfirmarPass";
             this.tbConfirmarPass.Size = new System.Drawing.Size(259, 22);
             this.tbConfirmarPass.TabIndex = 12;

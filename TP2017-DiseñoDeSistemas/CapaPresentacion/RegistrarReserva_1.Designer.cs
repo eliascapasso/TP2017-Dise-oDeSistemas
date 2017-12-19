@@ -51,10 +51,6 @@ namespace Autenticacion
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvResultados = new System.Windows.Forms.DataGridView();
-            this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnaDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.calendarioEsporadico = new System.Windows.Forms.DateTimePicker();
             this.cbNoEsporadico = new System.Windows.Forms.ComboBox();
             this.nudCantidadAlumnos = new System.Windows.Forms.NumericUpDown();
@@ -66,6 +62,10 @@ namespace Autenticacion
             this.btnBuscarDocente = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cbTipoAsignatura = new System.Windows.Forms.ComboBox();
+            this.columnaDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnaDuracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
@@ -305,31 +305,6 @@ namespace Autenticacion
             this.dgvResultados.Size = new System.Drawing.Size(443, 185);
             this.dgvResultados.TabIndex = 26;
             // 
-            // columnaDia
-            // 
-            this.columnaDia.HeaderText = "Dia";
-            this.columnaDia.Name = "columnaDia";
-            this.columnaDia.ReadOnly = true;
-            // 
-            // columnaHoraInicio
-            // 
-            this.columnaHoraInicio.HeaderText = "Hora Inicio";
-            this.columnaHoraInicio.Name = "columnaHoraInicio";
-            this.columnaHoraInicio.ReadOnly = true;
-            // 
-            // columnaDuracion
-            // 
-            this.columnaDuracion.HeaderText = "Duración (Min)";
-            this.columnaDuracion.Name = "columnaDuracion";
-            this.columnaDuracion.ReadOnly = true;
-            // 
-            // TipoReserva
-            // 
-            this.TipoReserva.HeaderText = "TipoReserva";
-            this.TipoReserva.Name = "TipoReserva";
-            this.TipoReserva.ReadOnly = true;
-            this.TipoReserva.Visible = false;
-            // 
             // calendarioEsporadico
             // 
             this.calendarioEsporadico.Location = new System.Drawing.Point(60, 85);
@@ -416,6 +391,7 @@ namespace Autenticacion
             // 
             this.tbBusquedaDocente.Location = new System.Drawing.Point(227, 507);
             this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4);
+            this.tbBusquedaDocente.MaxLength = 50;
             this.tbBusquedaDocente.Name = "tbBusquedaDocente";
             this.tbBusquedaDocente.Size = new System.Drawing.Size(229, 22);
             this.tbBusquedaDocente.TabIndex = 31;
@@ -453,6 +429,31 @@ namespace Autenticacion
             this.cbTipoAsignatura.Size = new System.Drawing.Size(300, 24);
             this.cbTipoAsignatura.TabIndex = 34;
             this.cbTipoAsignatura.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_cbTipoAsignatura);
+            // 
+            // columnaDia
+            // 
+            this.columnaDia.HeaderText = "Dia";
+            this.columnaDia.Name = "columnaDia";
+            this.columnaDia.ReadOnly = true;
+            // 
+            // columnaHoraInicio
+            // 
+            this.columnaHoraInicio.HeaderText = "Hora Inicio";
+            this.columnaHoraInicio.Name = "columnaHoraInicio";
+            this.columnaHoraInicio.ReadOnly = true;
+            // 
+            // columnaDuracion
+            // 
+            this.columnaDuracion.HeaderText = "Duración";
+            this.columnaDuracion.Name = "columnaDuracion";
+            this.columnaDuracion.ReadOnly = true;
+            // 
+            // TipoReserva
+            // 
+            this.TipoReserva.HeaderText = "TipoReserva";
+            this.TipoReserva.Name = "TipoReserva";
+            this.TipoReserva.ReadOnly = true;
+            this.TipoReserva.Visible = false;
             // 
             // RegistrarReserva_1
             // 
@@ -538,11 +539,11 @@ namespace Autenticacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.TextBox tbBusquedaDocente;
         private System.Windows.Forms.Button btnBuscarDocente;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbTipoAsignatura;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDuracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoReserva;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cbTipoAsignatura;
     }
 }

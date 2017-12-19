@@ -85,6 +85,7 @@
             // 
             this.tbNick.Location = new System.Drawing.Point(136, 18);
             this.tbNick.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNick.MaxLength = 50;
             this.tbNick.Name = "tbNick";
             this.tbNick.Size = new System.Drawing.Size(225, 22);
             this.tbNick.TabIndex = 4;
@@ -93,6 +94,7 @@
             // 
             this.tbPass.Location = new System.Drawing.Point(136, 78);
             this.tbPass.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPass.MaxLength = 50;
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(225, 22);
             this.tbPass.TabIndex = 5;
