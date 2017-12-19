@@ -41,7 +41,8 @@
             // tbPass
             // 
             this.tbPass.Location = new System.Drawing.Point(136, 81);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPass.MaxLength = 50;
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(225, 22);
             this.tbPass.TabIndex = 11;
@@ -50,7 +51,8 @@
             // tbNick
             // 
             this.tbNick.Location = new System.Drawing.Point(136, 22);
-            this.tbNick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNick.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNick.MaxLength = 50;
             this.tbNick.Name = "tbNick";
             this.tbNick.Size = new System.Drawing.Size(225, 22);
             this.tbNick.TabIndex = 10;
@@ -79,7 +81,7 @@
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(191, 126);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 12;
@@ -90,7 +92,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(299, 126);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 13;
@@ -103,7 +105,7 @@
             this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
             this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMostrarPass.Location = new System.Drawing.Point(371, 81);
-            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4);
             this.btnMostrarPass.Name = "btnMostrarPass";
             this.btnMostrarPass.Size = new System.Drawing.Size(28, 25);
             this.btnMostrarPass.TabIndex = 14;
@@ -126,7 +128,7 @@
             this.Controls.Add(this.btnAceptar);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(661, 605);
             this.MinimumSize = new System.Drawing.Size(394, 200);

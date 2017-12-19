@@ -417,6 +417,7 @@ namespace Autenticacion
             // 
             this.tbBusquedaDocente.Location = new System.Drawing.Point(227, 507);
             this.tbBusquedaDocente.Margin = new System.Windows.Forms.Padding(4);
+            this.tbBusquedaDocente.MaxLength = 50;
             this.tbBusquedaDocente.Name = "tbBusquedaDocente";
             this.tbBusquedaDocente.Size = new System.Drawing.Size(229, 22);
             this.tbBusquedaDocente.TabIndex = 31;

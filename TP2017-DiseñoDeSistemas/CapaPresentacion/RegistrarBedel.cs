@@ -26,10 +26,7 @@ namespace Autenticacion
         }
 
 
-        private void RegistrarBedel_Load(object sender, EventArgs e)
-        {
-            //No implementado
-        }
+
 
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -110,7 +107,7 @@ namespace Autenticacion
         {
             return tbNombre.Text.Equals("") || 
                 tbApellido.Text.Equals("") || 
-                cbTurno.SelectedItem.ToString().Equals("") || 
+               ( cbTurno.SelectedIndex!=0 && cbTurno.SelectedIndex != 1 && cbTurno.SelectedIndex != 2 ) || 
                 tbNick.Text.Equals("") || 
                 tbPass.Text.Equals("");
 
@@ -141,7 +138,7 @@ namespace Autenticacion
 
         private void RegistrarBedel_Load_1(object sender, EventArgs e)
         {
-            cbTurno.SelectedIndex = 0;
+            
         }
     }
 }
