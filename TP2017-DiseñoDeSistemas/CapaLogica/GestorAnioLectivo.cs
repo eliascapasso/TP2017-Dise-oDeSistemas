@@ -14,7 +14,7 @@ namespace CapaLogica
 
         public GestorAnioLectivo() { }
 
-        public HashSet<CuatrimestreDTO> obtenerTodosLosPeriodos()
+        public List<CuatrimestreDTO> obtenerTodosLosPeriodos()
         {
             return anioDAO.obtenerTodosLosPeriodos();
         }

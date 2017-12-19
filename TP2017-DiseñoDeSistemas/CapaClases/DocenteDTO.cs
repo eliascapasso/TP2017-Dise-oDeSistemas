@@ -12,6 +12,7 @@ namespace CapaClases
         public string nombre;
         public string email;
         public int id_docente;
+        public List<AsignaturaDTO> asignaturas = new List<AsignaturaDTO>();
 
         public DocenteDTO(int id, string apellido, string nombre, string email)
         {

@@ -49,7 +49,7 @@ namespace Autenticacion
             this.llenarHorasEnCombobox(cbHoraInicio, 7, 23,new DateTime());
             this.llenarTiposAulaEnComboBox();
             this.llenarTiposAsignaturaEnComboBox();
-            this.llenarDocentesEnDataGridView();
+            this.obtenerTodosLosDocentes();
 
             cbHoraInicio.SelectedIndex = 0;
             cbTipoAsignatura.SelectedIndex = 0;
@@ -128,6 +128,13 @@ namespace Autenticacion
 
             if(cbNombreAsignatura.Items.Count != 0)
                 cbNombreAsignatura.SelectedIndex = 0;
+
+            dgvDocentes.Rows.Clear();
+        }
+
+        private void SelectedIndexChanged_cbNombreAsignatura(object sender, EventArgs e)
+        {
+            dgvDocentes.Rows.Clear();
         }
 
         private void btnBuscarDocente_Click(object sender, EventArgs e)
@@ -141,15 +148,31 @@ namespace Autenticacion
                     docente.nombre.ToLower().Contains(tbBusquedaDocente.Text.ToLower()) ||
                     docente.email.ToLower().Contains(tbBusquedaDocente.Text.ToLower()))
                 {
-                    dgvDocentes.Rows.Insert(i, docente.apellido, docente.nombre, docente.email);
-                    i++;
+                    foreach (AsignaturaDTO asignaturaDTO in docente.asignaturas)
+                    {
+                        if (asignaturaDTO.nombre.Equals(cbNombreAsignatura.Text))
+                        {
+                            dgvDocentes.Rows.Insert(i, docente.apellido, docente.nombre, docente.email);
+                            i++;
+                        }
+                    }
                 }
             }
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (!(dgvResultados.Rows.Count == 0)) //Si se agregó almenos un horario
+            if (dgvResultados.Rows.Count == 0) //No se agregó almenos un horario
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No se agregó ningún horario", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (dgvDocentes.SelectedRows.Count == 0) //No se selecciono ningun docente
+            {
+                System.Media.SystemSounds.Exclamation.Play();
+                MessageBox.Show("No hay seleccionado ningún docente", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else //Si se agregó almenos un horario
             {
                 string apellidoDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[0].Value); //obtengo el valor de la primer columna
                 string nombreDocente = Convert.ToString(dgvDocentes.CurrentRow.Cells[1].Value); //obtengo el valor de la segunda columna
@@ -178,13 +201,6 @@ namespace Autenticacion
                                                       idTipoAula);
                 this.Hide();
                 new RegistrarReserva_2(this, reservaDTO).Show();
-
-
-            }
-            else
-            {
-                System.Media.SystemSounds.Exclamation.Play();
-                MessageBox.Show("No se agregó ningún horario", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             } 
         }
 
@@ -225,20 +241,22 @@ namespace Autenticacion
             }
         }
 
-        private void llenarDocentesEnDataGridView()
+        private void obtenerTodosLosDocentes()
         {
-            int i = 0;
             foreach (Docente docente in gestorDocente.obtenerDocentes())
             {
-                dgvDocentes.Rows.Insert(i, docente.apellido_docente,
-                                        docente.nombre_docente,
-                                        docente.email_docente);
-
                 //Agrega el docenteDTO a la lista de docentes
-                this.docentes.Add(new DocenteDTO(docente.id_docente,
+                DocenteDTO docenteDTO = new DocenteDTO(docente.id_docente,
                                                  docente.apellido_docente,
                                                  docente.nombre_docente,
-                                                 docente.email_docente));
+                                                 docente.email_docente);
+
+                foreach (Asignatura asignatura in gestorDocente.obtenerAsignaturasDeDocente(docente))
+                {
+                    docenteDTO.asignaturas.Add(new AsignaturaDTO(asignatura.id_asignatura, asignatura.nombre_asignatura));
+                }
+
+                this.docentes.Add(docenteDTO);
             }
         }
 

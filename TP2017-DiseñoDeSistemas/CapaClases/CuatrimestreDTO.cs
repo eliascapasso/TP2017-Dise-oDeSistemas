@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaClases
 {
-    public class CuatrimestreDTO
+    public class CuatrimestreDTO : IComparable<CuatrimestreDTO>
     {
         private DateTime? fechaInicio;
         private DateTime? fechaFin;
@@ -71,6 +71,22 @@ namespace CapaClases
             this.fechaInicio = fechaI;
             this.fechaFin = fechaF;
             this.idAnioLectivo = idAnioLectivo;
+        }
+
+        public int CompareTo(CuatrimestreDTO asignatura)
+        {
+            if (this.fechaInicio < asignatura.fechaInicio)
+            {
+                return -1;
+            }
+            else if (this.fechaInicio > asignatura.fechaInicio)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

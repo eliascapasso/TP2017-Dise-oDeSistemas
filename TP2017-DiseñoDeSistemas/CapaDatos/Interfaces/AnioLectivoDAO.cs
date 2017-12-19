@@ -9,6 +9,6 @@ namespace CapaDatos
 {
     public interface AnioLectivoDAO
     {
-        HashSet<CuatrimestreDTO> obtenerTodosLosPeriodos();
+        List<CuatrimestreDTO> obtenerTodosLosPeriodos();
     }
 }

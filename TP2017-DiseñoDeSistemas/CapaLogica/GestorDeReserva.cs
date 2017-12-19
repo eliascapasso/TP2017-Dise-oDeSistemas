@@ -19,7 +19,7 @@ namespace CapaLogica
         private UsuarioDAODB usuarioDAO = new UsuarioDAODB();
         private AulaDAODB aulaDAO = new AulaDAODB();
         private ReservaDAODB reservaDAO = new ReservaDAODB();
-        private HashSet<CuatrimestreDTO> todosLosPeriodos;
+        private List<CuatrimestreDTO> todosLosPeriodos;
 
         public GestorDeReserva()
         {

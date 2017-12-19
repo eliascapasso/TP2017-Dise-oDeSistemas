@@ -120,17 +120,10 @@ namespace CapaPresentacion
                 }
             }
         }
-
-        private void timerReserva_Tick(object sender, EventArgs e)
-        {
-            //Cada vez que se abre reserva 2 se contara con 10 min antes de que se cierre, por disponibilidad.
-            this.Close();
-            padre.Show();
-        }
-
+        
         //METODOS PROPIOS
 
-        private HashSet<CuatrimestreDTO> obtenerTodosLosPeriodos()
+        private List<CuatrimestreDTO> obtenerTodosLosPeriodos()
         {
             return gestorAnio.obtenerTodosLosPeriodos();
         }
@@ -143,7 +136,6 @@ namespace CapaPresentacion
             dgvAulasDisponibles.AllowUserToDeleteRows = false;
             dgvAulasDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAulasDisponibles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAulasDisponibles.ReadOnly = true;
 
             //Se asignan los nombres de cada columna
             dgvAulasDisponibles.Columns.Add("Aula", "Aula");

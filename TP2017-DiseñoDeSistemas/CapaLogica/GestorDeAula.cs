@@ -15,7 +15,7 @@ namespace CapaLogica
     {
         private AulaDAODB aulaDAO;
         private ReservaDAODB reservaDAO;
-        private HashSet<CuatrimestreDTO> todosLosPeriodos;
+        private List<CuatrimestreDTO> todosLosPeriodos;
 
         public GestorDeAula()
         {
@@ -153,10 +153,6 @@ namespace CapaLogica
                         if (DateTime.Now >= cuatrimestre.FechaInicio && DateTime.Now <= cuatrimestre.FechaFin)
                         {
                             periodo.Add(cuatrimestre);
-                        }
-                        else if (todosLosPeriodos.Last().Equals(cuatrimestre)) //Agrega el cuatrimestre mas proximo
-                        {
-                            periodo.Add(todosLosPeriodos.First());
                         }
                         break;
                     case "Esporádica":

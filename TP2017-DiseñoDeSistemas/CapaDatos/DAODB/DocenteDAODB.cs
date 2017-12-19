@@ -26,6 +26,26 @@
             return docentes;
         }
 
+        public ArrayList obtenerAsignaturasDeDocente(Docente docente)
+        {
+            ArrayList asignaturas = new ArrayList();
+
+            using (TP2017Entities bd = new TP2017Entities())
+            {
+                foreach (Docente docenteBD in bd.Docentes)
+                {
+                    if (docenteBD.id_docente == docente.id_docente)
+                    {
+                        foreach (Asignatura asignatura in docenteBD.Asignaturas)
+                        {
+                            asignaturas.Add(asignatura);
+                        }
+                    }
+                }
+            }
+            return asignaturas;
+        }
+
         public Docente getDocente(int idDocente)
         {
             using (TP2017Entities bd = new TP2017Entities())

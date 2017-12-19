@@ -22,5 +22,10 @@ namespace CapaLogica
         {
             return docenteDAODB.obtenerDocentes();
         }
+
+        public ArrayList obtenerAsignaturasDeDocente(Docente docente)
+        {
+            return docenteDAODB.obtenerAsignaturasDeDocente(docente);
+        }
     }
 }

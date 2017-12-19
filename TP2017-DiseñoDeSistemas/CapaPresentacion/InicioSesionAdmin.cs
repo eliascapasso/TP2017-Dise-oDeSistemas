@@ -30,7 +30,7 @@ namespace Autenticacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (!gestorUsuario.existeUsuario(tbNick.Text, tbPass.Text) || !tbNick.Text.Equals("admin"))
+            if (!tbNick.Text.Equals("admin") || !gestorUsuario.existeUsuario(tbNick.Text, tbPass.Text))
             {
                 System.Media.SystemSounds.Exclamation.Play();
                 MessageBox.Show("Los datos ingresados no son válidos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

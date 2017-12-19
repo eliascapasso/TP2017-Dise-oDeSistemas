@@ -54,7 +54,7 @@
             // 
             this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCerrar.Location = new System.Drawing.Point(181, 314);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(100, 28);
             this.btnCerrar.TabIndex = 30;
@@ -65,7 +65,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(289, 314);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 31;
@@ -77,8 +77,7 @@
             // 
             this.tbNick.Enabled = false;
             this.tbNick.Location = new System.Drawing.Point(103, 167);
-            this.tbNick.Margin = new System.Windows.Forms.Padding(4);
-            this.tbNick.MaxLength = 50;
+            this.tbNick.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNick.Name = "tbNick";
             this.tbNick.ReadOnly = true;
             this.tbNick.Size = new System.Drawing.Size(259, 22);
@@ -87,8 +86,7 @@
             // tbApellido
             // 
             this.tbApellido.Location = new System.Drawing.Point(103, 89);
-            this.tbApellido.Margin = new System.Windows.Forms.Padding(4);
-            this.tbApellido.MaxLength = 50;
+            this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(259, 22);
             this.tbApellido.TabIndex = 25;
@@ -96,8 +94,7 @@
             // tbNombre
             // 
             this.tbNombre.Location = new System.Drawing.Point(103, 55);
-            this.tbNombre.Margin = new System.Windows.Forms.Padding(4);
-            this.tbNombre.MaxLength = 50;
+            this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(259, 22);
             this.tbNombre.TabIndex = 24;
@@ -182,7 +179,7 @@
             "Noche",
             "Tarde"});
             this.cbTurno.Location = new System.Drawing.Point(103, 128);
-            this.cbTurno.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTurno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbTurno.Name = "cbTurno";
             this.cbTurno.Size = new System.Drawing.Size(259, 24);
             this.cbTurno.TabIndex = 26;
@@ -190,8 +187,8 @@
             // tbPass
             // 
             this.tbPass.Location = new System.Drawing.Point(103, 207);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPass.MaxLength = 50;
+            this.tbPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPass.MaxLength = 20;
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(259, 22);
             this.tbPass.TabIndex = 28;
@@ -201,8 +198,8 @@
             // tbConfPass
             // 
             this.tbConfPass.Location = new System.Drawing.Point(103, 260);
-            this.tbConfPass.Margin = new System.Windows.Forms.Padding(4);
-            this.tbConfPass.MaxLength = 50;
+            this.tbConfPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbConfPass.MaxLength = 20;
             this.tbConfPass.Name = "tbConfPass";
             this.tbConfPass.Size = new System.Drawing.Size(259, 22);
             this.tbConfPass.TabIndex = 29;
@@ -219,7 +216,7 @@
             this.btnMostrarPass.BackgroundImage = global::CapaPresentacion.Properties.Resources.eye_of_a_human_icon_icons_com_70972;
             this.btnMostrarPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMostrarPass.Location = new System.Drawing.Point(371, 206);
-            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMostrarPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMostrarPass.Name = "btnMostrarPass";
             this.btnMostrarPass.Size = new System.Drawing.Size(28, 25);
             this.btnMostrarPass.TabIndex = 32;
@@ -264,7 +261,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(661, 605);
             this.MinimumSize = new System.Drawing.Size(406, 400);

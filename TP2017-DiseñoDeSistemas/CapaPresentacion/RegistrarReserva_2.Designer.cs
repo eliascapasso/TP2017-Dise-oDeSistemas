@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarReserva_2));
             this.label1 = new System.Windows.Forms.Label();
             this.tcPestañasDias = new System.Windows.Forms.TabControl();
@@ -43,7 +42,6 @@
             this.Aula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Caracteristicas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timerReserva = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAulasSeleccionadas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,12 +175,6 @@
             this.Caracteristicas.Name = "Caracteristicas";
             this.Caracteristicas.ReadOnly = true;
             // 
-            // timerReserva
-            // 
-            this.timerReserva.Enabled = true;
-            this.timerReserva.Interval = 60000;
-            this.timerReserva.Tick += new System.EventHandler(this.timerReserva_Tick);
-            // 
             // RegistrarReserva_2
             // 
             this.AcceptButton = this.btnGuardar;
@@ -226,7 +218,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvAulasSeleccionadas;
-        private System.Windows.Forms.Timer timerReserva;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnaDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Capacidad;

@@ -16,9 +16,9 @@ namespace CapaPresentacion
     {
         private Form padre;
         private GestorDeAula gestorAula;
-        private HashSet<CuatrimestreDTO> todosLosPeriodos;
+        private List<CuatrimestreDTO> todosLosPeriodos;
 
-        public ObtenerDisponibilidadAula(Form papa, HashSet<CuatrimestreDTO> todosLosPeriodos)
+        public ObtenerDisponibilidadAula(Form papa, List<CuatrimestreDTO> todosLosPeriodos)
         {
             this.todosLosPeriodos = todosLosPeriodos;
             this.padre = papa;
