@@ -143,6 +143,7 @@ namespace CapaPresentacion
             dgvAulasDisponibles.AllowUserToDeleteRows = false;
             dgvAulasDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAulasDisponibles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAulasDisponibles.ReadOnly = true;
 
             //Se asignan los nombres de cada columna
             dgvAulasDisponibles.Columns.Add("Aula", "Aula");
